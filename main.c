@@ -8,6 +8,7 @@ int main(void){
 
 
     printf("oi");
+    printf("a");
     return 0;
 
 }
