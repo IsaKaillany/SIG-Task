@@ -3,12 +3,3 @@
 #include <unistd.h>
 
 
-int main(void){
-
-
-
-    printf("oi");
-    printf("a");
-    return 0;
-
-}
