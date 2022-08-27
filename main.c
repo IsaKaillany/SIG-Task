@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
+#include <ctype.h> //Manipulação de caracteres
+#include <string.h> //Manipulação de strings
 #include <unistd.h>
 
 
@@ -88,7 +88,7 @@ void telaInfo(void)
     printf("        Projeto: Agenda de Tarefas e Compromissos        \n");
     printf("                   Since August, 2022                    \n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-=-=-=-    E Q U I P E    -=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-    D E V E L O P E R S    -=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("> Felipe Souza Benicio da Silva\n");
     printf("> Matricula: 20220043343\n");
