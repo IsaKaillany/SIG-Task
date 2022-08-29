@@ -8,7 +8,7 @@ Departamento de Computação e Tecnologia \
 Bacharelado em Sistemas de Informação
 
 Disciplina DCT1106 - Programação \
-Developed by @felipesouza_bs and @isakaillany- since August/2022
+Developed by @felipesouza_bs and @isakaillany - since August/2022
 
 ## Objetivo 
 
