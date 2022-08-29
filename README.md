@@ -2,9 +2,9 @@
 
 Projeto de Agendamento de Tarefas e Compromissos referente à disciplina de Programação do curso de BSI na UFRN
 
-Universidade Federal do Rio Grande do Norte
-Centro de Ensino Superior do Seridó
-Departamento de Computação e Tecnologia
+Universidade Federal do Rio Grande do Norte \
+Centro de Ensino Superior do Seridó \
+Departamento de Computação e Tecnologia \
 Bacharelado em Sistemas de Informação
 
 Disciplina DCT1106 - Programação
