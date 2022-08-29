@@ -1,6 +1,6 @@
 # Agenda de Tarefas e Compromissos
 
-Projeto de Agendamento de Tarefas e Compromissos referente à disciplina de Programação do curso de BSI na UFRN
+Projeto de Agendamento de Tarefas e Compromissos 
 
 Universidade Federal do Rio Grande do Norte \
 Centro de Ensino Superior do Seridó \
