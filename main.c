@@ -9,6 +9,8 @@
 char telaPrincipal(void);
 void telaInfo(void);
 char telaUsuarios(void);
+char telaCompromissos(void);
+char telaAgenda(void);
 
 
 int main(void)
@@ -17,7 +19,7 @@ int main(void)
     tela = telaPrincipal();
     switch (tela)
     {
-        /*case '1':
+        case '1':
             telaUsuarios();
             break;
         case '2':
@@ -25,7 +27,7 @@ int main(void)
             break;
         case '3':
             telaAgenda();
-            break;*/
+            break;
         case '4':
             telaInfo();
             break;
@@ -64,11 +66,12 @@ char telaUsuarios(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-    U S U A R I O S    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\t1 - Selecionar usuario\n");
-    printf("\t2 - Cadastrar usuario\n");
-    printf("\t3 - Atualizar\n");
-    printf("\t4 - Deletar\n");
-    printf("\t0 - Sair\n");
+    printf("\t1 - Selecionar Usuario\n");
+    printf("\t2 - Cadastrar Usuario\n");
+    printf("\t3 - Buscar\n");
+    printf("\t4 - Atualizar\n");
+    printf("\t5 - Deletar\n");
+    printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
     scanf("%c", &opcao);
@@ -108,13 +111,33 @@ char telaCompromissos(void)
     char opcao;
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-=-=-    U S U A R I O S    -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-    C O M P R O M I S S O S    -=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\t1 - Selecionar usuario\n");
-    printf("\t2 - Cadastrar usuario\n");
+    printf("\t1 - Cadastrar Compromisso\n");
+    printf("\t2 - Buscar\n");
     printf("\t3 - Atualizar\n");
     printf("\t4 - Deletar\n");
-    printf("\t0 - Sair\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%c", &opcao);
+
+    return opcao;
+}
+
+
+char telaAgenda(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-    A G E N D A    -=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Listar Compromissos\n");
+    printf("\t2 - Compromissos Academicos\n");
+    printf("\t3 - Compromissos de Trabalho\n");
+    printf("\t4 - Compromissos Pessoais\n");
+    printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
     scanf("%c", &opcao);
