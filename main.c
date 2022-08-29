@@ -103,3 +103,21 @@ void telaInfo(void)
     printf("usuarios sobre compromissos agendados.");                                                                                                                                     
 }
 
+char telaCompromissos(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-    U S U A R I O S    -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Selecionar usuario\n");
+    printf("\t2 - Cadastrar usuario\n");
+    printf("\t3 - Atualizar\n");
+    printf("\t4 - Deletar\n");
+    printf("\t0 - Sair\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%c", &opcao);
+
+    return opcao;
+}
