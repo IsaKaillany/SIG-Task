@@ -11,6 +11,7 @@ void telaInfo(void);
 char telaUsuarios(void);
 char telaCompromissos(void);
 char telaAgenda(void);
+char telaGerencia(void);
 
 
 int main(void)
@@ -28,9 +29,9 @@ int main(void)
         case '3':
             telaAgenda();
             break;
-        // case '4':
-        //     telaGerencia();            
-        //     break;
+        case '4':
+            telaGerencia();            
+            break;
         case '5':
             telaInfo();
             break;
@@ -151,7 +152,19 @@ char telaAgenda(void)
     return opcao;
 }
 
-// char telaGerencia(void)
-// {
+char telaGerencia(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-    G E R E N C I A    -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Avisos\n");
+    printf("\t2 - Compromissos\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%c", &opcao);
 
-// }
+    return opcao;
+}
