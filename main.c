@@ -34,8 +34,11 @@ int main(void)
         case '5':
             telaInfo();
             break;
+        case '0':
+            printf("Fim do programa!");
+            break;
         default:
-            printf("Opcao invalida\n");
+            printf("Por favor insira uma opcao valida\n");
             break;
     }   
     return 0;
