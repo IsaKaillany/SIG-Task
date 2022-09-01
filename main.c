@@ -28,7 +28,10 @@ int main(void)
         case '3':
             telaAgenda();
             break;
-        case '4':
+        // case '4':
+        //     telaGerencia();            
+        //     break;
+        case '5':
             telaInfo();
             break;
         default:
@@ -50,8 +53,9 @@ char telaPrincipal(void)
     printf("\t1 - Usuarios\n");
     printf("\t2 - Compromissos\n");
     printf("\t3 - Agenda\n");
-    printf("\t4 - Informacoes\n");
-    printf("\t0 - Sair\n");
+    printf("\t4 - Gerencia\n");
+    printf("\t5 - Informacoes\n");
+    printf("\t0 - Finalizar\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
     scanf("%c", &opcao);
@@ -68,9 +72,8 @@ char telaUsuarios(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Selecionar Usuario\n");
     printf("\t2 - Cadastrar Usuario\n");
-    printf("\t3 - Buscar\n");
-    printf("\t4 - Atualizar\n");
-    printf("\t5 - Deletar\n");
+    printf("\t3 - Atualizar\n");
+    printf("\t4 - Deletar\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
@@ -134,7 +137,7 @@ char telaAgenda(void)
     printf("-=-=-=-=-=-=-=-=-=-    A G E N D A    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Listar Compromissos\n");
-    printf("\t2 - Compromissos Academicos\n");
+    printf("\t2 - Compromissos Gerenciais\n");
     printf("\t3 - Compromissos de Trabalho\n");
     printf("\t4 - Compromissos Pessoais\n");
     printf("\t0 - Voltar ao menu\n");
@@ -144,3 +147,8 @@ char telaAgenda(void)
 
     return opcao;
 }
+
+// char telaGerencia(void)
+// {
+
+// }
