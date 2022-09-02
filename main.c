@@ -12,6 +12,7 @@ char telaUsuarios(void);
 char telaCompromissos(void);
 char telaAgenda(void);
 char telaGerencia(void);
+char telaAvisos(void);
 
 
 int main(void)
@@ -161,6 +162,25 @@ char telaGerencia(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Avisos\n");
     printf("\t2 - Compromissos\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%c", &opcao);
+
+    return opcao;
+}
+
+char telaAvisos(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-          A V I S O S          -=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Cadastrar Avisos\n");
+    printf("\t2 - Buscar\n");
+    printf("\t3 - Atualizar\n");
+    printf("\t4 - Deletar\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
