@@ -175,7 +175,7 @@ char telaAvisos(void)
     char opcao;
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-          A V I S O S          -=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-    A V I S O S    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Cadastrar Avisos\n");
     printf("\t2 - Buscar\n");
