@@ -56,14 +56,14 @@ char telaPrincipal(void)
     printf("-=-=-=-=-=-=-=-=-    S I G - T a s k    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Usuarios\n");
-    printf("\t2 - Compromissos\n");
+    printf("\t2 - Atividades\n");
     printf("\t3 - Agenda\n");
-    printf("\t4 - Gerencia\n");
-    printf("\t5 - Informacoes\n");
+    printf("\t4 - Informacoes\n");
     printf("\t0 - Finalizar\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
     scanf("%c", &opcao);
+    getchar();
 
     return opcao;
 }
@@ -75,14 +75,15 @@ char telaUsuarios(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-    U S U A R I O S    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\t1 - Selecionar Usuario\n");
-    printf("\t2 - Cadastrar Usuario\n");
-    printf("\t3 - Atualizar\n");
-    printf("\t4 - Deletar\n");
+    printf("\t1 - Cadastrar Usuario\n");
+    printf("\t2 - Buscar Dados");
+    printf("\t3 - Atualizar Dados\n");
+    printf("\t4 - Deletar Dados\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
     scanf("%c", &opcao);
+    getchar();
 
     return opcao;
 }
