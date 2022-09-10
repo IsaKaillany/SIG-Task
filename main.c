@@ -13,6 +13,7 @@ char telaAtividades(void);
 // char telaCompromissos(void);
 char telaAgenda(void);
 // char telaGerencia(void);
+// char telaDirecao(void);
 // char telaAvisos(void);
 
 
@@ -108,6 +109,7 @@ void telaInfo(void)
 {
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n");
     printf("       Universidade Federal do Rio Grande do Norte       \n");
     printf("           Centro de Ensino Superior do Serido           \n"); 
     printf("         Departamento de Computacao e Tecnologia         \n");
@@ -115,16 +117,20 @@ void telaInfo(void)
     printf("              Docente: Dr. Flavius Gorgonio              \n");
     printf("        Projeto: Agenda de Tarefas e Compromissos        \n");
     printf("                   Since August, 2022                    \n");
+    printf("\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-    D E V E L O P E R S    -=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n");
     printf("> Felipe Souza Benicio da Silva\n");
     printf("> Matricula: 20220043343\n");
     printf("> Isa Kaillany Soares Pereira\n"); 
     printf("> Matricula: 20220043568\n");
+    printf("\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-    O B J E T I V O    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n");
     printf("O presente projeto tem como objetivo desenvolver um \n");
     printf("programa de computador que realize o agendamento de \n"); 
     printf("tarefas de forma eficiente, fornecendo lembretes aos \n");
@@ -183,6 +189,25 @@ char telaAgenda(void)
 //     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 //     printf(">>> Opcao ");
 //     scanf("%c", &opcao);
+//     getchar();
+
+//     return opcao;
+// }
+
+// char telaDirecao(void)
+// {
+//     char opcao;
+//     system("clear||cls");
+//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+//     printf("-=-=-=-=-=-=-=-=-     D I R E C A O     -=-=-=-=-=-=-=-=-\n");
+//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+//     printf("\t1 - Avisos\n");
+//     printf("\t2 - Compromissos\n");
+//     printf("\t0 - Voltar ao menu\n");
+//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+//     printf(">>> Opcao ");
+//     scanf("%c", &opcao);
+//     getchar();
 
 //     return opcao;
 // }
