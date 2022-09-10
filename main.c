@@ -10,11 +10,9 @@ char telaPrincipal(void);
 void telaInfo(void);
 char telaUsuarios(void);
 char telaAtividades(void);
-// char telaCompromissos(void);
 char telaAgenda(void);
 // char telaGerencia(void);
 // char telaDirecao(void);
-// char telaAvisos(void);
 
 
 int main(void)
@@ -105,6 +103,15 @@ char telaAtividades(void)
     return opcao;
 }
 
+void telaPerfil(void)
+{
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-    P E R F I L    -=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n"); 
+
+}
+
 void telaInfo(void)
 {
     system("clear||cls");
@@ -137,7 +144,7 @@ void telaInfo(void)
     printf("usuarios sobre compromissos agendados.");                                                                                                                                     
 }
 
-// char telaCompromissos(void)
+// char crudCompromissos(void)
 // {
 //     char opcao;
 //     system("clear||cls");
@@ -145,13 +152,14 @@ void telaInfo(void)
 //     printf("-=-=-=-=-=-=-    C O M P R O M I S S O S    -=-=-=-=-=-=-\n");
 //     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 //     printf("\t1 - Cadastrar Compromisso\n");
-//     printf("\t2 - Buscar\n");
-//     printf("\t3 - Atualizar\n");
-//     printf("\t4 - Deletar\n");
+//     printf("\t2 - Buscar Dados\n");
+//     printf("\t3 - Atualizar Dados\n");
+//     printf("\t4 - Deletar Dados\n");
 //     printf("\t0 - Voltar ao menu\n");
 //     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 //     printf(">>> Opcao ");
-//     scanf("%c", &opcao);
+    // scanf("%c", &opcao);
+    // getchar();
 
 //     return opcao;
 // }
@@ -212,7 +220,7 @@ char telaAgenda(void)
 //     return opcao;
 // }
 
-// char telaAvisos(void)
+// char crudAvisos(void)
 // {
 //     char opcao;
 //     system("clear||cls");
@@ -220,13 +228,14 @@ char telaAgenda(void)
 //     printf("-=-=-=-=-=-=-=-=-=-    A V I S O S    -=-=-=-=-=-=-=-=-=-\n");
 //     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 //     printf("\t1 - Cadastrar Avisos\n");
-//     printf("\t2 - Buscar\n");
-//     printf("\t3 - Atualizar\n");
-//     printf("\t4 - Deletar\n");
+//     printf("\t2 - Buscar Dados\n");
+//     printf("\t3 - Atualizar Dados\n");
+//     printf("\t4 - Deletar Dados\n");
 //     printf("\t0 - Voltar ao menu\n");
 //     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 //     printf(">>> Opcao ");
 //     scanf("%c", &opcao);
+    // getchar();
 
 //     return opcao;
 // }
