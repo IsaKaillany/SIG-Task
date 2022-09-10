@@ -9,10 +9,11 @@
 char telaPrincipal(void);
 void telaInfo(void);
 char telaUsuarios(void);
-char telaCompromissos(void);
+char telaAtividades(void);
+// char telaCompromissos(void);
 char telaAgenda(void);
-char telaGerencia(void);
-char telaAvisos(void);
+// char telaGerencia(void);
+// char telaAvisos(void);
 
 
 int main(void)
@@ -25,15 +26,12 @@ int main(void)
             telaUsuarios();
             break;
         case '2':
-            telaCompromissos();
+            telaAtividades();
             break;
         case '3':
             telaAgenda();
             break;
         case '4':
-            telaGerencia();            
-            break;
-        case '5':
             telaInfo();
             break;
         case '0':
@@ -76,9 +74,27 @@ char telaUsuarios(void)
     printf("-=-=-=-=-=-=-=-=-    U S U A R I O S    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Cadastrar Usuario\n");
-    printf("\t2 - Buscar Dados");
+    printf("\t2 - Buscar Dados\n");
     printf("\t3 - Atualizar Dados\n");
     printf("\t4 - Deletar Dados\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%c", &opcao);
+    getchar();
+
+    return opcao;
+}
+
+char telaAtividades(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-    A T I V I D A D E S    -=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Gerentes\n");
+    printf("\t2 - Diretores\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
@@ -115,24 +131,24 @@ void telaInfo(void)
     printf("usuarios sobre compromissos agendados.");                                                                                                                                     
 }
 
-char telaCompromissos(void)
-{
-    char opcao;
-    system("clear||cls");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-    C O M P R O M I S S O S    -=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\t1 - Cadastrar Compromisso\n");
-    printf("\t2 - Buscar\n");
-    printf("\t3 - Atualizar\n");
-    printf("\t4 - Deletar\n");
-    printf("\t0 - Voltar ao menu\n");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf(">>> Opcao ");
-    scanf("%c", &opcao);
+// char telaCompromissos(void)
+// {
+//     char opcao;
+//     system("clear||cls");
+//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+//     printf("-=-=-=-=-=-=-    C O M P R O M I S S O S    -=-=-=-=-=-=-\n");
+//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+//     printf("\t1 - Cadastrar Compromisso\n");
+//     printf("\t2 - Buscar\n");
+//     printf("\t3 - Atualizar\n");
+//     printf("\t4 - Deletar\n");
+//     printf("\t0 - Voltar ao menu\n");
+//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+//     printf(">>> Opcao ");
+//     scanf("%c", &opcao);
 
-    return opcao;
-}
+//     return opcao;
+// }
 
 
 char telaAgenda(void)
@@ -142,50 +158,50 @@ char telaAgenda(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    A G E N D A    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\t1 - Listar Compromissos\n");
-    printf("\t2 - Compromissos Gerenciais\n");
-    printf("\t3 - Compromissos de Trabalho\n");
-    printf("\t4 - Compromissos Pessoais\n");
+    printf("\t1 - Departamento Administrativo\n");
+    printf("\t2 - Departamento Comercial\n");
+    printf("\t3 - Departamento Tecnico\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
     scanf("%c", &opcao);
+    getchar();
 
     return opcao;
 }
 
-char telaGerencia(void)
-{
-    char opcao;
-    system("clear||cls");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-=-=-    G E R E N C I A    -=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\t1 - Avisos\n");
-    printf("\t2 - Compromissos\n");
-    printf("\t0 - Voltar ao menu\n");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf(">>> Opcao ");
-    scanf("%c", &opcao);
+// char telaGerencia(void)
+// {
+//     char opcao;
+//     system("clear||cls");
+//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+//     printf("-=-=-=-=-=-=-=-=-    G E R E N C I A    -=-=-=-=-=-=-=-=-\n");
+//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+//     printf("\t1 - Avisos\n");
+//     printf("\t2 - Compromissos\n");
+//     printf("\t0 - Voltar ao menu\n");
+//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+//     printf(">>> Opcao ");
+//     scanf("%c", &opcao);
 
-    return opcao;
-}
+//     return opcao;
+// }
 
-char telaAvisos(void)
-{
-    char opcao;
-    system("clear||cls");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-=-=-=-    A V I S O S    -=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\t1 - Cadastrar Avisos\n");
-    printf("\t2 - Buscar\n");
-    printf("\t3 - Atualizar\n");
-    printf("\t4 - Deletar\n");
-    printf("\t0 - Voltar ao menu\n");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf(">>> Opcao ");
-    scanf("%c", &opcao);
+// char telaAvisos(void)
+// {
+//     char opcao;
+//     system("clear||cls");
+//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+//     printf("-=-=-=-=-=-=-=-=-=-    A V I S O S    -=-=-=-=-=-=-=-=-=-\n");
+//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+//     printf("\t1 - Cadastrar Avisos\n");
+//     printf("\t2 - Buscar\n");
+//     printf("\t3 - Atualizar\n");
+//     printf("\t4 - Deletar\n");
+//     printf("\t0 - Voltar ao menu\n");
+//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+//     printf(">>> Opcao ");
+//     scanf("%c", &opcao);
 
-    return opcao;
-}
+//     return opcao;
+// }
