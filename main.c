@@ -90,8 +90,7 @@ char telaUsuarios(void)
 
 int cadastroUsuario(void)
 {
-    char nome[20], email[30], cargo[10], departamento[20];
-    int senha[10];
+    char nome[20], email[30], cargo[10], departamento[20], senha[10];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
