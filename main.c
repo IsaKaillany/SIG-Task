@@ -172,6 +172,29 @@ char compromissosDirecao(void)
     return opcao;
 }
 
+char avisosDirecao(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-    A V I S O S    -=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Todos os Setores\n");
+    printf("\t2 - Setor Financeiro\n");
+    printf("\t3 - Setor de RH\n");
+    printf("\t4 - Setor de Marketing\n");
+    printf("\t5 - Setor de Vendedores\n");
+    printf("\t6 - Setor Operacional\n");
+    printf("\t7 - Setor de Estoque\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%c", &opcao);
+    getchar();
+
+    return opcao;
+}
+
 
 char avisosGerencia(void)
 {
