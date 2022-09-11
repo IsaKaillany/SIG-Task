@@ -11,8 +11,7 @@ void telaInfo(void);
 char telaUsuarios(void);
 char telaAtividades(void);
 char telaAgenda(void);
-// char telaGerencia(void);
-// char telaDirecao(void);
+
 
 
 int main(void)
@@ -153,7 +152,7 @@ char deletarUsuario(void)
     return 0;
 }
 
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 char telaAtividades(void)
 {
@@ -182,23 +181,23 @@ void telaPerfil(void)
 
 }
 
-// char telaGerencia(void)
-// {
-//     char opcao;
-//     system("clear||cls");
-//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-//     printf("-=-=-=-=-=-=-=-=-    G E R E N C I A    -=-=-=-=-=-=-=-=-\n");
-//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-//     printf("\t1 - Avisos\n");
-//     printf("\t2 - Compromissos\n");
-//     printf("\t0 - Voltar ao menu\n");
-//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-//     printf(">>> Opcao ");
-//     scanf("%c", &opcao);
-//     getchar();
+char telaGerencia(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-    G E R E N C I A    -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Avisos\n");
+    printf("\t2 - Compromissos\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%c", &opcao);
+    getchar();
 
-//     return opcao;
-// }
+    return opcao;
+}
 
 char compromissosGerencia(void)
 {
@@ -286,23 +285,25 @@ char avisosGerencia(void)
     return opcao;
 }
 
-// char telaDirecao(void)
-// {
-//     char opcao;
-//     system("clear||cls");
-//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-//     printf("-=-=-=-=-=-=-=-=-     D I R E C A O     -=-=-=-=-=-=-=-=-\n");
-//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-//     printf("\t1 - Avisos\n");
-//     printf("\t2 - Compromissos\n");
-//     printf("\t0 - Voltar ao menu\n");
-//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-//     printf(">>> Opcao ");
-//     scanf("%c", &opcao);
-//     getchar();
+char telaDirecao(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-     D I R E C A O     -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Avisos\n");
+    printf("\t2 - Compromissos\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%c", &opcao);
+    getchar();
 
-//     return opcao;
-// }
+    return opcao;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 char telaAgenda(void)
 {
@@ -322,7 +323,6 @@ char telaAgenda(void)
 
     return opcao;
 }
-
 
 
 char setorAdm(void)
@@ -380,7 +380,6 @@ char setorTecnico(void)
 }
 
 
-
 void telaInfo(void)
 {
     system("clear||cls");
@@ -413,44 +412,44 @@ void telaInfo(void)
     printf("usuarios sobre compromissos agendados.");                                                                                                                                     
 }
 
-// char crudCompromissos(void)
-// {
-//     char opcao;
-//     system("clear||cls");
-//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-//     printf("-=-=-=-=-=-=-    C O M P R O M I S S O S    -=-=-=-=-=-=-\n");
-//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-//     printf("\t1 - Cadastrar Compromisso\n");
-//     printf("\t2 - Buscar Dados\n");
-//     printf("\t3 - Atualizar Dados\n");
-//     printf("\t4 - Deletar Dados\n");
-//     printf("\t0 - Voltar ao menu\n");
-//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-//     printf(">>> Opcao ");
-    // scanf("%c", &opcao);
-    // getchar();
+char crudCompromissos(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-    C O M P R O M I S S O S    -=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Cadastrar Compromisso\n");
+    printf("\t2 - Buscar Dados\n");
+    printf("\t3 - Atualizar Dados\n");
+    printf("\t4 - Deletar Dados\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%c", &opcao);
+    getchar();
 
-//     return opcao;
-// }
+    return opcao;
+}
 
-// char crudAvisos(void)
-// {
-//     char opcao;
-//     system("clear||cls");
-//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-//     printf("-=-=-=-=-=-=-=-=-=-    A V I S O S    -=-=-=-=-=-=-=-=-=-\n");
-//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-//     printf("\t1 - Cadastrar Avisos\n");
-//     printf("\t2 - Buscar Dados\n");
-//     printf("\t3 - Atualizar Dados\n");
-//     printf("\t4 - Deletar Dados\n");
-//     printf("\t0 - Voltar ao menu\n");
-//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-//     printf(">>> Opcao ");
-//     scanf("%c", &opcao);
-    // getchar();
+char crudAvisos(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-    A V I S O S    -=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Cadastrar Avisos\n");
+    printf("\t2 - Buscar Dados\n");
+    printf("\t3 - Atualizar Dados\n");
+    printf("\t4 - Deletar Dados\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%c", &opcao);
+    getchar();
 
-//     return opcao;
-// }
+    return opcao;
+}
 
 
