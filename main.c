@@ -149,6 +149,53 @@ char compromissosGerencia(void)
     return opcao;
 }
 
+
+char compromissosDirecao(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-    C O M P R O M I S S O S    -=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Setor Financeiro\n");
+    printf("\t2 - Setor de RH\n");
+    printf("\t3 - Setor de Marketing\n");
+    printf("\t4 - Setor de Vendedores\n");
+    printf("\t5 - Setor Operacional\n");
+    printf("\t6 - Setor de Estoque\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%c", &opcao);
+    getchar();
+
+    return opcao;
+}
+
+char avisosDirecao(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-    A V I S O S    -=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Todos os Setores\n");
+    printf("\t2 - Setor Financeiro\n");
+    printf("\t3 - Setor de RH\n");
+    printf("\t4 - Setor de Marketing\n");
+    printf("\t5 - Setor de Vendedores\n");
+    printf("\t6 - Setor Operacional\n");
+    printf("\t7 - Setor de Estoque\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%c", &opcao);
+    getchar();
+
+    return opcao;
+}
+
+
 char avisosGerencia(void)
 {
     char opcao;
@@ -205,6 +252,64 @@ char telaAgenda(void)
 
     return opcao;
 }
+
+
+
+char setorAdm(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-     S E T O R E S     -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Setor Financeiro\n");
+    printf("\t2 - Setor de RH\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%c", &opcao);
+    getchar();
+
+    return opcao;
+}
+
+char setorComercial(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-     S E T O R E S     -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Setor de Marketing\n");
+    printf("\t2 - Setor de Vendedores\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%c", &opcao);
+    getchar();
+
+    return opcao;
+}
+
+char setorTecnico(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-     S E T O R E S     -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Setor Operacional\n");
+    printf("\t2 - Setor de Estoque\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%c", &opcao);
+    getchar();
+
+    return opcao;
+}
+
+
 
 void telaInfo(void)
 {
@@ -277,3 +382,5 @@ void telaInfo(void)
 
 //     return opcao;
 // }
+
+
