@@ -90,10 +90,8 @@ char telaUsuarios(void)
 
 int cadastroUsuario(void)
 {
-
     char nome[20], email[30], cargo[10], departamento[20];
     int senha[10];
-
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -113,13 +111,10 @@ int cadastroUsuario(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 
     return 0;
-
-
 }
 
 char buscarUsuario(void)
 {
-
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    B U S C A R    -=-=-=-=-=-=-=-=-=-\n");
@@ -128,8 +123,18 @@ char buscarUsuario(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 
     return 0;
+}
 
+char atualizarUsuario(void)
+{
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-     A T U A L I Z A R     -=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Tudo\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 
+    return 0;
 }
 
 
