@@ -65,6 +65,8 @@ char telaPrincipal(void)
     return opcao;
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 char telaUsuarios(void)
 {
     char opcao;
@@ -84,6 +86,40 @@ char telaUsuarios(void)
 
     return opcao;
 }
+
+
+int cadastroUsuario(void)
+{
+
+    char nome[20], email[30], cargo[10], departamento[20];
+    int senha[10];
+
+
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("Nome: ");
+    scanf("%[A-Z a-z]",nome);
+    printf("E-mail: ");
+    scanf("%[A-Za-z0-9@.]", email);
+    printf("Cargo: ");
+    scanf("%[A-Z a-z]", cargo);
+    // Terá um if para checar se o cargo é de diretor ou gerente
+    printf("Departamento: ");
+    scanf("%[A-Za-z]", departamento);
+    printf("Senha [8 dígitos]: ");
+    scanf("%[0-9]", senha);
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+
+    return 0;
+
+
+}
+
+
+
+
 
 char telaAtividades(void)
 {
