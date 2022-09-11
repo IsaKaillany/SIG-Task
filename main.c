@@ -206,6 +206,29 @@ char telaAgenda(void)
     return opcao;
 }
 
+
+
+char setorAdm(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-     S E T O R E S     -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Setor Financeiro\n");
+    printf("\t2 - Setor de RH\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%c", &opcao);
+    getchar();
+
+    return opcao;
+}
+
+
+
+
 void telaInfo(void)
 {
     system("clear||cls");
@@ -277,3 +300,5 @@ void telaInfo(void)
 
 //     return opcao;
 // }
+
+
