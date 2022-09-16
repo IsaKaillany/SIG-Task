@@ -99,14 +99,14 @@ int cadastroUsuario(void)
     scanf("%[A-Z a-z]",nome);
     printf("E-mail: ");
     scanf("%[A-Za-z0-9@.]", email);
-    printf("Cargo: ");
+    printf("\nCargo: ");
     scanf("%[A-Z a-z]", cargo);
     // Terá um if para checar se o cargo é de diretor ou gerente
-    printf("Departamento: ");
+    printf("\nDepartamento: ");
     scanf("%[A-Za-z]", departamento);
-    printf("Senha [8 dígitos]: ");
+    printf("\nSenha [8 digitos]: ");
     scanf("%[0-9]", senha);
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 
     return 0;
 }
@@ -312,9 +312,8 @@ char telaAgenda(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    A G E N D A    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\t1 - Departamento Administrativo\n");
-    printf("\t2 - Departamento Comercial\n");
-    printf("\t3 - Departamento Tecnico\n");
+    printf("\t1 - Departamentos\n");
+    printf("\t2 - Setores\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
