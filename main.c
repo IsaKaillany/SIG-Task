@@ -16,9 +16,9 @@ char telaAgenda(void);
 
 int main(void)
 {
-    char tela;
-    tela = telaPrincipal();
-    switch (tela)
+    char opcao;
+    opcao = telaPrincipal();
+    switch (opcao)
     {
         case '1':
             telaUsuarios();
