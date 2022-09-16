@@ -17,28 +17,33 @@ char telaAgenda(void);
 int main(void)
 {
     char opcao;
-    opcao = telaPrincipal();
-    switch (opcao)
+    do
     {
-        case '1':
-            telaUsuarios();
-            break;
-        case '2':
-            telaAtividades();
-            break;
-        case '3':
-            telaAgenda();
-            break;
-        case '4':
-            telaInfo();
-            break;
-        case '0':
-            printf("Fim do programa!");
-            break;
-        default:
-            printf("Por favor insira uma opcao valida\n");
-            break;
-    }   
+        opcao = telaPrincipal();
+        switch (opcao)
+        {
+            case '1':
+                telaUsuarios();
+                break;
+            case '2':
+                telaAtividades();
+                break;
+            case '3':
+                telaAgenda();
+                break;
+            case '4':
+                telaInfo();
+                break;
+            case '0':
+                printf("Fim do programa!");
+                break;
+            default:
+                printf("Por favor insira uma opcao valida!\n");
+                printf("\n>>> Tecle ENTER para continuar");
+                getchar();
+                break;
+        }   
+    } while (opcao != '0');
     return 0;
 }
 
@@ -427,7 +432,10 @@ void telaInfo(void)
     printf("O presente projeto tem como objetivo desenvolver um \n");
     printf("programa de computador que realize o agendamento de \n"); 
     printf("tarefas de forma eficiente, fornecendo lembretes aos \n");
-    printf("usuarios sobre compromissos agendados.");                                                                                                                                     
+    printf("usuarios sobre compromissos agendados.");      
+    printf("\n");
+    printf("\n>>> Tecle ENTER para continuar");
+    getchar();                                                                                                                               
 }
 
 char crudCompromissos(void)
