@@ -498,7 +498,7 @@ int buscarCompromissos(void)
 
 int atualizarCompromissos(void)
 {
-    char titulo[20], data[10];
+    char titulo[20], data[10], senha[10];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -520,7 +520,7 @@ int atualizarCompromissos(void)
 
 int deletarCompromissos(void)
 {
-    char titulo[20], data[10];
+    char titulo[20], data[10], senha[10];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -560,4 +560,81 @@ char crudAvisos(void)
     return opcao;
 }
 
+int cadastroAvisos(void)
+{
+    char titulo[20], depart[20], setor[10], descri[200];
 
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\nTítulo: ");
+    printf("\nDepartamento: ");
+    printf("\nSetor: ");
+    printf("\nDescrição: ");
+    // Terá uma opção perguntando quanto tempo o usuário deseja que o aviso fique agendado
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+
+    return 0;
+}
+
+
+int buscarAvisos(void)
+{
+    char data[10];
+
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-      B U S C A R      -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n");
+    printf("\nData: ");
+    printf("\n");
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    
+
+    return 0;
+}
+
+
+int atualizarAvisos(void)
+{
+    char titulo[20], data[10], senha[10];
+
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-   A T U A L I Z A R   -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n");
+    printf("\nData: ");
+//  printf("\nMostrar os avisos da data informada")
+    printf("\nTítulo: ");
+    printf("\n");
+    printf("\nSenha: ");
+    printf("\n");
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    
+
+    return 0;
+}
+
+int deletarAvisos(void)
+{
+    char titulo[20], data[10], senha[10];
+
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-     D E L E T A R     -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n");
+    printf("\nData: ");
+//  printf("\nMostrar os avisos da data informada")
+    printf("\nTítulo: ");
+    printf("\n");
+    printf("\nSenha: ");
+    printf("\n");
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    
+
+    return 0;
+}
