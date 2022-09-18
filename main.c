@@ -618,4 +618,23 @@ int atualizarAvisos(void)
     return 0;
 }
 
+int deletarAvisos(void)
+{
+    char titulo[20], data[10], senha[10];
 
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-     D E L E T A R     -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n");
+    printf("\nData: ");
+//  printf("\nMostrar os avisos da data informada")
+    printf("\nTítulo: ");
+    printf("\n");
+    printf("\nSenha: ");
+    printf("\n");
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    
+
+    return 0;
+}
