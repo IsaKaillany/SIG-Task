@@ -496,6 +496,49 @@ int buscarCompromissos(void)
     return 0;
 }
 
+int atualizarCompromissos(void)
+{
+    char titulo[20], data[10];
+
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-   A T U A L I Z A R   -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n");
+    printf("\nData: ");
+//  printf("\nMostrar os comprimissos da data informada")
+    printf("\nTítulo: ");
+    printf("\n");
+    printf("\nSenha: ");
+    printf("\n");
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    
+
+    return 0;
+}
+
+
+int deletarCompromissos(void)
+{
+    char titulo[20], data[10];
+
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-     D E L E T A R     -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n");
+    printf("\nData: ");
+//  printf("\nMostrar os comprimissos da data informada")
+    printf("\nTítulo: ");
+    printf("\n");
+    printf("\nSenha: ");
+    printf("\n");
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    
+
+    return 0;
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 char crudAvisos(void)
 {
