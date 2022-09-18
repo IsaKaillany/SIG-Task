@@ -16,29 +16,34 @@ char telaAgenda(void);
 
 int main(void)
 {
-    char tela;
-    tela = telaPrincipal();
-    switch (tela)
+    char opcao;
+    do
     {
-        case '1':
-            telaUsuarios();
-            break;
-        case '2':
-            telaAtividades();
-            break;
-        case '3':
-            telaAgenda();
-            break;
-        case '4':
-            telaInfo();
-            break;
-        case '0':
-            printf("Fim do programa!");
-            break;
-        default:
-            printf("Por favor insira uma opcao valida\n");
-            break;
-    }   
+        opcao = telaPrincipal();
+        switch (opcao)
+        {
+            case '1':
+                telaUsuarios();
+                break;
+            case '2':
+                telaAtividades();
+                break;
+            case '3':
+                telaAgenda();
+                break;
+            case '4':
+                telaInfo();
+                break;
+            case '0':
+                printf("Fim do programa!");
+                break;
+            default:
+                printf("Por favor insira uma opcao valida!\n");
+                printf("\n>>> Tecle ENTER para continuar");
+                getchar();
+                break;
+        }   
+    } while (opcao != '0');
     return 0;
 }
 
@@ -99,14 +104,14 @@ int cadastroUsuario(void)
     scanf("%[A-Z a-z]",nome);
     printf("E-mail: ");
     scanf("%[A-Za-z0-9@.]", email);
-    printf("Cargo: ");
+    printf("\nCargo: ");
     scanf("%[A-Z a-z]", cargo);
     // Terá um if para checar se o cargo é de diretor ou gerente
-    printf("Departamento: ");
+    printf("\nDepartamento: ");
     scanf("%[A-Za-z]", departamento);
-    printf("Senha [8 dígitos]: ");
+    printf("\nSenha [8 digitos]: ");
     scanf("%[0-9]", senha);
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 
     return 0;
 }
@@ -312,6 +317,24 @@ char telaAgenda(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    A G E N D A    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Departamentos\n");
+    printf("\t2 - Setores\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%c", &opcao);
+    getchar();
+
+    return opcao;
+}
+
+char telaDepartamentos(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-     D E P A R T A M E N T O S     -=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Departamento Administrativo\n");
     printf("\t2 - Departamento Comercial\n");
     printf("\t3 - Departamento Tecnico\n");
@@ -409,7 +432,10 @@ void telaInfo(void)
     printf("O presente projeto tem como objetivo desenvolver um \n");
     printf("programa de computador que realize o agendamento de \n"); 
     printf("tarefas de forma eficiente, fornecendo lembretes aos \n");
-    printf("usuarios sobre compromissos agendados.");                                                                                                                                     
+    printf("usuarios sobre compromissos agendados.");      
+    printf("\n");
+    printf("\n>>> Tecle ENTER para continuar");
+    getchar();                                                                                                                               
 }
 
 char crudCompromissos(void)
