@@ -438,6 +438,7 @@ void telaInfo(void)
     getchar();                                                                                                                               
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 char crudCompromissos(void)
 {
     char opcao;
@@ -458,6 +459,28 @@ char crudCompromissos(void)
     return opcao;
 }
 
+
+int cadastroCompromissos(void)
+{
+    char titulo[20], depart[20], setor[10], descri[200], data[10], hora[10];
+
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\nTítulo: ");
+    printf("\nDepartamento: ");
+    printf("\nSetor: ");
+    printf("\nDescrição: ");
+    printf("\nData: ");
+    printf("\nHorário: ");
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+
+    return 0;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 char crudAvisos(void)
 {
     char opcao;
