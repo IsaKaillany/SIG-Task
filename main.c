@@ -560,4 +560,22 @@ char crudAvisos(void)
     return opcao;
 }
 
+int cadastroAvisos(void)
+{
+    char titulo[20], depart[20], setor[10], descri[200];
+
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\nTítulo: ");
+    printf("\nDepartamento: ");
+    printf("\nSetor: ");
+    printf("\nDescrição: ");
+    // Terá uma opção perguntando quanto tempo o usuário deseja que o aviso fique agendado
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+
+    return 0;
+}
+
 
