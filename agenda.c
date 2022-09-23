@@ -1,6 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "agenda.h"
 
+void moduloAgenda(void)
+{
+    char opcao;
+    while (opcao != '0')
+    {
+      opcao = telaAgenda();
+      if ((opcao == '1') || (opcao == '2') || (opcao == '3'))
+      {
+        mostragemAgendaCompromissos();
+      }
+      if ((opcao == '4') || (opcao == '5') || (opcao == '6'))
+      {
+        mostragemAgendaAvisos();
+      }
+    } 
+}
 
 char telaAgenda(void)
 {
