@@ -556,10 +556,13 @@ int deletarAvisos(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n");
     printf("\nData: ");
+    scanf("%[0-9/]", data);
 //  printf("\nMostrar os avisos da data informada")
     printf("\nTítulo: ");
+    scanf("%[A-Z a-z]", titulo);
     printf("\n");
     printf("\nSenha: ");
+    scanf("%[0-9]", senha);
     printf("\n");
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     
