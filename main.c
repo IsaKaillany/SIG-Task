@@ -34,14 +34,6 @@ int main(void)
             case '4':
                 telaInfo();
                 break;
-            case '0':
-                printf("Fim do programa!");
-                break;
-            default:
-                printf("Por favor insira uma opcao valida!\n");
-                printf("\n>>> Tecle ENTER para continuar");
-                getchar();
-                break;
         }   
     } while (opcao != '0');
     return 0;
