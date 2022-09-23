@@ -3,13 +3,14 @@
 #include <ctype.h> //Manipulação de caracteres
 #include <string.h> //Manipulação de strings
 #include "usuarios.h"
+#include "agenda.h"
 
 
 // Assinatura das funções
 char telaPrincipal(void);
 void telaInfo(void);
 char telaAtividades(void);
-char telaAgenda(void);
+
 
 
 
@@ -28,7 +29,7 @@ int main(void)
                 telaAtividades();
                 break;
             case '3':
-                telaAgenda();
+                moduloAgenda();
                 break;
             case '4':
                 telaInfo();
