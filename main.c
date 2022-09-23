@@ -374,17 +374,17 @@ int cadastroCompromissos(void)
     printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nTítulo: ");
-    scanf("%[A-Z a-z]", &titulo);
+    scanf("%[A-Z a-z]", titulo);
     printf("\nDepartamento: ");
-    scanf("%[A-Z a-z]", &depart);
+    scanf("%[A-Z a-z]", depart);
     printf("\nSetor: ");
-    scanf("%[A-Z a-z]", &setor);
+    scanf("%[A-Z a-z]", setor);
     printf("\nDescrição: ");
-    scanf("%s", &descri);
+    scanf("%s", descri);
     printf("\nData: ");
-    scanf("%[0-9/]", &data);
+    scanf("%[0-9/]", data);
     printf("\nHorário: ");
-    scanf("%[min0-9:h]", &hora);
+    scanf("%[min0-9:h]", hora);
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 
     return 0;
@@ -400,6 +400,7 @@ int buscarCompromissos(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n");
     printf("\nData: ");
+    scanf("%[0-9/]", data);
     printf("\n");
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     
@@ -417,10 +418,14 @@ int atualizarCompromissos(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n");
     printf("\nData: ");
+    scanf("%[0-9/]", data);
 //  printf("\nMostrar os comprimissos da data informada")
     printf("\nTítulo: ");
+    scanf("%[A-Z a-z]", titulo);
+    // Após colocar o título e escolher qual compromisso quer atualizar, aparecerá o que ele quer atualizar...tudo, data, hora...etc
     printf("\n");
     printf("\nSenha: ");
+    scanf("%[0-9]", senha);
     printf("\n");
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     
