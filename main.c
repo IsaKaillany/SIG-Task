@@ -488,9 +488,13 @@ int cadastroAvisos(void)
     printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nTítulo: ");
+    scanf("%[A-Z a-z]", titulo);
     printf("\nDepartamento: ");
+    scanf("%[A-Z a-z]", depart);
     printf("\nSetor: ");
+    scanf("%[A-Z a-z]", setor);
     printf("\nDescrição: ");
+    scanf("%s", descri);
     // Terá uma opção perguntando quanto tempo o usuário deseja que o aviso fique agendado
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 
