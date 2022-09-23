@@ -531,10 +531,14 @@ int atualizarAvisos(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n");
     printf("\nData: ");
+    scanf("%[0-9/]", data);
 //  printf("\nMostrar os avisos da data informada")
     printf("\nTítulo: ");
+    scanf("%[A-Z a-z]", titulo);
+    // Após colocar o título e escolher qual aviso quer atualizar, aparecerá o que ele quer atualizar...tudo, data, hora...etc
     printf("\n");
     printf("\nSenha: ");
+    scanf("%[0-9]", senha);
     printf("\n");
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     
