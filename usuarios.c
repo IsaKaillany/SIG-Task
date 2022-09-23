@@ -4,35 +4,26 @@
 
 void moduloUsuarios(void)
 {
-    char opcao;
-
-    opcao = telaUsuarios();
-    while (opcao != '0')
+    char opcao;        
+    do
     {
-        if (opcao == '1')
+        opcao = telaUsuarios();
+        switch (opcao)
         {
-            cadastroUsuario();
-        }
-        else if (opcao == '2')
-        {
-            buscarUsuario();
-        }
-        else if (opcao == '3')
-        {
-            atualizarUsuario();
-        }
-        else if (opcao == '4')
-        {
-            deletarUsuario();
-        }
-        else
-        {
-            printf("Opcao invalida!\n");
-            printf(">>> Tecle ENTER para continuar");
-            getchar();
-        }    
-        opcao = telaUsuarios();               
-    }    
+            case '1':
+                cadastroUsuario();
+                break;
+            case '2':
+                buscarUsuario();
+                break;
+            case '3':
+                atualizarUsuario();
+                break;
+            case '4':
+                deletarUsuario();
+                break;
+        }           
+    } while (opcao != '0');
 }
 
 char telaUsuarios(void)
