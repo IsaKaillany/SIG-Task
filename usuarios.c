@@ -49,7 +49,7 @@ char telaUsuarios(void)
 
 void cadastroUsuario(void)
 {
-    char nome[20], email[30], cargo[10], departamento[20], senha[10];
+    char nome[20], email[30], departamento[2], senha[10];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -57,15 +57,16 @@ void cadastroUsuario(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("Nome: ");
     scanf("%[A-Z a-z]",nome);
+    getchar();
     printf("E-mail: ");
     scanf("%[A-Za-z0-9@.]", email);
-    printf("\nCargo: ");
-    scanf("%[A-Z a-z]", cargo);
-    // Terá um if para checar se o cargo é de diretor ou gerente
-    printf("\nDepartamento: ");
+    getchar();
+    printf("Departamento: ");
     scanf("%[A-Za-z]", departamento);
-    printf("\nSenha [8 digitos]: ");
+    getchar();
+    printf("Senha [8 digitos]: ");
     scanf("%[0-9]", senha);
+    getchar();
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 
 }
