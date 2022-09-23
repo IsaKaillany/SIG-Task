@@ -367,18 +367,24 @@ char crudCompromissos(void)
 
 int cadastroCompromissos(void)
 {
-    char titulo[20], depart[20], setor[10], descri[200], data[10], hora[10];
+    char titulo[20], depart[20], setor[10], descri[250], data[10], hora[10];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nTítulo: ");
+    scanf("%[A-Z a-z]", &titulo);
     printf("\nDepartamento: ");
+    scanf("%[A-Z a-z]", &depart);
     printf("\nSetor: ");
+    scanf("%[A-Z a-z]", &setor);
     printf("\nDescrição: ");
+    scanf("%s", &descri);
     printf("\nData: ");
+    scanf("%[0-9/]", &data);
     printf("\nHorário: ");
+    scanf("%[min0-9:h]", &hora);
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 
     return 0;
