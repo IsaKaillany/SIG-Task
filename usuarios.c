@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "usuarios.h"
-
+#include "atividades.h"
 
 
 void moduloUsuarios(void)
@@ -51,7 +51,8 @@ char telaUsuarios(void)
 
 void cadastroUsuario(void)
 {
-    char nome[20], email[30], departamento[2], senha[10];
+    char nome[20], email[30], senha[10];
+    int depart;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -63,8 +64,9 @@ void cadastroUsuario(void)
     printf("E-mail: ");
     scanf("%[A-Za-z0-9@.]", email);
     getchar();
+    escolhaDepartamento();
     printf("Departamento: ");
-    scanf("%[A-Za-z]", departamento);
+    scanf("%d", depart);
     getchar();
     printf("Senha [8 digitos]: ");
     scanf("%[0-9]", senha);
