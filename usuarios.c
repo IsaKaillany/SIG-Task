@@ -40,7 +40,7 @@ char telaUsuarios(void)
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
-    scanf("%c", &opcao);
+    scanf(" %c", &opcao);
     getchar();
 
     return opcao;
