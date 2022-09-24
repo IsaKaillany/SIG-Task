@@ -11,6 +11,7 @@ void cadastroCompromissos(void);
 void buscarCompromissos(void);
 void atualizarCompromissos(void);
 void deletarCompromissos(void);
+char oqueAtualizarCompromissos(void);
 
 char crudAvisos(void);
 void cadastroAvisos(void);
