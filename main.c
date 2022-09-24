@@ -4,14 +4,12 @@
 #include <string.h> //Manipulação de strings
 #include "usuarios.h"
 #include "agenda.h"
+#include "atividades.h"
 
 
 // Assinatura das funções
 char telaPrincipal(void);
 void telaInfo(void);
-char telaAtividades(void);
-
-
 
 
 int main(void)
@@ -26,19 +24,21 @@ int main(void)
                 moduloUsuarios();
                 break;
             case '2':
-                telaAtividades();
+                moduloAtividades();
                 break;
             case '3':
                 moduloAgenda();
                 break;
             case '4':
+                //Em andamento
+                break;
+            case '5':
                 telaInfo();
                 break;
         }   
     } while (opcao != '0');
     return 0;
 }
-
 
 
 char telaPrincipal(void)
@@ -51,7 +51,8 @@ char telaPrincipal(void)
     printf("\t1 - Usuarios\n");
     printf("\t2 - Atividades\n");
     printf("\t3 - Agenda\n");
-    printf("\t4 - Informacoes\n");
+    printf("\t4 - Relatorios\n");
+    printf("\t5 - Informacoes\n");
     printf("\t0 - Finalizar\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
@@ -60,15 +61,6 @@ char telaPrincipal(void)
 
     return opcao;
 }
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 
 void telaInfo(void)
@@ -106,7 +98,3 @@ void telaInfo(void)
     getchar();                                                                                                                               
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
