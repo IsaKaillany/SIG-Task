@@ -77,11 +77,20 @@ void navegacaoCrudAvisos(void)
 */
 void telaPerfil(void)
 {
+    char login[30], senha[10];
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    P E R F I L    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    
+    printf("\n");
+    printf("Login: ");
+    scanf("%s", &login);
+    getchar();
+    printf("Senha: ");
+    scanf("%s", &senha);
+    getchar();
+    printf("\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
 char telaGerenciaAtividades(void)
