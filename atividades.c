@@ -101,20 +101,20 @@ char telaGerenciaAtividades(void)
     return opcao;
 }
 
-char escolhaDepartamento(void)
+void escolhaDepartamento(void)
 {
-    int opcao;
-    system("clear||cls");
+    // int opcao;
+    // system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Departamento Administrativo\n");
     printf("\t2 - Departamento Comercial\n");
     printf("\t3 - Departamento Tecnico\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf(">>> Opcao ");
-    scanf("%d", &opcao);
-    getchar();
+    // printf(">>> Opcao ");
+    // scanf("%d", &opcao);
+    // getchar();
 
-    return opcao;
+    // return opcao;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -142,7 +142,7 @@ char crudCompromissos(void)
 // Tirar setor, chamar a função escolhaDepartamento na variavel depart, tirar o vetor de depart
 void cadastroCompromissos(void)
 {
-    char titulo[20], depart[20], setor[10], descri[250], data[10], hora[10];
+    char titulo[20], depart, setor[10], descri[250], data[10], hora[10];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -150,16 +150,19 @@ void cadastroCompromissos(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nTítulo: ");
     scanf("%[A-Z a-z]", titulo);
+    getchar();
+    escolhaDepartamento();
     printf("\nDepartamento: ");
     scanf("%[A-Z a-z]", depart);
-    printf("\nSetor: ");
-    scanf("%[A-Z a-z]", setor);
+    getchar();
     printf("\nDescrição: ");
     scanf("%s", descri);
     printf("\nData: ");
     scanf("%[0-9/]", data);
+    getchar();
     printf("\nHorário: ");
     scanf("%[min0-9:h]", hora);
+    getchar();
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
@@ -174,6 +177,7 @@ void buscarCompromissos(void)
     printf("\n");
     printf("\nData: ");
     scanf("%[0-9/]", data);
+    getchar();
     printf("\n");
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
@@ -189,13 +193,16 @@ void atualizarCompromissos(void)
     printf("\n");
     printf("\nData: ");
     scanf("%[0-9/]", data);
+    getchar();
     //  printf("\nMostrar os comprimissos da data informada")
     printf("\nTítulo: ");
     scanf("%[A-Z a-z]", titulo);
+    getchar();
     // Após colocar o título e escolher qual compromisso quer atualizar, aparecerá o que ele quer atualizar...tudo, data, hora...etc
     printf("\n");
     printf("\nSenha: ");
     scanf("%[0-9]", senha);
+    getchar();
     printf("\n");
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
@@ -211,17 +218,22 @@ void deletarCompromissos(void)
     printf("\n");
     printf("\nData: ");
     scanf("%[0-9/]", data);
+    getchar();
     //  printf("\nMostrar os comprimissos da data informada")
     printf("\nTítulo: ");
     scanf("%[A-Z a-z]", titulo);
+    getchar();
     printf("\n");
     printf("\nSenha: ");
     scanf("%[0-9]", senha);
+    getchar();
     printf("\n");
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
+
 /////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 char crudAvisos(void)
 {
@@ -246,7 +258,8 @@ char crudAvisos(void)
 // Tirar setor, chamar a função escolhaDepartamento na variavel depart, tirar o vetor de depart
 void cadastroAvisos(void)
 {
-    char titulo[20], depart[20], setor[10], descri[200];
+    char titulo[20], descri[200];
+    int depart;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -254,13 +267,12 @@ void cadastroAvisos(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nTítulo: ");
     scanf("%[A-Z a-z]", titulo);
+    getchar();
+    escolhaDepartamento();
     printf("\nDepartamento: ");
-    scanf("%[A-Z a-z]", depart);
-    printf("\nSetor: ");
-    scanf("%[A-Z a-z]", setor);
+    scanf("%d", &depart);
     printf("\nDescrição: ");
     scanf("%s", descri);
-    // Terá uma opção perguntando quanto tempo o usuário deseja que o aviso fique agendado
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
@@ -275,6 +287,7 @@ void buscarAvisos(void)
     printf("\n");
     printf("\nData: ");
     scanf("%[0-9/]", data);
+    getchar();
     printf("\n");
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
@@ -290,13 +303,16 @@ void atualizarAvisos(void)
     printf("\n");
     printf("\nData: ");
     scanf("%[0-9/]", data);
+    getchar();
     //  printf("\nMostrar os avisos da data informada")
     printf("\nTítulo: ");
     scanf("%[A-Z a-z]", titulo);
+    getchar();
     // Após colocar o título e escolher qual aviso quer atualizar, aparecerá o que ele quer atualizar...tudo, data, hora...etc
     printf("\n");
     printf("\nSenha: ");
     scanf("%[0-9]", senha);
+    getchar();
     printf("\n");
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
@@ -312,12 +328,15 @@ void deletarAvisos(void)
     printf("\n");
     printf("\nData: ");
     scanf("%[0-9/]", data);
+    getchar();
     //  printf("\nMostrar os avisos da data informada")
     printf("\nTítulo: ");
     scanf("%[A-Z a-z]", titulo);
+    getchar();
     printf("\n");
     printf("\nSenha: ");
     scanf("%[0-9]", senha);
+    getchar();
     printf("\n");
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
