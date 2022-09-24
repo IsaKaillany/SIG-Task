@@ -1,24 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "atividades.h"
+#include "usuarios.h"
 
-char telaAtividades(void)
+void moduloAtividades(void)
 {
     char opcao;
-    system("clear||cls");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-=-    A T I V I D A D E S    -=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\t1 - Gerentes\n");
-    printf("\t2 - Diretores\n");
-    printf("\t0 - Voltar ao menu\n");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf(">>> Opcao ");
-    scanf("%c", &opcao);
-    getchar();
-
-    return opcao;
+    telaPerfil();
+    do
+    {
+        opcao = telaGerenciaAtividades();
+        switch (opcao)
+        {
+        case '1':
+            crudCompromissos();
+            break;
+        case '2':
+            crudAvisos();
+            break;
+        }
+    } while (opcao != '0');    
 }
 
+/*
+1º Perguntar se tem cadastro (S/N)
+2º Se S = Login e senha
+3º Se N = Chamar o cadastroUsuarios();
+*/
 void telaPerfil(void)
 {
     system("clear||cls");
@@ -28,15 +36,15 @@ void telaPerfil(void)
 
 }
 
-char telaGerencia(void)
+char telaGerenciaAtividades(void)
 {
     char opcao;
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-    G E R E N C I A    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\t1 - Avisos\n");
-    printf("\t2 - Compromissos\n");
+    printf("\t1 - Compromissos\n");
+    printf("\t2 - Avisos\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
@@ -46,20 +54,17 @@ char telaGerencia(void)
     return opcao;
 }
 
-char compromissosGerencia(void)
+char escolhaDepartamento(void)
 {
-    char opcao;
+    int opcao;
     system("clear||cls");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-    C O M P R O M I S S O S    -=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Departamento Administrativo\n");
     printf("\t2 - Departamento Comercial\n");
     printf("\t3 - Departamento Tecnico\n");
-    printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
-    scanf("%c", &opcao);
+    scanf("%d", &opcao);
     getchar();
 
     return opcao;
@@ -87,7 +92,7 @@ char crudCompromissos(void)
     return opcao;
 }
 
-
+//Tirar setor, chamar a função escolhaDepartamento na variavel depart, tirar o vetor de depart
 int cadastroCompromissos(void)
 {
     char titulo[20], depart[20], setor[10], descri[250], data[10], hora[10];
@@ -183,30 +188,6 @@ int deletarCompromissos(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-char avisosGerencia(void)
-{
-    char opcao;
-    system("clear||cls");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-=-=-=-    A V I S O S    -=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\t1 - Todos Departamentos\n");
-    printf("\t2 - Departamento Administrativo\n");
-    printf("\t3 - Departamento Comercial\n");
-    printf("\t4 - Departamento Tecnico\n");
-    printf("\t0 - Voltar ao menu\n");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf(">>> Opcao ");
-    scanf("%c", &opcao);
-    getchar();
-
-    return opcao;
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
 char crudAvisos(void)
 {
     char opcao;
@@ -227,6 +208,7 @@ char crudAvisos(void)
     return opcao;
 }
 
+//Tirar setor, chamar a função escolhaDepartamento na variavel depart, tirar o vetor de depart
 int cadastroAvisos(void)
 {
     char titulo[20], depart[20], setor[10], descri[200];
