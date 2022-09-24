@@ -64,9 +64,9 @@ void cadastroUsuario(void)
     printf("E-mail: ");
     scanf("%[A-Za-z0-9@.]", email);
     getchar();
-    escolhaDepartamento();
     printf("Departamento: ");
-    scanf("%d", depart);
+    depart = escolhaDepartamento();
+    printf("%d", depart);
     getchar();
     printf("Senha [8 digitos]: ");
     scanf("%[0-9]", senha);
@@ -101,9 +101,8 @@ char atualizarUsuario(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Tudo\n");
     printf("\t2 - Nome\n");
-    printf("\t3 - E-mail\n");
-    printf("\t4 - Departamento\n");
-    printf("\t5 - Senha\n");
+    printf("\t3 - Departamento\n");
+    printf("\t4 - Senha\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
     scanf("%c", &opcao);
