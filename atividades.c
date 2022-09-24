@@ -101,20 +101,20 @@ char telaGerenciaAtividades(void)
     return opcao;
 }
 
-void escolhaDepartamento(void)
+int escolhaDepartamento(void)
 {
-    // int opcao;
-    // system("clear||cls");
+    int opcao;
+    system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Departamento Administrativo\n");
     printf("\t2 - Departamento Comercial\n");
     printf("\t3 - Departamento Tecnico\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    // printf(">>> Opcao ");
-    // scanf("%d", &opcao);
-    // getchar();
+    printf(">>> Opcao ");
+    scanf("%d", &opcao);
+    getchar();
 
-    // return opcao;
+    return opcao;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -142,7 +142,8 @@ char crudCompromissos(void)
 // Tirar setor, chamar a função escolhaDepartamento na variavel depart, tirar o vetor de depart
 void cadastroCompromissos(void)
 {
-    char titulo[20], depart, setor[10], descri[250], data[10], hora[10];
+    char titulo[20], descri[250], data[10], hora[10];
+    int depart;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -151,17 +152,16 @@ void cadastroCompromissos(void)
     printf("\nTítulo: ");
     scanf("%[A-Z a-z]", titulo);
     getchar();
-    escolhaDepartamento();
     printf("\nDepartamento: ");
-    scanf("%[A-Z a-z]", depart);
+    depart = escolhaDepartamento();
     getchar();
     printf("\nDescrição: ");
-    scanf("%s", descri);
-    printf("\nData: ");
+    scanf("%s", &descri);
+    printf("\nData [dd/mm]: ");
     scanf("%[0-9/]", data);
     getchar();
-    printf("\nHorário: ");
-    scanf("%[min0-9:h]", hora);
+    printf("\nHorário [00:00]: ");
+    scanf("%[0-9:]", hora);
     getchar();
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
@@ -258,7 +258,7 @@ char crudAvisos(void)
 // Tirar setor, chamar a função escolhaDepartamento na variavel depart, tirar o vetor de depart
 void cadastroAvisos(void)
 {
-    char titulo[20], descri[200];
+    char titulo[20], descri[200], data[10], hora[10];
     int depart;
 
     system("clear||cls");
@@ -268,11 +268,16 @@ void cadastroAvisos(void)
     printf("\nTítulo: ");
     scanf("%[A-Z a-z]", titulo);
     getchar();
-    escolhaDepartamento();
     printf("\nDepartamento: ");
-    scanf("%d", &depart);
+    depart = escolhaDepartamento();
     printf("\nDescrição: ");
-    scanf("%s", descri);
+    scanf("%s", &descri);
+    printf("\nData [dd/mm]: ");
+    scanf("%[0-9/]", data);
+    getchar();
+    printf("\nHorário [00:00]: ");
+    scanf("%[0-9:]", hora);
+    getchar();
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
