@@ -1,4 +1,4 @@
-// void moduloAtividades(void);
+void moduloAtividades(void);
 void telaPerfil(void);
 char telaGerenciaAtividades(void);
 char escolhaDepartamento(void);
