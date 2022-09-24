@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "usuarios.h"
 
+
+
 void moduloUsuarios(void)
 {
     char opcao;        
@@ -73,11 +75,15 @@ void cadastroUsuario(void)
 
 void buscarUsuario(void)
 {
+    char email[30];
+
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    B U S C A R    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("E-mail: \n");
+    printf("\nE-mail: ");
+    scanf("%[A-Za-z0-9@.]", email);
+    // Printar o usuário com o email informado
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     getchar();
 
@@ -85,12 +91,17 @@ void buscarUsuario(void)
 
 char atualizarUsuario(void)
 {
+    
     char opcao;
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-     A T U A L I Z A R     -=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Tudo\n");
+    printf("\t2 - Nome\n");
+    printf("\t3 - E-mail\n");
+    printf("\t4 - Departamento\n");
+    printf("\t5 - Senha\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
     scanf("%c", &opcao);
@@ -101,11 +112,17 @@ char atualizarUsuario(void)
 
 void deletarUsuario(void)
 {
+    char email[30], senha[10];
+
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-     D E L E T A R     -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\t1 - \n");
+    printf("\nE-mail: ");
+    scanf("%[A-Za-z0-9@.]", email);
+    getchar();
+    printf("\nSenha: ");
+    scanf("%[0-9]", senha);
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     getchar();
