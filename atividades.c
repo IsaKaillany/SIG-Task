@@ -89,8 +89,7 @@ void telaPerfil(void)
     printf("Senha: ");
     scanf("%s", &senha);
     getchar();
-    printf("\n");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
 char telaGerenciaAtividades(void)
@@ -165,8 +164,7 @@ void cadastroCompromissos(void)
     getchar();
     printf("Departamento:\n");
     depart = escolhaDepartamento();
-    printf("%d", depart);
-    getchar();
+    // printf("%d", depart);
     printf("Descricao: ");
     scanf("%s", &descri);
     getchar();
@@ -178,6 +176,9 @@ void cadastroCompromissos(void)
     // Criar código juntando a data e a hora e mostrar no final
     getchar();
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Cadastro concluido!\n");
+    printf("\nTecle ENTER para continuar");
+    getchar();
 }
 
 
@@ -193,7 +194,6 @@ void buscarCompromissos(void)
     printf("Data: ");
     scanf("%[0-9/]", data);
     getchar();
-    printf("\n");
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
@@ -214,12 +214,11 @@ void atualizarCompromissos(void)
     scanf("%s", &codigo);
     getchar();
     resp = oqueAtualizarCompromissos();
-    printf("%c", resp);
+    // printf("%c", resp);
     // Para confirmar a atualização usar a senha (E vai mudar de lugar)
     printf("\nSenha: ");
     scanf("%[0-9]", senha);
     getchar();
-    printf("\n");
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
@@ -259,11 +258,10 @@ void deletarCompromissos(void)
     printf("Codigo: ");
     scanf("%s", &codigo);
     getchar();
-    printf("\n");
+    //Senha para confirmação
     printf("Senha: ");
     scanf("%[0-9]", senha);
     getchar();
-    printf("\n");
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
@@ -307,15 +305,17 @@ void cadastroAvisos(void)
     getchar();
     printf("Departamento:\n");
     depart = escolhaDepartamento();
-    printf("%d", depart);
-    printf("\nDescricao: ");
+    // printf("%d", depart);
+    printf("Descricao: ");
     scanf("%s", &descri);
     getchar();
     printf("Data [dd/mm]: ");
     scanf("%[0-9/]", data);
     getchar();
-    printf("\n");
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Cadastro concluido!\n");
+    printf("\nTecle ENTER para continuar");
+    getchar();
 }
 
 void buscarAvisos(void)
@@ -330,13 +330,12 @@ void buscarAvisos(void)
     printf("Data: ");
     scanf("%[0-9/]", data);
     getchar();
-    printf("\n");
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
 void atualizarAvisos(void)
 {
-    char titulo[20], data[10], senha[10];
+    char titulo[20], data[10], senha[10], resp;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -350,13 +349,31 @@ void atualizarAvisos(void)
     printf("Titulo: ");
     scanf("%[A-Z a-z]", titulo);
     getchar();
-    // Após colocar o título e escolher qual aviso quer atualizar, aparecerá o que ele quer atualizar...tudo, data, hora...etc
-    printf("\n");
-    printf("Senha: ");
+    resp = oqueAtualizarAvisos();
+    //Senha para confirmar a atualização
+    printf("\nSenha: ");
     scanf("%[0-9]", senha);
     getchar();
-    printf("\n");
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+}
+
+char oqueAtualizarAvisos(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-     A T U A L I Z A R     -=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Tudo\n");
+    printf("\t2 - Titulo\n");
+    printf("\t3 - Descricao\n");
+    printf("\t4 - Data\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%c", &opcao);
+    getchar();
+
+    return opcao;
 }
 
 void deletarAvisos(void)
@@ -375,10 +392,9 @@ void deletarAvisos(void)
     printf("Titulo: ");
     scanf("%[A-Z a-z]", titulo);
     getchar();
-    printf("\n");
+    //Senha para confirmação
     printf("Senha: ");
     scanf("%[0-9]", senha);
     getchar();
-    printf("\n");
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }

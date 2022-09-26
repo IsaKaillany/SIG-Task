@@ -58,6 +58,7 @@ void cadastroUsuario(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n");
     printf("Nome: ");
     scanf("%[A-Z a-z]",nome);
     getchar();
@@ -66,12 +67,15 @@ void cadastroUsuario(void)
     getchar();
     printf("Departamento: ");
     depart = escolhaDepartamento();
-    printf("%d", depart);
-    getchar();
+    // printf("%d", depart);
+    // getchar();
     printf("Senha [8 digitos]: ");
     scanf("%[0-9]", senha);
     getchar();
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Cadastro concluido!\n");
+    printf("\nTecle ENTER para continuar");
+    getchar();
 
 }
 
@@ -119,13 +123,14 @@ void deletarUsuario(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-     D E L E T A R     -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\nE-mail: ");
+    printf("\n");
+    printf("E-mail: ");
     scanf("%[A-Za-z0-9@.]", email);
     getchar();
-    printf("\nSenha: ");
+    //Senha para confirmação
+    printf("Senha: ");
     scanf("%[0-9]", senha);
-    printf("\t0 - Voltar ao menu\n");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     getchar();
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");   
 
 }

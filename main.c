@@ -5,6 +5,7 @@
 #include "usuarios.h"
 #include "agenda.h"
 #include "atividades.h"
+#include "relatorios.h"
 
 
 // Assinatura das funções
@@ -30,7 +31,7 @@ int main(void)
                 moduloAgenda();
                 break;
             case '4':
-                //Em andamento
+                telaRelatorios();
                 break;
             case '5':
                 telaInfo();
