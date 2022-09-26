@@ -258,6 +258,7 @@ void deletarCompromissos(void)
     printf("Codigo: ");
     scanf("%s", &codigo);
     getchar();
+    //Senha para confirmação
     printf("Senha: ");
     scanf("%[0-9]", senha);
     getchar();
@@ -391,6 +392,7 @@ void deletarAvisos(void)
     printf("Titulo: ");
     scanf("%[A-Z a-z]", titulo);
     getchar();
+    //Senha para confirmação
     printf("Senha: ");
     scanf("%[0-9]", senha);
     getchar();

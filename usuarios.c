@@ -127,6 +127,7 @@ void deletarUsuario(void)
     printf("E-mail: ");
     scanf("%[A-Za-z0-9@.]", email);
     getchar();
+    //Senha para confirmação
     printf("Senha: ");
     scanf("%[0-9]", senha);
     getchar();
