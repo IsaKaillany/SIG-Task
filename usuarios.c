@@ -51,7 +51,7 @@ char telaUsuarios(void)
 
 void cadastroUsuario(void)
 {
-    char nome[20], email[30], senha[10];
+    char nome[30], email[30], senha[10];
     // int depart;
 
     system("clear||cls");
@@ -60,7 +60,7 @@ void cadastroUsuario(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n");
     printf("Nome: ");
-    scanf("%[A-Z a-z]",nome);
+    scanf("%[A-Z a-z]", nome);
     getchar();
     printf("E-mail: ");
     scanf("%[A-Za-z0-9@.]", email);
