@@ -84,10 +84,10 @@ void telaPerfil(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n");
     printf("Login: ");
-    scanf("%s", &login);
+    scanf("%[A-Z a-z]", login);
     getchar();
     printf("Senha: ");
-    scanf("%s", &senha);
+    scanf("%[0-9]", senha);
     getchar();
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
@@ -152,7 +152,7 @@ char crudCompromissos(void)
 void cadastroCompromissos(void)
 {
     char titulo[20], descri[250], data[10], hora[10];
-    int depart;
+    // int depart;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -163,10 +163,9 @@ void cadastroCompromissos(void)
     scanf("%[A-Z a-z]", titulo);
     getchar();
     printf("Departamento:\n");
-    depart = escolhaDepartamento();
-    // printf("%d", depart);
+    escolhaDepartamento(); //Colocar depois na variável depart 
     printf("Descricao: ");
-    scanf("%s", &descri);
+    scanf("%[A-Z a-z]", descri);
     getchar();
     printf("Data [dd/mm]: ");
     scanf("%[0-9/]", data);
@@ -199,7 +198,7 @@ void buscarCompromissos(void)
 
 void atualizarCompromissos(void)
 {
-    char codigo[10], data[10], senha[10], resp;
+    char codigo[10], data[10], senha[10];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -209,11 +208,11 @@ void atualizarCompromissos(void)
     printf("Data [dd/mm]: ");
     scanf("%[0-9/]", data);
     getchar();
-    //  printf("\nMostrar os comprimissos da data informada")
+    //  printf("\nMostrar os compromissos da data informada")
     printf("Codigo: ");
-    scanf("%s", &codigo);
+    scanf("%[0-9]", codigo);
     getchar();
-    resp = oqueAtualizarCompromissos();
+    oqueAtualizarCompromissos(); //Colocar depois em uma váriavel resp(char)
     // printf("%c", resp);
     // Para confirmar a atualização usar a senha (E vai mudar de lugar)
     printf("\nSenha: ");
@@ -256,7 +255,7 @@ void deletarCompromissos(void)
     getchar();
     //  printf("\nMostrar os comprimissos da data informada")
     printf("Codigo: ");
-    scanf("%s", &codigo);
+    scanf("%[0-9]", codigo);
     getchar();
     //Senha para confirmação
     printf("Senha: ");
@@ -293,7 +292,7 @@ char crudAvisos(void)
 void cadastroAvisos(void)
 {
     char titulo[20], descri[250], data[10];
-    int depart;
+    // int depart;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -304,10 +303,9 @@ void cadastroAvisos(void)
     scanf("%[A-Z a-z]", titulo);
     getchar();
     printf("Departamento:\n");
-    depart = escolhaDepartamento();
-    // printf("%d", depart);
+    escolhaDepartamento(); //Colocar depois na variável depart 
     printf("Descricao: ");
-    scanf("%s", &descri);
+    scanf("%[A-Z a-z]", descri);
     getchar();
     printf("Data [dd/mm]: ");
     scanf("%[0-9/]", data);
@@ -335,7 +333,7 @@ void buscarAvisos(void)
 
 void atualizarAvisos(void)
 {
-    char titulo[20], data[10], senha[10], resp;
+    char titulo[20], data[10], senha[10];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -349,7 +347,7 @@ void atualizarAvisos(void)
     printf("Titulo: ");
     scanf("%[A-Z a-z]", titulo);
     getchar();
-    resp = oqueAtualizarAvisos();
+    oqueAtualizarAvisos(); //Colocar depois numa variavel resp(char)
     //Senha para confirmar a atualização
     printf("\nSenha: ");
     scanf("%[0-9]", senha);

@@ -51,8 +51,8 @@ char telaUsuarios(void)
 
 void cadastroUsuario(void)
 {
-    char nome[20], email[30], senha[10];
-    int depart;
+    char nome[30], email[30], senha[10];
+    // int depart;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -60,15 +60,13 @@ void cadastroUsuario(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n");
     printf("Nome: ");
-    scanf("%[A-Z a-z]",nome);
+    scanf("%[A-Z a-z]", nome);
     getchar();
     printf("E-mail: ");
     scanf("%[A-Za-z0-9@.]", email);
     getchar();
     printf("Departamento: ");
-    depart = escolhaDepartamento();
-    // printf("%d", depart);
-    // getchar();
+    escolhaDepartamento(); //Colocar depois na variável depart 
     printf("Senha [8 digitos]: ");
     scanf("%[0-9]", senha);
     getchar();
