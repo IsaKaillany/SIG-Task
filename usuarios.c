@@ -24,6 +24,9 @@ void moduloUsuarios(void)
             case '4':
                 deletarUsuario();
                 break;
+            case '5':
+                escolhaDepartamento();
+                break;
         }           
     } while (opcao != '0');
 }
@@ -39,6 +42,7 @@ char telaUsuarios(void)
     printf("\t2 - Buscar Dados\n");
     printf("\t3 - Atualizar Dados\n");
     printf("\t4 - Deletar Dados\n");
+    printf("\t5 - Listagem de Usuarios Cadastrados\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
@@ -131,4 +135,15 @@ void deletarUsuario(void)
     getchar();
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");   
 
+}
+
+void usuariosCadastrados(void)
+{
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-     U S U A R I O S  C A D A S T R A D O S    -=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("Em desenvolvimento...");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    getchar();
 }
