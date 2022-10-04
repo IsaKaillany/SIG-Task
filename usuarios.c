@@ -31,7 +31,26 @@ void moduloUsuarios(void)
     } while (opcao != '0');
 }
 
-
+void navegacaoUsuariosCadastrados(void)
+{
+    char opcao;        
+    do
+    {
+        opcao = departamentoUsuario();
+        switch (opcao)
+        {
+            case '1':
+                usuariosCadastrados();
+                break;
+            case '2':
+                usuariosCadastrados();
+                break;
+            case '3':
+                usuariosCadastrados();
+                break;
+        }           
+    } while (opcao != '0');
+}
 
 char telaUsuarios(void)
 {
