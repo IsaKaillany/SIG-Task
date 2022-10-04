@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "usuarios.h"
-#include "atividades.h"
 
 
 void moduloUsuarios(void)
