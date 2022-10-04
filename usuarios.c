@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "usuarios.h"
-#include "atividades.h"
 
 
 void moduloUsuarios(void)
@@ -24,6 +23,30 @@ void moduloUsuarios(void)
             case '4':
                 deletarUsuario();
                 break;
+            case '5':
+                navegacaoUsuariosCadastrados();
+                break;
+        }           
+    } while (opcao != '0');
+}
+
+void navegacaoUsuariosCadastrados(void)
+{
+    char opcao;        
+    do
+    {
+        opcao = departamentoUsuario();
+        switch (opcao)
+        {
+            case '1':
+                usuariosCadastrados();
+                break;
+            case '2':
+                usuariosCadastrados();
+                break;
+            case '3':
+                usuariosCadastrados();
+                break;
         }           
     } while (opcao != '0');
 }
@@ -39,6 +62,7 @@ char telaUsuarios(void)
     printf("\t2 - Buscar Dados\n");
     printf("\t3 - Atualizar Dados\n");
     printf("\t4 - Deletar Dados\n");
+    printf("\t5 - Listagem de Usuarios\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
@@ -51,8 +75,7 @@ char telaUsuarios(void)
 
 void cadastroUsuario(void)
 {
-    char nome[30], email[30], senha[10];
-    // int depart;
+    char nome[30], email[30], senha[10], telefone[15];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -65,8 +88,9 @@ void cadastroUsuario(void)
     printf("E-mail: ");
     scanf("%[A-Za-z0-9@.]", email);
     getchar();
-    printf("Departamento: ");
-    escolhaDepartamento(); //Colocar depois na variável depart 
+    printf("Telefone [999999-9999]: ");
+    scanf("%[0-9]", telefone);
+    getchar();
     printf("Senha [8 digitos]: ");
     scanf("%[0-9]", senha);
     getchar();
@@ -131,4 +155,34 @@ void deletarUsuario(void)
     getchar();
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");   
 
+}
+
+char departamentoUsuario(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-     U S U A R I O S  C A D A S T R A D O S    -=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Departamento Administrativo\n");
+    printf("\t2 - Departamento Comercial\n");
+    printf("\t3 - Departamento Tecnico\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf(" %c", &opcao);
+    getchar();
+
+    return opcao;
+}
+
+void usuariosCadastrados(void)
+{
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-     U S U A R I O S  C A D A S T R A D O S    -=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("Em desenvolvimento...");
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    getchar();
 }

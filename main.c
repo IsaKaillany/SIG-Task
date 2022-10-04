@@ -5,7 +5,6 @@
 #include "usuarios.h"
 #include "agenda.h"
 #include "atividades.h"
-#include "relatorios.h"
 
 
 // Assinatura das funções
@@ -31,9 +30,6 @@ int main(void)
                 moduloAgenda();
                 break;
             case '4':
-                telaRelatorios();
-                break;
-            case '5':
                 telaInfo();
                 break;
         }   
@@ -52,8 +48,7 @@ char telaPrincipal(void)
     printf("\t1 - Usuarios\n");
     printf("\t2 - Atividades\n");
     printf("\t3 - Agenda\n");
-    printf("\t4 - Relatorios\n");
-    printf("\t5 - Informacoes\n");
+    printf("\t4 - Informacoes\n");
     printf("\t0 - Finalizar\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");

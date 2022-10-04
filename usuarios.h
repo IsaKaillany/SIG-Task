@@ -4,3 +4,6 @@ void cadastroUsuario(void);
 void buscarUsuario(void);
 char atualizarUsuario(void);
 void deletarUsuario(void);
+void usuariosCadastrados(void);
+void navegacaoUsuariosCadastrados(void);
+char departamentoUsuario(void);
