@@ -99,7 +99,7 @@ void cadastroUsuario(void)
     {
         depart = escolhaDepartamento();
     }    
-    //Por enquanto vai ser manual
+    //Por enquanto vai ser manual (Colocar o depart no final do id, posteriormente)
     printf("ID: ");
     scanf("%[0-9]", id);
     getchar();
@@ -130,15 +130,15 @@ int escolhaCargo(void)
 
 void buscarUsuario(void)
 {
-    char email[30];
+    char id[6];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    B U S C A R    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\nE-mail: ");
-    scanf("%[A-Za-z0-9@.]", email);
-    // Printar o usuário com o email informado
+    printf("\nID: ");
+    scanf("%[0-9]", id);
+    // Printar o usuário com o ID informado
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     getchar();
 
@@ -154,8 +154,9 @@ char atualizarUsuario(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Tudo\n");
     printf("\t2 - Nome\n");
-    printf("\t3 - Departamento\n");
-    printf("\t4 - Senha\n");
+    printf("\t3 - Senha\n");
+    printf("\t4 - E-mail\n");
+    printf("\t5 - Telefone\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
     scanf("%c", &opcao);
@@ -166,17 +167,16 @@ char atualizarUsuario(void)
 
 void deletarUsuario(void)
 {
-    char email[30], senha[10];
+    char id[6], senha[10];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-     D E L E T A R     -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\n");
-    printf("E-mail: ");
-    scanf("%[A-Za-z0-9@.]", email);
+    printf("\nID: ");
+    scanf("%[0-9]", id);
     getchar();
-    //Senha para confirmação
+    //Senha para confirmação antes de deletar
     printf("Senha: ");
     scanf("%[0-9]", senha);
     getchar();
