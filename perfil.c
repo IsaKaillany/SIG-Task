@@ -12,7 +12,7 @@ void moduloPerfil(void)
     // do
     // {
         id = telaPerfil();
-        if (id == 001234)
+        if (id == 881234)
         {
             telaPerfilGerencia();
         }
@@ -21,6 +21,24 @@ void moduloPerfil(void)
             telaPerfilFuncionarios();
         }
     // } while (id != '0');
+}
+
+void navegacaoPerfilFuncionarios(void)
+{
+    char opcao;
+    do
+    {
+        opcao = telaPerfilFuncionarios();
+        switch (opcao)
+        {
+            case '1':
+                navegacaoCrudCompromissos();
+                break;
+            case '2':
+                agendaFuncionario();
+                break;
+        }   
+    } while (opcao != '0');
 }
 
 
@@ -34,7 +52,7 @@ int telaPerfil(void)
     printf("-=-=-=-=-=-=-=-=-=-    P E R F I L    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nID: ");
-    scanf("%[0-9]", id);
+    scanf("%d", id);
     getchar();
     printf("Senha: ");
     scanf("%[0-9]", senha);
@@ -71,7 +89,7 @@ char telaPerfilFuncionarios(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-    F U N C I O N A R I O S    -=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\t1 - Compromissos\n");
+    printf("\t1 - Cadastrar Compromisso\n");
     printf("\t2 - Agenda\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
