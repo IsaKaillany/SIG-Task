@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "usuarios.h"
+#include "atividades.h"
 
 
 void moduloUsuarios(void)
@@ -75,7 +76,8 @@ char telaUsuarios(void)
 
 void cadastroUsuario(void)
 {
-    char nome[30], email[30], senha[10], telefone[15];
+    char nome[30], email[30], senha[10], telefone[12], id[6];
+    int cargo, depart;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -91,9 +93,19 @@ void cadastroUsuario(void)
     printf("Telefone [999999-9999]: ");
     scanf("%[0-9]", telefone);
     getchar();
+    printf("Cargo:\n");
+    cargo = escolhaCargo();
+    if (cargo == 2)
+    {
+        depart = escolhaDepartamento();
+    }    
+    //Por enquanto vai ser manual (Colocar o depart no final do id, posteriormente)
+    printf("ID: ");
+    scanf("%[0-9]", id);
+    getchar();
     printf("Senha [8 digitos]: ");
     scanf("%[0-9]", senha);
-    getchar();
+    getchar();    
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Cadastro concluido!\n");
     printf("\nTecle ENTER para continuar");
@@ -101,25 +113,54 @@ void cadastroUsuario(void)
 
 }
 
+int escolhaCargo(void)
+{
+    int cargo;
+    // system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Gerencia\n");
+    printf("\t2 - Funcionario\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%d", &cargo);
+    getchar();
+
+    return cargo;
+}
+
 void buscarUsuario(void)
 {
-    char email[30];
+    char id[6];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    B U S C A R    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\nE-mail: ");
-    scanf("%[A-Za-z0-9@.]", email);
-    // Printar o usuário com o email informado
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\nID: ");
+    scanf("%[0-9]", id);
     getchar();
+    // Printar o usuário com o ID informado
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 
 }
 
-char atualizarUsuario(void)
+void atualizarUsuario(void)
 {
-    
+    char id[6];
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-     A T U A L I Z A R     -=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\nID: ");
+    scanf("%[0-9]", id);
+    getchar();
+    oqueAtualizarUsuario();
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+}     
+
+
+char oqueAtualizarUsuario(void)
+{    
     char opcao;
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -127,8 +168,9 @@ char atualizarUsuario(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Tudo\n");
     printf("\t2 - Nome\n");
-    printf("\t3 - Departamento\n");
-    printf("\t4 - Senha\n");
+    printf("\t3 - Senha\n");
+    printf("\t4 - E-mail\n");
+    printf("\t5 - Telefone\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
     scanf("%c", &opcao);
@@ -139,17 +181,16 @@ char atualizarUsuario(void)
 
 void deletarUsuario(void)
 {
-    char email[30], senha[10];
+    char id[6], senha[10];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-     D E L E T A R     -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\n");
-    printf("E-mail: ");
-    scanf("%[A-Za-z0-9@.]", email);
+    printf("\nID: ");
+    scanf("%[0-9]", id);
     getchar();
-    //Senha para confirmação
+    //Senha para confirmação antes de deletar
     printf("Senha: ");
     scanf("%[0-9]", senha);
     getchar();
