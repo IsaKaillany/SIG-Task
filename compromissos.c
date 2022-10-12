@@ -161,3 +161,19 @@ void deletarCompromissos(void)
     getchar();
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
+
+int escolhaDepartamento(void)
+{
+    int opcao;
+    // system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Departamento Administrativo\n");
+    printf("\t2 - Departamento Comercial\n");
+    printf("\t3 - Departamento Tecnico\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%d", &opcao);
+    getchar();
+
+    return opcao;
+}
