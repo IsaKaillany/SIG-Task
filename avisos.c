@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "compromissos.h"
+#include "avisos.h"
 
 void navegacaoCrudAvisos(void)
 {

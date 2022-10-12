@@ -3,8 +3,7 @@
 #include <ctype.h> //Manipulação de caracteres
 #include <string.h> //Manipulação de strings
 #include "usuarios.h"
-#include "agenda.h"
-#include "atividades.h"
+#include "perfil.h"
 
 
 // Assinatura das funções
@@ -24,12 +23,9 @@ int main(void)
                 moduloUsuarios();
                 break;
             case '2':
-                moduloAtividades();
+                moduloPerfil();
                 break;
             case '3':
-                moduloAgenda();
-                break;
-            case '4':
                 telaInfo();
                 break;
         }   
@@ -46,9 +42,8 @@ char telaPrincipal(void)
     printf("-=-=-=-=-=-=-=-=-    S I G - T a s k    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Usuarios\n");
-    printf("\t2 - Atividades\n");
-    printf("\t3 - Agenda\n");
-    printf("\t4 - Informacoes\n");
+    printf("\t2 - Perfil\n");
+    printf("\t3 - Informacoes\n");
     printf("\t0 - Finalizar\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");

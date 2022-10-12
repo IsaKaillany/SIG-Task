@@ -1,30 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "compromissos.h"
+#include "avisos.h"
+#include "agenda.h"
+#include "perfil.h"
 
 
 void moduloPerfil(void)
 {
-    char id;
-    do
-    {
+    int id;
+    // do
+    // {
         id = telaPerfil();
-        if (id == '001234')
+        if (id == 001234)
         {
             telaPerfilGerencia();
         }
-        if (id == '991234')
+        if (id == 991234)
         {
             telaPerfilFuncionarios();
         }
-    } while (id != '0');
+    // } while (id != '0');
 }
 
 
 
-char telaPerfil(void)
+int telaPerfil(void)
 {
-    char id[6], senha[10];
+    int id[8];
+    char senha[10];
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    P E R F I L    -=-=-=-=-=-=-=-=-=-\n");
