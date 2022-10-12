@@ -7,3 +7,4 @@ void deletarUsuario(void);
 void usuariosCadastrados(void);
 void navegacaoUsuariosCadastrados(void);
 char departamentoUsuario(void);
+int escolhaCargo(void);
