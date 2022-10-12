@@ -76,7 +76,7 @@ char telaUsuarios(void)
 
 void cadastroUsuario(void)
 {
-    char nome[30], email[30], senha[10], telefone[12];
+    char nome[30], email[30], senha[10], telefone[12], id[6];
     int cargo, depart;
 
     system("clear||cls");
@@ -99,6 +99,10 @@ void cadastroUsuario(void)
     {
         depart = escolhaDepartamento();
     }    
+    //Por enquanto vai ser manual
+    printf("ID: ");
+    scanf("%[0-9]", id);
+    getchar();
     printf("Senha [8 digitos]: ");
     scanf("%[0-9]", senha);
     getchar();    
