@@ -75,7 +75,8 @@ char telaUsuarios(void)
 
 void cadastroUsuario(void)
 {
-    char nome[30], email[30], senha[10], telefone[15];
+    char nome[30], email[30], senha[10], telefone[12];
+    int cargo;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -99,6 +100,21 @@ void cadastroUsuario(void)
     printf("\nTecle ENTER para continuar");
     getchar();
 
+}
+
+int escolhaCargo(void)
+{
+    int cargo;
+    // system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Gerencia\n");
+    printf("\t2 - Funcionario\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%d", &cargo);
+    getchar();
+
+    return cargo;
 }
 
 void buscarUsuario(void)
