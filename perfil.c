@@ -99,8 +99,8 @@ char telaPerfilGerencia(void)
     printf("\t1 - Compromissos\n");
     printf("\t2 - Avisos\n");
     printf("\t3 - Agenda\n");
-    printf("\t\ta - Por Departamento\n");
-    printf("\t\tb - Por Codigo\n");
+    printf("\t\ta - Departamento\n");
+    printf("\t\tb - Funcionario\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
