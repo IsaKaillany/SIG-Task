@@ -74,12 +74,15 @@ void telaPerfil(char id[])
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    P E R F I L    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\nID: ");
+    printf("\nID [0 para voltar]: ");
     scanf("%s", id);
     getchar();
-    printf("Senha: ");
-    scanf("%[0-9]", senha);
-    getchar();
+    if (strcmp(id, "0") != 0)
+    {
+        printf("Senha: ");
+        scanf("%[0-9]", senha);
+        getchar();
+    }      
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 
 }
@@ -96,8 +99,8 @@ char telaPerfilGerencia(void)
     printf("\t1 - Compromissos\n");
     printf("\t2 - Avisos\n");
     printf("\t3 - Agenda\n");
-    printf("\t\ta - Por Departamento\n");
-    printf("\t\tb - Por Codigo\n");
+    printf("\t\ta - Departamento\n");
+    printf("\t\tb - Funcionario\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");

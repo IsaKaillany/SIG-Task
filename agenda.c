@@ -1,22 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "agenda.h"
 
 void moduloAgenda(void)
 {
-    char opcao;
-    while (opcao != '0')
+    char opcao[3];  
+    do
     {
-      opcao = telaAgenda();
-      if ((opcao == '1') || (opcao == '2') || (opcao == '3'))
+      telaAgenda(opcao);
+      if ((strcmp(opcao, "1a") == 0) || (strcmp(opcao, "2a") == 0) || (strcmp(opcao, "3a") == 0))
       {
         mostragemAgendaCompromissos();
       }
-      if ((opcao == '4') || (opcao == '5') || (opcao == '6'))
+      if ((strcmp(opcao, "1b") == 0) || (strcmp(opcao, "2b") == 0) || (strcmp(opcao, "3b") == 0))
       {
         mostragemAgendaAvisos();
       }
-    } 
+    } while (strcmp(opcao, "0") != 0);
 }
 
 void navegacaoAgendaGerencia(void)
@@ -27,7 +28,7 @@ void navegacaoAgendaGerencia(void)
     getchar();
     if (opcao == 'a')
     {
-      telaAgenda();
+      moduloAgenda();
     }
     else if (opcao == 'b')
     {
@@ -69,29 +70,27 @@ void agendaGerenciaCodigo(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
-char telaAgenda(void)
+void telaAgenda(char opcao[])
 {
-    char opcao[3];
+    
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    A G E N D A    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t>>> Departamento Administrativo\n");
-    printf("\t\t1A - Compromissos\n");
-    printf("\t\t4B - Avisos\n");
+    printf("\t\t1a - Compromissos\n");
+    printf("\t\t1b - Avisos\n");
     printf("\t>>> Departamento Comercial\n");
-    printf("\t\t2A - Compromissos\n");
-    printf("\t\t5B - Avisos\n");
+    printf("\t\t2a - Compromissos\n");
+    printf("\t\t2b - Avisos\n");
     printf("\t>>> Departamento Tecnico\n");
-    printf("\t\t3A - Compromissos\n");
-    printf("\t\t6B - Avisos\n");
+    printf("\t\t3a - Compromissos\n");
+    printf("\t\t3b - Avisos\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
     scanf("%s", opcao);
     getchar();
-
-    return opcao;
 }
 
 char agendaFuncionario(void)

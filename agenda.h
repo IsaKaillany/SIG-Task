@@ -1,5 +1,5 @@
 void moduloAgenda(void);
-char telaAgenda(void);
+void telaAgenda(char[]);
 void mostragemAgendaCompromissos(void);
 void mostragemAgendaAvisos(void);
 char agendaFuncionario(void);
