@@ -37,8 +37,9 @@ void navegacaoPerfilGerencia(void)
             case '2':
                 crudAvisos();
                 break;
-            case '3':
-                break;
+            // case '3':
+            //     navegacaoAgendaGerencia();
+            //     break;
         }   
     } while (opcao != '0');
 }

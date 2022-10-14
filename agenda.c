@@ -19,24 +19,47 @@ void moduloAgenda(void)
     } 
 }
 
+// void navegacaoAgendaGerencia(void)
+// {
+//     char opcao;
+//     if (opcao == '4')
+//     {
+//       telaAgenda();
+//     }
+//     else if (opcao == '5')
+//     {
+//       agendaGerenciaCodigo();
+//     }
+    
+    
+//     // do
+//     // {
+//     //     opcao = agendaGerencia();
+//     //     switch (opcao)
+//     //     {
+//     //         case '1':
+                
+//     //             break;
+//     //         case '2':
+                
+//     //             break;
+//     //     }   
+//     // } while (opcao != '0');
+// }
 
 
 
-
-char agendaGerencia(void)
+void agendaGerenciaCodigo(void)
 {
-    char opcao;
+    char codigo[10];
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    A G E N D A    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf(">>> Opcao ");
-    scanf("%c", &opcao);
+    printf("Codigo [9 digitos]: ");
+    scanf("%[0-9]", codigo);
     getchar();
-
-    return opcao;
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
 char telaAgenda(void)
