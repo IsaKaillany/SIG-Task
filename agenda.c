@@ -35,6 +35,24 @@ void navegacaoAgendaGerencia(void)
     }
 }
 
+void navegacaoAgendaFuncionarios(void)
+{
+    char opcao;
+    do
+    {
+        opcao = agendaFuncionario();
+        switch (opcao)
+        {
+            case '1':
+                mostragemAgendaCompromissos();
+                break;
+            case '2':
+                mostragemAgendaAvisos();
+                break;
+        }   
+    } while (opcao != '0');
+}
+
 
 
 
