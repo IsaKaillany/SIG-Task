@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h> //Manipulação de caracteres
-#include <string.h> //Manipulação de strings
 #include "usuarios.h"
 #include "perfil.h"
 

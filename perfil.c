@@ -9,8 +9,8 @@
 void moduloPerfil(void)
 {
     int id;
-    // do
-    // {
+    do
+    {
         id = telaPerfil();
         if (id == 881234)
         {
@@ -20,7 +20,28 @@ void moduloPerfil(void)
         {
             telaPerfilFuncionarios();
         }
-    // } while (id != '0');
+    } while (!id);
+}
+
+void navegacaoPerfilGerencia(void)
+{
+    char opcao;
+    do
+    {
+        opcao = telaPerfilGerencia();
+        switch (opcao)
+        {
+            case '1':
+                navegacaoCrudCompromissos();
+                break;
+            case '2':
+                crudAvisos();
+                break;
+            // case '3':
+            //     navegacaoAgendaGerencia();
+            //     break;
+        }   
+    } while (opcao != '0');
 }
 
 void navegacaoPerfilFuncionarios(void)
@@ -45,14 +66,14 @@ void navegacaoPerfilFuncionarios(void)
 
 int telaPerfil(void)
 {
-    int id[8];
+    int id;
     char senha[10];
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    P E R F I L    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nID: ");
-    scanf("%d", id);
+    scanf("%d", &id);
     getchar();
     printf("Senha: ");
     scanf("%[0-9]", senha);
@@ -73,6 +94,9 @@ char telaPerfilGerencia(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Compromissos\n");
     printf("\t2 - Avisos\n");
+    printf("\t3 - Agenda\n");
+    printf("\t\t4 - Por Departamento\n");
+    printf("\t\t5 - Por Codigo\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
