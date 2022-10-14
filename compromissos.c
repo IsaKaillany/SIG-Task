@@ -50,19 +50,17 @@ char crudCompromissos(void)
 // Tirar setor, chamar a função escolhaDepartamento na variavel depart, tirar o vetor de depart
 void cadastroCompromissos(void)
 {
-    char titulo[20], descri[250], data[10], hora[10];
-    // int depart;
+    char titulo[100], descri[1000], data[6], hora[6], id[8];
+    char codigo;
+    int depart;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\n");
-    printf("Titulo: ");
+    printf("\nTitulo: ");
     scanf("%[A-Z a-z]", titulo);
     getchar();
-    printf("Departamento:\n");
-    escolhaDepartamento(); //Colocar depois na variável depart 
     printf("Descricao: ");
     scanf("%[A-Z a-z]", descri);
     getchar();
@@ -71,25 +69,30 @@ void cadastroCompromissos(void)
     getchar();
     printf("Horario [00:00]: ");
     scanf("%[0-9:]", hora);
-    // Criar código juntando a data e a hora e mostrar no final
+    printf("Departamento:\n");
+    depart = escolhaDepartamento(); 
+    printf("ID do funcionario: ");
+    scanf("%[0-9]", id);
     getchar();
+    // Criar código juntando a data, hora e departamento p/ mostrar no final
+    // codigo = data + hora + (char)depart;
+    // printf("Codigo: %s", codigo);
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Cadastro concluido!\n");
     printf("\nTecle ENTER para continuar");
     getchar();
 }
 
-
+//Mostrar o título e código da data pesquisada, depois digita o código para ver as infos completas do compromisso
 void buscarCompromissos(void)
 {
-    char data[10];
+    char data[6];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-      B U S C A R      -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\n");
-    printf("Data: ");
+    printf("\nData: ");
     scanf("%[0-9/]", data);
     getchar();
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -97,21 +100,16 @@ void buscarCompromissos(void)
 
 void atualizarCompromissos(void)
 {
-    char codigo[10], data[10], senha[10];
+    char codigo[10], senha[10], resp;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-   A T U A L I Z A R   -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\n");
-    printf("Data [dd/mm]: ");
-    scanf("%[0-9/]", data);
-    getchar();
-    //  printf("\nMostrar os compromissos da data informada")
     printf("Codigo: ");
     scanf("%[0-9]", codigo);
     getchar();
-    oqueAtualizarCompromissos(); //Colocar depois em uma váriavel resp(char)
+    resp = oqueAtualizarCompromissos(); 
     // printf("%c", resp);
     // Para confirmar a atualização usar a senha (E vai mudar de lugar)
     printf("\nSenha: ");
@@ -142,18 +140,13 @@ char oqueAtualizarCompromissos(void)
 
 void deletarCompromissos(void)
 {
-    char codigo[10], data[10], senha[10];
+    char codigo[10], senha[10];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-     D E L E T A R     -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\n");
-    printf("Data [dd/mm]: ");
-    scanf("%[0-9/]", data);
-    getchar();
-    //  printf("\nMostrar os comprimissos da data informada")
-    printf("Codigo: ");
+    printf("\nCodigo: ");
     scanf("%[0-9]", codigo);
     getchar();
     //Senha para confirmação
