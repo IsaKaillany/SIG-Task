@@ -19,6 +19,24 @@ void moduloAgenda(void)
     } 
 }
 
+char agendaFuncionario(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-    A G E N D A    -=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Visualizar por Departamento\n");
+    printf("\t2 - Visualizar por Codigo\n");
+    printf("\t0 - Voltar a tela anterior\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf("%c", &opcao);
+    getchar();
+
+    return opcao;
+}
+
 char telaAgenda(void)
 {
     char opcao;
