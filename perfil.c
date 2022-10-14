@@ -74,12 +74,15 @@ void telaPerfil(char id[])
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    P E R F I L    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\nID: ");
+    printf("\nID [0 para voltar]: ");
     scanf("%s", id);
     getchar();
-    printf("Senha: ");
-    scanf("%[0-9]", senha);
-    getchar();
+    if (strcmp(id, "0") != 0)
+    {
+        printf("Senha: ");
+        scanf("%[0-9]", senha);
+        getchar();
+    }      
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 
 }
