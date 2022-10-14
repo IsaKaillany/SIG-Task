@@ -106,7 +106,7 @@ void atualizarCompromissos(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-   A T U A L I Z A R   -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("Codigo [9 digitos]: ");
+    printf("\nCodigo [9 digitos]: ");
     scanf("%[0-9]", codigo);
     getchar();
     resp = oqueAtualizarCompromissos(); 

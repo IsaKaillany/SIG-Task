@@ -100,7 +100,7 @@ void atualizarAvisos(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-   A T U A L I Z A R   -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("Codigo: ");
+    printf("\nCodigo: ");
     // scanf("%[0-9]", codigo);
     getchar();
     resp = oqueAtualizarAvisos(); 
@@ -141,6 +141,7 @@ void deletarAvisos(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nCodigo: ");
     // scanf("%[0-9]", codigo);
+    getchar();
     //Senha para confirmação
     printf("Senha: ");
     scanf("%[0-9]", senha);

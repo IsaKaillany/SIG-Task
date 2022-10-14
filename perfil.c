@@ -14,11 +14,11 @@ void moduloPerfil(void)
         id = telaPerfil();
         if (id == 881234)
         {
-            telaPerfilGerencia();
+            navegacaoPerfilGerencia();
         }
         if (id == 991234)
         {
-            telaPerfilFuncionarios();
+            navegacaoPerfilFuncionarios();
         }
     } while (!id);
 }
@@ -35,7 +35,7 @@ void navegacaoPerfilGerencia(void)
                 navegacaoCrudCompromissos();
                 break;
             case '2':
-                crudAvisos();
+                navegacaoCrudAvisos();
                 break;
             // case '3':
             //     navegacaoAgendaGerencia();
