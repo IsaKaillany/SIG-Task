@@ -51,25 +51,26 @@ char crudAvisos(void)
 
 void cadastroAvisos(void)
 {
-    char titulo[20], descri[250], data[10];
-    // int depart;
+    char titulo[100], descri[1000], data[6];
+    // char codigo;
+    int depart;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\n");
-    printf("Titulo: ");
+    printf("\nTitulo: ");
     scanf("%[A-Z a-z]", titulo);
     getchar();
-    printf("Departamento:\n");
-    escolhaDepartamento(); //Colocar depois na variável depart 
     printf("Descricao: ");
     scanf("%[A-Z a-z]", descri);
     getchar();
     printf("Data [dd/mm]: ");
     scanf("%[0-9/]", data);
     getchar();
+    printf("Departamento:\n");
+    depart = escolhaDepartamento(); 
+    //Criar código
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Cadastro concluido!\n");
     printf("\nTecle ENTER para continuar");
@@ -78,14 +79,13 @@ void cadastroAvisos(void)
 
 void buscarAvisos(void)
 {
-    char data[10];
+    char data[6];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-      B U S C A R      -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\n");
-    printf("Data: ");
+    printf("\nData [dd/mm]: ");
     scanf("%[0-9/]", data);
     getchar();
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -93,21 +93,17 @@ void buscarAvisos(void)
 
 void atualizarAvisos(void)
 {
-    char titulo[20], data[10], senha[10];
+    char senha[10], resp;
+    // char codigo;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-   A T U A L I Z A R   -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\n");
-    printf("Data: ");
-    scanf("%[0-9/]", data);
+    printf("\nCodigo: ");
+    // scanf("%[0-9]", codigo);
     getchar();
-    //  printf("\nMostrar os avisos da data informada")
-    printf("Titulo: ");
-    scanf("%[A-Z a-z]", titulo);
-    getchar();
-    oqueAtualizarAvisos(); //Colocar depois numa variavel resp(char)
+    resp = oqueAtualizarAvisos(); 
     //Senha para confirmar a atualização
     printf("\nSenha: ");
     scanf("%[0-9]", senha);
@@ -136,19 +132,15 @@ char oqueAtualizarAvisos(void)
 
 void deletarAvisos(void)
 {
-    char titulo[20], data[10], senha[10];
+    char senha[10];
+    // char codigo;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-     D E L E T A R     -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\n");
-    printf("Data: ");
-    scanf("%[0-9/]", data);
-    getchar();
-    //  printf("\nMostrar os avisos da data informada")
-    printf("Titulo: ");
-    scanf("%[A-Z a-z]", titulo);
+    printf("\nCodigo: ");
+    // scanf("%[0-9]", codigo);
     getchar();
     //Senha para confirmação
     printf("Senha: ");

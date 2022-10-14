@@ -19,33 +19,40 @@ void moduloAgenda(void)
     } 
 }
 
-// void navegacaoAgendaGerencia(void)
-// {
-//     char opcao;
-//     if (opcao == '4')
-//     {
-//       telaAgenda();
-//     }
-//     else if (opcao == '5')
-//     {
-//       agendaGerenciaCodigo();
-//     }
-    
-    
-//     // do
-//     // {
-//     //     opcao = agendaGerencia();
-//     //     switch (opcao)
-//     //     {
-//     //         case '1':
-                
-//     //             break;
-//     //         case '2':
-                
-//     //             break;
-//     //     }   
-//     // } while (opcao != '0');
-// }
+void navegacaoAgendaGerencia(void)
+{
+    char opcao;
+    printf(">> Letra ");
+    scanf("%c", &opcao);
+    getchar();
+    if (opcao == 'a')
+    {
+      telaAgenda();
+    }
+    else if (opcao == 'b')
+    {
+      agendaGerenciaCodigo();
+    }
+}
+
+void navegacaoAgendaFuncionarios(void)
+{
+    char opcao;
+    do
+    {
+        opcao = agendaFuncionario();
+        switch (opcao)
+        {
+            case '1':
+                mostragemAgendaCompromissos();
+                break;
+            case '2':
+                mostragemAgendaAvisos();
+                break;
+        }   
+    } while (opcao != '0');
+}
+
 
 
 
@@ -56,7 +63,7 @@ void agendaGerenciaCodigo(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    A G E N D A    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("Codigo [9 digitos]: ");
+    printf("\nCodigo [9 digitos]: ");
     scanf("%[0-9]", codigo);
     getchar();
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");

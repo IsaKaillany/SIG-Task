@@ -14,11 +14,11 @@ void moduloPerfil(void)
         id = telaPerfil();
         if (id == 881234)
         {
-            telaPerfilGerencia();
+            navegacaoPerfilGerencia();
         }
         if (id == 991234)
         {
-            telaPerfilFuncionarios();
+            navegacaoPerfilFuncionarios();
         }
     } while (!id);
 }
@@ -35,11 +35,11 @@ void navegacaoPerfilGerencia(void)
                 navegacaoCrudCompromissos();
                 break;
             case '2':
-                crudAvisos();
+                navegacaoCrudAvisos();
                 break;
-            // case '3':
-            //     navegacaoAgendaGerencia();
-            //     break;
+            case '3':
+                navegacaoAgendaGerencia();
+                break;
         }   
     } while (opcao != '0');
 }
@@ -56,7 +56,7 @@ void navegacaoPerfilFuncionarios(void)
                 navegacaoCrudCompromissos();
                 break;
             case '2':
-                agendaFuncionario();
+                navegacaoAgendaFuncionarios();
                 break;
         }   
     } while (opcao != '0');
@@ -95,8 +95,8 @@ char telaPerfilGerencia(void)
     printf("\t1 - Compromissos\n");
     printf("\t2 - Avisos\n");
     printf("\t3 - Agenda\n");
-    printf("\t\t4 - Por Departamento\n");
-    printf("\t\t5 - Por Codigo\n");
+    printf("\t\ta - Por Departamento\n");
+    printf("\t\tb - Por Codigo\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
