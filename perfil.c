@@ -45,14 +45,14 @@ void navegacaoPerfilFuncionarios(void)
 
 int telaPerfil(void)
 {
-    int id[8];
+    int id;
     char senha[10];
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    P E R F I L    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nID: ");
-    scanf("%d", id);
+    scanf("%d", &id);
     getchar();
     printf("Senha: ");
     scanf("%[0-9]", senha);

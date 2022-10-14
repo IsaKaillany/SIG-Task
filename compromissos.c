@@ -51,7 +51,7 @@ char crudCompromissos(void)
 void cadastroCompromissos(void)
 {
     char titulo[100], descri[1000], data[6], hora[6], id[8];
-    char codigo;
+    // char codigo;
     int depart;
 
     system("clear||cls");
