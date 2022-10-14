@@ -23,6 +23,26 @@ void moduloPerfil(void)
     } while (!id);
 }
 
+void navegacaoPerfilGerencia(void)
+{
+    char opcao;
+    do
+    {
+        opcao = telaPerfilGerencia();
+        switch (opcao)
+        {
+            case '1':
+                navegacaoCrudCompromissos();
+                break;
+            case '2':
+                crudAvisos();
+                break;
+            case '3':
+                break;
+        }   
+    } while (opcao != '0');
+}
+
 void navegacaoPerfilFuncionarios(void)
 {
     char opcao;
