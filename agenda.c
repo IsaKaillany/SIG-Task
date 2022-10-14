@@ -71,7 +71,7 @@ void agendaGerenciaCodigo(void)
 
 char telaAgenda(void)
 {
-    char opcao;
+    char opcao[3];
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    A G E N D A    -=-=-=-=-=-=-=-=-=-\n");
@@ -88,7 +88,7 @@ char telaAgenda(void)
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
-    scanf("%c", &opcao);
+    scanf("%s", opcao);
     getchar();
 
     return opcao;

@@ -1,4 +1,4 @@
-int telaPerfil(void);
+void telaPerfil(char[]);
 void moduloPerfil(void);
 char telaPerfilGerencia(void);
 char telaPerfilFuncionarios(void);
