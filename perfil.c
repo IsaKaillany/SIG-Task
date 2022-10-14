@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "compromissos.h"
 #include "avisos.h"
 #include "agenda.h"
@@ -8,19 +9,20 @@
 
 void moduloPerfil(void)
 {
-    int id;
+    char id[7];
+    
     do
     {
-        id = telaPerfil();
-        if (id == 881234)
+        telaPerfil(id);
+        if (strcmp(id,"881234") == 0)
         {
             navegacaoPerfilGerencia();
         }
-        if (id == 991234)
+        if (strcmp(id,"991234") == 0)
         {
             navegacaoPerfilFuncionarios();
         }
-    } while (!id);
+    } while (strcmp(id, "0") != 0);
 }
 
 void navegacaoPerfilGerencia(void)
@@ -64,23 +66,22 @@ void navegacaoPerfilFuncionarios(void)
 
 
 
-int telaPerfil(void)
+void telaPerfil(char id[])
 {
-    int id;
     char senha[10];
+
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    P E R F I L    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nID: ");
-    scanf("%d", &id);
+    scanf("%s", id);
     getchar();
     printf("Senha: ");
     scanf("%[0-9]", senha);
     getchar();
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 
-    return id;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
