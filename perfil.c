@@ -9,8 +9,8 @@
 void moduloPerfil(void)
 {
     int id;
-    // do
-    // {
+    do
+    {
         id = telaPerfil();
         if (id == 881234)
         {
@@ -20,7 +20,7 @@ void moduloPerfil(void)
         {
             telaPerfilFuncionarios();
         }
-    // } while (id != '0');
+    } while (!id);
 }
 
 void navegacaoPerfilFuncionarios(void)
@@ -73,6 +73,7 @@ char telaPerfilGerencia(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Compromissos\n");
     printf("\t2 - Avisos\n");
+    printf("\t3 - Agenda\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
