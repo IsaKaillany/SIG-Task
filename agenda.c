@@ -1,22 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "agenda.h"
 
 void moduloAgenda(void)
 {
-    char opcao;
-    while (opcao != '0')
+    char opcao[3];  
+    do
     {
-      opcao = telaAgenda();
-      if ((opcao == '1') || (opcao == '2') || (opcao == '3'))
+      telaAgenda(opcao);
+      if ((strcmp(opcao, "1a") == 0) || (strcmp(opcao, "2a") == 0) || (strcmp(opcao, "3a") == 0))
       {
         mostragemAgendaCompromissos();
       }
-      if ((opcao == '4') || (opcao == '5') || (opcao == '6'))
+      if ((strcmp(opcao, "1b") == 0) || (strcmp(opcao, "2b") == 0) || (strcmp(opcao, "3b") == 0))
       {
         mostragemAgendaAvisos();
       }
-    } 
+    } while (strcmp(opcao, "0") != 0);
 }
 
 void navegacaoAgendaGerencia(void)
@@ -27,7 +28,7 @@ void navegacaoAgendaGerencia(void)
     getchar();
     if (opcao == 'a')
     {
-      telaAgenda();
+      moduloAgenda();
     }
     else if (opcao == 'b')
     {
@@ -69,9 +70,9 @@ void agendaGerenciaCodigo(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
-char telaAgenda(void)
+void telaAgenda(char opcao[])
 {
-    char opcao[3];
+    
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    A G E N D A    -=-=-=-=-=-=-=-=-=-\n");
@@ -90,8 +91,6 @@ char telaAgenda(void)
     printf(">>> Opcao ");
     scanf("%s", opcao);
     getchar();
-
-    return opcao;
 }
 
 char agendaFuncionario(void)
