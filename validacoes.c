@@ -69,9 +69,8 @@ int validaEmail(char email[])
 
 
 
-int validaSenha(void)
+int validaSenha(char senha[])
 {
-  char senha[8] = {"isa12345"};
   int tam = strlen(senha);
   int digito = 0, letra = 0;
   
@@ -102,5 +101,6 @@ int validaSenha(void)
     {
       return 1;
     }
-  }
+  } 
+  return 0;
 }
