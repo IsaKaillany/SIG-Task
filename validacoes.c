@@ -72,7 +72,7 @@ int validaEmail(char email[])
 int validaNome(char nome[])
 {
   char tam = strlen(nome);
-  int letra = 0, espaco = 0;
+  int letra = 0, espaco = 0, i;
   
   if (tam < 2) //verifica o tamanho
   {
@@ -80,7 +80,7 @@ int validaNome(char nome[])
   }
   else
   {
-    for (int i = 0; i < tam; i++)
+    for (i = 0; i < tam; i++)
       {
         char c = nome[i];
         
@@ -110,7 +110,7 @@ int validaNome(char nome[])
 int validaSenha(char senha[])
 {
   int tam = strlen(senha);
-  int digito = 0, letra = 0;
+  int digito = 0, letra = 0, i;
   
   if (tam != 8) //verifica o tamanho
   {
@@ -118,7 +118,7 @@ int validaSenha(char senha[])
   }
   else
   {
-    for (int i = 0; i < tam; i++) 
+    for (i = 0; i < tam; i++) 
       {
         char c = senha[i];
         
@@ -149,7 +149,7 @@ return 0;
 int validaTelefone(char telefone[])
 {
   int tam = strlen(telefone);
-  int digito = 0; 
+  int digito = 0, i; 
   
   if (tam != 11) //verifica o tamanho
   {
@@ -157,7 +157,7 @@ int validaTelefone(char telefone[])
   }
   else
   {
-    for (int i = 0; i < tam; i++)
+    for (i = 0; i < tam; i++)
       {
         char c = telefone[i];
   
