@@ -5,15 +5,20 @@
 #include "validacoes.h"
 
 
-/* Se o tamanho for menor que 10
-Se não tiver "@" e "."
-Se não tiver pelo menos 3 caracteres antes do "@"
-Se tiver mais de um "@" e mais de um "."*/
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+> O tamanho do email precisa ser maior que 8
+> Precisa ter no mínimo 9 letras
+> O @ e o . não podem aparecer nos 3 primeiros caracteres
+> Não pode ter mais de um "@" e mais de um "."
+> Não pode ter caracteres especiais
+> Precisa ter apenas um @ e um .
+> O ponto só aparece na colocação 3 após o @
+*/
 int validaEmail(char email[])
 {
-    // char email[50] = {"isa@gmail.com"};
-    int tam = strlen(email), i;
-    int arroba = 0, ponto = 0, valid = 0;
+    int tam = strlen(email), i, letra = 0;
+    int arroba = 0, ponto = 0, valid = 0, lugarponto = 0, lugararroba = 0;
     
     
     for (i = 0; i < tam; i++)
@@ -21,58 +26,68 @@ int validaEmail(char email[])
         char c = email[i];
         if ((email[0] == '@') || (email[1] == '@') || (email[2] == '@'))
         {
-          printf("E-mail Inválido!");
+          printf("inválido");
           return 1;
         }
       
-
         if ((email[0] == '.') || (email[1] == '.') || (email[2] == '.'))
         {
-          printf("E-mail Inválido!");
+          printf("inválido");
           return 1;
         }
-
-
-
+        
         if (c == '@')
         {
             arroba++;
+            lugararroba = i;
+          
         }
-
 
         if (c == '.')
         {
             ponto++;
+            lugarponto = i;
+            
         }
 
+        if (isalpha(c))
+        {
+          letra++;
+    
+        }
 
+        if (c == '&' || c == '=' || c == '_' || c == '"' || c == '+' || c == '-' || 
+            c == ',' || (c == '<') || c == '>' || c == '[' || c == ']')
+        {
+          printf("E-mail Invál!");
+          return 1;          
+        }
 
     }
 
 
-    if ((tam > 8) && (arroba == 1 && ponto == 1))
+    if ((tam > 8 && letra > 8) && (arroba == 1 && ponto == 1) && (lugararroba+2 < lugarponto))
     {
-    //   printf("E-mail Válido!");  
+      printf("E-mail Válido!");  
       return 0;
     }
-    
     
     else
     {
       printf("E-mail Inválido!");
       return 1;
-      
     }
-
+  
+  return 0;
 }
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 int validaNome(char nome[])
 {
   char tam = strlen(nome);
-  int letra = 0, espaco = 0;
+  int letra = 0, espaco = 0, i;
   
   if (tam < 2) //verifica o tamanho
   {
@@ -80,7 +95,7 @@ int validaNome(char nome[])
   }
   else
   {
-    for (int i = 0; i < tam; i++)
+    for (i = 0; i < tam; i++)
       {
         char c = nome[i];
         
@@ -105,12 +120,12 @@ int validaNome(char nome[])
   return 0;
 }
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int validaSenha(char senha[])
 {
   int tam = strlen(senha);
-  int digito = 0, letra = 0;
+  int digito = 0, letra = 0, i;
   
   if (tam != 8) //verifica o tamanho
   {
@@ -118,7 +133,7 @@ int validaSenha(char senha[])
   }
   else
   {
-    for (int i = 0; i < tam; i++) 
+    for (i = 0; i < tam; i++) 
       {
         char c = senha[i];
         
@@ -144,12 +159,12 @@ int validaSenha(char senha[])
 return 0;
 }
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int validaTelefone(char telefone[])
 {
   int tam = strlen(telefone);
-  int digito = 0; 
+  int digito = 0, i; 
   
   if (tam != 11) //verifica o tamanho
   {
@@ -157,7 +172,7 @@ int validaTelefone(char telefone[])
   }
   else
   {
-    for (int i = 0; i < tam; i++)
+    for (i = 0; i < tam; i++)
       {
         char c = telefone[i];
   
