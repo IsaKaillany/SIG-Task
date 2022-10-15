@@ -5,10 +5,16 @@
 #include "validacoes.h"
 
 
-/* Se o tamanho for menor que 10
-Se não tiver "@" e "."
-Se não tiver pelo menos 3 caracteres antes do "@"
-Se tiver mais de um "@" e mais de um "."*/
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+> O tamanho do email precisa ser maior que 8
+> Precisa ter no mínimo 9 letras
+> O @ e o . não podem aparecer nos 3 primeiros caracteres
+> Não pode ter mais de um "@" e mais de um "."
+> Não pode ter caracteres especiais
+> Precisa ter apenas um @ e um .
+> O ponto só aparece na colocação 3 após o @
+*/
 int validaEmail(char email[])
 {
     int tam = strlen(email), i, letra = 0;
@@ -75,7 +81,7 @@ int validaEmail(char email[])
   return 0;
 }
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 int validaNome(char nome[])
@@ -114,7 +120,7 @@ int validaNome(char nome[])
   return 0;
 }
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int validaSenha(char senha[])
 {
@@ -153,7 +159,7 @@ int validaSenha(char senha[])
 return 0;
 }
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int validaTelefone(char telefone[])
 {
