@@ -142,3 +142,42 @@ int validaNome(char nome[])
   }
   return 0;
 }
+
+
+
+int validaSenha(char senha[])
+{
+  int tam = strlen(senha);
+  int digito = 0, letra = 0;
+  
+  if (tam != 8) //verifica o tamanho
+  {
+    return 1;    
+  }
+  else
+  {
+    for (int i = 0; i < tam; i++) 
+      {
+        char c = senha[i];
+        
+        if (isdigit(c)) //verifica se é dígito
+        {
+          digito++;
+        }
+        else if (isalpha(c)) //verifica se é letra
+        {
+          letra++;
+        }
+        else
+        {
+          return 1;
+        }
+       
+      }
+    if ((digito == 0) || (letra == 0)) //verifica se tem letra e dígito
+    {
+      return 1;
+    }
+  }
+return 0;
+}
