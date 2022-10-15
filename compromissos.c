@@ -100,7 +100,7 @@ void buscarCompromissos(void)
 
 void atualizarCompromissos(void)
 {
-    char codigo[10], senha[10], resp;
+    char codigo[10], senha[9], resp;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -140,7 +140,7 @@ char oqueAtualizarCompromissos(void)
 
 void deletarCompromissos(void)
 {
-    char codigo[10], senha[10];
+    char codigo[10], senha[9];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");

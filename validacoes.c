@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include "validacoes.h"
 
 
 /* Se o tamanho for menor que 10
@@ -68,6 +69,43 @@ int validaEmail(char email[])
 
 
 
+int validaNome(char nome[])
+{
+  char tam = strlen(nome);
+  int letra = 0, espaco = 0;
+  
+  if (tam < 2) //verifica o tamanho
+  {
+    return 1;
+  }
+  else
+  {
+    for (int i = 0; i < tam; i++)
+      {
+        char c = nome[i];
+        
+        if (isalpha(c)) //verifica se é letra
+        {
+          letra++;
+        }
+        else if (c == ' ') //verifica se é espaço
+        {
+          espaco++;
+        }          
+        else //verifica se não é espaço nem letra
+        {
+          return 1;
+        }
+      }
+    if (letra == 0)
+    {
+      return 1;
+    }
+  }
+  return 0;
+}
+
+
 
 int validaSenha(char senha[])
 {
@@ -94,13 +132,48 @@ int validaSenha(char senha[])
         }
         else //verifica se não é digito nem letra
         {
-          return 1; 
-        }       
-      }      
-    if ((digito == 0) || (letra == 0))
+          return 1;
+        }
+       
+      }
+    if ((digito == 0) || (letra == 0)) //verifica se tem letra e dígito
     {
       return 1;
     }
-  } 
+  }
+return 0;
+}
+
+
+
+int validaTelefone(char telefone[])
+{
+  int tam = strlen(telefone);
+  int digito = 0; 
+  
+  if (tam != 11) //verifica o tamanho
+  {
+    return 1;
+  }
+  else
+  {
+    for (int i = 0; i < tam; i++)
+      {
+        char c = telefone[i];
+  
+        if (isdigit(c)) //verifica se é dígito
+        {
+          digito++;
+        }
+        else
+        {
+          return 1;
+        }
+      }
+    if (digito == 0) //verifica se tem dígito
+    {
+      return 1;
+    }
+  }
   return 0;
 }

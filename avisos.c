@@ -93,7 +93,7 @@ void buscarAvisos(void)
 
 void atualizarAvisos(void)
 {
-    char senha[10], resp;
+    char senha[9], resp;
     // char codigo;
 
     system("clear||cls");
@@ -132,7 +132,7 @@ char oqueAtualizarAvisos(void)
 
 void deletarAvisos(void)
 {
-    char senha[10];
+    char senha[9];
     // char codigo;
 
     system("clear||cls");

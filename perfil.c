@@ -68,7 +68,7 @@ void navegacaoPerfilFuncionarios(void)
 
 void telaPerfil(char id[])
 {
-    char senha[10];
+    char senha[9];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
