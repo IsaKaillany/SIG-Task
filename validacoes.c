@@ -26,13 +26,13 @@ int validaEmail(char email[])
         char c = email[i];
         if ((email[0] == '@') || (email[1] == '@') || (email[2] == '@'))
         {
-          printf("inválido");
+          printf("E-mail Inválido!");
           return 1;
         }
       
         if ((email[0] == '.') || (email[1] == '.') || (email[2] == '.'))
         {
-          printf("inválido");
+          printf("E-mail Inválido!");
           return 1;
         }
         
@@ -59,7 +59,7 @@ int validaEmail(char email[])
         if (c == '&' || c == '=' || c == '_' || c == '"' || c == '+' || c == '-' || 
             c == ',' || (c == '<') || c == '>' || c == '[' || c == ']')
         {
-          printf("E-mail Invál!");
+          printf("E-mail Inválido!");
           return 1;          
         }
 
@@ -68,7 +68,7 @@ int validaEmail(char email[])
 
     if ((tam > 8 && letra > 8) && (arroba == 1 && ponto == 1) && (lugararroba+2 < lugarponto))
     {
-      printf("E-mail Válido!");  
+
       return 0;
     }
     
