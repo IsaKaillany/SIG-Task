@@ -77,7 +77,6 @@ int validaSenha(void)
   
   if (tam != 8) //verifica o tamanho
   {
-    printf("Inválido 1");
     return 1;    
   }
   else
@@ -86,22 +85,19 @@ int validaSenha(void)
       {
         char c = senha[i];
         
-        if (isdigit(c))
+        if (isdigit(c)) //verifica se é dígito
         {
           digito++;
         }
-        else if (isalpha(c))
+        else if (isalpha(c)) //verifica se é letra
         {
           letra++;
         }
-        else
+        else //verifica se não é digito nem letra
         {
-          printf("inVálido");
-          return 1;
-        }
-       
-      }
-      
+          return 1; 
+        }       
+      }      
     if ((digito == 0) || (letra == 0))
     {
       return 1;
