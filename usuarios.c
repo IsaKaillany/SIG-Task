@@ -76,7 +76,7 @@ char telaUsuarios(void)
 
 void cadastroUsuario(void)
 {
-    char nome[30], email[30], senha[10], telefone[12], id[6];
+    char nome[30], email[30], senha[9], telefone[12], id[6];
     int cargo, depart;
 
     system("clear||cls");
@@ -90,7 +90,7 @@ void cadastroUsuario(void)
     printf("E-mail: ");
     scanf("%[A-Za-z0-9@.]", email);
     getchar();
-    printf("Telefone [999999-9999]: ");
+    printf("Telefone [00999999999]: ");
     scanf("%[0-9]", telefone);
     getchar();
     printf("Cargo:\n");
@@ -181,7 +181,7 @@ char oqueAtualizarUsuario(void)
 
 void deletarUsuario(void)
 {
-    char id[6], senha[10];
+    char id[6], senha[9];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
