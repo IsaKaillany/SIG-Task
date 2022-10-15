@@ -104,3 +104,41 @@ int validaSenha(char senha[])
   } 
   return 0;
 }
+
+
+
+int validaNome(char nome[])
+{
+  char tam = strlen(nome);
+  int letra = 0, espaco = 0;
+  
+  if (tam < 2) //verifica o tamanho
+  {
+    return 1;
+  }
+  else
+  {
+    for (int i = 0; i < tam; i++)
+      {
+        char c = nome[i];
+        
+        if (isalpha(c)) //verifica se é letra
+        {
+          letra++;
+        }
+        else if (c == ' ') //verifica se é espaço
+        {
+          espaco++;
+        }          
+        else
+        {
+          return 1;
+        }
+      }
+    if (letra == 0)
+    {
+      return 1;
+    }
+  }
+  return 0;
+}
