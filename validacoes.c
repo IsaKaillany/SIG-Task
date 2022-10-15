@@ -181,3 +181,37 @@ int validaSenha(char senha[])
   }
 return 0;
 }
+
+
+
+int validaTelefone(char telefone[])
+{
+  int tam = strlen(telefone);
+  int digito = 0; 
+  
+  if (tam != 11) //verifica o tamanho
+  {
+    return 1;
+  }
+  else
+  {
+    for (int i = 0; i < tam; i++)
+      {
+        char c = telefone[i];
+  
+        if (isdigit(c)) //verifica se é dígito
+        {
+          digito++;
+        }
+        else
+        {
+          return 1;
+        }
+      }
+    if (digito == 0) //verifica se tem dígito
+    {
+      return 1;
+    }
+  }
+  return 0;
+}
