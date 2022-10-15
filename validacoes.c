@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include "validacoes.h"
 
 
 /* Se o tamanho for menor que 10
