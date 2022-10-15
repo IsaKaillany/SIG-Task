@@ -64,3 +64,47 @@ int validaEmail(char email[])
     }
 
 }
+
+
+
+
+
+int validaSenha(void)
+{
+  char senha[8] = {"isa12345"};
+  int tam = strlen(senha);
+  int digito = 0, letra = 0;
+  
+  if (tam != 8) //verifica o tamanho
+  {
+    printf("Inválido 1");
+    return 1;    
+  }
+  else
+  {
+    for (int i = 0; i < tam; i++) 
+      {
+        char c = senha[i];
+        
+        if (isdigit(c))
+        {
+          digito++;
+        }
+        else if (isalpha(c))
+        {
+          letra++;
+        }
+        else
+        {
+          printf("inVálido");
+          return 1;
+        }
+       
+      }
+      
+    if ((digito == 0) || (letra == 0))
+    {
+      return 1;
+    }
+  }
+}
