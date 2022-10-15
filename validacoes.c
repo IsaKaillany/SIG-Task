@@ -11,9 +11,8 @@ Se não tiver pelo menos 3 caracteres antes do "@"
 Se tiver mais de um "@" e mais de um "."*/
 int validaEmail(char email[])
 {
-    // char email[50] = {"isa@gmail.com"};
-    int tam = strlen(email), i;
-    int arroba = 0, ponto = 0, valid = 0;
+    int tam = strlen(email), i, letra = 0;
+    int arroba = 0, ponto = 0, valid = 0, lugarponto = 0, lugararroba = 0;
     
     
     for (i = 0; i < tam; i++)
@@ -21,49 +20,59 @@ int validaEmail(char email[])
         char c = email[i];
         if ((email[0] == '@') || (email[1] == '@') || (email[2] == '@'))
         {
-          printf("E-mail Inválido!");
+          printf("inválido");
           return 1;
         }
       
-
         if ((email[0] == '.') || (email[1] == '.') || (email[2] == '.'))
         {
-          printf("E-mail Inválido!");
+          printf("inválido");
           return 1;
         }
-
-
-
+        
         if (c == '@')
         {
             arroba++;
+            lugararroba = i;
+          
         }
-
 
         if (c == '.')
         {
             ponto++;
+            lugarponto = i;
+            
         }
 
+        if (isalpha(c))
+        {
+          letra++;
+    
+        }
 
+        if (c == '&' || c == '=' || c == '_' || c == '"' || c == '+' || c == '-' || 
+            c == ',' || (c == '<') || c == '>' || c == '[' || c == ']')
+        {
+          printf("E-mail Invál!");
+          return 1;          
+        }
 
     }
 
 
-    if ((tam > 8) && (arroba == 1 && ponto == 1))
+    if ((tam > 8 && letra > 8) && (arroba == 1 && ponto == 1) && (lugararroba+2 < lugarponto))
     {
-    //   printf("E-mail Válido!");  
+      printf("E-mail Válido!");  
       return 0;
     }
-    
     
     else
     {
       printf("E-mail Inválido!");
       return 1;
-      
     }
-
+  
+  return 0;
 }
 
 
