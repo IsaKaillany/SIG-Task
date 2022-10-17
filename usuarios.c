@@ -92,9 +92,13 @@ void cadastroUsuario(void)
     printf("E-mail: ");
     scanf("%[A-Za-z0-9@.]", email);
     getchar();
-    printf("Telefone [00999999999]: ");
-    scanf("%[0-9]", telefone);
-    getchar();
+    do
+    {
+        printf("Telefone [00999999999]: ");
+        scanf("%s", telefone);
+        getchar();
+        validadorTelefone = validaTelefone(telefone);
+    } while(validadorTelefone != 0);
     printf("Cargo:\n");
     cargo = escolhaCargo();
     if (cargo == 2)
