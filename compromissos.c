@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "compromissos.h"
+#include "validacoes.h"
 
 
 void navegacaoCrudCompromissos(void)
@@ -105,6 +106,7 @@ void buscarCompromissos(void)
 void atualizarCompromissos(void)
 {
     char codigo[10], senha[9], resp;
+    int validadorSenha;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -116,9 +118,13 @@ void atualizarCompromissos(void)
     resp = oqueAtualizarCompromissos(); 
     // printf("%c", resp);
     // Para confirmar a atualização usar a senha (E vai mudar de lugar)
-    printf("\nSenha: ");
-    scanf("%[0-9]", senha);
-    getchar();
+    do
+    {
+        printf("Senha [8 digitos]: ");
+        scanf("%s", senha);
+        getchar(); 
+        validadorSenha = validaSenha(senha);
+    } while(validadorSenha != 0);   
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
