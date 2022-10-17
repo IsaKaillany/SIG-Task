@@ -89,9 +89,13 @@ void cadastroUsuario(void)
     printf("Nome: ");
     scanf("%[A-Z a-z]", nome);
     getchar();
-    printf("E-mail: ");
-    scanf("%[A-Za-z0-9@.]", email);
-    getchar();
+    do
+    {
+        printf("E-mail: ");
+        scanf("%s", email);
+        getchar();
+        validadorEmail = validaEmail(email);
+    } while(validadorEmail != 0);
     do
     {
         printf("Telefone [00999999999]: ");
