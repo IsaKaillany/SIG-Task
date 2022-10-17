@@ -80,7 +80,7 @@ int validaNome(char nome[])
   int tam = strlen(nome);
   int letra = 0, espaco = 0, i;
   
-  if (tam < 2) //verifica o tamanho
+  if (tam <= 2) //verifica o tamanho
   {
     return 1;
   }
