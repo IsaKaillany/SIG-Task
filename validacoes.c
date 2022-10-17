@@ -18,8 +18,7 @@
 int validaEmail(char email[])
 {
     int tam = strlen(email), i, letra = 0;
-    int arroba = 0, ponto = 0, valid = 0, lugarponto = 0, lugararroba = 0;
-    
+    int arroba = 0, ponto = 0, lugarponto = 0, lugararroba = 0;
     
     for (i = 0; i < tam; i++)
     {
@@ -40,44 +39,36 @@ int validaEmail(char email[])
         {
             arroba++;
             lugararroba = i;
-          
         }
 
         if (c == '.')
         {
             ponto++;
             lugarponto = i;
-            
         }
 
         if (isalpha(c))
         {
           letra++;
-    
         }
 
         if (c == '&' || c == '=' || c == '_' || c == '"' || c == '+' || c == '-' || 
             c == ',' || (c == '<') || c == '>' || c == '[' || c == ']')
         {
-
           return 1;          
         }
-
     }
-
-
+    
     if ((tam > 8 && letra > 8) && (arroba == 1 && ponto == 1) && (lugararroba+2 < lugarponto))
     {
-
       return 0;
     }
     
     else
     {
-      
       return 1;
     }
-  
+
   return 0;
 }
 
