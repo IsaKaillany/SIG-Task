@@ -50,7 +50,7 @@ char crudCompromissos(void)
 // Tirar setor, chamar a função escolhaDepartamento na variavel depart, tirar o vetor de depart
 void cadastroCompromissos(void)
 {
-    char titulo[100], descri[1000], data[6], id[8];
+    char titulo[100], descri[1000], data[6], id[7];
     // char codigo;
     int depart, hora, min;
 
