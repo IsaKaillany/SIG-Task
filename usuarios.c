@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "usuarios.h"
 #include "compromissos.h"
+#include "validacoes.h"
 
 
 void moduloUsuarios(void)
@@ -77,22 +78,34 @@ char telaUsuarios(void)
 void cadastroUsuario(void)
 {
     char nome[30], email[30], senha[9], telefone[12], id[6];
+    int validadorNome, validadorEmail, validadorTelefone, validadorSenha;
     int cargo, depart;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\n");
-    printf("Nome: ");
-    scanf("%[A-Z a-z]", nome);
-    getchar();
-    printf("E-mail: ");
-    scanf("%[A-Za-z0-9@.]", email);
-    getchar();
-    printf("Telefone [00999999999]: ");
-    scanf("%[0-9]", telefone);
-    getchar();
+    do
+    {
+        printf("Nome: "); //Buga se der espaço
+        scanf("%s", nome);
+        getchar();
+        validadorNome = validaNome(nome);
+    } while(validadorNome != 0);  
+    do
+    {
+        printf("E-mail: ");
+        scanf("%s", email);
+        getchar();
+        validadorEmail = validaEmail(email);
+    } while(validadorEmail != 0);
+    do
+    {
+        printf("Telefone [00999999999]: ");
+        scanf("%s", telefone);
+        getchar();
+        validadorTelefone = validaTelefone(telefone);
+    } while(validadorTelefone != 0);
     printf("Cargo:\n");
     cargo = escolhaCargo();
     if (cargo == 2)
@@ -103,9 +116,13 @@ void cadastroUsuario(void)
     printf("ID: ");
     scanf("%[0-9]", id);
     getchar();
-    printf("Senha [8 digitos]: ");
-    scanf("%[0-9]", senha);
-    getchar();    
+    do
+    {
+        printf("Senha [8 digitos]: ");
+        scanf("%s", senha);
+        getchar(); 
+        validadorSenha = validaSenha(senha);
+    } while(validadorSenha != 0);   
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Cadastro concluido!\n");
     printf("\nTecle ENTER para continuar");
@@ -182,6 +199,7 @@ char oqueAtualizarUsuario(void)
 void deletarUsuario(void)
 {
     char id[6], senha[9];
+    int validadorSenha;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -191,9 +209,13 @@ void deletarUsuario(void)
     scanf("%[0-9]", id);
     getchar();
     //Senha para confirmação antes de deletar
-    printf("Senha: ");
-    scanf("%[0-9]", senha);
-    getchar();
+    do
+    {
+        printf("Senha [8 digitos]: ");
+        scanf("%s", senha);
+        getchar(); 
+        validadorSenha = validaSenha(senha);
+    } while(validadorSenha != 0);   
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");   
 
 }
