@@ -152,7 +152,7 @@ void deletarAvisos(void)
     //Senha para confirmação
     do
     {
-        printf("Senha [8 digitos]: ");
+        printf("Senha: ");
         scanf("%s", senha);
         getchar(); 
         validadorSenha = validaSenha(senha);

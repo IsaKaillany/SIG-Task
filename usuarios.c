@@ -113,12 +113,12 @@ void cadastroUsuario(void)
         depart = escolhaDepartamento();
     }    
     //Por enquanto vai ser manual (Colocar o depart no final do id, posteriormente)
-    printf("ID[6 digitos]: ");
+    printf("ID [6 digitos]: ");
     scanf("%[0-9]", id);
     getchar();
     do
     {
-        printf("Senha [letras e numeros[8 digitos]]: ");
+        printf("Senha [letras e numeros [tamanho 8]]: ");
         scanf("%s", senha);
         getchar(); 
         validadorSenha = validaSenha(senha);

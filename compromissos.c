@@ -120,7 +120,7 @@ void atualizarCompromissos(void)
     // Para confirmar a atualização usar a senha (E vai mudar de lugar)
     do
     {
-        printf("Senha [letras e numeros [tamanho 8]]: ");
+        printf("Senha: ");
         scanf("%s", senha);
         getchar(); 
         validadorSenha = validaSenha(senha);
@@ -163,7 +163,7 @@ void deletarCompromissos(void)
     //Senha para confirmação
     do
     {
-        printf("Senha [letras e numeros [tamanho 8]]: ");
+        printf("Senha: ");
         scanf("%s", senha);
         getchar(); 
         validadorSenha = validaSenha(senha);
