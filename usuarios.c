@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "usuarios.h"
 #include "compromissos.h"
+#include "validacoes.h"
 
 
 void moduloUsuarios(void)
@@ -104,9 +105,13 @@ void cadastroUsuario(void)
     printf("ID: ");
     scanf("%[0-9]", id);
     getchar();
-    printf("Senha [letras e digitos [tamanho 8]]: ");
-    scanf("%[0-9]", senha);
-    getchar();    
+    do
+    {
+        printf("Senha [8 digitos]: ");
+        scanf("%s", senha);
+        getchar(); 
+        validadorSenha = validaSenha(senha);
+    } while(validadorSenha != 0);   
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Cadastro concluido!\n");
     printf("\nTecle ENTER para continuar");
