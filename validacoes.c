@@ -18,8 +18,7 @@
 int validaEmail(char email[])
 {
     int tam = strlen(email), i, letra = 0;
-    int arroba = 0, ponto = 0, valid = 0, lugarponto = 0, lugararroba = 0;
-    
+    int arroba = 0, ponto = 0, lugarponto = 0, lugararroba = 0;
     
     for (i = 0; i < tam; i++)
     {
@@ -40,44 +39,36 @@ int validaEmail(char email[])
         {
             arroba++;
             lugararroba = i;
-          
         }
 
         if (c == '.')
         {
             ponto++;
             lugarponto = i;
-            
         }
 
         if (isalpha(c))
         {
           letra++;
-    
         }
 
         if (c == '&' || c == '=' || c == '_' || c == '"' || c == '+' || c == '-' || 
             c == ',' || (c == '<') || c == '>' || c == '[' || c == ']')
         {
-
           return 1;          
         }
-
     }
-
 
     if ((tam > 8 && letra > 8) && (arroba == 1 && ponto == 1) && (lugararroba+2 < lugarponto))
     {
-
       return 0;
     }
     
     else
     {
-      
       return 1;
     }
-  
+
   return 0;
 }
 
@@ -86,10 +77,10 @@ int validaEmail(char email[])
 
 int validaNome(char nome[])
 {
-  char tam = strlen(nome);
+  int tam = strlen(nome);
   int letra = 0, espaco = 0, i;
   
-  if (tam < 2) //verifica o tamanho
+  if (tam <= 2) //verifica o tamanho
   {
     return 1;
   }
@@ -195,7 +186,7 @@ int validaTelefone(char telefone[])
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int validaHora(int hora[], int min[])
+int validaHora(int hora, int min)
 {
 
   if ((hora < 0 || hora > 23) || (min < 0 || min > 59)) //Se a hora ou os minutos não estiverem de acordo com esse padrão, é inválido
