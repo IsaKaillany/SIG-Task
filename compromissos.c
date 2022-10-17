@@ -120,7 +120,7 @@ void atualizarCompromissos(void)
     // Para confirmar a atualização usar a senha (E vai mudar de lugar)
     do
     {
-        printf("Senha [8 digitos]: ");
+        printf("Senha [letras e numeros[8 digitos]]: ");
         scanf("%s", senha);
         getchar(); 
         validadorSenha = validaSenha(senha);
@@ -151,6 +151,7 @@ char oqueAtualizarCompromissos(void)
 void deletarCompromissos(void)
 {
     char codigo[10], senha[9];
+    int validadorSenha;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -160,9 +161,13 @@ void deletarCompromissos(void)
     scanf("%[0-9]", codigo);
     getchar();
     //Senha para confirmação
-    printf("Senha: ");
-    scanf("%[0-9]", senha);
-    getchar();
+    do
+    {
+        printf("Senha [letras e numeros[8 digitos]]: ");
+        scanf("%s", senha);
+        getchar(); 
+        validadorSenha = validaSenha(senha);
+    } while(validadorSenha != 0);   
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
