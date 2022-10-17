@@ -77,6 +77,7 @@ char telaUsuarios(void)
 void cadastroUsuario(void)
 {
     char nome[30], email[30], senha[9], telefone[12], id[6];
+    int validadorNome, validadorEmail, validadorTelefone, validadorSenha;
     int cargo, depart;
 
     system("clear||cls");
@@ -103,7 +104,7 @@ void cadastroUsuario(void)
     printf("ID: ");
     scanf("%[0-9]", id);
     getchar();
-    printf("Senha [8 digitos]: ");
+    printf("Senha [letras e digitos [tamanho 8]]: ");
     scanf("%[0-9]", senha);
     getchar();    
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
