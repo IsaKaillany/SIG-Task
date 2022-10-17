@@ -53,7 +53,7 @@ void cadastroCompromissos(void)
 {
     char titulo[100], descri[1000], data[6], id[7];
     // char codigo;
-    int depart, hora, min;
+    int depart, hora, min, validadorHorario;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -68,12 +68,16 @@ void cadastroCompromissos(void)
     printf("Data [dd/mm]: ");
     scanf("%[0-9/]", data);
     getchar();
-    printf("Hora [00]: ");
-    scanf("%[0-9:]", hora);
-    getchar();
-    printf("Minutos [00]: ");
-    scanf("%[0-9:]", min);
-    getchar();
+    do
+    {
+        printf("Hora [00]: ");
+        scanf("%d", &hora);
+        getchar();
+        printf("Minutos [00]: ");
+        scanf("%d", &min);
+        getchar();
+        validadorHorario = validaHora(hora, min);
+    } while(validadorHorario != 0);
     printf("Departamento:\n");
     depart = escolhaDepartamento(); 
     printf("ID do funcionario: ");
