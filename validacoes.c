@@ -58,7 +58,7 @@ int validaEmail(char email[])
           return 1;          
         }
     }
-    
+
     if ((tam > 8 && letra > 8) && (arroba == 1 && ponto == 1) && (lugararroba+2 < lugarponto))
     {
       return 0;
@@ -77,7 +77,7 @@ int validaEmail(char email[])
 
 int validaNome(char nome[])
 {
-  char tam = strlen(nome);
+  int tam = strlen(nome);
   int letra = 0, espaco = 0, i;
   
   if (tam < 2) //verifica o tamanho
