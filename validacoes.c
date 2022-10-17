@@ -192,3 +192,19 @@ int validaTelefone(char telefone[])
   }
   return 0;
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int validaHora(int hora[], int min[])
+{
+
+  if ((hora < 0 || hora > 23) || (min < 0 || min > 59)) //Se a hora ou os minutos não estiverem de acordo com esse padrão, é inválido
+  {
+    return 1;      
+  }
+  else
+  {
+    return 0;
+  }    
+
+}

@@ -50,9 +50,9 @@ char crudCompromissos(void)
 // Tirar setor, chamar a função escolhaDepartamento na variavel depart, tirar o vetor de depart
 void cadastroCompromissos(void)
 {
-    char titulo[100], descri[1000], data[6], hora[6], id[8];
+    char titulo[100], descri[1000], data[6], id[8];
     // char codigo;
-    int depart;
+    int depart, hora, min;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -67,8 +67,12 @@ void cadastroCompromissos(void)
     printf("Data [dd/mm]: ");
     scanf("%[0-9/]", data);
     getchar();
-    printf("Horario [00:00]: ");
+    printf("Hora [00]: ");
     scanf("%[0-9:]", hora);
+    getchar();
+    printf("Minutos [00]: ");
+    scanf("%[0-9:]", min);
+    getchar();
     printf("Departamento:\n");
     depart = escolhaDepartamento(); 
     printf("ID do funcionario: ");
