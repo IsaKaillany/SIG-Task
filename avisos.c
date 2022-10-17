@@ -139,6 +139,7 @@ char oqueAtualizarAvisos(void)
 void deletarAvisos(void)
 {
     char senha[9];
+    int validadorSenha;
     // char codigo;
 
     system("clear||cls");
@@ -149,8 +150,12 @@ void deletarAvisos(void)
     // scanf("%[0-9]", codigo);
     getchar();
     //Senha para confirmação
-    printf("Senha: ");
-    scanf("%[0-9]", senha);
-    getchar();
+    do
+    {
+        printf("Senha [8 digitos]: ");
+        scanf("%s", senha);
+        getchar(); 
+        validadorSenha = validaSenha(senha);
+    } while(validadorSenha != 0);   
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
