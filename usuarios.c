@@ -77,7 +77,7 @@ char telaUsuarios(void)
 
 void cadastroUsuario(void)
 {
-    char nome[30], email[30], senha[9], telefone[12], id[6];
+    char nome[30], email[30], senha[9], telefone[12], id[7];
     int validadorNome, validadorEmail, validadorTelefone, validadorSenha;
     int cargo, depart;
 
@@ -85,6 +85,7 @@ void cadastroUsuario(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n");
     do
     {
         printf("Nome: "); //Buga se der espaço
@@ -113,12 +114,12 @@ void cadastroUsuario(void)
         depart = escolhaDepartamento();
     }    
     //Por enquanto vai ser manual (Colocar o depart no final do id, posteriormente)
-    printf("ID: ");
+    printf("ID [6 digitos]: ");
     scanf("%[0-9]", id);
     getchar();
     do
     {
-        printf("Senha [8 digitos]: ");
+        printf("Senha [letras e numeros [tamanho 8]]: ");
         scanf("%s", senha);
         getchar(); 
         validadorSenha = validaSenha(senha);
@@ -147,7 +148,7 @@ int escolhaCargo(void)
 
 void buscarUsuario(void)
 {
-    char id[6];
+    char id[7];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -163,7 +164,7 @@ void buscarUsuario(void)
 
 void atualizarUsuario(void)
 {
-    char id[6];
+    char id[7];
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-     A T U A L I Z A R     -=-=-=-=-=-=-=-\n");
@@ -198,7 +199,7 @@ char oqueAtualizarUsuario(void)
 
 void deletarUsuario(void)
 {
-    char id[6], senha[9];
+    char id[7], senha[9];
     int validadorSenha;
 
     system("clear||cls");

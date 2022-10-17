@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "compromissos.h"
 #include "avisos.h"
+#include "validacoes.h"
 
 void navegacaoCrudAvisos(void)
 {
@@ -94,6 +95,7 @@ void buscarAvisos(void)
 void atualizarAvisos(void)
 {
     char senha[9], resp;
+    int validadorSenha;
     // char codigo;
 
     system("clear||cls");
@@ -105,9 +107,13 @@ void atualizarAvisos(void)
     getchar();
     resp = oqueAtualizarAvisos(); 
     //Senha para confirmar a atualização
-    printf("\nSenha: ");
-    scanf("%[0-9]", senha);
-    getchar();
+    do
+    {
+        printf("Senha: ");
+        scanf("%s", senha);
+        getchar(); 
+        validadorSenha = validaSenha(senha);
+    } while(validadorSenha != 0);   
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
@@ -133,6 +139,7 @@ char oqueAtualizarAvisos(void)
 void deletarAvisos(void)
 {
     char senha[9];
+    int validadorSenha;
     // char codigo;
 
     system("clear||cls");
@@ -143,8 +150,12 @@ void deletarAvisos(void)
     // scanf("%[0-9]", codigo);
     getchar();
     //Senha para confirmação
-    printf("Senha: ");
-    scanf("%[0-9]", senha);
-    getchar();
+    do
+    {
+        printf("Senha: ");
+        scanf("%s", senha);
+        getchar(); 
+        validadorSenha = validaSenha(senha);
+    } while(validadorSenha != 0);   
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }

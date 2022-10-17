@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "compromissos.h"
+#include "validacoes.h"
 
 
 void navegacaoCrudCompromissos(void)
@@ -50,9 +51,9 @@ char crudCompromissos(void)
 // Tirar setor, chamar a função escolhaDepartamento na variavel depart, tirar o vetor de depart
 void cadastroCompromissos(void)
 {
-    char titulo[100], descri[1000], data[6], id[8];
+    char titulo[100], descri[1000], data[6], id[7];
     // char codigo;
-    int depart, hora, min;
+    int depart, hora, min, validadorHorario;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -67,12 +68,16 @@ void cadastroCompromissos(void)
     printf("Data [dd/mm]: ");
     scanf("%[0-9/]", data);
     getchar();
-    printf("Hora [00]: ");
-    scanf("%[0-9:]", hora);
-    getchar();
-    printf("Minutos [00]: ");
-    scanf("%[0-9:]", min);
-    getchar();
+    do
+    {
+        printf("Hora [00]: ");
+        scanf("%d", &hora);
+        getchar();
+        printf("Minutos [00]: ");
+        scanf("%d", &min);
+        getchar();
+        validadorHorario = validaHora(hora, min);
+    } while(validadorHorario != 0);
     printf("Departamento:\n");
     depart = escolhaDepartamento(); 
     printf("ID do funcionario: ");
@@ -105,6 +110,7 @@ void buscarCompromissos(void)
 void atualizarCompromissos(void)
 {
     char codigo[10], senha[9], resp;
+    int validadorSenha;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -116,9 +122,13 @@ void atualizarCompromissos(void)
     resp = oqueAtualizarCompromissos(); 
     // printf("%c", resp);
     // Para confirmar a atualização usar a senha (E vai mudar de lugar)
-    printf("\nSenha: ");
-    scanf("%[0-9]", senha);
-    getchar();
+    do
+    {
+        printf("Senha: ");
+        scanf("%s", senha);
+        getchar(); 
+        validadorSenha = validaSenha(senha);
+    } while(validadorSenha != 0);   
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
@@ -145,6 +155,7 @@ char oqueAtualizarCompromissos(void)
 void deletarCompromissos(void)
 {
     char codigo[10], senha[9];
+    int validadorSenha;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -154,9 +165,13 @@ void deletarCompromissos(void)
     scanf("%[0-9]", codigo);
     getchar();
     //Senha para confirmação
-    printf("Senha: ");
-    scanf("%[0-9]", senha);
-    getchar();
+    do
+    {
+        printf("Senha: ");
+        scanf("%s", senha);
+        getchar(); 
+        validadorSenha = validaSenha(senha);
+    } while(validadorSenha != 0);   
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
