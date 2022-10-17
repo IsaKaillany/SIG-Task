@@ -85,10 +85,13 @@ void cadastroUsuario(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\n");
-    printf("Nome: ");
-    scanf("%[A-Z a-z]", nome);
-    getchar();
+    do
+    {
+        printf("Nome: "); //Buga se der espaço
+        scanf("%s", nome);
+        getchar();
+        validadorNome = validaNome(nome);
+    } while(validadorNome != 0);  
     do
     {
         printf("E-mail: ");
