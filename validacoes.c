@@ -25,50 +25,40 @@ int validaEmail(char email[])
         char c = email[i];
         if ((email[0] == '@') || (email[1] == '@') || (email[2] == '@'))
         {
-
           return 1;
-        }
-      
+        }      
         if ((email[0] == '.') || (email[1] == '.') || (email[2] == '.'))
         {
-
           return 1;
-        }
-        
+        }        
         if (c == '@')
         {
             arroba++;
             lugararroba = i;
         }
-
         if (c == '.')
         {
             ponto++;
             lugarponto = i;
         }
-
         if (isalpha(c))
         {
           letra++;
         }
-
         if (c == '&' || c == '=' || c == '_' || c == '"' || c == '+' || c == '-' || 
             c == ',' || (c == '<') || c == '>' || c == '[' || c == ']')
         {
           return 1;          
         }
     }
-
     if ((tam > 8 && letra > 8) && (arroba == 1 && ponto == 1) && (lugararroba+2 < lugarponto))
     {
       return 0;
-    }
-    
+    }    
     else
     {
       return 1;
     }
-
   return 0;
 }
 
