@@ -1,6 +1,6 @@
 void moduloUsuarios(void);
 char telaUsuarios(void);
-void cadastroUsuario(void);
+// void cadastroUsuario(void);
 void buscarUsuario(void);
 void atualizarUsuario(void);
 char oqueAtualizarUsuario(void);

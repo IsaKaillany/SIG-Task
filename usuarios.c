@@ -7,6 +7,7 @@
 
 void moduloUsuarios(void)
 {
+    Usuarios* funcionario;
     char opcao;        
     do
     {
@@ -14,7 +15,7 @@ void moduloUsuarios(void)
         switch (opcao)
         {
             case '1':
-                cadastroUsuario();
+                funcionario = cadastroUsuario();
                 break;
             case '2':
                 buscarUsuario();
@@ -30,6 +31,7 @@ void moduloUsuarios(void)
                 break;
         }           
     } while (opcao != '0');
+    free(funcionario);
 }
 
 void navegacaoUsuariosCadastrados(void)
@@ -75,10 +77,10 @@ char telaUsuarios(void)
 }
 
 
-void cadastroUsuario(void)
+Usuarios* cadastroUsuario()
 {
-    char nome[30], email[30], senha[9], telefone[12], id[7];
-    int validadorNome, validadorEmail, validadorTelefone, validadorSenha;
+    Usuarios* usu;
+    usu = (Usuarios*) malloc(sizeof(Usuarios));
     int cargo, depart;
 
     system("clear||cls");
