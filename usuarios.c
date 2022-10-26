@@ -27,33 +27,33 @@ void moduloUsuarios(void)
                 deletarUsuario();
                 break;
             case '5':
-                navegacaoUsuariosCadastrados();
+                usuariosCadastrados(funcionario);
                 break;
         }           
     } while (opcao != '0');
     free(funcionario);
 }
 
-void navegacaoUsuariosCadastrados(void)
-{
-    char opcao;        
-    do
-    {
-        opcao = departamentoUsuario();
-        switch (opcao)
-        {
-            case '1':
-                usuariosCadastrados();
-                break;
-            case '2':
-                usuariosCadastrados();
-                break;
-            case '3':
-                usuariosCadastrados();
-                break;
-        }           
-    } while (opcao != '0');
-}
+// void navegacaoUsuariosCadastrados(void)
+// {
+//     char opcao;        
+//     do
+//     {
+//         opcao = departamentoUsuario();
+//         switch (opcao)
+//         {
+//             case '1':
+//                 usuariosCadastrados();
+//                 break;
+//             case '2':
+//                 usuariosCadastrados();
+//                 break;
+//             case '3':
+//                 usuariosCadastrados();
+//                 break;
+//         }           
+//     } while (opcao != '0');
+// }
 
 char telaUsuarios(void)
 {
@@ -241,13 +241,18 @@ char departamentoUsuario(void)
     return opcao;
 }
 
-void usuariosCadastrados(void)
+void usuariosCadastrados(const Usuarios* func)
 {
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-     U S U A R I O S  C A D A S T R A D O S    -=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("Em desenvolvimento...");
+    printf("\n");
+    printf("Em desenvolvimento...\n");
+    printf("Nome: %s\n", func->nome);
+    printf("E-mail: %s\n", func->email);
+    printf("Telefone: %s\n", func->telefone);
+    printf("Id: %s\n", func->id);
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     getchar();
 }

@@ -1,14 +1,13 @@
 void moduloUsuarios(void);
 char telaUsuarios(void);
-// void cadastroUsuario(void);
 void buscarUsuario(void);
 void atualizarUsuario(void);
 char oqueAtualizarUsuario(void);
 void deletarUsuario(void);
-void usuariosCadastrados(void);
 void navegacaoUsuariosCadastrados(void);
 char departamentoUsuario(void);
 int escolhaCargo(void);
+
 
 
 typedef struct usuarios Usuarios;
@@ -23,3 +22,4 @@ struct usuarios
 };
 
 Usuarios* cadastroUsuario();
+void usuariosCadastrados(const Usuarios*);
