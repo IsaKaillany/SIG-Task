@@ -21,3 +21,5 @@ struct usuarios
   char telefone[12];
   char id[7];
 };
+
+Usuarios* cadastroUsuario();
