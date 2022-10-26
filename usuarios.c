@@ -91,24 +91,22 @@ Usuarios* cadastroUsuario()
     do
     {
         printf("Nome: "); //Buga se der espaço
-        scanf("%s", nome);
+        scanf("%30[^\n]", usu->nome);
         getchar();
-        validadorNome = validaNome(nome);
-    } while(validadorNome != 0);  
+    } while(validaNome(usu->nome));  
     do
     {
         printf("E-mail: ");
-        scanf("%s", email);
+        scanf("%s", usu->email);
         getchar();
-        validadorEmail = validaEmail(email);
-    } while(validadorEmail != 0);
+    } while(validaEmail(usu->email));
     do
     {
         printf("Telefone [00999999999]: ");
-        scanf("%s", telefone);
+        scanf("%s", usu->telefone);
         getchar();
-        validadorTelefone = validaTelefone(telefone);
-    } while(validadorTelefone != 0);
+    } while(validaTelefone(usu->telefone));
+
     printf("Cargo:\n");
     cargo = escolhaCargo();
     if (cargo == 2)
@@ -117,20 +115,21 @@ Usuarios* cadastroUsuario()
     }    
     //Por enquanto vai ser manual (Colocar o depart no final do id, posteriormente)
     printf("ID [6 digitos]: ");
-    scanf("%[0-9]", id);
+    scanf("%[0-9]", usu->id);
     getchar();
+
     do
     {
         printf("Senha [letras e numeros [tamanho 8]]: ");
-        scanf("%s", senha);
+        scanf("%s", usu->senha);
         getchar(); 
-        validadorSenha = validaSenha(senha);
-    } while(validadorSenha != 0);   
+    } while(validaSenha(usu->senha));   
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Cadastro concluido!\n");
     printf("\nTecle ENTER para continuar");
     getchar();
 
+    return usu;
 }
 
 int escolhaCargo(void)
