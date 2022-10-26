@@ -7,6 +7,7 @@
 
 void moduloUsuarios(void)
 {
+    Usuarios* funcionario;
     char opcao;        
     do
     {
@@ -14,7 +15,7 @@ void moduloUsuarios(void)
         switch (opcao)
         {
             case '1':
-                cadastroUsuario();
+                funcionario = cadastroUsuario();
                 break;
             case '2':
                 buscarUsuario();
@@ -26,32 +27,33 @@ void moduloUsuarios(void)
                 deletarUsuario();
                 break;
             case '5':
-                navegacaoUsuariosCadastrados();
+                usuariosCadastrados(funcionario);
                 break;
         }           
     } while (opcao != '0');
+    free(funcionario);
 }
 
-void navegacaoUsuariosCadastrados(void)
-{
-    char opcao;        
-    do
-    {
-        opcao = departamentoUsuario();
-        switch (opcao)
-        {
-            case '1':
-                usuariosCadastrados();
-                break;
-            case '2':
-                usuariosCadastrados();
-                break;
-            case '3':
-                usuariosCadastrados();
-                break;
-        }           
-    } while (opcao != '0');
-}
+// void navegacaoUsuariosCadastrados(void)
+// {
+//     char opcao;        
+//     do
+//     {
+//         opcao = departamentoUsuario();
+//         switch (opcao)
+//         {
+//             case '1':
+//                 usuariosCadastrados();
+//                 break;
+//             case '2':
+//                 usuariosCadastrados();
+//                 break;
+//             case '3':
+//                 usuariosCadastrados();
+//                 break;
+//         }           
+//     } while (opcao != '0');
+// }
 
 char telaUsuarios(void)
 {
@@ -75,10 +77,10 @@ char telaUsuarios(void)
 }
 
 
-void cadastroUsuario(void)
+Usuarios* cadastroUsuario()
 {
-    char nome[30], email[30], senha[9], telefone[12], id[7];
-    int validadorNome, validadorEmail, validadorTelefone, validadorSenha;
+    Usuarios* usu;
+    usu = (Usuarios*) malloc(sizeof(Usuarios));
     int cargo, depart;
 
     system("clear||cls");
@@ -89,24 +91,22 @@ void cadastroUsuario(void)
     do
     {
         printf("Nome: "); //Buga se der espaço
-        scanf("%s", nome);
+        scanf("%30[^\n]", usu->nome);
         getchar();
-        validadorNome = validaNome(nome);
-    } while(validadorNome != 0);  
+    } while(validaNome(usu->nome));  
     do
     {
         printf("E-mail: ");
-        scanf("%s", email);
+        scanf("%s", usu->email);
         getchar();
-        validadorEmail = validaEmail(email);
-    } while(validadorEmail != 0);
+    } while(validaEmail(usu->email));
     do
     {
         printf("Telefone [00999999999]: ");
-        scanf("%s", telefone);
+        scanf("%s", usu->telefone);
         getchar();
-        validadorTelefone = validaTelefone(telefone);
-    } while(validadorTelefone != 0);
+    } while(validaTelefone(usu->telefone));
+
     printf("Cargo:\n");
     cargo = escolhaCargo();
     if (cargo == 2)
@@ -115,20 +115,21 @@ void cadastroUsuario(void)
     }    
     //Por enquanto vai ser manual (Colocar o depart no final do id, posteriormente)
     printf("ID [6 digitos]: ");
-    scanf("%[0-9]", id);
+    scanf("%[0-9]", usu->id);
     getchar();
+
     do
     {
         printf("Senha [letras e numeros [tamanho 8]]: ");
-        scanf("%s", senha);
+        scanf("%s", usu->senha);
         getchar(); 
-        validadorSenha = validaSenha(senha);
-    } while(validadorSenha != 0);   
+    } while(validaSenha(usu->senha));   
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Cadastro concluido!\n");
     printf("\nTecle ENTER para continuar");
     getchar();
 
+    return usu;
 }
 
 int escolhaCargo(void)
@@ -240,13 +241,18 @@ char departamentoUsuario(void)
     return opcao;
 }
 
-void usuariosCadastrados(void)
+void usuariosCadastrados(const Usuarios* func)
 {
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-     U S U A R I O S  C A D A S T R A D O S    -=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("Em desenvolvimento...");
+    printf("\n");
+    printf("Em desenvolvimento...\n");
+    printf("Nome: %s\n", func->nome);
+    printf("E-mail: %s\n", func->email);
+    printf("Telefone: %s\n", func->telefone);
+    printf("Id: %s\n", func->id);
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     getchar();
 }
