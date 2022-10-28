@@ -91,7 +91,7 @@ void buscarAvisos(void)
     printf("-=-=-=-=-=-=-=-=-      B U S C A R      -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nData [dd/mm]: ");
-    scanf("%[0-9/]", data);
+    scanf(" %[0-9/]", data);
     getchar();
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
@@ -114,7 +114,7 @@ void atualizarAvisos(void)
     do
     {
         printf("Senha: ");
-        scanf("%s", senha);
+        scanf(" %s", senha);
         getchar(); 
         validadorSenha = validaSenha(senha);
     } while(validadorSenha != 0);   
@@ -134,7 +134,7 @@ char oqueAtualizarAvisos(void)
     printf("\t4 - Data\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
-    scanf("%c", &opcao);
+    scanf(" %c", &opcao);
     getchar();
 
     return opcao;
@@ -157,7 +157,7 @@ void deletarAvisos(void)
     do
     {
         printf("Senha: ");
-        scanf("%s", senha);
+        scanf(" %s", senha);
         getchar(); 
         validadorSenha = validaSenha(senha);
     } while(validadorSenha != 0);   

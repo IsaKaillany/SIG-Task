@@ -24,7 +24,7 @@ void navegacaoAgendaGerencia(void)
 {
     char opcao;
     printf(">> Letra ");
-    scanf("%c", &opcao);
+    scanf(" %c", &opcao);
     getchar();
     if (opcao == 'a')
     {
@@ -55,8 +55,6 @@ void navegacaoAgendaFuncionarios(void)
 }
 
 
-
-
 void agendaGerenciaCodigo(void)
 {
     char codigo[10];
@@ -65,14 +63,13 @@ void agendaGerenciaCodigo(void)
     printf("-=-=-=-=-=-=-=-=-=-    A G E N D A    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nCodigo [9 digitos]: ");
-    scanf("%[0-9]", codigo);
+    scanf(" %[0-9]", codigo);
     getchar();
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
 void telaAgenda(char opcao[])
-{
-    
+{    
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    A G E N D A    -=-=-=-=-=-=-=-=-=-\n");
@@ -89,7 +86,7 @@ void telaAgenda(char opcao[])
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
-    scanf("%s", opcao);
+    scanf(" %s", opcao);
     getchar();
 }
 
@@ -105,7 +102,7 @@ char agendaFuncionario(void)
     printf("\t0 - Voltar a tela anterior\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
-    scanf("%c", &opcao);
+    scanf(" %c", &opcao);
     getchar();
 
     return opcao;

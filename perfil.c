@@ -75,12 +75,12 @@ void telaPerfil(char id[])
     printf("-=-=-=-=-=-=-=-=-=-    P E R F I L    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nID [0 para voltar]: ");
-    scanf("%s", id);
+    scanf(" %s", id);
     getchar();
     if (strcmp(id, "0") != 0)
     {
         printf("Senha: ");
-        scanf("%[0-9]", senha);
+        scanf(" %[0-9]", senha);
         getchar();
     }      
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -122,7 +122,7 @@ char telaPerfilFuncionarios(void)
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
-    scanf("%c", &opcao);
+    scanf(" %c", &opcao);
     getchar();
 
     return opcao;

@@ -54,7 +54,7 @@ char crudCompromissos(void)
 Compromissos* cadastroCompromissos()
 {
     Compromissos* task;
-    task = (Compromissos*) malloc(sizeof(Compromissos*));
+    task = (Compromissos*) malloc(sizeof(Compromissos));
     // char codigo;
     int depart;
 
@@ -105,7 +105,7 @@ void buscarCompromissos(void)
     printf("-=-=-=-=-=-=-=-=-      B U S C A R      -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nData [dd/mm]: ");
-    scanf("%[0-9/]", data);
+    scanf(" %[0-9/]", data);
     getchar();
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
@@ -120,7 +120,7 @@ void atualizarCompromissos(void)
     printf("-=-=-=-=-=-=-=-=-   A T U A L I Z A R   -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nCodigo [9 digitos]: ");
-    scanf("%[0-9]", codigo);
+    scanf(" %[0-9]", codigo);
     getchar();
     resp = oqueAtualizarCompromissos(); 
     // printf("%c", resp);
@@ -149,7 +149,7 @@ char oqueAtualizarCompromissos(void)
     printf("\t5 - Hora\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
-    scanf("%c", &opcao);
+    scanf(" %c", &opcao);
     getchar();
 
     return opcao;
@@ -165,13 +165,13 @@ void deletarCompromissos(void)
     printf("-=-=-=-=-=-=-=-=-     D E L E T A R     -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nCodigo: ");
-    scanf("%[0-9]", codigo);
+    scanf(" %[0-9]", codigo);
     getchar();
     //Senha para confirmação
     do
     {
         printf("Senha: ");
-        scanf("%s", senha);
+        scanf(" %s", senha);
         getchar(); 
         validadorSenha = validaSenha(senha);
     } while(validadorSenha != 0);   
@@ -188,7 +188,7 @@ int escolhaDepartamento(void)
     printf("\t3 - Departamento Tecnico\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
-    scanf("%d", &opcao);
+    scanf(" %d", &opcao);
     getchar();
 
     return opcao;

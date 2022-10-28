@@ -91,19 +91,19 @@ Usuarios* cadastroUsuario()
     do
     {
         printf("Nome: "); //Buga se der espaço
-        scanf("%30[^\n]", usu->nome);
+        scanf(" %49[^\n]", usu->nome);
         getchar();
     } while(validaNome(usu->nome));  
     do
     {
         printf("E-mail: ");
-        scanf("%s", usu->email);
+        scanf(" %49[^\n]", usu->email);
         getchar();
     } while(validaEmail(usu->email));
     do
     {
         printf("Telefone [00999999999]: ");
-        scanf("%s", usu->telefone);
+        scanf(" %11[^\n]", usu->telefone);
         getchar();
     } while(validaTelefone(usu->telefone));
 
@@ -115,13 +115,13 @@ Usuarios* cadastroUsuario()
     }    
     //Por enquanto vai ser manual (Colocar o depart no final do id, posteriormente)
     printf("ID [6 digitos]: ");
-    scanf("%[0-9]", usu->id);
+    scanf(" %[0-9]", usu->id);
     getchar();
 
     do
     {
         printf("Senha [letras e numeros [tamanho 8]]: ");
-        scanf("%s", usu->senha);
+        scanf(" %s", usu->senha);
         getchar(); 
     } while(validaSenha(usu->senha));   
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -141,7 +141,7 @@ int escolhaCargo(void)
     printf("\t2 - Funcionario\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
-    scanf("%d", &cargo);
+    scanf(" %d", &cargo);
     getchar();
 
     return cargo;
@@ -156,7 +156,7 @@ void buscarUsuario(void)
     printf("-=-=-=-=-=-=-=-=-=-    B U S C A R    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nID: ");
-    scanf("%[0-9]", id);
+    scanf(" %[0-9]", id);
     getchar();
     // Printar o usuário com o ID informado
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -171,7 +171,7 @@ void atualizarUsuario(void)
     printf("-=-=-=-=-=-=-=-     A T U A L I Z A R     -=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nID: ");
-    scanf("%[0-9]", id);
+    scanf(" %[0-9]", id);
     getchar();
     oqueAtualizarUsuario();
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -192,7 +192,7 @@ char oqueAtualizarUsuario(void)
     printf("\t5 - Telefone\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
-    scanf("%c", &opcao);
+    scanf(" %c", &opcao);
     getchar();
 
     return opcao;
@@ -208,7 +208,7 @@ void deletarUsuario(void)
     printf("-=-=-=-=-=-=-=-=-     D E L E T A R     -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nID: ");
-    scanf("%[0-9]", id);
+    scanf(" %[0-9]", id);
     getchar();
     //Senha para confirmação antes de deletar
     do
