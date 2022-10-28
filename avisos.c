@@ -52,8 +52,10 @@ char crudAvisos(void)
 }
 
 
-void cadastroAvisos(void)
+Avisos* cadastroAvisos()
 {
+    Avisos* warning;
+    warning = (Avisos*) malloc(sizeof(Avisos));
     // char codigo;
     int depart;
 
@@ -62,13 +64,13 @@ void cadastroAvisos(void)
     printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nTitulo: ");
-    scanf("%[A-Z a-z]", titulo);
+    scanf(" %99[^\n]", warning->titulo);
     getchar();
     printf("Descricao: ");
-    scanf("%[A-Z a-z]", descri);
+    scanf(" %999[^\n]", warning->descricao);
     getchar();
     printf("Data [dd/mm]: ");
-    scanf("%[0-9/]", data);
+    scanf(" %5[^\n]", warning->data);
     getchar();
     printf("Departamento:\n");
     depart = escolhaDepartamento(); 
@@ -77,6 +79,7 @@ void cadastroAvisos(void)
     printf(">>> Cadastro concluido!\n");
     printf("\nTecle ENTER para continuar");
     getchar();
+    return warning;
 }
 
 void buscarAvisos(void)
