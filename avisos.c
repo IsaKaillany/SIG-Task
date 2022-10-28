@@ -6,6 +6,7 @@
 
 void navegacaoCrudAvisos(void)
 {
+    Avisos* informe;
     char opcao;
     do
     {
@@ -13,7 +14,7 @@ void navegacaoCrudAvisos(void)
         switch (opcao)
         {
         case '1':
-            cadastroAvisos();
+            informe = cadastroAvisos();
             break;
         case '2':
             buscarAvisos();
@@ -26,6 +27,7 @@ void navegacaoCrudAvisos(void)
             break;
         }
     } while (opcao != '0');
+    free(informe);
 }
 
 
@@ -52,7 +54,6 @@ char crudAvisos(void)
 
 void cadastroAvisos(void)
 {
-    char titulo[100], descri[1000], data[6];
     // char codigo;
     int depart;
 
