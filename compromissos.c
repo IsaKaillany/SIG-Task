@@ -51,11 +51,12 @@ char crudCompromissos(void)
 }
 
 // Tirar setor, chamar a função escolhaDepartamento na variavel depart, tirar o vetor de depart
-void cadastroCompromissos(void)
+Compromissos* cadastroCompromissos()
 {
-    char titulo[100], descri[1000], data[6], id[7];
+    Compromissos* task;
+    task = (Compromissos*) malloc(sizeof(Compromissos*));
     // char codigo;
-    int depart, hora, min, validadorHorario;
+    int depart;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
