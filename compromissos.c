@@ -6,6 +6,7 @@
 
 void navegacaoCrudCompromissos(void)
 {
+    Compromissos* tarefa;
     char opcao;
     do
     {
@@ -13,7 +14,7 @@ void navegacaoCrudCompromissos(void)
         switch (opcao)
         {
         case '1':
-            cadastroCompromissos();
+            tarefa = cadastroCompromissos();
             break;
         case '2':
             buscarCompromissos();
@@ -26,6 +27,7 @@ void navegacaoCrudCompromissos(void)
             break;
         }
     } while (opcao != '0');
+    free(tarefa);
 }
 
 char crudCompromissos(void)
@@ -49,39 +51,39 @@ char crudCompromissos(void)
 }
 
 // Tirar setor, chamar a função escolhaDepartamento na variavel depart, tirar o vetor de depart
-void cadastroCompromissos(void)
+Compromissos* cadastroCompromissos()
 {
-    char titulo[100], descri[1000], data[6], id[7];
+    Compromissos* task;
+    task = (Compromissos*) malloc(sizeof(Compromissos*));
     // char codigo;
-    int depart, hora, min, validadorHorario;
+    int depart;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nTitulo: ");
-    scanf("%[A-Z a-z]", titulo);
+    scanf(" %99[^\n]", task->titulo);
     getchar();
     printf("Descricao: ");
-    scanf("%[A-Z a-z]", descri);
+    scanf(" %999[^\n]", task->descricao);
     getchar();
     printf("Data [dd/mm]: ");
-    scanf("%[0-9/]", data);
+    scanf(" %5[^\n]", task->data);
     getchar();
     do
     {
         printf("Hora [00]: ");
-        scanf("%d", &hora);
+        scanf(" %d", &task->hora);
         getchar();
         printf("Minutos [00]: ");
-        scanf("%d", &min);
+        scanf(" %d", &task->min);
         getchar();
-        validadorHorario = validaHora(hora, min);
-    } while(validadorHorario != 0);
+    } while(validaHora(task->hora, task->min));
     printf("Departamento:\n");
     depart = escolhaDepartamento(); 
     printf("ID do funcionario: ");
-    scanf("%[0-9]", id);
+    scanf(" %6[^\n]", task->id);
     getchar();
     // Criar código juntando a data, hora e departamento p/ mostrar no final
     // codigo = data + hora + (char)depart;
@@ -90,6 +92,7 @@ void cadastroCompromissos(void)
     printf(">>> Cadastro concluido!\n");
     printf("\nTecle ENTER para continuar");
     getchar();
+    return task;
 }
 
 //Mostrar o título e código da data pesquisada, depois digita o código para ver as infos completas do compromisso

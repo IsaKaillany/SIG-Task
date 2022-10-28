@@ -6,6 +6,7 @@
 
 void navegacaoCrudAvisos(void)
 {
+    Avisos* informe;
     char opcao;
     do
     {
@@ -13,7 +14,7 @@ void navegacaoCrudAvisos(void)
         switch (opcao)
         {
         case '1':
-            cadastroAvisos();
+            informe = cadastroAvisos();
             break;
         case '2':
             buscarAvisos();
@@ -26,6 +27,7 @@ void navegacaoCrudAvisos(void)
             break;
         }
     } while (opcao != '0');
+    free(informe);
 }
 
 
@@ -50,9 +52,10 @@ char crudAvisos(void)
 }
 
 
-void cadastroAvisos(void)
+Avisos* cadastroAvisos()
 {
-    char titulo[100], descri[1000], data[6];
+    Avisos* warning;
+    warning = (Avisos*) malloc(sizeof(Avisos));
     // char codigo;
     int depart;
 
@@ -61,13 +64,13 @@ void cadastroAvisos(void)
     printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nTitulo: ");
-    scanf("%[A-Z a-z]", titulo);
+    scanf(" %99[^\n]", warning->titulo);
     getchar();
     printf("Descricao: ");
-    scanf("%[A-Z a-z]", descri);
+    scanf(" %999[^\n]", warning->descricao);
     getchar();
     printf("Data [dd/mm]: ");
-    scanf("%[0-9/]", data);
+    scanf(" %5[^\n]", warning->data);
     getchar();
     printf("Departamento:\n");
     depart = escolhaDepartamento(); 
@@ -76,6 +79,7 @@ void cadastroAvisos(void)
     printf(">>> Cadastro concluido!\n");
     printf("\nTecle ENTER para continuar");
     getchar();
+    return warning;
 }
 
 void buscarAvisos(void)
