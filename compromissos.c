@@ -6,6 +6,7 @@
 
 void navegacaoCrudCompromissos(void)
 {
+    Compromissos* tarefa;
     char opcao;
     do
     {
@@ -13,7 +14,7 @@ void navegacaoCrudCompromissos(void)
         switch (opcao)
         {
         case '1':
-            cadastroCompromissos();
+            tarefa = cadastroCompromissos();
             break;
         case '2':
             buscarCompromissos();
@@ -26,6 +27,7 @@ void navegacaoCrudCompromissos(void)
             break;
         }
     } while (opcao != '0');
+    free(tarefa);
 }
 
 char crudCompromissos(void)

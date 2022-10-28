@@ -1,6 +1,5 @@
 void navegacaoCrudCompromissos(void);
 char crudCompromissos(void);
-void cadastroCompromissos(void);
 void buscarCompromissos(void);
 void atualizarCompromissos(void);
 char oqueAtualizarCompromissos(void);
@@ -19,3 +18,5 @@ struct compromissos {
   int hora;
   int min;
 };
+
+Compromissos* cadastroCompromissos();
