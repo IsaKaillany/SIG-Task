@@ -63,28 +63,27 @@ Compromissos* cadastroCompromissos()
     printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nTitulo: ");
-    scanf("%[A-Z a-z]", titulo);
+    scanf(" %99[^\n]", task->titulo);
     getchar();
     printf("Descricao: ");
-    scanf("%[A-Z a-z]", descri);
+    scanf(" %999[^\n]", task->descricao);
     getchar();
     printf("Data [dd/mm]: ");
-    scanf("%[0-9/]", data);
+    scanf(" %5[^\n]", task->data);
     getchar();
     do
     {
         printf("Hora [00]: ");
-        scanf("%d", &hora);
+        scanf(" %d", &task->hora);
         getchar();
         printf("Minutos [00]: ");
-        scanf("%d", &min);
+        scanf(" %d", &task->min);
         getchar();
-        validadorHorario = validaHora(hora, min);
-    } while(validadorHorario != 0);
+    } while(validaHora(task->hora, task->min));
     printf("Departamento:\n");
     depart = escolhaDepartamento(); 
     printf("ID do funcionario: ");
-    scanf("%[0-9]", id);
+    scanf(" %6[^\n]", task->id);
     getchar();
     // Criar código juntando a data, hora e departamento p/ mostrar no final
     // codigo = data + hora + (char)depart;
@@ -93,6 +92,7 @@ Compromissos* cadastroCompromissos()
     printf(">>> Cadastro concluido!\n");
     printf("\nTecle ENTER para continuar");
     getchar();
+    return task;
 }
 
 //Mostrar o título e código da data pesquisada, depois digita o código para ver as infos completas do compromisso
