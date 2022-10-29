@@ -228,7 +228,19 @@ int validaData(anoAtual, int dia, int mes)
         }
       }
     }
-
-
-    
+    else if ((dia >= 32) && (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 ||
+              mes == 10 || mes == 12)) // meses com 31 dias
+    {
+      return 1;
+    }
+    else if ((dia >= 31) && (mes == 4 || mes == 6 || mes == 9 || mes == 11)) // meses com 30 dias
+    {
+      return 1;
+    }
+    return 0;
   }
+  else
+  {
+    return 1;    
+  }  
+}
