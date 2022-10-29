@@ -206,3 +206,29 @@ int anoAtual(void) //by https://www.clubedohardware.com.br/forums/topic/1273224-
     printf("%d\n",anoAtual);
     return anoAtual;
 }
+
+int validaData(anoAtual, int dia, int mes)
+{
+  if ((dia >= 1 && dia <= 31) && (mes >= 1 && mes <= 12))
+  {
+    if (mes == 2) // fevereiro
+    {
+      if ((anoAtual % 4 == 0) && (anoAtual % 100 != 0) || (anoAtual % 400 == 0))  // ano bissexto
+      {
+        if (dia >= 30)
+        {
+          return 1;
+        }
+      } 
+      else
+      {
+        if (dia >= 29)
+        {
+          return 1;
+        }
+      }
+    }
+
+
+    
+  }
