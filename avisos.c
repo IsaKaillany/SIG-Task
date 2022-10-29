@@ -77,7 +77,7 @@ Avisos* cadastroAvisos()
         printf("Mes [mm]: ");
         scanf(" %d", &warning->mes);
         getchar();
-    } while (validaData(anoAtual, warning->dia, warning->mes));
+    } while (validaData(anoAtual(), warning->dia, warning->mes));
     printf("Departamento:\n");
     depart = escolhaDepartamento(); 
     //Criar código
