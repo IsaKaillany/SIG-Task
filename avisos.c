@@ -72,10 +72,10 @@ Avisos* cadastroAvisos()
     do
     {
         printf("Dia [dd]: ");
-        scanf(" %[^\n]", warning->dia);
+        scanf(" %d", &warning->dia);
         getchar();
         printf("Mes [mm]: ");
-        scanf(" %[^\n]", warning->mes);
+        scanf(" %d", &warning->mes);
         getchar();
     } while (validaData(anoAtual, warning->dia, warning->mes));
     printf("Departamento:\n");
