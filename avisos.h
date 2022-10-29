@@ -12,7 +12,8 @@ typedef struct avisos Avisos;
 struct avisos {
   char titulo[100];
   char descricao[1000];
-  char data[6];
+  int dia;
+  int mes;
 };
 
 Avisos* cadastroAvisos();
