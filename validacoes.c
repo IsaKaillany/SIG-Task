@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "validacoes.h"
+#include <time.h>
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -188,4 +189,58 @@ int validaHora(int hora, int min)
     return 0;
   }    
 
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int anoAtual(void) //by https://www.clubedohardware.com.br/forums/topic/1273224-retornar-o-ano-atual-no-sistema-e-exibir-na-tela-em-c/
+{
+    int anoAtual; //Esta variável foi criada para receber o resultado do comando que exibe o ano atual.
+    time_t data_ano; //Foi criada uma variável chamada data_ano que é do tipo time_t que é um tipo de variável que recebe valores de data e hora.
+    time(&data_ano);
+  
+    struct tm *data = localtime(&data_ano);
+
+    anoAtual = (data->tm_year+1900);    
+
+    printf("%d\n",anoAtual);
+    return anoAtual;
+}
+
+int validaData(int anoAtual, int dia, int mes)
+{
+  if ((dia >= 1 && dia <= 31) && (mes >= 1 && mes <= 12))
+  {
+    if (mes == 2) // fevereiro
+    {
+      if ((anoAtual % 4 == 0) && (anoAtual % 100 != 0) || (anoAtual % 400 == 0))  // ano bissexto
+      {
+        if (dia >= 30)
+        {
+          return 1;
+        }
+      } 
+      else
+      {
+        if (dia >= 29)
+        {
+          return 1;
+        }
+      }
+    }
+    else if ((dia >= 32) && (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 ||
+              mes == 10 || mes == 12)) // meses com 31 dias
+    {
+      return 1;
+    }
+    else if ((dia >= 31) && (mes == 4 || mes == 6 || mes == 9 || mes == 11)) // meses com 30 dias
+    {
+      return 1;
+    }
+    return 0;
+  }
+  else
+  {
+    return 1;    
+  }  
 }
