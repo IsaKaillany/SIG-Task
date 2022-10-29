@@ -207,7 +207,7 @@ int anoAtual(void) //by https://www.clubedohardware.com.br/forums/topic/1273224-
     return anoAtual;
 }
 
-int validaData(anoAtual, int dia, int mes)
+int validaData(int anoAtual, int dia, int mes)
 {
   if ((dia >= 1 && dia <= 31) && (mes >= 1 && mes <= 12))
   {
