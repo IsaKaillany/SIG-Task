@@ -68,9 +68,15 @@ Compromissos* cadastroCompromissos()
     printf("Descricao: ");
     scanf(" %999[^\n]", task->descricao);
     getchar();
-    printf("Data [dd/mm]: ");
-    scanf(" %5[^\n]", task->data);
-    getchar();
+    do
+    {
+        printf("Dia [dd]: ");
+        scanf(" %d", &task->dia);
+        getchar();
+        printf("Mes [mm]: ");
+        scanf(" %d", &task->mes);
+        getchar();
+    } while (validaData(anoAtual(), task->dia, task->mes));
     do
     {
         printf("Hora [00]: ");

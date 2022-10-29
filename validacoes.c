@@ -203,7 +203,6 @@ int anoAtual(void) //by https://www.clubedohardware.com.br/forums/topic/1273224-
 
     anoAtual = (data->tm_year+1900);    
 
-    printf("%d\n",anoAtual);
     return anoAtual;
 }
 
@@ -213,7 +212,7 @@ int validaData(int anoAtual, int dia, int mes)
   {
     if (mes == 2) // fevereiro
     {
-      if ((anoAtual % 4 == 0) && (anoAtual % 100 != 0) || (anoAtual % 400 == 0))  // ano bissexto
+      if (((anoAtual % 4 == 0) && (anoAtual % 100 != 0)) || (anoAtual % 400 == 0))  // ano bissexto
       {
         if (dia >= 30)
         {

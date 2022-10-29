@@ -13,7 +13,8 @@ typedef struct compromissos Compromissos;
 struct compromissos {
   char titulo[100];
   char descricao[1000];
-  char data[6];
+  int dia;
+  int mes;
   char id[7];
   int hora;
   int min;
