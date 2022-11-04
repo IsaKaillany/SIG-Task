@@ -19,6 +19,8 @@ struct usuarios
   char senha[9];
   char telefone[12];
   char id[7];
+  int cargo;
+  int departamento;
 };
 
 Usuarios* cadastroUsuario();

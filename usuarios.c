@@ -81,7 +81,6 @@ Usuarios* cadastroUsuario()
 {
     Usuarios* usu;
     usu = (Usuarios*) malloc(sizeof(Usuarios));
-    int cargo, depart;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -108,10 +107,10 @@ Usuarios* cadastroUsuario()
     } while(validaTelefone(usu->telefone));
 
     printf("Cargo:\n");
-    cargo = escolhaCargo();
-    if (cargo == 2)
+    usu->cargo = escolhaCargo();
+    if (usu->cargo == 2)
     {
-        depart = escolhaDepartamento();
+        usu->departamento = escolhaDepartamento();
     }    
     //Por enquanto vai ser manual (Colocar o depart no final do id, posteriormente)
     printf("ID [6 digitos]: ");
