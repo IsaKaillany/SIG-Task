@@ -87,7 +87,7 @@ Compromissos* cadastroCompromissos()
         getchar();
     } while(validaHora(task->hora, task->min));
     printf("Departamento:\n");
-    depart = escolhaDepartamento(); 
+    task->departamento = escolhaDepartamento(); 
     printf("ID do funcionario: ");
     scanf(" %6[^\n]", task->id);
     getchar();

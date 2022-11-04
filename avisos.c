@@ -79,7 +79,7 @@ Avisos* cadastroAvisos()
         getchar();
     } while (validaData(anoAtual(), warning->dia, warning->mes));
     printf("Departamento:\n");
-    depart = escolhaDepartamento(); 
+    warning->departamento = escolhaDepartamento(); 
     //Criar código
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Cadastro concluido!\n");
