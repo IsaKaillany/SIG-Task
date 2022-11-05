@@ -19,3 +19,4 @@ struct avisos {
 
 void cadastroAvisos(void);
 void gravaAviso(Avisos*);
+void exibeAviso(Avisos*);

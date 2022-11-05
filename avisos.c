@@ -208,3 +208,23 @@ void deletarAvisos(void)
     } while(validaSenha(senha));   
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+void exibeAviso(Avisos* warning)
+{
+    if (warning == NULL) 
+    {
+        printf("\n= = = Aviso não cadastrado = = =\n");
+    }
+    else 
+    {
+        printf("\n");
+        printf("Titulo: %s\n", warning->titulo);
+        printf("Descricao: %s\n", warning->descricao);
+        printf("dia: %s\n", warning->dia);
+        printf("mes: %s\n", warning->mes);
+        printf("mes: %s\n", warning->departamento);
+        getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
+    }
+}
