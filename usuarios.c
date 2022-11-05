@@ -140,18 +140,38 @@ int escolhaCargo(void)
     return cargo;
 }
 
-void buscarUsuario(void)
+void buscarUsuario(void) //Não funcional
 {
-    char id[7];
-
+    FILE* fp;
+    Usuarios* usu;
+    char idBusca[7];
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    B U S C A R    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\nID: ");
-    scanf(" %[0-9]", id);
+    printf("\n");
+    printf("Informe o ID: "); 
+    scanf(" %[0-9]", idBusca);
     getchar();
-    // Printar o usuário com o ID informado
+    usu = (Usuarios*) malloc(sizeof(Usuarios));
+    fp = fopen("usuario.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar este programa...\n");
+        exit(1);
+    }
+    while(!feof(fp)) 
+    {
+        fread(usu, sizeof(Usuarios), 1, fp);
+        if ((usu->id == idBusca) && (usu->status != 'F')) 
+        {
+            fclose(fp);
+            // return usu;
+        }
+    }
+    fclose(fp);
+    // return NULL;
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 
 }
@@ -240,6 +260,7 @@ void exibeUsuario(Usuarios* usu)
     }
     else 
     {
+        printf("\n");
         printf("Nome: %s\n", usu->nome);
         printf("E-mail: %s\n", usu->email);
         printf("Telefone: %s\n", usu->telefone);
