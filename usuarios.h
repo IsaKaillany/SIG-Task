@@ -21,7 +21,9 @@ struct usuarios
   char id[7];
   int cargo;
   int departamento;
+  char status;
 };
 
-Usuarios* cadastroUsuario();
+void cadastroUsuario(void);
 void usuariosCadastrados(const Usuarios*);
+void gravaUsuario(Usuarios*);

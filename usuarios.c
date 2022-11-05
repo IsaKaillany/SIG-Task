@@ -7,7 +7,6 @@
 
 void moduloUsuarios(void)
 {
-    Usuarios* funcionario;
     char opcao;        
     do
     {
@@ -15,7 +14,7 @@ void moduloUsuarios(void)
         switch (opcao)
         {
             case '1':
-                funcionario = cadastroUsuario();
+                cadastroUsuario();
                 break;
             case '2':
                 buscarUsuario();
@@ -26,12 +25,11 @@ void moduloUsuarios(void)
             case '4':
                 deletarUsuario();
                 break;
-            case '5':
-                usuariosCadastrados(funcionario);
-                break;
+            // case '5':
+            //     usuariosCadastrados();
+            //     break;
         }           
     } while (opcao != '0');
-    free(funcionario);
 }
 
 // void navegacaoUsuariosCadastrados(void)
@@ -77,11 +75,10 @@ char telaUsuarios(void)
 }
 
 
-Usuarios* cadastroUsuario()
+void cadastroUsuario(void)
 {
     Usuarios* usu;
     usu = (Usuarios*) malloc(sizeof(Usuarios));
-
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
@@ -89,7 +86,7 @@ Usuarios* cadastroUsuario()
     printf("\n");
     do
     {
-        printf("Nome: "); //Buga se der espaço
+        printf("Nome: ");
         scanf(" %49[^\n]", usu->nome);
         getchar();
     } while(validaNome(usu->nome));  
@@ -128,7 +125,21 @@ Usuarios* cadastroUsuario()
     printf("\nTecle ENTER para continuar");
     getchar();
 
-    return usu;
+    gravaUsuario(usu);
+    free(usu);
+}
+
+void gravaUsuario(Usuarios* usu)
+{
+    FILE* fp;
+    fp = fopen("usuario.dat", "ab");
+    if (fp == NULL) {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+    fwrite(usu, sizeof(Usuarios), 1, fp);
+    fclose(fp);
 }
 
 int escolhaCargo(void)
