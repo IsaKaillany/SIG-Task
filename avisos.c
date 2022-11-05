@@ -103,16 +103,37 @@ void gravaAviso(Avisos* warning)
 
 void buscarAvisos(void)
 {
-    char data[6];
+    FILE* fp;
+    Avisos* warning;
+    char dataBusca[6];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-      B U S C A R      -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nData [dd/mm]: ");
-    scanf(" %[0-9/]", data);
+    scanf(" %[0-9/]", dataBusca);
     getchar();
+    warning = (Avisos*) malloc(sizeof(Avisos));
+    fp = fopen("aviso.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar este programa...\n");
+        exit(1);
+    }
+    while(!feof(fp)) 
+    {
+        fread(warning, sizeof(Avisos), 1, fp);
+        if (warning->data == dataBusca) 
+        {
+            fclose(fp);
+        
+        }
+    }
+    fclose(fp);
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    
 }
 
 void atualizarAvisos(void)
