@@ -14,6 +14,7 @@ struct avisos {
   char descricao[1000];
   int dia;
   int mes;
+  int departamento;
 };
 
 Avisos* cadastroAvisos();

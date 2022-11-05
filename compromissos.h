@@ -18,6 +18,7 @@ struct compromissos {
   char id[7];
   int hora;
   int min;
+  int departamento;
 };
 
 Compromissos* cadastroCompromissos();

@@ -57,7 +57,6 @@ Avisos* cadastroAvisos()
     Avisos* warning;
     warning = (Avisos*) malloc(sizeof(Avisos));
     // char codigo;
-    int depart;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -78,8 +77,9 @@ Avisos* cadastroAvisos()
         scanf(" %d", &warning->mes);
         getchar();
     } while (validaData(anoAtual(), warning->dia, warning->mes));
+    
     printf("Departamento:\n");
-    depart = escolhaDepartamento(); 
+    warning->departamento = escolhaDepartamento(); 
     //Criar código
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Cadastro concluido!\n");
@@ -105,7 +105,6 @@ void buscarAvisos(void)
 void atualizarAvisos(void)
 {
     char senha[9], resp;
-    int validadorSenha;
     // char codigo;
 
     system("clear||cls");
@@ -122,8 +121,7 @@ void atualizarAvisos(void)
         printf("Senha: ");
         scanf(" %s", senha);
         getchar(); 
-        validadorSenha = validaSenha(senha);
-    } while(validadorSenha != 0);   
+    } while(validaSenha(senha));   
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
@@ -149,7 +147,6 @@ char oqueAtualizarAvisos(void)
 void deletarAvisos(void)
 {
     char senha[9];
-    int validadorSenha;
     // char codigo;
 
     system("clear||cls");
@@ -165,7 +162,6 @@ void deletarAvisos(void)
         printf("Senha: ");
         scanf(" %s", senha);
         getchar(); 
-        validadorSenha = validaSenha(senha);
-    } while(validadorSenha != 0);   
+    } while(validaSenha(senha));   
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }

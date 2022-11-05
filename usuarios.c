@@ -7,7 +7,6 @@
 
 void moduloUsuarios(void)
 {
-    Usuarios* funcionario;
     char opcao;        
     do
     {
@@ -15,7 +14,7 @@ void moduloUsuarios(void)
         switch (opcao)
         {
             case '1':
-                funcionario = cadastroUsuario();
+                cadastroUsuario();
                 break;
             case '2':
                 buscarUsuario();
@@ -27,33 +26,13 @@ void moduloUsuarios(void)
                 deletarUsuario();
                 break;
             case '5':
-                usuariosCadastrados(funcionario);
+                listaUsuario();
                 break;
+            // case '6':
+            //     break;
         }           
     } while (opcao != '0');
-    free(funcionario);
 }
-
-// void navegacaoUsuariosCadastrados(void)
-// {
-//     char opcao;        
-//     do
-//     {
-//         opcao = departamentoUsuario();
-//         switch (opcao)
-//         {
-//             case '1':
-//                 usuariosCadastrados();
-//                 break;
-//             case '2':
-//                 usuariosCadastrados();
-//                 break;
-//             case '3':
-//                 usuariosCadastrados();
-//                 break;
-//         }           
-//     } while (opcao != '0');
-// }
 
 char telaUsuarios(void)
 {
@@ -67,6 +46,7 @@ char telaUsuarios(void)
     printf("\t3 - Atualizar Dados\n");
     printf("\t4 - Deletar Dados\n");
     printf("\t5 - Listagem de Usuarios\n");
+    printf("\t6 - Listagem de Usuarios por Departamento\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
@@ -77,12 +57,10 @@ char telaUsuarios(void)
 }
 
 
-Usuarios* cadastroUsuario()
+void cadastroUsuario(void)
 {
     Usuarios* usu;
     usu = (Usuarios*) malloc(sizeof(Usuarios));
-    int cargo, depart;
-
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
@@ -90,7 +68,7 @@ Usuarios* cadastroUsuario()
     printf("\n");
     do
     {
-        printf("Nome: "); //Buga se der espaço
+        printf("Nome: ");
         scanf(" %49[^\n]", usu->nome);
         getchar();
     } while(validaNome(usu->nome));  
@@ -108,10 +86,10 @@ Usuarios* cadastroUsuario()
     } while(validaTelefone(usu->telefone));
 
     printf("Cargo:\n");
-    cargo = escolhaCargo();
-    if (cargo == 2)
+    usu->cargo = escolhaCargo();
+    if (usu->cargo == 2)
     {
-        depart = escolhaDepartamento();
+        usu->departamento = escolhaDepartamento();
     }    
     //Por enquanto vai ser manual (Colocar o depart no final do id, posteriormente)
     printf("ID [6 digitos]: ");
@@ -124,12 +102,27 @@ Usuarios* cadastroUsuario()
         scanf(" %s", usu->senha);
         getchar(); 
     } while(validaSenha(usu->senha));   
+    usu->status = 'T';
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Cadastro concluido!\n");
     printf("\nTecle ENTER para continuar");
     getchar();
 
-    return usu;
+    gravaUsuario(usu);
+    free(usu);
+}
+
+void gravaUsuario(Usuarios* usu)
+{
+    FILE* fp;
+    fp = fopen("usuario.dat", "ab");
+    if (fp == NULL) {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+    fwrite(usu, sizeof(Usuarios), 1, fp);
+    fclose(fp);
 }
 
 int escolhaCargo(void)
@@ -147,18 +140,38 @@ int escolhaCargo(void)
     return cargo;
 }
 
-void buscarUsuario(void)
+void buscarUsuario(void) //Não funcional
 {
-    char id[7];
-
+    FILE* fp;
+    Usuarios* usu;
+    char idBusca[7];
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    B U S C A R    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\nID: ");
-    scanf(" %[0-9]", id);
+    printf("\n");
+    printf("Informe o ID: "); 
+    scanf(" %[0-9]", idBusca);
     getchar();
-    // Printar o usuário com o ID informado
+    usu = (Usuarios*) malloc(sizeof(Usuarios));
+    fp = fopen("usuario.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar este programa...\n");
+        exit(1);
+    }
+    while(!feof(fp)) 
+    {
+        fread(usu, sizeof(Usuarios), 1, fp);
+        if ((usu->id == idBusca) && (usu->status != 'F')) 
+        {
+            fclose(fp);
+            // return usu;
+        }
+    }
+    fclose(fp);
+    // return NULL;
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 
 }
@@ -201,7 +214,6 @@ char oqueAtualizarUsuario(void)
 void deletarUsuario(void)
 {
     char id[7], senha[9];
-    int validadorSenha;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -216,9 +228,8 @@ void deletarUsuario(void)
         printf("Senha [8 digitos]: ");
         scanf("%s", senha);
         getchar(); 
-        validadorSenha = validaSenha(senha);
-    } while(validadorSenha != 0);   
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");   
+    } while(validaSenha(senha));   
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
 
 }
 
@@ -241,18 +252,46 @@ char departamentoUsuario(void)
     return opcao;
 }
 
-void usuariosCadastrados(const Usuarios* func)
+void exibeUsuario(Usuarios* usu)
 {
+    if ((usu == NULL) || (usu->status == 'F')) 
+    {
+        printf("\n= = = Usuario Inexistente = = =\n");
+    }
+    else 
+    {
+        printf("\n");
+        printf("Nome: %s\n", usu->nome);
+        printf("E-mail: %s\n", usu->email);
+        printf("Telefone: %s\n", usu->telefone);
+        printf("Id: %s\n", usu->id);
+        getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
+    }
+}
+
+void listaUsuario(void) 
+{
+    FILE* fp;
+    Usuarios* usu;
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-     U S U A R I O S  C A D A S T R A D O S    -=-=-\n");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\n");
-    printf("Em desenvolvimento...\n");
-    printf("Nome: %s\n", func->nome);
-    printf("E-mail: %s\n", func->email);
-    printf("Telefone: %s\n", func->telefone);
-    printf("Id: %s\n", func->id);
-    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    getchar();
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
+    usu = (Usuarios*) malloc(sizeof(Usuarios));
+    fp = fopen("usuario.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+    while (fread(usu, sizeof(Usuarios), 1, fp)) 
+    {
+        if (usu->status != 'F') 
+        {
+            exibeUsuario(usu);
+        }
+    }
+    fclose(fp);
+    free(usu);
 }

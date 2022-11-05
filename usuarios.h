@@ -4,7 +4,6 @@ void buscarUsuario(void);
 void atualizarUsuario(void);
 char oqueAtualizarUsuario(void);
 void deletarUsuario(void);
-void navegacaoUsuariosCadastrados(void);
 char departamentoUsuario(void);
 int escolhaCargo(void);
 
@@ -19,7 +18,12 @@ struct usuarios
   char senha[9];
   char telefone[12];
   char id[7];
+  int cargo;
+  int departamento;
+  char status;
 };
 
-Usuarios* cadastroUsuario();
-void usuariosCadastrados(const Usuarios*);
+void cadastroUsuario(void);
+void gravaUsuario(Usuarios*);
+void exibeUsuario(Usuarios*);
+void listaUsuario(void); 
