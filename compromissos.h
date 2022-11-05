@@ -22,3 +22,5 @@ struct compromissos {
 };
 
 void cadastroCompromissos(void);
+void gravaCompromisso(Compromissos*);
+void exibeCompromisso(Compromissos*);
