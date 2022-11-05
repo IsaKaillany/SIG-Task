@@ -88,6 +88,19 @@ Avisos* cadastroAvisos()
     return warning;
 }
 
+void gravaAviso(Avisos* warning)
+{
+    FILE* fp;
+    fp = fopen("aviso.dat", "ab");
+    if (fp == NULL) {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+    fwrite(warning, sizeof(Avisos), 1, fp);
+    fclose(fp);
+}
+
 void buscarAvisos(void)
 {
     char data[6];
