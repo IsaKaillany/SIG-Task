@@ -149,7 +149,7 @@ int escolhaCargo(void)
     // system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Gerencia\n");
-    printf("\t2 - Funcionario\n");
+    printf("\t2 - usuionario\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
     scanf(" %d", &cargo);
@@ -250,7 +250,7 @@ char departamentoUsuario(void)
     return opcao;
 }
 
-void usuariosCadastrados(const Usuarios* func)
+void usuariosCadastrados(const Usuarios* usu)
 {
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -263,17 +263,38 @@ void usuariosCadastrados(const Usuarios* func)
     getchar();
 }
 
-void exibeUsuario(Usuarios* func)
+void exibeUsuario(Usuarios* usu)
 {
-    if ((func == NULL) || (func->status == 'T')) 
+    if ((usu == NULL) || (usu->status == 'T')) 
     {
         printf("\n= = = Usuario Inexistente = = =\n");
     }
     else 
     {
-        printf("Nome: %s\n", func->nome);
-        printf("E-mail: %s\n", func->email);
-        printf("Telefone: %s\n", func->telefone);
-        printf("Id: %s\n", func->id);
+        printf("Nome: %s\n", usu->nome);
+        printf("E-mail: %s\n", usu->email);
+        printf("Telefone: %s\n", usu->telefone);
+        printf("Id: %s\n", usu->id);
     }
+}
+
+void listaUsuario(void) 
+{
+  FILE* fp;
+  Usuarios* usu;
+  printf("\n = Lista de Alunos = \n"); 
+  usu = (Usuarios*) malloc(sizeof(Usuarios));
+  fp = fopen("usuarios.dat", "rb");
+  if (fp == NULL) {
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+  }
+  while(fread(usu, sizeof(Usuarios), 1, fp)) {
+    if (usu->status != 'F') {
+      exibeUsuario(usu);
+    }
+  }
+  fclose(fp);
+  free(usu);
 }

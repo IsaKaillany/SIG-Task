@@ -27,3 +27,5 @@ struct usuarios
 void cadastroUsuario(void);
 void usuariosCadastrados(const Usuarios*);
 void gravaUsuario(Usuarios*);
+void exibeUsuario(Usuarios*);
+void listaUsuario(void); 
