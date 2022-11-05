@@ -120,6 +120,7 @@ void cadastroUsuario(void)
         scanf(" %s", usu->senha);
         getchar(); 
     } while(validaSenha(usu->senha));   
+    usu->status = 'T';
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Cadastro concluido!\n");
     printf("\nTecle ENTER para continuar");
@@ -257,10 +258,22 @@ void usuariosCadastrados(const Usuarios* func)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n");
     printf("Em desenvolvimento...\n");
-    printf("Nome: %s\n", func->nome);
-    printf("E-mail: %s\n", func->email);
-    printf("Telefone: %s\n", func->telefone);
-    printf("Id: %s\n", func->id);
+
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     getchar();
+}
+
+void exibeUsuario(Usuarios* func)
+{
+    if ((func == NULL) || (func->status == 'T')) 
+    {
+        printf("\n= = = Usuario Inexistente = = =\n");
+    }
+    else 
+    {
+        printf("Nome: %s\n", func->nome);
+        printf("E-mail: %s\n", func->email);
+        printf("Telefone: %s\n", func->telefone);
+        printf("Id: %s\n", func->id);
+    }
 }
