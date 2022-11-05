@@ -6,7 +6,6 @@
 
 void navegacaoCrudAvisos(void)
 {
-    Avisos* informe;
     char opcao;
     do
     {
@@ -14,7 +13,7 @@ void navegacaoCrudAvisos(void)
         switch (opcao)
         {
         case '1':
-            informe = cadastroAvisos();
+            cadastroAvisos();
             break;
         case '2':
             buscarAvisos();
@@ -27,7 +26,6 @@ void navegacaoCrudAvisos(void)
             break;
         }
     } while (opcao != '0');
-    free(informe);
 }
 
 
@@ -51,8 +49,9 @@ char crudAvisos(void)
     return opcao;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Avisos* cadastroAvisos()
+void cadastroAvisos(void)
 {
     Avisos* warning;
     warning = (Avisos*) malloc(sizeof(Avisos));
@@ -85,7 +84,10 @@ Avisos* cadastroAvisos()
     printf(">>> Cadastro concluido!\n");
     printf("\nTecle ENTER para continuar");
     getchar();
-    return warning;
+
+    gravaAviso(warning);
+    free(warning);
+    
 }
 
 void gravaAviso(Avisos* warning)
@@ -117,6 +119,8 @@ void buscarAvisos(void)
     printf("\nMes [mm]: ");
     scanf(" %[0-9/]", mesBusca);
     getchar();
+
+
     warning = (Avisos*) malloc(sizeof(Avisos));
     fp = fopen("aviso.dat", "rb");
     if (fp == NULL) 
@@ -128,15 +132,14 @@ void buscarAvisos(void)
     while(!feof(fp)) 
     {
         fread(warning, sizeof(Avisos), 1, fp);
-        if (warning->dia == dataBusca) 
+        if ((warning->dia == diaBusca) && (warning->mes == mesBusca)) 
         {
             fclose(fp);
         
         }
     }
     fclose(fp);
-    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
 }
 
 void atualizarAvisos(void)
