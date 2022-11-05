@@ -21,4 +21,4 @@ struct compromissos {
   int departamento;
 };
 
-Compromissos* cadastroCompromissos();
+void cadastroCompromissos(void);

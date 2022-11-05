@@ -212,3 +212,27 @@ int escolhaDepartamento(void)
 
     return opcao;
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Depois ver como fazer para conseguir listar os compromissos de um único departamento
+void exibeCompromisso(Compromissos* task)
+{
+    if (task == NULL) 
+    {
+        printf("\n= = = Compromisso não cadastrado = = =\n");
+    }
+    else 
+    {
+        printf("\n");
+        printf("Titulo: %s\n", task->titulo);
+        printf("Descricao: %s\n", task->descricao);
+        printf("Dia: %d\n", task->dia);
+        printf("Mes: %d\n", task->mes);
+        printf("Hora: %d\n", task->hora);
+        printf("Minutos: %d\n", task->min);
+        printf("ID: %d\n", task->id);
+        printf("Departamento: %d\n", task->departamento);
+        getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
+    }
+}
