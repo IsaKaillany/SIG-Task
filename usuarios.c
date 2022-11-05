@@ -131,7 +131,7 @@ int escolhaCargo(void)
     // system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Gerencia\n");
-    printf("\t2 - usuionario\n");
+    printf("\t2 - Funcionario\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
     scanf(" %d", &cargo);
@@ -234,7 +234,7 @@ char departamentoUsuario(void)
 
 void exibeUsuario(Usuarios* usu)
 {
-    if ((usu == NULL) || (usu->status == 'T')) 
+    if ((usu == NULL) || (usu->status == 'F')) 
     {
         printf("\n= = = Usuario Inexistente = = =\n");
     }
@@ -244,6 +244,7 @@ void exibeUsuario(Usuarios* usu)
         printf("E-mail: %s\n", usu->email);
         printf("Telefone: %s\n", usu->telefone);
         printf("Id: %s\n", usu->id);
+        getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
     }
 }
 
@@ -256,11 +257,11 @@ void listaUsuario(void)
     printf("-=-=-     U S U A R I O S  C A D A S T R A D O S    -=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
     usu = (Usuarios*) malloc(sizeof(Usuarios));
-    fp = fopen("usuarios.dat", "rb");
+    fp = fopen("usuario.dat", "rb");
     if (fp == NULL) 
     {
-        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-        printf("Não é possível continuar este programa...\n");
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
         exit(1);
     }
     while (fread(usu, sizeof(Usuarios), 1, fp)) 
