@@ -105,14 +105,17 @@ void buscarAvisos(void)
 {
     FILE* fp;
     Avisos* warning;
-    char dataBusca[6];
+    char diaBusca[3], mesBusca[3];
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-      B U S C A R      -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\nData [dd/mm]: ");
-    scanf(" %[0-9/]", dataBusca);
+    printf("\nDia [dd]: ");
+    scanf(" %[0-9/]", diaBusca);
+    getchar();
+    printf("\nMes [mm]: ");
+    scanf(" %[0-9/]", mesBusca);
     getchar();
     warning = (Avisos*) malloc(sizeof(Avisos));
     fp = fopen("aviso.dat", "rb");
@@ -125,7 +128,7 @@ void buscarAvisos(void)
     while(!feof(fp)) 
     {
         fread(warning, sizeof(Avisos), 1, fp);
-        if (warning->data == dataBusca) 
+        if (warning->dia == dataBusca) 
         {
             fclose(fp);
         
