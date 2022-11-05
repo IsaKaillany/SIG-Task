@@ -231,7 +231,7 @@ void exibeCompromisso(Compromissos* task)
         printf("Mes: %d\n", task->mes);
         printf("Hora: %d\n", task->hora);
         printf("Minutos: %d\n", task->min);
-        printf("ID: %d\n", task->id);
+        printf("ID: %s\n", task->id);
         printf("Departamento: %d\n", task->departamento);
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
     }
