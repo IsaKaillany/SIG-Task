@@ -89,6 +89,7 @@ void cadastroAvisos(void)
     free(warning);
     
 }
+/////////////////////////////////////////////////////////////////////////////////////
 
 void gravaAviso(Avisos* warning)
 {
@@ -103,21 +104,23 @@ void gravaAviso(Avisos* warning)
     fclose(fp);
 }
 
+////////////////////////////////////////////////////////////////////////////////////////
+
 void buscarAvisos(void)
 {
     FILE* fp;
     Avisos* warning;
-    char diaBusca[3], mesBusca[3];
+    char diaBusca, mesBusca;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-      B U S C A R      -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nDia [dd]: ");
-    scanf(" %[0-9/]", diaBusca);
+    scanf(" %[0-9/]", &diaBusca);
     getchar();
-    printf("\nMes [mm]: ");
-    scanf(" %[0-9/]", mesBusca);
+    printf("Mes [mm]: ");
+    scanf(" %[0-9/]", &mesBusca);
     getchar();
 
 
@@ -125,8 +128,8 @@ void buscarAvisos(void)
     fp = fopen("aviso.dat", "rb");
     if (fp == NULL) 
     {
-        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-        printf("Não é possível continuar este programa...\n");
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
         exit(1);
     }
     while(!feof(fp)) 

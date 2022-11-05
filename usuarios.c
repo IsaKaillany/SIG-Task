@@ -153,12 +153,14 @@ void buscarUsuario(void) //Não funcional
     printf("Informe o ID: "); 
     scanf(" %[0-9]", idBusca);
     getchar();
+
+
     usu = (Usuarios*) malloc(sizeof(Usuarios));
     fp = fopen("usuario.dat", "rb");
     if (fp == NULL) 
     {
-        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-        printf("Não é possível continuar este programa...\n");
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
         exit(1);
     }
     while(!feof(fp)) 
