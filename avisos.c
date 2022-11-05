@@ -89,7 +89,7 @@ void cadastroAvisos(void)
     free(warning);
     
 }
-/////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void gravaAviso(Avisos* warning)
 {
@@ -104,7 +104,7 @@ void gravaAviso(Avisos* warning)
     fclose(fp);
 }
 
-////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void buscarAvisos(void)
 {
@@ -209,7 +209,7 @@ void deletarAvisos(void)
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
-///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void exibeAviso(Avisos* warning)
 {
@@ -222,9 +222,9 @@ void exibeAviso(Avisos* warning)
         printf("\n");
         printf("Titulo: %s\n", warning->titulo);
         printf("Descricao: %s\n", warning->descricao);
-        printf("dia: %s\n", warning->dia);
-        printf("mes: %s\n", warning->mes);
-        printf("mes: %s\n", warning->departamento);
+        printf("dia: %d\n", warning->dia);
+        printf("mes: %d\n", warning->mes);
+        printf("departamento: %d\n", warning->departamento);
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
     }
 }
