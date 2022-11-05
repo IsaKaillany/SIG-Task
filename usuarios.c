@@ -200,7 +200,6 @@ char oqueAtualizarUsuario(void)
 void deletarUsuario(void)
 {
     char id[7], senha[9];
-    int validadorSenha;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -215,8 +214,7 @@ void deletarUsuario(void)
         printf("Senha [8 digitos]: ");
         scanf("%s", senha);
         getchar(); 
-        validadorSenha = validaSenha(senha);
-    } while(validadorSenha != 0);   
+    } while(validaSenha(senha));   
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");   
 
 }

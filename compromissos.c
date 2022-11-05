@@ -56,7 +56,6 @@ Compromissos* cadastroCompromissos()
     Compromissos* task;
     task = (Compromissos*) malloc(sizeof(Compromissos));
     // char codigo;
-    int depart;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -86,8 +85,10 @@ Compromissos* cadastroCompromissos()
         scanf(" %d", &task->min);
         getchar();
     } while(validaHora(task->hora, task->min));
+
     printf("Departamento:\n");
     task->departamento = escolhaDepartamento(); 
+    
     printf("ID do funcionario: ");
     scanf(" %6[^\n]", task->id);
     getchar();
@@ -119,7 +120,6 @@ void buscarCompromissos(void)
 void atualizarCompromissos(void)
 {
     char codigo[10], senha[9], resp;
-    int validadorSenha;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -136,8 +136,7 @@ void atualizarCompromissos(void)
         printf("Senha: ");
         scanf("%s", senha);
         getchar(); 
-        validadorSenha = validaSenha(senha);
-    } while(validadorSenha != 0);   
+    } while(validaSenha(senha));   
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
@@ -164,7 +163,6 @@ char oqueAtualizarCompromissos(void)
 void deletarCompromissos(void)
 {
     char codigo[10], senha[9];
-    int validadorSenha;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -179,8 +177,7 @@ void deletarCompromissos(void)
         printf("Senha: ");
         scanf(" %s", senha);
         getchar(); 
-        validadorSenha = validaSenha(senha);
-    } while(validadorSenha != 0);   
+    } while(validaSenha(senha));   
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
