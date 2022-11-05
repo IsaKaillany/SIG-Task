@@ -25,33 +25,14 @@ void moduloUsuarios(void)
             case '4':
                 deletarUsuario();
                 break;
-            // case '5':
-            //     usuariosCadastrados();
+            case '5':
+                listaUsuario();
+                break;
+            // case '6':
             //     break;
         }           
     } while (opcao != '0');
 }
-
-// void navegacaoUsuariosCadastrados(void)
-// {
-//     char opcao;        
-//     do
-//     {
-//         opcao = departamentoUsuario();
-//         switch (opcao)
-//         {
-//             case '1':
-//                 usuariosCadastrados();
-//                 break;
-//             case '2':
-//                 usuariosCadastrados();
-//                 break;
-//             case '3':
-//                 usuariosCadastrados();
-//                 break;
-//         }           
-//     } while (opcao != '0');
-// }
 
 char telaUsuarios(void)
 {
@@ -65,6 +46,7 @@ char telaUsuarios(void)
     printf("\t3 - Atualizar Dados\n");
     printf("\t4 - Deletar Dados\n");
     printf("\t5 - Listagem de Usuarios\n");
+    printf("\t6 - Listagem de Usuarios por Departamento\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
@@ -227,7 +209,7 @@ void deletarUsuario(void)
         scanf("%s", senha);
         getchar(); 
     } while(validaSenha(senha));   
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");   
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
 
 }
 
@@ -250,19 +232,6 @@ char departamentoUsuario(void)
     return opcao;
 }
 
-void usuariosCadastrados(const Usuarios* usu)
-{
-    system("clear||cls");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-     U S U A R I O S  C A D A S T R A D O S    -=-=-\n");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\n");
-    printf("Em desenvolvimento...\n");
-
-    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    getchar();
-}
-
 void exibeUsuario(Usuarios* usu)
 {
     if ((usu == NULL) || (usu->status == 'T')) 
@@ -280,21 +249,27 @@ void exibeUsuario(Usuarios* usu)
 
 void listaUsuario(void) 
 {
-  FILE* fp;
-  Usuarios* usu;
-  printf("\n = Lista de Alunos = \n"); 
-  usu = (Usuarios*) malloc(sizeof(Usuarios));
-  fp = fopen("usuarios.dat", "rb");
-  if (fp == NULL) {
-    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-    printf("Não é possível continuar este programa...\n");
-    exit(1);
-  }
-  while(fread(usu, sizeof(Usuarios), 1, fp)) {
-    if (usu->status != 'F') {
-      exibeUsuario(usu);
+    FILE* fp;
+    Usuarios* usu;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-     U S U A R I O S  C A D A S T R A D O S    -=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
+    usu = (Usuarios*) malloc(sizeof(Usuarios));
+    fp = fopen("usuarios.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar este programa...\n");
+        exit(1);
     }
-  }
-  fclose(fp);
-  free(usu);
+    while (fread(usu, sizeof(Usuarios), 1, fp)) 
+    {
+        if (usu->status != 'F') 
+        {
+            exibeUsuario(usu);
+        }
+    }
+    fclose(fp);
+    free(usu);
 }
