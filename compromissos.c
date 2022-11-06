@@ -117,18 +117,41 @@ void gravaCompromisso(Compromissos* task)
     fclose(fp);
 }
 
-//Mostrar o título e código da data pesquisada, depois digita o código para ver as infos completas do compromisso
+
 void buscarCompromissos(void)
 {
-    char data[6];
+    FILE* fp;
+    Compromissos* task;
+    int diaBusca, mesBusca;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-      B U S C A R      -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\nData [dd/mm]: ");
-    scanf(" %[0-9/]", data);
+    printf("\nDia [dd]: ");
+    scanf(" %d", &diaBusca);
     getchar();
+    printf("Mes [mm]: ");
+    scanf(" %d", &mesBusca);
+    getchar();
+
+    task = (Compromissos*) malloc(sizeof(Compromissos));
+    fp = fopen("compromisso.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+    while(!feof(fp)) 
+    {
+        fread(task, sizeof(Compromissos), 1, fp);
+        if ((task->dia == diaBusca) && (task->mes == mesBusca) && (task->status != 'F'))
+        {
+            fclose(fp);        
+        }
+    }
+    fclose(fp);
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 

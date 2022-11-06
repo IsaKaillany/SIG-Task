@@ -138,8 +138,7 @@ void buscarAvisos(void)
         fread(warning, sizeof(Avisos), 1, fp);
         if ((warning->dia == diaBusca) && (warning->mes == mesBusca) && (warning->status != 'F'))
         {
-            fclose(fp);
-        
+            fclose(fp);        
         }
     }
     fclose(fp);
