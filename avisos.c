@@ -6,7 +6,6 @@
 
 void navegacaoCrudAvisos(void)
 {
-    Avisos* informe;
     char opcao;
     do
     {
@@ -14,7 +13,7 @@ void navegacaoCrudAvisos(void)
         switch (opcao)
         {
         case '1':
-            informe = cadastroAvisos();
+            cadastroAvisos();
             break;
         case '2':
             buscarAvisos();
@@ -27,7 +26,6 @@ void navegacaoCrudAvisos(void)
             break;
         }
     } while (opcao != '0');
-    free(informe);
 }
 
 
@@ -51,8 +49,9 @@ char crudAvisos(void)
     return opcao;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Avisos* cadastroAvisos()
+void cadastroAvisos(void)
 {
     Avisos* warning;
     warning = (Avisos*) malloc(sizeof(Avisos));
@@ -85,21 +84,65 @@ Avisos* cadastroAvisos()
     printf(">>> Cadastro concluido!\n");
     printf("\nTecle ENTER para continuar");
     getchar();
-    return warning;
+
+    gravaAviso(warning);
+    free(warning);
+    
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void gravaAviso(Avisos* warning)
+{
+    FILE* fp;
+    fp = fopen("aviso.dat", "ab");
+    if (fp == NULL) {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+    fwrite(warning, sizeof(Avisos), 1, fp);
+    fclose(fp);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void buscarAvisos(void)
 {
-    char data[6];
+    FILE* fp;
+    Avisos* warning;
+    char diaBusca, mesBusca;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-      B U S C A R      -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\nData [dd/mm]: ");
-    scanf(" %[0-9/]", data);
+    printf("\nDia [dd]: ");
+    scanf(" %[0-9/]", &diaBusca);
     getchar();
-    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("Mes [mm]: ");
+    scanf(" %[0-9/]", &mesBusca);
+    getchar();
+
+
+    warning = (Avisos*) malloc(sizeof(Avisos));
+    fp = fopen("aviso.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+    while(!feof(fp)) 
+    {
+        fread(warning, sizeof(Avisos), 1, fp);
+        if ((warning->dia == diaBusca) && (warning->mes == mesBusca)) 
+        {
+            fclose(fp);
+        
+        }
+    }
+    fclose(fp);
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
 }
 
 void atualizarAvisos(void)
@@ -164,4 +207,24 @@ void deletarAvisos(void)
         getchar(); 
     } while(validaSenha(senha));   
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void exibeAviso(Avisos* warning)
+{
+    if (warning == NULL) 
+    {
+        printf("\n= = = Aviso não cadastrado = = =\n");
+    }
+    else 
+    {
+        printf("\n");
+        printf("Titulo: %s\n", warning->titulo);
+        printf("Descricao: %s\n", warning->descricao);
+        printf("dia: %d\n", warning->dia);
+        printf("mes: %d\n", warning->mes);
+        printf("departamento: %d\n", warning->departamento);
+        getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
+    }
 }

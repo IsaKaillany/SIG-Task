@@ -6,7 +6,6 @@
 
 void navegacaoCrudCompromissos(void)
 {
-    Compromissos* tarefa;
     char opcao;
     do
     {
@@ -14,7 +13,7 @@ void navegacaoCrudCompromissos(void)
         switch (opcao)
         {
         case '1':
-            tarefa = cadastroCompromissos();
+            cadastroCompromissos();
             break;
         case '2':
             buscarCompromissos();
@@ -27,7 +26,6 @@ void navegacaoCrudCompromissos(void)
             break;
         }
     } while (opcao != '0');
-    free(tarefa);
 }
 
 char crudCompromissos(void)
@@ -51,7 +49,7 @@ char crudCompromissos(void)
 }
 
 // Tirar setor, chamar a função escolhaDepartamento na variavel depart, tirar o vetor de depart
-Compromissos* cadastroCompromissos()
+void cadastroCompromissos(void)
 {
     Compromissos* task;
     task = (Compromissos*) malloc(sizeof(Compromissos));
@@ -99,7 +97,25 @@ Compromissos* cadastroCompromissos()
     printf(">>> Cadastro concluido!\n");
     printf("\nTecle ENTER para continuar");
     getchar();
-    return task;
+    
+    gravaCompromisso(task);
+    free(task);
+
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+void gravaCompromisso(Compromissos* task)
+{
+    FILE* fp;
+    fp = fopen("compromisso.dat", "ab");
+    if (fp == NULL) {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+    fwrite(task, sizeof(Compromissos), 1, fp);
+    fclose(fp);
 }
 
 //Mostrar o título e código da data pesquisada, depois digita o código para ver as infos completas do compromisso
@@ -195,4 +211,28 @@ int escolhaDepartamento(void)
     getchar();
 
     return opcao;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Depois ver como fazer para conseguir listar os compromissos de um único departamento
+void exibeCompromisso(Compromissos* task)
+{
+    if (task == NULL) 
+    {
+        printf("\n= = = Compromisso não cadastrado = = =\n");
+    }
+    else 
+    {
+        printf("\n");
+        printf("Titulo: %s\n", task->titulo);
+        printf("Descricao: %s\n", task->descricao);
+        printf("Dia: %d\n", task->dia);
+        printf("Mes: %d\n", task->mes);
+        printf("Hora: %d\n", task->hora);
+        printf("Minutos: %d\n", task->min);
+        printf("ID: %s\n", task->id);
+        printf("Departamento: %d\n", task->departamento);
+        getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
+    }
 }

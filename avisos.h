@@ -17,4 +17,6 @@ struct avisos {
   int departamento;
 };
 
-Avisos* cadastroAvisos();
+void cadastroAvisos(void);
+void gravaAviso(Avisos*);
+void exibeAviso(Avisos*);
