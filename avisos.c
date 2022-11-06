@@ -111,7 +111,7 @@ void buscarAvisos(void)
 {
     FILE* fp;
     Avisos* warning;
-    int diaBusca, mesBusca;
+    int diaBusca, mesBusca; //Posteriormente buscará pelo código
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -222,9 +222,8 @@ void exibeAviso(Avisos* warning)
         printf("\n");
         printf("Titulo: %s\n", warning->titulo);
         printf("Descricao: %s\n", warning->descricao);
-        printf("dia: %d\n", warning->dia);
-        printf("mes: %d\n", warning->mes);
-        printf("departamento: %d\n", warning->departamento);
+        printf("Data: %d/%d\n", warning->dia, warning->mes);
+        printf("Departamento: %d\n", warning->departamento); //Fazer com que apareça o nome do departamento invés do número 
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
     }
 }

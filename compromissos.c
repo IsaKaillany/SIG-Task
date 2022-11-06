@@ -122,7 +122,7 @@ void buscarCompromissos(void)
 {
     FILE* fp;
     Compromissos* task;
-    int diaBusca, mesBusca;
+    int diaBusca, mesBusca; //Posteriormente buscará pelo código
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
