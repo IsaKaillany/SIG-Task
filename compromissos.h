@@ -19,6 +19,7 @@ struct compromissos {
   int hora;
   int min;
   int departamento;
+  char status;
 };
 
 void cadastroCompromissos(void);

@@ -79,6 +79,7 @@ void cadastroAvisos(void)
     
     printf("Departamento:\n");
     warning->departamento = escolhaDepartamento(); 
+    warning->status = 'T';
     //Criar código
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Cadastro concluido!\n");
@@ -110,17 +111,17 @@ void buscarAvisos(void)
 {
     FILE* fp;
     Avisos* warning;
-    char diaBusca, mesBusca;
+    int diaBusca, mesBusca; //Posteriormente buscará pelo código
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-      B U S C A R      -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nDia [dd]: ");
-    scanf(" %[0-9/]", &diaBusca);
+    scanf(" %d", &diaBusca);
     getchar();
     printf("Mes [mm]: ");
-    scanf(" %[0-9/]", &mesBusca);
+    scanf(" %d", &mesBusca);
     getchar();
 
 
@@ -135,10 +136,9 @@ void buscarAvisos(void)
     while(!feof(fp)) 
     {
         fread(warning, sizeof(Avisos), 1, fp);
-        if ((warning->dia == diaBusca) && (warning->mes == mesBusca)) 
+        if ((warning->dia == diaBusca) && (warning->mes == mesBusca) && (warning->status != 'F'))
         {
-            fclose(fp);
-        
+            fclose(fp);        
         }
     }
     fclose(fp);
@@ -222,9 +222,8 @@ void exibeAviso(Avisos* warning)
         printf("\n");
         printf("Titulo: %s\n", warning->titulo);
         printf("Descricao: %s\n", warning->descricao);
-        printf("dia: %d\n", warning->dia);
-        printf("mes: %d\n", warning->mes);
-        printf("departamento: %d\n", warning->departamento);
+        printf("Data: %d/%d\n", warning->dia, warning->mes);
+        printf("Departamento: %d\n", warning->departamento); //Fazer com que apareça o nome do departamento invés do número 
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
     }
 }

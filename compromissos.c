@@ -48,7 +48,6 @@ char crudCompromissos(void)
     return opcao;
 }
 
-// Tirar setor, chamar a função escolhaDepartamento na variavel depart, tirar o vetor de depart
 void cadastroCompromissos(void)
 {
     Compromissos* task;
@@ -90,6 +89,7 @@ void cadastroCompromissos(void)
     printf("ID do funcionario: ");
     scanf(" %6[^\n]", task->id);
     getchar();
+    task->status = 'T';
     // Criar código juntando a data, hora e departamento p/ mostrar no final
     // codigo = data + hora + (char)depart;
     // printf("Codigo: %s", codigo);
@@ -100,7 +100,6 @@ void cadastroCompromissos(void)
     
     gravaCompromisso(task);
     free(task);
-
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -118,18 +117,41 @@ void gravaCompromisso(Compromissos* task)
     fclose(fp);
 }
 
-//Mostrar o título e código da data pesquisada, depois digita o código para ver as infos completas do compromisso
+
 void buscarCompromissos(void)
 {
-    char data[6];
+    FILE* fp;
+    Compromissos* task;
+    int diaBusca, mesBusca; //Posteriormente buscará pelo código
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-      B U S C A R      -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\nData [dd/mm]: ");
-    scanf(" %[0-9/]", data);
+    printf("\nDia [dd]: ");
+    scanf(" %d", &diaBusca);
     getchar();
+    printf("Mes [mm]: ");
+    scanf(" %d", &mesBusca);
+    getchar();
+
+    task = (Compromissos*) malloc(sizeof(Compromissos));
+    fp = fopen("compromisso.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+    while(!feof(fp)) 
+    {
+        fread(task, sizeof(Compromissos), 1, fp);
+        if ((task->dia == diaBusca) && (task->mes == mesBusca) && (task->status != 'F'))
+        {
+            fclose(fp);        
+        }
+    }
+    fclose(fp);
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
@@ -227,10 +249,8 @@ void exibeCompromisso(Compromissos* task)
         printf("\n");
         printf("Titulo: %s\n", task->titulo);
         printf("Descricao: %s\n", task->descricao);
-        printf("Dia: %d\n", task->dia);
-        printf("Mes: %d\n", task->mes);
-        printf("Hora: %d\n", task->hora);
-        printf("Minutos: %d\n", task->min);
+        printf("Data: %d/%d\n", task->dia, task->mes);
+        printf("Horario: %d:%.2d\n", task->hora, task->min);
         printf("ID: %s\n", task->id);
         printf("Departamento: %d\n", task->departamento);
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
