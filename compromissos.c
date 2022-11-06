@@ -48,7 +48,6 @@ char crudCompromissos(void)
     return opcao;
 }
 
-// Tirar setor, chamar a função escolhaDepartamento na variavel depart, tirar o vetor de depart
 void cadastroCompromissos(void)
 {
     Compromissos* task;
@@ -101,7 +100,6 @@ void cadastroCompromissos(void)
     
     gravaCompromisso(task);
     free(task);
-
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -228,10 +226,8 @@ void exibeCompromisso(Compromissos* task)
         printf("\n");
         printf("Titulo: %s\n", task->titulo);
         printf("Descricao: %s\n", task->descricao);
-        printf("Dia: %d\n", task->dia);
-        printf("Mes: %d\n", task->mes);
-        printf("Hora: %d\n", task->hora);
-        printf("Minutos: %d\n", task->min);
+        printf("Data: %d/%d\n", task->dia, task->mes);
+        printf("Horario: %d:%.2d\n", task->hora, task->min);
         printf("ID: %s\n", task->id);
         printf("Departamento: %d\n", task->departamento);
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
