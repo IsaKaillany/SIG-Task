@@ -111,17 +111,17 @@ void buscarAvisos(void)
 {
     FILE* fp;
     Avisos* warning;
-    char diaBusca, mesBusca;
+    int diaBusca, mesBusca;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-      B U S C A R      -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nDia [dd]: ");
-    scanf(" %[0-9/]", &diaBusca);
+    scanf(" %d", &diaBusca);
     getchar();
     printf("Mes [mm]: ");
-    scanf(" %[0-9/]", &mesBusca);
+    scanf(" %d", &mesBusca);
     getchar();
 
 
@@ -136,7 +136,7 @@ void buscarAvisos(void)
     while(!feof(fp)) 
     {
         fread(warning, sizeof(Avisos), 1, fp);
-        if ((warning->dia == diaBusca) && (warning->mes == mesBusca)) 
+        if ((warning->dia == diaBusca) && (warning->mes == mesBusca) && (warning->status != 'F'))
         {
             fclose(fp);
         
