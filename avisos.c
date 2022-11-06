@@ -79,6 +79,7 @@ void cadastroAvisos(void)
     
     printf("Departamento:\n");
     warning->departamento = escolhaDepartamento(); 
+    warning->status = 'T';
     //Criar código
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Cadastro concluido!\n");

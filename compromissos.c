@@ -90,6 +90,7 @@ void cadastroCompromissos(void)
     printf("ID do funcionario: ");
     scanf(" %6[^\n]", task->id);
     getchar();
+    task->status = 'T';
     // Criar código juntando a data, hora e departamento p/ mostrar no final
     // codigo = data + hora + (char)depart;
     // printf("Codigo: %s", codigo);
