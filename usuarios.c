@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "usuarios.h"
 #include "compromissos.h"
 #include "validacoes.h"
@@ -140,22 +141,13 @@ int escolhaCargo(void)
     return cargo;
 }
 
-void buscarUsuario(void) //Não funcional
+void buscarUsuario(void) 
 {
     FILE* fp;
     Usuarios* usu;
+    int achou;
     char idBusca[7];
-    system("clear||cls");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-=-=-=-    B U S C A R    -=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\n");
-    printf("Informe o ID: "); 
-    scanf(" %[0-9]", idBusca);
-    getchar();
-
-
-    usu = (Usuarios*) malloc(sizeof(Usuarios));
+    
     fp = fopen("usuario.dat", "rb");
     if (fp == NULL) 
     {
@@ -163,19 +155,36 @@ void buscarUsuario(void) //Não funcional
         printf("(X-X)/\n");
         exit(1);
     }
-    while(!feof(fp)) 
-    {
-        fread(usu, sizeof(Usuarios), 1, fp);
-        if ((usu->id == idBusca) && (usu->status != 'F')) 
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-    B U S C A R    -=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n");   
+    printf("Informe o ID: "); 
+    scanf(" %[0-9]", idBusca);
+    getchar();
+
+    usu = (Usuarios*) malloc(sizeof(Usuarios));
+    achou = 0;
+    while((!achou) && (fread(usu, sizeof(Usuarios), 1, fp))) 
+    {        
+        if ((strcmp(usu->id, idBusca) == 0) && (usu->status == 'T')) 
         {
-            fclose(fp);
-            // return usu;
+            achou = 1;
         }
     }
     fclose(fp);
-    // return NULL;
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-
+    if (achou)
+    {
+        exibeUsuario(usu);
+    }
+    else
+    {
+        printf("O funcionario de id = %s nao foi encontrado\n", idBusca);
+        printf("\n>>> Tecle ENTER para continuar");
+        getchar();
+    }
+    free(usu); 
 }
 
 void atualizarUsuario(void)
@@ -268,6 +277,7 @@ void exibeUsuario(Usuarios* usu)
         printf("Telefone: %s\n", usu->telefone);
         printf("Id: %s\n", usu->id);
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
+        printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
     }
 }
 
