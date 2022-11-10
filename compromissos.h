@@ -19,6 +19,7 @@ struct compromissos {
   int hora;
   int min;
   int departamento;
+  int codigo;
   char status;
 };
 

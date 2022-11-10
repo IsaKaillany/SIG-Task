@@ -15,6 +15,7 @@ struct avisos {
   int dia;
   int mes;
   int departamento;
+  int codigo;
   char status;
 };
 
