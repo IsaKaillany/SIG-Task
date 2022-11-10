@@ -277,7 +277,6 @@ void exibeUsuario(Usuarios* usu)
         printf("Telefone: %s\n", usu->telefone);
         printf("Id: %s\n", usu->id);
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
-        printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
     }
 }
 
