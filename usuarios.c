@@ -113,19 +113,6 @@ void cadastroUsuario(void)
     free(usu);
 }
 
-void gravaUsuario(Usuarios* usu)
-{
-    FILE* fp;
-    fp = fopen("usuario.dat", "ab");
-    if (fp == NULL) {
-        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
-        printf("(X-X)/\n");
-        exit(1);
-    }
-    fwrite(usu, sizeof(Usuarios), 1, fp);
-    fclose(fp);
-}
-
 int escolhaCargo(void)
 {
     int cargo;
@@ -263,6 +250,21 @@ char departamentoUsuario(void)
     return opcao;
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void gravaUsuario(Usuarios* usu)
+{
+    FILE* fp;
+    fp = fopen("usuario.dat", "ab");
+    if (fp == NULL) {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+    fwrite(usu, sizeof(Usuarios), 1, fp);
+    fclose(fp);
+}
+
 void exibeUsuario(Usuarios* usu)
 {
     if ((usu == NULL) || (usu->status == 'F')) 
@@ -276,6 +278,7 @@ void exibeUsuario(Usuarios* usu)
         printf("E-mail: %s\n", usu->email);
         printf("Telefone: %s\n", usu->telefone);
         printf("Id: %s\n", usu->id);
+        printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
     }
 }

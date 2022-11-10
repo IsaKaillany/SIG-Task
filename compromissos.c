@@ -52,7 +52,7 @@ void cadastroCompromissos(void)
 {
     Compromissos* task;
     task = (Compromissos*) malloc(sizeof(Compromissos));
-    // char codigo;
+    // int codigo;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -99,22 +99,6 @@ void cadastroCompromissos(void)
     gravaCompromisso(task);
     free(task);
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
-void gravaCompromisso(Compromissos* task)
-{
-    FILE* fp;
-    fp = fopen("compromisso.dat", "ab");
-    if (fp == NULL) {
-        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
-        printf("(X-X)/\n");
-        exit(1);
-    }
-    fwrite(task, sizeof(Compromissos), 1, fp);
-    fclose(fp);
-}
-
 
 void buscarCompromissos(void) //falta implementar o código
 {
@@ -245,6 +229,19 @@ int escolhaDepartamento(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void gravaCompromisso(Compromissos* task)
+{
+    FILE* fp;
+    fp = fopen("compromisso.dat", "ab");
+    if (fp == NULL) {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+    fwrite(task, sizeof(Compromissos), 1, fp);
+    fclose(fp);
+}
+
 //Depois ver como fazer para conseguir listar os compromissos de um único departamento
 void exibeCompromisso(Compromissos* task)
 {
@@ -261,6 +258,7 @@ void exibeCompromisso(Compromissos* task)
         printf("Horario: %d:%.2d\n", task->hora, task->min);
         printf("ID: %s\n", task->id);
         printf("Departamento: %d\n", task->departamento);
+        printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
     }
 }

@@ -55,7 +55,7 @@ void cadastroAvisos(void)
 {
     Avisos* warning;
     warning = (Avisos*) malloc(sizeof(Avisos));
-    // char codigo;
+    // int codigo;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -90,22 +90,6 @@ void cadastroAvisos(void)
     free(warning);
     
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void gravaAviso(Avisos* warning)
-{
-    FILE* fp;
-    fp = fopen("aviso.dat", "ab");
-    if (fp == NULL) {
-        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
-        printf("(X-X)/\n");
-        exit(1);
-    }
-    fwrite(warning, sizeof(Avisos), 1, fp);
-    fclose(fp);
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void buscarAvisos(void) //falta implementar o código
 {
@@ -220,6 +204,19 @@ void deletarAvisos(void)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void gravaAviso(Avisos* warning)
+{
+    FILE* fp;
+    fp = fopen("aviso.dat", "ab");
+    if (fp == NULL) {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+    fwrite(warning, sizeof(Avisos), 1, fp);
+    fclose(fp);
+}
+
 void exibeAviso(Avisos* warning)
 {
     if (warning == NULL) 
@@ -233,6 +230,7 @@ void exibeAviso(Avisos* warning)
         printf("Descricao: %s\n", warning->descricao);
         printf("Data: %d/%d\n", warning->dia, warning->mes);
         printf("Departamento: %d\n", warning->departamento); //Fazer com que apareça o nome do departamento invés do número 
+        printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
     }
 }
