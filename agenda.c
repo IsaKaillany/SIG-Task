@@ -8,32 +8,32 @@ void moduloAgenda(void)
     char opcao[3];  
     do
     {
-      telaAgenda(opcao);
-      if ((strcmp(opcao, "1a") == 0))
-      {
-        compromissosAdm();
-      }
-      else if ((strcmp(opcao, "2a") == 0))
-      {
-        compromissosComercial();
-      }
-      else if ((strcmp(opcao, "3a") == 0))
-      {
-        compromissosTec();
-      }      
-      
-      else if ((strcmp(opcao, "1b") == 0))
-      {
-        avisosAdm();
-      }
-      else if ((strcmp(opcao, "2b") == 0))
-      {
-        avisosComercial();
-      }
-      else if ((strcmp(opcao, "3b") == 0))
-      {
-        avisosTec();
-      }      
+        telaAgenda(opcao);
+        if ((strcmp(opcao, "1a") == 0))
+        {
+            compromissosAdm();
+        }
+        else if ((strcmp(opcao, "2a") == 0))
+        {
+            compromissosComercial();
+        }
+        else if ((strcmp(opcao, "3a") == 0))
+        {
+            compromissosTec();
+        }      
+        
+        else if ((strcmp(opcao, "1b") == 0))
+        {
+            avisosAdm();
+        }
+        else if ((strcmp(opcao, "2b") == 0))
+        {
+            avisosComercial();
+        }
+        else if ((strcmp(opcao, "3b") == 0))
+        {
+            avisosTec();
+        }      
     } while (strcmp(opcao, "0") != 0);
 }
 
