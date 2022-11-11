@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "agenda.h"
+#include "avisos.h"
+#include "compromissos.h"
 
 void moduloAgenda(void)
 {
@@ -211,7 +213,25 @@ void compromissosTec(void)
     free(task);     
 }   
 
-void mostragemAgendaAvisos(void)
+void avisosAdm(void)
+{
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-    A V I S O S    -=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    getchar();
+}
+
+void avisosComercial(void)
+{
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-    A V I S O S    -=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    getchar();
+}
+
+void avisosTec(void)
 {
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
