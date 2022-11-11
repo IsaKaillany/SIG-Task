@@ -2,21 +2,40 @@
 #include <stdlib.h>
 #include <string.h>
 #include "agenda.h"
+#include "avisos.h"
+#include "compromissos.h"
 
 void moduloAgenda(void)
 {
     char opcao[3];  
     do
     {
-      telaAgenda(opcao);
-      if ((strcmp(opcao, "1a") == 0) || (strcmp(opcao, "2a") == 0) || (strcmp(opcao, "3a") == 0))
-      {
-        mostragemAgendaCompromissos();
-      }
-      if ((strcmp(opcao, "1b") == 0) || (strcmp(opcao, "2b") == 0) || (strcmp(opcao, "3b") == 0))
-      {
-        mostragemAgendaAvisos();
-      }
+        telaAgenda(opcao);
+        if ((strcmp(opcao, "1a") == 0))
+        {
+            compromissosAdm();
+        }
+        else if ((strcmp(opcao, "2a") == 0))
+        {
+            compromissosComercial();
+        }
+        else if ((strcmp(opcao, "3a") == 0))
+        {
+            compromissosTec();
+        }      
+        
+        else if ((strcmp(opcao, "1b") == 0))
+        {
+            avisosAdm();
+        }
+        else if ((strcmp(opcao, "2b") == 0))
+        {
+            avisosComercial();
+        }
+        else if ((strcmp(opcao, "3b") == 0))
+        {
+            avisosTec();
+        }      
     } while (strcmp(opcao, "0") != 0);
 }
 
@@ -36,23 +55,23 @@ void navegacaoAgendaGerencia(void)
     }
 }
 
-void navegacaoAgendaFuncionarios(void)
-{
-    char opcao;
-    do
-    {
-        opcao = agendaFuncionario();
-        switch (opcao)
-        {
-            case '1':
-                mostragemAgendaCompromissos();
-                break;
-            case '2':
-                mostragemAgendaAvisos();
-                break;
-        }   
-    } while (opcao != '0');
-}
+// void navegacaoAgendaFuncionarios(void)
+// {
+//     char opcao;
+//     do
+//     {
+//         opcao = agendaFuncionario();
+//         switch (opcao)
+//         {
+//             case '1':
+//                 mostragemAgendaCompromissos();
+//                 break;
+//             case '2':
+//                 mostragemAgendaAvisos();
+//                 break;
+//         }   
+//     } while (opcao != '0');
+// }
 
 
 void agendaGerenciaCodigo(void)
@@ -108,16 +127,111 @@ char agendaFuncionario(void)
     return opcao;
 }
 
-void mostragemAgendaCompromissos(void)
+void compromissosAdm(void)
 {
+    FILE* fp;
+    Compromissos* task;
+
+    task = (Compromissos*) malloc(sizeof(Compromissos));
+    fp = fopen("compromisso.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-    C O M P R O M I S S O S    -=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    while (fread(task, sizeof(Compromissos), 1, fp)) 
+    {
+        if ((task->departamento == 1) && (task->status == 'T'))
+        {
+            exibeCompromisso(task);
+        }            
+    } 
+    fclose(fp);
+    free(task);  
+}
+
+void compromissosComercial(void)
+{
+    FILE* fp;
+    Compromissos* task;
+
+    task = (Compromissos*) malloc(sizeof(Compromissos));
+    fp = fopen("compromisso.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-    C O M P R O M I S S O S    -=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    while (fread(task, sizeof(Compromissos), 1, fp)) 
+    {
+        if ((task->departamento == 2) && (task->status == 'T'))
+        {
+            exibeCompromisso(task);
+        }
+
+    } 
+    fclose(fp);
+    free(task);   
+}
+
+void compromissosTec(void)
+{
+    FILE* fp;
+    Compromissos* task;
+
+    task = (Compromissos*) malloc(sizeof(Compromissos));
+    fp = fopen("compromisso.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-    C O M P R O M I S S O S    -=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    while (fread(task, sizeof(Compromissos), 1, fp)) 
+    {
+        if ((task->departamento == 3) && (task->status == 'T'))
+        {
+            exibeCompromisso(task);
+        }
+
+    } 
+    fclose(fp);         
+    free(task);     
+}   
+
+void avisosAdm(void)
+{
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-    A V I S O S    -=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     getchar();
 }
 
-void mostragemAgendaAvisos(void)
+void avisosComercial(void)
+{
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-    A V I S O S    -=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    getchar();
+}
+
+void avisosTec(void)
 {
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");

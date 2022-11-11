@@ -257,7 +257,18 @@ void exibeCompromisso(Compromissos* task)
         printf("Data: %d/%d\n", task->dia, task->mes);
         printf("Horario: %d:%.2d\n", task->hora, task->min);
         printf("ID: %s\n", task->id);
-        printf("Departamento: %d\n", task->departamento);
+        if (task->departamento == 1)
+        {
+            printf("Departamento: Administrativo");
+        }
+        else if (task->departamento == 2)
+        {
+            printf("Departamento: Comercial");
+        }
+        else
+        {
+            printf("Departamento: Tecnico");
+        }           
         printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
     }

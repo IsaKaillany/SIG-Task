@@ -57,9 +57,9 @@ void navegacaoPerfilFuncionarios(void)
             case '1':
                 navegacaoCrudCompromissos();
                 break;
-            case '2':
-                navegacaoAgendaFuncionarios();
-                break;
+            // case '2':
+            //     navegacaoAgendaFuncionarios();
+            //     break;
         }   
     } while (opcao != '0');
 }
