@@ -176,17 +176,132 @@ void buscarUsuario(void)
 
 void atualizarUsuario(void)
 {
-    char id[7];
+    FILE* fp;
+    Usuarios* usu;
+    int achou;
+    char resp;
+    char idBusca[7];
+    // char senhaAntiga[9];
+
+    fp = fopen("usuario.dat", "r+b");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-     A T U A L I Z A R     -=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\nID: ");
-    scanf(" %[0-9]", id);
+    printf("\n");
+    printf("Informe o ID: ");
+    scanf(" %[0-9]", idBusca);
     getchar();
-    oqueAtualizarUsuario();
+
+    usu = (Usuarios*) malloc(sizeof(Usuarios));
+    achou = 0;
+    while((!achou) && (fread(usu, sizeof(Usuarios), 1, fp))) 
+    {
+        if ((strcmp(usu->id, idBusca) == 0) && (usu->status == 'T')) 
+        {
+            achou = 1;
+        }
+    }
+    if (achou)
+    {
+        exibeUsuario(usu);
+        resp = oqueAtualizarUsuario();
+        printf("\n");
+        if (resp == '1')
+        {
+            do
+            {
+                printf("Nome: ");
+                scanf(" %49[^\n]", usu->nome);
+                getchar();
+            } while(validaNome(usu->nome));  
+            do
+            {
+                printf("E-mail: ");
+                scanf(" %49[^\n]", usu->email);
+                getchar();
+            } while(validaEmail(usu->email));
+            do
+            {
+                printf("Telefone [00999999999]: ");
+                scanf(" %11[^\n]", usu->telefone);
+                getchar();
+            } while(validaTelefone(usu->telefone));
+            do
+            {
+                printf("Senha [letras e numeros [tamanho 8]]: ");
+                scanf(" %s", usu->senha);
+                getchar(); 
+            } while(validaSenha(usu->senha));  
+        }
+        else if (resp == '2')
+        {
+            do
+            {
+                printf("Nome: ");
+                scanf(" %49[^\n]", usu->nome);
+                getchar();
+            } while(validaNome(usu->nome));  
+        }
+        else if (resp == '3')
+        {
+            do
+            {
+                printf("E-mail: ");
+                scanf(" %49[^\n]", usu->email);
+                getchar();
+            } while(validaEmail(usu->email));
+        }
+        else if (resp == '4')
+        {
+            do
+            {
+                printf("Telefone [00999999999]: ");
+                scanf(" %11[^\n]", usu->telefone);
+                getchar();
+            } while(validaTelefone(usu->telefone));
+        }
+        // else if (resp == '5')
+        // {
+        //     printf("Informe a senha antiga: ");
+        //     scanf(" %s", senhaAntiga);
+        //     if (strcmp(usu->senha, senhaAntiga) == 0)
+        //     {
+        //         do
+        //         {
+        //             printf("Nova senha [letras e numeros (tamanho 8)]: ");
+        //             scanf(" %s", usu->senha);
+        //             getchar(); 
+        //         } while(validaSenha(usu->senha));   
+        //     }
+        //     else
+        //     {
+        //         printf("Senha incorreta!");
+        //         getchar();
+        //     }           
+        // }
+        usu->status = 'T';      
+        fseek(fp, (-1)*sizeof(Usuarios), SEEK_CUR);
+        fwrite(usu, sizeof(Usuarios), 1, fp);        
+        printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+        printf("\nDados editados com sucesso!");
+    }
+    else 
+    {
+        printf("O funcionario de id = %s nao foi encontrado\n", idBusca);
+    }
+    printf("\n>>> Tecle ENTER para continuar");
+    getchar();
+    free(usu);
+    fclose(fp);      
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-}     
+} 
 
 
 char oqueAtualizarUsuario(void)
@@ -198,9 +313,9 @@ char oqueAtualizarUsuario(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Tudo\n");
     printf("\t2 - Nome\n");
-    printf("\t3 - Senha\n");
-    printf("\t4 - E-mail\n");
-    printf("\t5 - Telefone\n");
+    printf("\t3 - E-mail\n");
+    printf("\t4 - Telefone\n");
+    // printf("\t5 - Senha\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
     scanf(" %c", &opcao);
