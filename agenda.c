@@ -125,14 +125,91 @@ char agendaFuncionario(void)
     return opcao;
 }
 
-void mostragemAgendaCompromissos(void)
+void compromissosAdm(void)
 {
+    FILE* fp;
+    Compromissos* task;
+
+    task = (Compromissos*) malloc(sizeof(Compromissos));
+    fp = fopen("compromisso.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-    C O M P R O M I S S O S    -=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    getchar();
+    while (fread(task, sizeof(Compromissos), 1, fp)) 
+    {
+        if ((task->departamento == 1) && (task->status == 'T'))
+        {
+            exibeCompromisso(task);
+        }            
+    } 
+    fclose(fp);
+    free(task);  
 }
+
+void compromissosComercial(void)
+{
+    FILE* fp;
+    Compromissos* task;
+
+    task = (Compromissos*) malloc(sizeof(Compromissos));
+    fp = fopen("compromisso.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-    C O M P R O M I S S O S    -=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    while (fread(task, sizeof(Compromissos), 1, fp)) 
+    {
+        if ((task->departamento == 2) && (task->status == 'T'))
+        {
+            exibeCompromisso(task);
+        }
+
+    } 
+    fclose(fp);
+    free(task);   
+}
+
+void compromissosTec(void)
+{
+    FILE* fp;
+    Compromissos* task;
+
+    task = (Compromissos*) malloc(sizeof(Compromissos));
+    fp = fopen("compromisso.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-    C O M P R O M I S S O S    -=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    while (fread(task, sizeof(Compromissos), 1, fp)) 
+    {
+        if ((task->departamento == 3) && (task->status == 'T'))
+        {
+            exibeCompromisso(task);
+        }
+
+    } 
+    fclose(fp);         
+    free(task);     
+}   
 
 void mostragemAgendaAvisos(void)
 {
