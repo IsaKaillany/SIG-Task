@@ -230,17 +230,17 @@ void exibeAviso(Avisos* warning)
         printf("Descricao: %s\n", warning->descricao);
         printf("Data: %d/%d\n", warning->dia, warning->mes);
         if (warning->departamento == 1)
-            {
-                printf("Departamento: Administrativo");
-            }
-            else if (warning->departamento == 2)
-            {
-                printf("Departamento: Comercial");
-            }
-            else
-            {
-                printf("Departamento: Tecnico");
-            }           
+        {
+            printf("Departamento: Administrativo");
+        }
+        else if (warning->departamento == 2)
+        {
+            printf("Departamento: Comercial");
+        }
+        else
+        {
+            printf("Departamento: Tecnico");
+        }           
         printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
     }
