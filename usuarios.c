@@ -393,7 +393,26 @@ void exibeUsuario(Usuarios* usu)
         printf("E-mail: %s\n", usu->email);
         printf("Telefone: %s\n", usu->telefone);
         printf("Id: %s\n", usu->id);
-        printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
+        if (usu->cargo == 1)
+        {
+            printf("Cargo: Gerencia");
+        }
+        else
+        {
+            if (usu->departamento == 1)
+            {
+                printf("Cargo: Funcionario(a) do Departamento Administrativo");
+            }
+            else if (usu->departamento == 2)
+            {
+                printf("Cargo: Funcionario(a) do Departamento Comercial");
+            }
+            else
+            {
+                printf("Cargo: Funcionario(a) do Departamento Tecnico");
+            }           
+        }        
+        printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");  
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
     }
 }
