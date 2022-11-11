@@ -7,3 +7,10 @@ char agendaGerencia(void);
 void agendaGerenciaCodigo(void);
 void navegacaoAgendaGerencia(void);
 void navegacaoAgendaFuncionarios(void);
+
+void compromissosAdm(void);
+void compromissosComercial(void);
+void compromissosTec(void);
+void avisosAdm(void);
+void avisosComercial(void);
+void avisosTec(void);
