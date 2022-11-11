@@ -9,14 +9,31 @@ void moduloAgenda(void)
     do
     {
       telaAgenda(opcao);
-      if ((strcmp(opcao, "1a") == 0) || (strcmp(opcao, "2a") == 0) || (strcmp(opcao, "3a") == 0))
+      if ((strcmp(opcao, "1a") == 0))
       {
-        mostragemAgendaCompromissos();
+        compromissosAdm();
       }
-      if ((strcmp(opcao, "1b") == 0) || (strcmp(opcao, "2b") == 0) || (strcmp(opcao, "3b") == 0))
+      else if ((strcmp(opcao, "2a") == 0))
       {
-        mostragemAgendaAvisos();
+        compromissosComercial();
       }
+      else if ((strcmp(opcao, "3a") == 0))
+      {
+        compromissosTec();
+      }      
+      
+      else if ((strcmp(opcao, "1b") == 0))
+      {
+        avisosAdm();
+      }
+      else if ((strcmp(opcao, "2b") == 0))
+      {
+        avisosComercial();
+      }
+      else if ((strcmp(opcao, "3b") == 0))
+      {
+        avisosTec();
+      }      
     } while (strcmp(opcao, "0") != 0);
 }
 
