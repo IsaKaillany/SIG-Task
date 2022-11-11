@@ -88,6 +88,10 @@ void cadastroUsuario(void)
 
     printf("Cargo:\n");
     usu->cargo = escolhaCargo();
+    // if (usu->cargo == 1)
+    // {
+    //     usu->id = '00';
+    // }    
     if (usu->cargo == 2)
     {
         usu->departamento = escolhaDepartamento();
@@ -307,9 +311,7 @@ void atualizarUsuario(void)
 char oqueAtualizarUsuario(void)
 {    
     char opcao;
-    system("clear||cls");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-=-     A T U A L I Z A R     -=-=-=-=-=-=-=-\n");
+    printf("O que voce deseja atualizar?\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Tudo\n");
     printf("\t2 - Nome\n");
@@ -412,7 +414,7 @@ void exibeUsuario(Usuarios* usu)
                 printf("Cargo: Funcionario(a) do Departamento Tecnico");
             }           
         }        
-        printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");  
+        printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
     }
 }
