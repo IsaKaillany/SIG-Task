@@ -328,24 +328,63 @@ char oqueAtualizarUsuario(void)
 
 void deletarUsuario(void)
 {
-    char id[7], senha[9];
+    FILE* fp;
+    Usuarios* usu;
+    int achou;
+    char resp;
+    char idBusca[7];
 
+    fp = fopen("usuario.dat", "r+b");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-     D E L E T A R     -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\nID: ");
-    scanf(" %[0-9]", id);
+    printf("\n");
+    printf("Informe o ID: ");
+    scanf(" %[0-9]", idBusca);
     getchar();
-    //Senha para confirmação antes de deletar
-    do
-    {
-        printf("Senha [8 digitos]: ");
-        scanf("%s", senha);
-        getchar(); 
-    } while(validaSenha(senha));   
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
+    usu = (Usuarios*) malloc(sizeof(Usuarios));
+    achou = 0;
 
+    while((!achou) && (fread(usu, sizeof(Usuarios), 1, fp))) 
+    {
+        if ((strcmp(usu->id, idBusca) == 0) && (usu->status == 'T')) 
+        {
+            achou = 1;
+        }
+    }
+    if (achou)
+    {
+        exibeUsuario(usu);
+        printf("Deseja realmente apagar este usuario [S/N]? ");
+        scanf("%c", &resp);
+        getchar();
+        if (resp == 'S' || resp == 's')
+        {
+            usu->status = 'F';
+            fseek(fp, (-1)*sizeof(Usuarios), SEEK_CUR);
+            fwrite(usu, sizeof(Usuarios), 1, fp);       
+            printf("Usuario excluido com sucesso\n\n");
+        }
+        else
+        {
+            printf("Dados nao foram alterados\n\n");
+        }
+    }
+    else
+    {
+        printf("O usuario de id = %s nao foi encontrado\n\n", idBusca);
+    } 
+    printf(">>> Tecle ENTER para continuar");
+    getchar();
+    free(usu);
+    fclose(fp);
 }
 
 char departamentoUsuario(void)
