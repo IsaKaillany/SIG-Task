@@ -103,7 +103,7 @@ void cadastroCompromissos(void)
     free(task);
 }
 
-void buscarCompromissos(void) //falta implementar o código
+void buscarCompromissos(void) 
 {
     FILE* fp;
     Compromissos* task;
