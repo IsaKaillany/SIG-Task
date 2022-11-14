@@ -130,7 +130,7 @@ void buscarCompromissos(void) //falta implementar o código
     achou = 0;
     while((!achou) && (fread(task, sizeof(Compromissos), 1, fp)))
     {        
-        if ((task->codigo == codigoBusca) && (task->status == 'T'))
+        if ((strcmp(task->codigo, codigoBusca) == 0) && (task->status == 'T'))
         {
             achou = 1;
         }
@@ -142,7 +142,7 @@ void buscarCompromissos(void) //falta implementar o código
     }
     else
     {
-        printf("O compromisso de codigo = %s nao foi encontrado\n", codigoBusca);
+        printf("O compromisso de codigo '%s' nao foi encontrado\n", codigoBusca);
         printf("\n>>> Tecle ENTER para continuar");
         getchar();
     }

@@ -171,7 +171,7 @@ void buscarUsuario(void)
     }
     else
     {
-        printf("O funcionario de id = %s nao foi encontrado\n", idBusca);
+        printf("O funcionario de id '%s' nao foi encontrado\n", idBusca);
         printf("\n>>> Tecle ENTER para continuar");
         getchar();
     }
