@@ -94,7 +94,7 @@ void cadastroAvisos(void)
     
 }
 
-void buscarAvisos(void) //falta implementar o código
+void buscarAvisos(void)
 {
     FILE* fp;
     Avisos* warning;
