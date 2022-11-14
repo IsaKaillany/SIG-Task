@@ -91,25 +91,22 @@ void navegacaoPerfilFuncionarios(void)
 
 
 
-void telaPerfil(char id[])
+void telaPerfil(char idIn[], char senhaIn[])
 {
-    char senha[9];
-
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    P E R F I L    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nID [0 para voltar]: ");
-    scanf(" %s", id);
+    scanf(" %s", idIn);
     getchar();
-    if (strcmp(id, "0") != 0)
+    if (strcmp(idIn, "0") != 0)
     {
         printf("Senha: ");
-        scanf(" %s", senha);
+        scanf(" %s", senhaIn);
         getchar();
-    }      
+    }
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
