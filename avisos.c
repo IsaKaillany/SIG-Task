@@ -55,7 +55,6 @@ void cadastroAvisos(void)
 {
     Avisos* warning;
     warning = (Avisos*) malloc(sizeof(Avisos));
-    // int codigo;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -80,6 +79,8 @@ void cadastroAvisos(void)
     printf("Departamento:\n");
     warning->departamento = escolhaDepartamento(); 
     warning->status = 'T';
+    printf("Codigo [5 digitos]: ");
+    scanf(" %5[0-9]", warning->codigo);
     //Criar código c/ dia+mes+departamento
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Cadastro concluido!\n");
@@ -95,7 +96,7 @@ void buscarAvisos(void) //falta implementar o código
 {
     FILE* fp;
     Avisos* warning;
-    int codigoBusca; //dia+mes+departamento
+    char codigoBusca[6]; //dia+mes+departamento
     int achou; 
 
     fp = fopen("aviso.dat", "rb");
@@ -111,7 +112,7 @@ void buscarAvisos(void) //falta implementar o código
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n");
     printf("Informe o codigo: ");
-    scanf(" %d", &codigoBusca);
+    scanf(" %5[0-9]", codigoBusca);
     getchar();
 
     warning = (Avisos*) malloc(sizeof(Avisos));
@@ -130,7 +131,7 @@ void buscarAvisos(void) //falta implementar o código
     }
     else
     {
-        printf("O aviso de codigo = %d nao foi encontrado\n", codigoBusca);
+        printf("O aviso de codigo = %s nao foi encontrado\n", codigoBusca);
         printf("\n>>> Tecle ENTER para continuar");
         getchar();
     }

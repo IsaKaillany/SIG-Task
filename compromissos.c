@@ -52,7 +52,6 @@ void cadastroCompromissos(void)
 {
     Compromissos* task;
     task = (Compromissos*) malloc(sizeof(Compromissos));
-    // int codigo;
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -90,6 +89,8 @@ void cadastroCompromissos(void)
     scanf(" %6[^\n]", task->id);
     getchar();
     task->status = 'T';
+    printf("Codigo [9 digitos]: ");
+    scanf(" %9[0-9]", task->codigo);
     // Criar código c/ data+horario+departamento
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Cadastro concluido!\n");
@@ -104,7 +105,7 @@ void buscarCompromissos(void) //falta implementar o código
 {
     FILE* fp;
     Compromissos* task;
-    int codigoBusca; //data+horario+departamento
+    char codigoBusca[10]; //data+horario+departamento
     int achou;
 
     fp = fopen("compromisso.dat", "rb");
@@ -120,7 +121,7 @@ void buscarCompromissos(void) //falta implementar o código
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n");
     printf("Informe o codigo: ");
-    scanf(" %d", &codigoBusca);
+    scanf(" %9[0-9]", codigoBusca);
     getchar();
 
     task = (Compromissos*) malloc(sizeof(Compromissos));
@@ -139,7 +140,7 @@ void buscarCompromissos(void) //falta implementar o código
     }
     else
     {
-        printf("O compromisso de codigo = %d nao foi encontrado\n", codigoBusca);
+        printf("O compromisso de codigo = %s nao foi encontrado\n", codigoBusca);
         printf("\n>>> Tecle ENTER para continuar");
         getchar();
     }
