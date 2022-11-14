@@ -5,24 +5,49 @@
 #include "avisos.h"
 #include "agenda.h"
 #include "perfil.h"
+#include "usuarios.h"
 
 
-void moduloPerfil(void)
+void moduloPerfil(void) //Só funciona com o primeiro Usuario do arquivo
 {
-    char id[7];
-    
-    do
+    FILE* fp;
+    Usuarios* usu;
+    int achou;
+    char idIn[7], senhaIn[9];
+
+    fp = fopen("usuario.dat", "rb");
+    if (fp == NULL) 
     {
-        telaPerfil(id);
-        if (strcmp(id,"881234") == 0)
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+
+    usu = (Usuarios*) malloc(sizeof(Usuarios));
+    achou = 0;
+
+    while((!achou) && (fread(usu, sizeof(Usuarios), 1, fp)))
+    {
+        do
         {
-            navegacaoPerfilGerencia();
-        }
-        if (strcmp(id,"991234") == 0)
-        {
-            navegacaoPerfilFuncionarios();
-        }
-    } while (strcmp(id, "0") != 0);
+            telaPerfil(idIn, senhaIn);
+            if ((strcmp(usu->id, idIn) == 0) && (strcmp(usu->senha, senhaIn) == 0) && (usu->status == 'T')) 
+            {
+                if ((idIn[0] == '1') && (idIn[1] == '1')) //Se iniciar com 11 = gerencia 
+                {
+                    navegacaoPerfilGerencia();
+                    achou = 1;
+                }
+                else if ((idIn[0] == '2') && (idIn[1] == '2')) //Se iniciar com 22 = funcionario 
+                {
+                    navegacaoPerfilFuncionarios();
+                    achou = 1;
+                }
+            }
+        } while (strcmp(idIn, "0") != 0);
+    }
+    fclose(fp);
+    free(usu); 
 }
 
 void navegacaoPerfilGerencia(void)
