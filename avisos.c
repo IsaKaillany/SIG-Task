@@ -180,7 +180,7 @@ void atualizarAvisos(void)
         printf("\n");
         if (resp == '1')
         {
-            printf("\nTitulo: ");
+            printf("Titulo: ");
             scanf(" %99[^\n]", warning->titulo);
             getchar();
             printf("Descricao: ");
@@ -243,18 +243,18 @@ void atualizarAvisos(void)
     {
         printf("O aviso de codigo '%s' nao foi encontrado\n", codigoBusca);
     }
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n>>> Tecle ENTER para continuar");
     getchar();
     free(usu);
     free(warning);
     fclose(fp);
-    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 }
 
 char oqueAtualizarAvisos(void)
 {
     char opcao;
-    system("clear||cls");
+    // system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-     A T U A L I Z A R     -=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
