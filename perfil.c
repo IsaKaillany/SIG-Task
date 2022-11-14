@@ -80,7 +80,7 @@ void telaPerfil(char id[])
     if (strcmp(id, "0") != 0)
     {
         printf("Senha: ");
-        scanf(" %[0-9]", senha);
+        scanf(" %s", senha);
         getchar();
     }      
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
