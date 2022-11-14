@@ -251,11 +251,6 @@ void deletarCompromissos(void)
             fwrite(comp, sizeof(Compromissos), 1, fp);       
             printf("Compromisso excluido com sucesso!\n\n");
             }
-
-            // comp->status = 'F';
-            // fseek(fp, (-1)*sizeof(Compromissos), SEEK_CUR);
-            // fwrite(comp, sizeof(Compromissos), 1, fp);       
-            // printf("Usuario excluido com sucesso\n\n");
         }
         else
         {
