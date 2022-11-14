@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "compromissos.h"
 #include "avisos.h"
 #include "validacoes.h"
+#include "usuarios.h"
 
 void navegacaoCrudAvisos(void)
 {
@@ -119,7 +121,7 @@ void buscarAvisos(void) //falta implementar o código
     achou = 0;
     while((!achou) && (fread(warning, sizeof(Avisos), 1, fp))) 
     {        
-        if ((warning->codigo == codigoBusca) && (warning->status == 'T'))
+        if ((strcmp(warning->codigo, codigoBusca) == 0) && (warning->status == 'T'))
         {
             achou = 1;   
         }
@@ -141,31 +143,118 @@ void buscarAvisos(void) //falta implementar o código
 
 void atualizarAvisos(void)
 {
-    char senha[9], resp;
-    // char codigo;
+    FILE* fp;
+    Usuarios* usu;
+    Avisos* warning;
+    int achou;
+    char resp;
+    char codigoBusca[7], senhaUpd[9];
 
+    fp = fopen("aviso.dat", "r+b");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-   A T U A L I Z A R   -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\nCodigo: ");
-    // scanf("%[0-9]", codigo);
+    printf("\nInforme o codigo: ");
+    scanf(" %6[^\n]", codigoBusca);
     getchar();
-    resp = oqueAtualizarAvisos(); 
-    //Senha para confirmar a atualização
-    do
+    warning = (Avisos*) malloc(sizeof(Avisos));
+    achou = 0;
+    while((!achou) && (fread(warning, sizeof(Avisos), 1, fp))) 
     {
-        printf("Senha: ");
-        scanf(" %s", senha);
+        if ((strcmp(warning->codigo, codigoBusca) == 0) && (warning->status == 'T')) 
+        {
+            achou = 1;
+        }
+    }
+    if (achou)
+    {
+        exibeAviso(warning);
+        resp = oqueAtualizarAvisos(); 
+        printf("\n");
+        if (resp == '1')
+        {
+            printf("Titulo: ");
+            scanf(" %99[^\n]", warning->titulo);
+            getchar();
+            printf("Descricao: ");
+            scanf(" %999[^\n]", warning->descricao);
+            getchar();
+            do
+            {
+                printf("Dia [dd]: ");
+                scanf(" %d", &warning->dia);
+                getchar();
+                printf("Mes [mm]: ");
+                scanf(" %d", &warning->mes);
+                getchar();
+            } while (validaData(anoAtual(), warning->dia, warning->mes));
+            
+        }
+        else if (resp == '2')
+        {
+            printf("\nTitulo: ");
+            scanf(" %99[^\n]", warning->titulo);
+            getchar();
+        }
+        else if (resp == '3')
+        {
+            printf("Descricao: ");
+            scanf(" %999[^\n]", warning->descricao);
+            getchar();
+        }
+        else if (resp == '4')
+        {
+            do
+            {
+                printf("Dia [dd]: ");
+                scanf(" %d", &warning->dia);
+                getchar();
+                printf("Mes [mm]: ");
+                scanf(" %d", &warning->mes);
+                getchar();
+            } while (validaData(anoAtual(), warning->dia, warning->mes));
+        }
+        usu = (Usuarios*) malloc(sizeof(Usuarios));
+        printf("Confirme sua senha: ");
+        scanf(" %s", senhaUpd);
         getchar(); 
-    } while(validaSenha(senha));   
+
+        if ((strcmp(usu->senha, senhaUpd) == 0))
+        {
+            warning->status = 'T';      
+            fseek(fp, (-1)*sizeof(Avisos), SEEK_CUR);
+            fwrite(warning, sizeof(Avisos), 1, fp);
+            printf("Atualizacao concluida com sucesso");
+        }
+        else
+        {
+            printf("Senha incorreta!");
+        }
+    }
+    
+    else
+    {
+        printf("O aviso de codigo '%s' nao foi encontrado\n", codigoBusca);
+    }
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n>>> Tecle ENTER para continuar");
+    getchar();
+    free(usu);
+    free(warning);
+    fclose(fp);
 }
 
 char oqueAtualizarAvisos(void)
 {
     char opcao;
-    system("clear||cls");
+    // system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-     A T U A L I Z A R     -=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -181,27 +270,83 @@ char oqueAtualizarAvisos(void)
     return opcao;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void deletarAvisos(void)
 {
-    char senha[9];
-    // char codigo;
+    FILE* fp;
+    Usuarios* usu;
+    Avisos* warning;
+    int achou;
+    char codigoBusca[6], senhaDel[9], resp;
+
+    fp = fopen("aviso.dat", "r+b");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-     D E L E T A R     -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nCodigo: ");
-    // scanf("%[0-9]", codigo);
+    scanf(" %s", codigoBusca);
     getchar();
-    //Senha para confirmação
-    do
+
+    warning = (Avisos*) malloc(sizeof(Avisos));
+    achou = 0;
+    while((!achou) && (fread(warning, sizeof(Avisos), 1, fp))) 
     {
-        printf("Senha: ");
-        scanf(" %s", senha);
-        getchar(); 
-    } while(validaSenha(senha));   
+        if ((strcmp(warning->codigo, codigoBusca) == 0) && (warning->status == 'T')) 
+        {
+            achou = 1;
+        }
+    }
+    if (achou)
+    {
+        exibeAviso(warning);
+        printf("Deseja realmente apagar este aviso [S/N]? ");
+        scanf("%c", &resp);
+        getchar();
+        usu = (Usuarios*) malloc(sizeof(Usuarios));
+        if (resp == 'S' || resp == 's')
+        {
+            do
+            {
+                printf("Confirme sua senha: ");
+                scanf(" %s", senhaDel);
+                getchar(); 
+            } while(validaSenha(senhaDel));
+
+            if ((strcmp(usu->senha, senhaDel) == 0))
+            {
+            warning->status = 'F';
+            fseek(fp, (-1)*sizeof(Avisos), SEEK_CUR);
+            fwrite(warning, sizeof(Avisos), 1, fp);       
+            printf("Aviso excluido com sucesso!\n\n");
+            }
+
+        }
+        else
+        {
+            printf("Dados nao foram alterados\n\n");
+        }
+    }
+    else
+    {
+        printf("O aviso de codigo '%s' nao foi encontrado\n\n", codigoBusca);
+    }  
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Tecle ENTER para continuar");
+    getchar();
+    free(usu);
+    free(warning);
+    fclose(fp);
 }
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

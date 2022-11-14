@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "compromissos.h"
 #include "validacoes.h"
+#include "usuarios.h"
 
 
 void navegacaoCrudCompromissos(void)
@@ -90,7 +92,7 @@ void cadastroCompromissos(void)
     getchar();
     task->status = 'T';
     printf("Codigo [9 digitos]: ");
-    scanf(" %9[0-9]", task->codigo);
+    scanf(" %9[^\n]", task->codigo);
     // Criar código c/ data+horario+departamento
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Cadastro concluido!\n");
@@ -121,14 +123,14 @@ void buscarCompromissos(void) //falta implementar o código
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n");
     printf("Informe o codigo: ");
-    scanf(" %9[0-9]", codigoBusca);
+    scanf(" %9[^\n]", codigoBusca);
     getchar();
 
     task = (Compromissos*) malloc(sizeof(Compromissos));
     achou = 0;
     while((!achou) && (fread(task, sizeof(Compromissos), 1, fp)))
     {        
-        if ((task->codigo == codigoBusca) && (task->status == 'T'))
+        if ((strcmp(task->codigo, codigoBusca) == 0) && (task->status == 'T'))
         {
             achou = 1;
         }
@@ -140,7 +142,7 @@ void buscarCompromissos(void) //falta implementar o código
     }
     else
     {
-        printf("O compromisso de codigo = %s nao foi encontrado\n", codigoBusca);
+        printf("O compromisso de codigo '%s' nao foi encontrado\n", codigoBusca);
         printf("\n>>> Tecle ENTER para continuar");
         getchar();
     }
@@ -191,26 +193,83 @@ char oqueAtualizarCompromissos(void)
     return opcao;
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void deletarCompromissos(void)
 {
-    char codigo[10], senha[9];
+    FILE* fp;
+    Usuarios* usu;
+    Compromissos* comp;
+    int achou;
+    char codigoBusca[10], senhaDel[9], resp;
+
+    fp = fopen("compromisso.dat", "r+b");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
 
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-     D E L E T A R     -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nCodigo: ");
-    scanf(" %[0-9]", codigo);
+    scanf(" %[0-9]", codigoBusca);
     getchar();
-    //Senha para confirmação
-    do
+
+    comp = (Compromissos*) malloc(sizeof(Compromissos));
+    achou = 0;
+    while((!achou) && (fread(comp, sizeof(Compromissos), 1, fp))) 
     {
-        printf("Senha: ");
-        scanf(" %s", senha);
-        getchar(); 
-    } while(validaSenha(senha));   
+        if ((strcmp(comp->codigo, codigoBusca) == 0) && (comp->status == 'T')) 
+        {
+            achou = 1;
+        }
+    }
+    if (achou)
+    {
+        exibeCompromisso(comp);
+        printf("Deseja realmente apagar este compromisso [S/N]? ");
+        scanf("%c", &resp);
+        getchar();
+        usu = (Usuarios*) malloc(sizeof(Usuarios));
+        if (resp == 'S' || resp == 's')
+        {
+            do
+            {
+                printf("Confirme sua senha: ");
+                scanf(" %s", senhaDel);
+                getchar(); 
+            } while(validaSenha(senhaDel));
+
+            if ((strcmp(usu->senha, senhaDel) == 0))
+            {
+            comp->status = 'F';
+            fseek(fp, (-1)*sizeof(Compromissos), SEEK_CUR);
+            fwrite(comp, sizeof(Compromissos), 1, fp);       
+            printf("Compromisso excluido com sucesso!\n\n");
+            }
+        }
+        else
+        {
+            printf("Dados nao foram alterados\n\n");
+        }
+    }
+    else
+    {
+        printf("O compromisso de codigo '%s' nao foi encontrado\n\n", codigoBusca);
+    }  
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Tecle ENTER para continuar");
+    getchar();
+    free(usu);
+    free(comp);
+    fclose(fp);
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int escolhaDepartamento(void)
 {

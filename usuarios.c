@@ -97,7 +97,7 @@ void cadastroUsuario(void)
         usu->departamento = escolhaDepartamento();
     }    
     //Por enquanto vai ser manual (Colocar o depart no final do id, posteriormente)
-    printf("ID [6 digitos]: ");
+    printf("ID [6 digitos]: "); //INICIANDO COM 11 É IGUAL À GERENCIA E 22 É IGUAL À FUNCIONÁRIO
     scanf(" %[0-9]", usu->id);
     getchar();
 
@@ -171,7 +171,7 @@ void buscarUsuario(void)
     }
     else
     {
-        printf("O funcionario de id = %s nao foi encontrado\n", idBusca);
+        printf("O funcionario de id '%s' nao foi encontrado\n", idBusca);
         printf("\n>>> Tecle ENTER para continuar");
         getchar();
     }
@@ -326,6 +326,8 @@ char oqueAtualizarUsuario(void)
     return opcao;
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void deletarUsuario(void)
 {
     FILE* fp;
@@ -381,11 +383,14 @@ void deletarUsuario(void)
     {
         printf("O usuario de id = %s nao foi encontrado\n\n", idBusca);
     } 
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Tecle ENTER para continuar");
     getchar();
     free(usu);
     fclose(fp);
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 char departamentoUsuario(void)
 {

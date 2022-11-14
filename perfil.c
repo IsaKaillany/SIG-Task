@@ -5,24 +5,52 @@
 #include "avisos.h"
 #include "agenda.h"
 #include "perfil.h"
+#include "usuarios.h"
 
 
-void moduloPerfil(void)
+void moduloPerfil(void) //Só funciona com o primeiro Usuario do arquivo
 {
-    char id[7];
-    
-    do
+    FILE* fp;
+    Usuarios* usu;
+    int achou;
+    char idIn[7], senhaIn[9];
+
+    fp = fopen("usuario.dat", "rb");
+    if (fp == NULL) 
     {
-        telaPerfil(id);
-        if (strcmp(id,"881234") == 0)
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+
+    usu = (Usuarios*) malloc(sizeof(Usuarios));
+    achou = 0;
+    do
+    { 
+        telaPerfil(idIn, senhaIn);
+        while((!achou) && (fread(usu, sizeof(Usuarios), 1, fp)))
         {
-            navegacaoPerfilGerencia();
+            if ((strcmp(usu->id, idIn) == 0) && (strcmp(usu->senha, senhaIn) == 0) && (usu->status == 'T')) 
+            {
+                achou = 1;
+            }
         }
-        if (strcmp(id,"991234") == 0)
+        fclose(fp); 
+        if (achou)
         {
-            navegacaoPerfilFuncionarios();
+            if ((idIn[0] == '1') && (idIn[1] == '1')) //Se iniciar com 11 = gerencia 
+            {
+                navegacaoPerfilGerencia();
+                achou = 1;
+            }
+            else if ((idIn[0] == '2') && (idIn[1] == '2')) //Se iniciar com 22 = funcionario 
+            {
+                navegacaoPerfilFuncionarios();
+                achou = 1;
+            }
         }
-    } while (strcmp(id, "0") != 0);
+    } while (strcmp(idIn, "0") != 0);
+    free(usu); 
 }
 
 void navegacaoPerfilGerencia(void)
@@ -66,25 +94,22 @@ void navegacaoPerfilFuncionarios(void)
 
 
 
-void telaPerfil(char id[])
+void telaPerfil(char idIn[], char senhaIn[])
 {
-    char senha[9];
-
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    P E R F I L    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nID [0 para voltar]: ");
-    scanf(" %s", id);
+    scanf(" %s", idIn);
     getchar();
-    if (strcmp(id, "0") != 0)
+    if (strcmp(idIn, "0") != 0)
     {
         printf("Senha: ");
-        scanf(" %[0-9]", senha);
+        scanf(" %s", senhaIn);
         getchar();
-    }      
+    }
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
