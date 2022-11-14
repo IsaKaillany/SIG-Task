@@ -264,6 +264,7 @@ void deletarCompromissos(void)
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Tecle ENTER para continuar");
     getchar();
+    free(usu);
     free(comp);
     fclose(fp);
 }

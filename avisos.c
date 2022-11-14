@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Avisos.h"
+#include "compromissos.h"
 #include "avisos.h"
 #include "validacoes.h"
 #include "usuarios.h"
@@ -121,7 +121,7 @@ void buscarAvisos(void) //falta implementar o código
     achou = 0;
     while((!achou) && (fread(warning, sizeof(Avisos), 1, fp))) 
     {        
-        if ((warning->codigo == codigoBusca) && (warning->status == 'T'))
+        if ((strcmp(warning->codigo, codigoBusca) == 0) && (warning->status == 'T'))
         {
             achou = 1;   
         }
@@ -191,7 +191,7 @@ void deletarAvisos(void)
     Usuarios* usu;
     Avisos* warning;
     int achou;
-    char codigoBusca[10], senhaDel[9], resp;
+    char codigoBusca[6], senhaDel[9], resp;
 
     fp = fopen("aviso.dat", "r+b");
     if (fp == NULL) 
@@ -241,6 +241,7 @@ void deletarAvisos(void)
             fwrite(warning, sizeof(Avisos), 1, fp);       
             printf("Aviso excluido com sucesso!\n\n");
             }
+
         }
         else
         {
@@ -254,6 +255,7 @@ void deletarAvisos(void)
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Tecle ENTER para continuar");
     getchar();
+    free(usu);
     free(warning);
     fclose(fp);
 }
