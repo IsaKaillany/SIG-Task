@@ -25,28 +25,31 @@ void moduloPerfil(void) //Só funciona com o primeiro Usuario do arquivo
 
     usu = (Usuarios*) malloc(sizeof(Usuarios));
     achou = 0;
-
-    while((!achou) && (fread(usu, sizeof(Usuarios), 1, fp)))
-    {
-        do
+    do
+    { 
+        telaPerfil(idIn, senhaIn);
+        while((!achou) && (fread(usu, sizeof(Usuarios), 1, fp)))
         {
-            telaPerfil(idIn, senhaIn);
             if ((strcmp(usu->id, idIn) == 0) && (strcmp(usu->senha, senhaIn) == 0) && (usu->status == 'T')) 
             {
-                if ((idIn[0] == '1') && (idIn[1] == '1')) //Se iniciar com 11 = gerencia 
-                {
-                    navegacaoPerfilGerencia();
-                    achou = 1;
-                }
-                else if ((idIn[0] == '2') && (idIn[1] == '2')) //Se iniciar com 22 = funcionario 
-                {
-                    navegacaoPerfilFuncionarios();
-                    achou = 1;
-                }
+                achou = 1;
             }
-        } while (strcmp(idIn, "0") != 0);
-    }
-    fclose(fp);
+        }
+        fclose(fp); 
+        if (achou)
+        {
+            if ((idIn[0] == '1') && (idIn[1] == '1')) //Se iniciar com 11 = gerencia 
+            {
+                navegacaoPerfilGerencia();
+                achou = 1;
+            }
+            else if ((idIn[0] == '2') && (idIn[1] == '2')) //Se iniciar com 22 = funcionario 
+            {
+                navegacaoPerfilFuncionarios();
+                achou = 1;
+            }
+        }
+    } while (strcmp(idIn, "0") != 0);
     free(usu); 
 }
 
