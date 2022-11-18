@@ -273,11 +273,31 @@ void avisosComercial(void)
 
 void avisosTec(void)
 {
+    FILE* fp;
+    Avisos* warning;
+
+    warning = (Avisos*) malloc(sizeof(Avisos));
+    fp = fopen("aviso.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    A V I S O S    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     getchar();
+    while (fread(warning, sizeof(Avisos), 1, fp)) 
+    {
+        if ((warning->departamento == 3) && (warning->status == 'T'))
+        {
+            exibeAviso(warning);
+        }            
+    } 
+    fclose(fp);
+    free(warning);
 }
 
 
