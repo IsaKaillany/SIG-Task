@@ -153,7 +153,7 @@ void buscarCompromissos(void)
 void atualizarCompromissos(void)
 {
     FILE* fp;
-    Usuarios* usu;
+    // Usuarios* usu;
     Compromissos* task;
     int achou;
     char resp;
@@ -251,22 +251,27 @@ void atualizarCompromissos(void)
                 getchar();
             } while (validaHora(task->hora, task->min));
         }
-        usu = (Usuarios*) malloc(sizeof(Usuarios));
-        printf("\nConfirme sua senha: ");
-        scanf(" %s", senhaUpd);
-        getchar(); 
+        task->status = 'T';      
+        fseek(fp, (-1)*sizeof(Compromissos), SEEK_CUR);
+        fwrite(task, sizeof(Compromissos), 1, fp);
+        printf("Atualizacao concluida com sucesso");
 
-        if ((strcmp(usu->senha, senhaUpd) == 0))
-        {
-            task->status = 'T';      
-            fseek(fp, (-1)*sizeof(Compromissos), SEEK_CUR);
-            fwrite(task, sizeof(Compromissos), 1, fp);
-            printf("Atualizacao concluida com sucesso");
-        }
-        else
-        {
-            printf("Senha incorreta!");
-        }
+        // usu = (Usuarios*) malloc(sizeof(Usuarios));
+        // printf("\nConfirme sua senha: ");
+        // scanf(" %s", senhaUpd);
+        // getchar(); 
+
+        // if ((strcmp(usu->senha, senhaUpd) == 0))
+        // {
+        //     task->status = 'T';      
+        //     fseek(fp, (-1)*sizeof(Compromissos), SEEK_CUR);
+        //     fwrite(task, sizeof(Compromissos), 1, fp);
+        //     printf("Atualizacao concluida com sucesso");
+        // }
+        // else
+        // {
+        //     printf("Senha incorreta!");
+        // }
     }
     
     else
@@ -276,7 +281,7 @@ void atualizarCompromissos(void)
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n>>> Tecle ENTER para continuar");
     getchar();
-    free(usu);
+    // free(usu);
     free(task);
     fclose(fp);
 }
