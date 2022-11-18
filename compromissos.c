@@ -152,25 +152,124 @@ void buscarCompromissos(void)
 
 void atualizarCompromissos(void)
 {
-    char codigo[10], senha[9], resp;
+    FILE* fp;
+    Usuarios* usu;
+    Compromissos* task;
+    int achou;
+    char resp;
+    char codigoBusca[10], senhaUpd[9];
 
+    fp = fopen("compromisso.dat", "r+b");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-   A T U A L I Z A R   -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\nCodigo [9 digitos]: ");
-    scanf(" %[0-9]", codigo);
+    printf("\nCodigo do Compromisso: ");
+    scanf(" %9[^\n]", codigoBusca);
     getchar();
-    resp = oqueAtualizarCompromissos(); 
-    // printf("%c", resp);
-    // Para confirmar a atualização usar a senha (E vai mudar de lugar)
-    do
+    task = (Compromissos*) malloc(sizeof(Compromissos));
+    achou = 0;
+    while((!achou) && (fread(task, sizeof(Compromissos), 1, fp))) 
     {
-        printf("Senha: ");
-        scanf("%s", senha);
+        if ((strcmp(task->codigo, codigoBusca) == 0) && (task->status == 'T')) 
+        {
+            achou = 1;
+        }
+    }
+    if (achou)
+    {
+        exibeCompromisso(task);
+        resp = oqueAtualizarCompromissos(); 
+        printf("\n");
+        if (resp == '1')
+        {
+            printf("Titulo: ");
+            scanf(" %99[^\n]", task->titulo);
+            getchar();
+            printf("Descricao: ");
+            scanf(" %999[^\n]", task->descricao);
+            getchar();
+            do
+            {
+                printf("Dia [dd]: ");
+                scanf(" %d", &task->dia);
+                getchar();
+                printf("Mes [mm]: ");
+                scanf(" %d", &task->mes);
+                getchar();
+            } while (validaData(anoAtual(), task->dia, task->mes));
+            
+        }
+        else if (resp == '2')
+        {
+            printf("\nTitulo: ");
+            scanf(" %99[^\n]", task->titulo);
+            getchar();
+        }
+        else if (resp == '3')
+        {
+            printf("Descricao: ");
+            scanf(" %999[^\n]", task->descricao);
+            getchar();
+        }
+        else if (resp == '4')
+        {
+            do
+            {
+                printf("Dia [dd]: ");
+                scanf(" %d", &task->dia);
+                getchar();
+                printf("Mes [mm]: ");
+                scanf(" %d", &task->mes);
+                getchar();
+            } while (validaData(anoAtual(), task->dia, task->mes));
+        }
+        else if (resp == '5')
+        {
+            do
+            {
+                printf("Hora [00]: ");
+                scanf(" %d", &task->hora);
+                getchar();
+                printf("Minuto [00]: ");
+                scanf(" %d", &task->min);
+                getchar();
+            } while (validaHora(task->hora, task->min));
+        }
+        usu = (Usuarios*) malloc(sizeof(Usuarios));
+        printf("\nConfirme sua senha: ");
+        scanf(" %s", senhaUpd);
         getchar(); 
-    } while(validaSenha(senha));   
+
+        if ((strcmp(usu->senha, senhaUpd) == 0))
+        {
+            task->status = 'T';      
+            fseek(fp, (-1)*sizeof(Compromissos), SEEK_CUR);
+            fwrite(task, sizeof(Compromissos), 1, fp);
+            printf("Atualizacao concluida com sucesso");
+        }
+        else
+        {
+            printf("Senha incorreta!");
+        }
+    }
+    
+    else
+    {
+        printf("O compromisso, de codigo '%s', nao foi encontrado!\n", codigoBusca);
+    }
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n>>> Tecle ENTER para continuar");
+    getchar();
+    free(usu);
+    free(task);
+    fclose(fp);
 }
 
 char oqueAtualizarCompromissos(void)
