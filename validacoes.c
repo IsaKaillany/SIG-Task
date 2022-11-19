@@ -275,7 +275,7 @@ int validaID(char idAux[])
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int geraID(int cargo) 
+int geraID(int cargo, int departamento) 
 {
     int number;
 
@@ -287,7 +287,20 @@ int geraID(int cargo)
     else
     {
         srand(time(NULL));
-        number = 2200000 + rand()%9999999; //Sorteando um valor entre 2200000 e 9999999
+        if (departamento == 1)
+        {
+            number = 2210000 + rand()%9999999; //Sorteando um valor entre 2210000 e 9999999
+        }
+        else if (departamento == 2)
+        {
+            // srand(time(NULL));
+            number = 2220000 + rand()%9999999; //Sorteando um valor entre 2220000 e 9999999
+        }
+        else
+        {
+            // srand(time(NULL));
+            number = 2230000 + rand()%9999999; //Sorteando um valor entre 2230000 e 9999999
+        }
     }
     return number;    
 }

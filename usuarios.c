@@ -94,12 +94,13 @@ void cadastroUsuario(void)
     if (usu->cargo == 2)
     {
         usu->departamento = escolhaDepartamento();
-    }    
+    }   
 
-    idAux = geraID(usu->cargo);
+    //ID
+    idAux = geraID(usu->cargo, usu->departamento);
     itoa(idAux, idString, 10); //Transforma int em char
     strcpy(usu->id, idString);
-    printf("Anote seu ID: %s", idString);
+    printf("\nAnote seu ID: %s", idString);
 
     //Será implementado depois com a validação
     // do
@@ -116,7 +117,7 @@ void cadastroUsuario(void)
 
     do
     {
-        printf("Senha [letras e numeros [tamanho 8]]: ");
+        printf("\nSenha [letras e numeros [tamanho 8]]: ");
         scanf(" %s", usu->senha);
         getchar(); 
     } while(validaSenha(usu->senha));   
