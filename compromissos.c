@@ -157,7 +157,8 @@ void atualizarCompromissos(void)
     Compromissos* task;
     int achou;
     char resp;
-    char codigoBusca[10], senhaUpd[9];
+    char codigoBusca[10]; 
+    // char senhaUpd[9];
 
     fp = fopen("compromisso.dat", "r+b");
     if (fp == NULL) 

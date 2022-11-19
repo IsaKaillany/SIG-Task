@@ -60,6 +60,7 @@ char telaUsuarios(void)
 
 void cadastroUsuario(void)
 {
+    char idAux[7];
     Usuarios* usu;
     usu = (Usuarios*) malloc(sizeof(Usuarios));
     system("clear||cls");
@@ -87,19 +88,22 @@ void cadastroUsuario(void)
     } while(validaTelefone(usu->telefone));
 
     printf("Cargo:\n");
-    usu->cargo = escolhaCargo();
-    // if (usu->cargo == 1)
-    // {
-    //     usu->id = '00';
-    // }    
+    usu->cargo = escolhaCargo(); 
     if (usu->cargo == 2)
     {
         usu->departamento = escolhaDepartamento();
     }    
     //Por enquanto vai ser manual (Colocar o depart no final do id, posteriormente)
-    printf("ID [6 digitos]: "); //INICIANDO COM 11 É IGUAL À GERENCIA E 22 É IGUAL À FUNCIONÁRIO
-    scanf(" %[0-9]", usu->id);
-    getchar();
+    do
+    {
+        printf("ID [6 digitos]: "); //INICIANDO COM 11 É IGUAL À GERENCIA E 22 É IGUAL À FUNCIONÁRIO
+        scanf(" %[0-9]", idAux);
+        getchar();
+    } while (validaID(idAux));
+    if (validaID(idAux) == 0)
+    {
+        strcpy(usu->id, idAux);
+    }
 
     do
     {

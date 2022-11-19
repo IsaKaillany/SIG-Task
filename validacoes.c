@@ -4,6 +4,7 @@
 #include <ctype.h>
 #include "validacoes.h"
 #include <time.h>
+#include "usuarios.h"
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -242,4 +243,32 @@ int validaData(int anoAtual, int dia, int mes)
   {
     return 1;    
   }  
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int validaID(char idAux[]) 
+{
+    FILE* fp;
+    Usuarios* usu;
+    // int achou;
+    
+    fp = fopen("usuario.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+    usu = (Usuarios*) malloc(sizeof(Usuarios));
+    while((fread(usu, sizeof(Usuarios), 1, fp))) 
+    {        
+        if ((strcmp(usu->id, idAux) == 0) && (usu->status == 'T')) 
+        {
+            fclose(fp);
+            free(usu);
+            return 1;
+        }
+    }
+    return 0;
 }
