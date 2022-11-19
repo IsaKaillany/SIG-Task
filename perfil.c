@@ -74,16 +74,16 @@ void navegacaoPerfilGerencia(void)
     } while (opcao != '0');
 }
 
-void navegacaoPerfilFuncionarios(void)
+void navegacaoPerfilFuncionarios(char idIn[])
 {
     char opcao;
     do
     {
-        opcao = telaPerfilFuncionarios();
+        opcao = telaPerfilFuncionarios(idIn);
         switch (opcao)
         {
             case '1':
-                navegacaoCrudCompromissos();
+                navegacaoCrudCompromissos(idIn);
                 break;
             // case '2':
             //     navegacaoAgendaFuncionarios();
@@ -135,7 +135,7 @@ char telaPerfilGerencia(void)
     return opcao;
 }
 
-char telaPerfilFuncionarios(void)
+char telaPerfilFuncionarios(char idIn[])
 {
     char opcao;
     system("clear||cls");
