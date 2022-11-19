@@ -45,7 +45,7 @@ void moduloPerfil(void) //Só funciona com o primeiro Usuario do arquivo
             }
             else if ((idIn[0] == '2') && (idIn[1] == '2')) //Se iniciar com 22 = funcionario 
             {
-                navegacaoPerfilFuncionarios();
+                navegacaoPerfilFuncionarios(idIn);
                 achou = 1;
             }
         }
@@ -74,20 +74,20 @@ void navegacaoPerfilGerencia(void)
     } while (opcao != '0');
 }
 
-void navegacaoPerfilFuncionarios(void)
+void navegacaoPerfilFuncionarios(char idIn[])
 {
     char opcao;
     do
     {
-        opcao = telaPerfilFuncionarios();
+        opcao = telaPerfilFuncionarios(idIn);
         switch (opcao)
         {
             case '1':
                 navegacaoCrudCompromissos();
                 break;
-            // case '2':
-            //     navegacaoAgendaFuncionarios();
-            //     break;
+            case '2':
+                navegacaoAgendaFuncionarios(idIn);
+                break;
         }   
     } while (opcao != '0');
 }
@@ -135,7 +135,7 @@ char telaPerfilGerencia(void)
     return opcao;
 }
 
-char telaPerfilFuncionarios(void)
+char telaPerfilFuncionarios(char idIn[])
 {
     char opcao;
     system("clear||cls");
