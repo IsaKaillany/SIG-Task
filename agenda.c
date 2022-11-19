@@ -300,4 +300,37 @@ void avisosTec(void)
     free(warning);
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void agendaCompromissoFunc(char idIn[])
+{
+    FILE* fp;
+    Compromissos* task;
+    
+    task = (Compromissos*) malloc(sizeof(Compromissos));
+    fp = fopen("compromisso.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-    C O M P R O M I S S O S    -=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    getchar();
+    while (fread(task, sizeof(Compromissos), 1, fp)) 
+    {
+        if ((strcmp(idIn, task->id) == 0) && (task->status == 'T'))
+        {
+            exibeCompromisso(task);
+        }
+    } 
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\nTecle ENTER para continuar");
+    getchar();
+    fclose(fp);
+    free(task);
+}
 
