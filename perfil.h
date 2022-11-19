@@ -1,6 +1,6 @@
 void telaPerfil(char[], char[]);
 void moduloPerfil(void);
 char telaPerfilGerencia(void);
-char telaPerfilFuncionarios(void);
+char telaPerfilFuncionarios(char[]);
 void navegacaoPerfilGerencia(void);
-void navegacaoPerfilFuncionarios(void);
+void navegacaoPerfilFuncionarios(char[]);

@@ -45,7 +45,7 @@ void moduloPerfil(void) //Só funciona com o primeiro Usuario do arquivo
             }
             else if ((idIn[0] == '2') && (idIn[1] == '2')) //Se iniciar com 22 = funcionario 
             {
-                navegacaoPerfilFuncionarios();
+                navegacaoPerfilFuncionarios(idIn);
                 achou = 1;
             }
         }
@@ -83,11 +83,11 @@ void navegacaoPerfilFuncionarios(char idIn[])
         switch (opcao)
         {
             case '1':
-                navegacaoCrudCompromissos(idIn);
+                navegacaoCrudCompromissos();
                 break;
-            // case '2':
-            //     navegacaoAgendaFuncionarios();
-            //     break;
+            case '2':
+                navegacaoAgendaFuncionarios(idIn);
+                break;
         }   
     } while (opcao != '0');
 }

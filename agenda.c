@@ -109,7 +109,7 @@ void telaAgenda(char opcao[])
     getchar();
 }
 
-char agendaFuncionario(void)
+char agendaFuncionario(char idIn[])
 {
     char opcao;
     system("clear||cls");
