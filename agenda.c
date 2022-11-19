@@ -76,15 +76,35 @@ void navegacaoAgendaFuncionarios(char idIn[])
 
 void agendaGerenciaCodigo(void)
 {
-    char codigo[10];
+    FILE* fp;
+    Compromissos* task;
+    char codigoBusca[10];
+    
+    task = (Compromissos*) malloc(sizeof(Compromissos));
+    fp = fopen("compromisso.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    A G E N D A    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\nCodigo [9 digitos]: ");
-    scanf(" %[0-9]", codigo);
+    printf("\nID do Funcionario: ");
+    scanf(" %[0-9]", codigoBusca);
     getchar();
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    while (fread(task, sizeof(Compromissos), 1, fp)) 
+    {
+        if ((strcmp(codigoBusca, task->id) == 0) && (task->status == 'T'))
+        {
+            exibeCompromisso(task);
+        }
+    } 
+    fclose(fp);
+    free(task); 
 }
 
 void telaAgenda(char opcao[])
