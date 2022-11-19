@@ -66,9 +66,9 @@ void navegacaoAgendaFuncionarios(char idIn[])
             case '1':
                 agendaCompromissoFunc(idIn);
                 break;
-            case '2':
-                agendaAvisoFunc(idIn);
-                break;
+            // case '2':
+            //     agendaAvisoFunc(idIn);
+            //     break;
         }   
     } while (opcao != '0');
 }
