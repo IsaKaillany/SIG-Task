@@ -4,9 +4,10 @@ void buscarUsuario(void);
 void atualizarUsuario(void);
 char oqueAtualizarUsuario(void);
 void deletarUsuario(void);
+
+//Funções auxiliares
 char departamentoUsuario(void);
 int escolhaCargo(void);
-
 
 
 typedef struct usuarios Usuarios;
