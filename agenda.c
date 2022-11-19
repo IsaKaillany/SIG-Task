@@ -66,9 +66,9 @@ void navegacaoAgendaFuncionarios(char idIn[])
             case '1':
                 agendaCompromissoFunc(idIn);
                 break;
-            // case '2':
-            //     agendaAvisoFunc(idIn);
-            //     break;
+            case '2':
+                agendaAvisoFunc(idIn);
+                break;
         }   
     } while (opcao != '0');
 }
@@ -321,6 +321,44 @@ void avisosTec(void)
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void agendaAvisoFunc(char idIn[])
+{
+    FILE* fp;
+    Avisos* warning;
+
+
+    warning = (Avisos*) malloc(sizeof(Avisos));
+    fp = fopen("aviso.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        exit(1);
+    }
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-    A V I S O S    -=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+    getchar();
+    while (fread(warning, sizeof(Avisos), 1, fp)) 
+    {
+        if (((idIn[2] == '2') && (warning->departamento == 1)) && (warning->status == 'T'))
+        {
+            exibeAviso(warning);
+        }
+        else if (((idIn[2] == '3') && (warning->departamento == 2)) && (warning->status == 'T'))
+        {
+            exibeAviso(warning);
+        }
+        else if (((idIn[2] == '4') && (warning->departamento == 3)) && (warning->status == 'T'))
+        {
+            exibeAviso(warning);
+        }
+    } 
+    fclose(fp);
+    free(warning);
+}
 
 void agendaCompromissoFunc(char idIn[])
 {
