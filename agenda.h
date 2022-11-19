@@ -1,7 +1,5 @@
 void moduloAgenda(void);
 void telaAgenda(char[]);
-// void mostragemAgendaCompromissos(void);
-// void mostragemAgendaAvisos(void);
 char agendaFuncionario(char[]);
 char agendaGerencia(void);
 void agendaGerenciaCodigo(void);
@@ -16,3 +14,4 @@ void avisosComercial(void);
 void avisosTec(void);
 
 void agendaCompromissoFunc(char[]);
+void agendaAvisoFunc(char[]);

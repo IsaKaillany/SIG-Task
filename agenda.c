@@ -64,10 +64,10 @@ void navegacaoAgendaFuncionarios(char idIn[])
         switch (opcao)
         {
             case '1':
-                mostragemAgendaCompromissos(idIn);
+                agendaCompromissoFunc(idIn);
                 break;
             case '2':
-                mostragemAgendaAvisos();
+                agendaAvisoFunc(idIn);
                 break;
         }   
     } while (opcao != '0');
