@@ -18,7 +18,7 @@ struct usuarios
   char email[50];
   char senha[9];
   char telefone[12];
-  char id[7];
+  char id[8];
   int cargo;
   int departamento;
   char status;

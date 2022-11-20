@@ -18,4 +18,4 @@ void avisosTec(void);
 char agendaFuncionario(char[]);
 void navegacaoAgendaFuncionarios(char[]);
 void agendaCompromissoFunc(char[]);
-// void agendaAvisoFunc(char[]);
+void agendaAvisoFunc(char[]);

@@ -60,8 +60,10 @@ char telaUsuarios(void)
 
 void cadastroUsuario(void)
 {
-    char idAux[7];
+    int idAux;
+    char idString[8];
     Usuarios* usu;
+
     usu = (Usuarios*) malloc(sizeof(Usuarios));
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -92,22 +94,30 @@ void cadastroUsuario(void)
     if (usu->cargo == 2)
     {
         usu->departamento = escolhaDepartamento();
-    }    
-    //Por enquanto vai ser manual (Colocar o depart no final do id, posteriormente)
-    do
-    {
-        printf("ID [6 digitos]: "); //INICIANDO COM 11 É IGUAL À GERENCIA E 22 É IGUAL À FUNCIONÁRIO
-        scanf(" %[0-9]", idAux);
-        getchar();
-    } while (validaID(idAux));
-    if (validaID(idAux) == 0)
-    {
-        strcpy(usu->id, idAux);
-    }
+    }   
+
+    //ID
+    idAux = geraID(usu->cargo, usu->departamento);
+    itoa(idAux, idString, 10); //Transforma int em char
+    strcpy(usu->id, idString);
+    printf("\nAnote seu ID: %s", idString);
+
+    //Será implementado depois com a validação
+    // do
+    // {   
+    //     idAux = geraID(usu->cargo);
+    //     itoa(idAux, idString, 10);
+    // } while (validaID(idString));
+    
+    // if (validaID(idString) == 0)
+    // {
+    //     strcpy(usu->id, idString);
+    //     printf("Seu ID eh: %s", idString);
+    // }
 
     do
     {
-        printf("Senha [letras e numeros [tamanho 8]]: ");
+        printf("\nSenha [letras e numeros [tamanho 8]]: ");
         scanf(" %s", usu->senha);
         getchar(); 
     } while(validaSenha(usu->senha));   
@@ -376,16 +386,16 @@ void deletarUsuario(void)
             usu->status = 'F';
             fseek(fp, (-1)*sizeof(Usuarios), SEEK_CUR);
             fwrite(usu, sizeof(Usuarios), 1, fp);       
-            printf("Usuario excluido com sucesso\n\n");
+            printf("\nUsuario excluido com sucesso\n");
         }
         else
         {
-            printf("Dados nao foram alterados\n\n");
+            printf("\nDados nao foram alterados\n");
         }
     }
     else
     {
-        printf("O usuario de id = %s nao foi encontrado\n\n", idBusca);
+        printf("\nO usuario de id = %s nao foi encontrado\n", idBusca);
     } 
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Tecle ENTER para continuar");

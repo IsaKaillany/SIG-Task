@@ -6,3 +6,6 @@ int validaHora(int, int);
 int validaData(int, int, int);
 int anoAtual(void);
 int validaID(char[]);
+int geraID(int, int);
+int geraCodigoComp(void);
+int geraCodigoAviso(void);

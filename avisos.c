@@ -55,7 +55,10 @@ char crudAvisos(void)
 
 void cadastroAvisos(void)
 {
+    int codigoAux;
+    char codigoString[10];
     Avisos* warning;
+
     warning = (Avisos*) malloc(sizeof(Avisos));
 
     system("clear||cls");
@@ -81,9 +84,13 @@ void cadastroAvisos(void)
     printf("Departamento:\n");
     warning->departamento = escolhaDepartamento(); 
     warning->status = 'T';
-    printf("Codigo [5 digitos]: ");
-    scanf(" %5[0-9]", warning->codigo);
-    //Criar código c/ dia+mes+departamento
+
+    //Código
+    codigoAux = geraCodigoAviso();
+    itoa(codigoAux, codigoString, 10); //Transforma int em char
+    strcpy(warning->codigo, codigoString);
+    printf("\nCodigo do aviso: %s", codigoString);
+
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Cadastro concluido!\n");
     printf("\nTecle ENTER para continuar");
@@ -144,11 +151,12 @@ void buscarAvisos(void)
 void atualizarAvisos(void)
 {
     FILE* fp;
-    Usuarios* usu;
+    // Usuarios* usu;
     Avisos* warning;
     int achou;
     char resp;
-    char codigoBusca[7], senhaUpd[9];
+    char codigoBusca[7];
+    // char senhaUpd[9];
 
     fp = fopen("aviso.dat", "r+b");
     if (fp == NULL) 
@@ -221,24 +229,24 @@ void atualizarAvisos(void)
                 getchar();
             } while (validaData(anoAtual(), warning->dia, warning->mes));
         }
-        usu = (Usuarios*) malloc(sizeof(Usuarios));
-        printf("Confirme sua senha: ");
-        scanf(" %s", senhaUpd);
-        getchar(); 
 
-        if ((strcmp(usu->senha, senhaUpd) == 0))
-        {
-            warning->status = 'T';      
-            fseek(fp, (-1)*sizeof(Avisos), SEEK_CUR);
-            fwrite(warning, sizeof(Avisos), 1, fp);
-            printf("Atualizacao concluida com sucesso");
-        }
-        else
-        {
-            printf("Senha incorreta!");
-        }
-    }
-    
+        // usu = (Usuarios*) malloc(sizeof(Usuarios));
+        // printf("Confirme sua senha: ");
+        // scanf(" %s", senhaUpd);
+        // getchar(); 
+
+        // if ((strcmp(usu->senha, senhaUpd) == 0))
+        // {
+        //     warning->status = 'T';      
+        //     fseek(fp, (-1)*sizeof(Avisos), SEEK_CUR);
+        //     fwrite(warning, sizeof(Avisos), 1, fp);
+        //     printf("Atualizacao concluida com sucesso");
+        // }
+        // else
+        // {
+        //     printf("Senha incorreta!");
+        // }
+    }    
     else
     {
         printf("O aviso de codigo '%s' nao foi encontrado\n", codigoBusca);
@@ -246,7 +254,7 @@ void atualizarAvisos(void)
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n>>> Tecle ENTER para continuar");
     getchar();
-    free(usu);
+    // free(usu);
     free(warning);
     fclose(fp);
 }
@@ -255,8 +263,7 @@ char oqueAtualizarAvisos(void)
 {
     char opcao;
     // system("clear||cls");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-=-     A T U A L I Z A R     -=-=-=-=-=-=-=-\n");
+    printf("O que voce deseja atualizar?\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Tudo\n");
     printf("\t2 - Titulo\n");
@@ -275,10 +282,9 @@ char oqueAtualizarAvisos(void)
 void deletarAvisos(void)
 {
     FILE* fp;
-    Usuarios* usu;
     Avisos* warning;
     int achou;
-    char codigoBusca[6], senhaDel[9], resp;
+    char codigoBusca[6], resp;
 
     fp = fopen("aviso.dat", "r+b");
     if (fp == NULL) 
@@ -311,38 +317,25 @@ void deletarAvisos(void)
         printf("Deseja realmente apagar este aviso [S/N]? ");
         scanf("%c", &resp);
         getchar();
-        usu = (Usuarios*) malloc(sizeof(Usuarios));
         if (resp == 'S' || resp == 's')
         {
-            do
-            {
-                printf("Confirme sua senha: ");
-                scanf(" %s", senhaDel);
-                getchar(); 
-            } while(validaSenha(senhaDel));
-
-            if ((strcmp(usu->senha, senhaDel) == 0))
-            {
             warning->status = 'F';
             fseek(fp, (-1)*sizeof(Avisos), SEEK_CUR);
             fwrite(warning, sizeof(Avisos), 1, fp);       
-            printf("Aviso excluido com sucesso!\n\n");
-            }
-
+            printf("\nAviso excluido com sucesso!\n");
         }
         else
         {
-            printf("Dados nao foram alterados\n\n");
+            printf("\nDados nao foram alterados\n");
         }
     }
     else
     {
-        printf("O aviso de codigo '%s' nao foi encontrado\n\n", codigoBusca);
+        printf("\nO aviso de codigo '%s' nao foi encontrado\n", codigoBusca);
     }  
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Tecle ENTER para continuar");
     getchar();
-    free(usu);
     free(warning);
     fclose(fp);
 }
@@ -375,6 +368,7 @@ void exibeAviso(Avisos* warning)
         printf("Titulo: %s\n", warning->titulo);
         printf("Descricao: %s\n", warning->descricao);
         printf("Data: %d/%d\n", warning->dia, warning->mes);
+        printf("Codigo: %s\n", warning->codigo);
         if (warning->departamento == 1)
         {
             printf("Departamento: Administrativo");
@@ -387,7 +381,7 @@ void exibeAviso(Avisos* warning)
         {
             printf("Departamento: Tecnico");
         }           
-        printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
+        printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");  
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
     }
 }

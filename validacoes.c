@@ -272,3 +272,59 @@ int validaID(char idAux[])
     }
     return 0;
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int geraID(int cargo, int departamento) 
+{
+    int number;
+
+    if (cargo == 1)
+    {
+        srand(time(NULL));
+        number = 1100000 + rand()%9999999; //Sorteando um valor entre 1100000 e 9999999
+    }
+    else
+    {
+        srand(time(NULL));
+        if (departamento == 1)
+        {
+            number = 2210000 + rand()%9999; //Sorteando um valor entre 2210000 e 9999999
+        }
+        else if (departamento == 2)
+        {
+            // srand(time(NULL));
+            number = 2220000 + rand()%9999; //Sorteando um valor entre 2220000 e 9999999
+        }
+        else
+        {
+            // srand(time(NULL));
+            number = 2230000 + rand()%9999; //Sorteando um valor entre 2230000 e 9999999
+        }
+    }
+    return number;    
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int geraCodigoComp(void) //gerador de código (tam = 9)
+{
+    int number;
+
+    srand(time(NULL));
+    number = 202200000 + rand()%999999999; //Sorteando um valor entre 202200000 e 999999999
+
+    return number;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int geraCodigoAviso(void) //gerador de código (tam = 5)
+{
+    int number;
+
+    srand(time(NULL));
+    number = 10000 + rand()%99999; //Sorteando um valor entre 20220 e 99999
+
+    return number;
+}
