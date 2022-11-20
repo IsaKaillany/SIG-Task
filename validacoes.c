@@ -304,3 +304,15 @@ int geraID(int cargo, int departamento)
     }
     return number;    
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int geraCodigoComp(void) //gerador de código (tam = 9)
+{
+    int number;
+
+    srand(time(NULL));
+    number = 202200000 + rand()%999999999; //Sorteando um valor entre 202200000 e 999999999
+
+    return number;
+}
