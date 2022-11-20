@@ -55,7 +55,10 @@ char crudAvisos(void)
 
 void cadastroAvisos(void)
 {
+    int codigoAux;
+    char codigoString[10];
     Avisos* warning;
+
     warning = (Avisos*) malloc(sizeof(Avisos));
 
     system("clear||cls");
@@ -81,9 +84,13 @@ void cadastroAvisos(void)
     printf("Departamento:\n");
     warning->departamento = escolhaDepartamento(); 
     warning->status = 'T';
-    printf("Codigo [5 digitos]: ");
-    scanf(" %5[0-9]", warning->codigo);
-    //Criar código c/ dia+mes+departamento
+
+    //Código
+    codigoAux = geraCodigoAviso();
+    itoa(codigoAux, codigoString, 10); //Transforma int em char
+    strcpy(warning->codigo, codigoString);
+    printf("\nCodigo do aviso: %s", codigoString);
+
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Cadastro concluido!\n");
     printf("\nTecle ENTER para continuar");
@@ -375,6 +382,7 @@ void exibeAviso(Avisos* warning)
         printf("Titulo: %s\n", warning->titulo);
         printf("Descricao: %s\n", warning->descricao);
         printf("Data: %d/%d\n", warning->dia, warning->mes);
+        printf("Codigo: %s", warning->codigo);
         if (warning->departamento == 1)
         {
             printf("Departamento: Administrativo");
