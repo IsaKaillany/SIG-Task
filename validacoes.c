@@ -316,3 +316,15 @@ int geraCodigoComp(void) //gerador de código (tam = 9)
 
     return number;
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int geraCodigoAviso(void) //gerador de código (tam = 5)
+{
+    int number;
+
+    srand(time(NULL));
+    number = 10000 + rand()%99999; //Sorteando um valor entre 20220 e 99999
+
+    return number;
+}

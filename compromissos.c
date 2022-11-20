@@ -437,6 +437,7 @@ void exibeCompromisso(Compromissos* task)
         printf("Descricao: %s\n", task->descricao);
         printf("Data: %d/%d\n", task->dia, task->mes);
         printf("Horario: %d:%.2d\n", task->hora, task->min);
+        printf("Codigo: %s", task->codigo);
         printf("ID: %s\n", task->id);
         if (task->departamento == 1)
         {

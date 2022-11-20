@@ -8,3 +8,4 @@ int anoAtual(void);
 int validaID(char[]);
 int geraID(int, int);
 int geraCodigoComp(void);
+int geraCodigoAviso(void);
