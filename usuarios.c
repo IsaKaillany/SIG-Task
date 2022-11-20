@@ -386,16 +386,16 @@ void deletarUsuario(void)
             usu->status = 'F';
             fseek(fp, (-1)*sizeof(Usuarios), SEEK_CUR);
             fwrite(usu, sizeof(Usuarios), 1, fp);       
-            printf("Usuario excluido com sucesso\n\n");
+            printf("\nUsuario excluido com sucesso\n");
         }
         else
         {
-            printf("Dados nao foram alterados\n\n");
+            printf("\nDados nao foram alterados\n");
         }
     }
     else
     {
-        printf("O usuario de id = %s nao foi encontrado\n\n", idBusca);
+        printf("\nO usuario de id = %s nao foi encontrado\n", idBusca);
     } 
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Tecle ENTER para continuar");

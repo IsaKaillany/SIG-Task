@@ -262,7 +262,7 @@ void atualizarCompromissos(void)
         task->status = 'T';      
         fseek(fp, (-1)*sizeof(Compromissos), SEEK_CUR);
         fwrite(task, sizeof(Compromissos), 1, fp);
-        printf("Atualizacao concluida com sucesso");
+        printf("\nAtualizacao concluida com sucesso");
 
         // usu = (Usuarios*) malloc(sizeof(Usuarios));
         // printf("\nConfirme sua senha: ");
@@ -280,8 +280,7 @@ void atualizarCompromissos(void)
         // {
         //     printf("Senha incorreta!");
         // }
-    }
-    
+    }    
     else
     {
         printf("O compromisso, de codigo '%s', nao foi encontrado!\n", codigoBusca);
@@ -297,9 +296,8 @@ void atualizarCompromissos(void)
 char oqueAtualizarCompromissos(void)
 {
     char opcao;
-    system("clear||cls");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-=-     A T U A L I Z A R     -=-=-=-=-=-=-=-\n");
+    // system("clear||cls");
+    printf("O que voce deseja atualizar?\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Tudo\n");
     printf("\t2 - Titulo\n");
@@ -319,10 +317,9 @@ char oqueAtualizarCompromissos(void)
 void deletarCompromissos(void)
 {
     FILE* fp;
-    Usuarios* usu;
     Compromissos* comp;
     int achou;
-    char codigoBusca[10], senhaDel[9], resp;
+    char codigoBusca[10], resp;
 
     fp = fopen("compromisso.dat", "r+b");
     if (fp == NULL) 
@@ -355,37 +352,25 @@ void deletarCompromissos(void)
         printf("Deseja realmente apagar este compromisso [S/N]? ");
         scanf("%c", &resp);
         getchar();
-        usu = (Usuarios*) malloc(sizeof(Usuarios));
         if (resp == 'S' || resp == 's')
         {
-            do
-            {
-                printf("Confirme sua senha: ");
-                scanf(" %s", senhaDel);
-                getchar(); 
-            } while(validaSenha(senhaDel));
-
-            if ((strcmp(usu->senha, senhaDel) == 0))
-            {
             comp->status = 'F';
             fseek(fp, (-1)*sizeof(Compromissos), SEEK_CUR);
             fwrite(comp, sizeof(Compromissos), 1, fp);       
-            printf("Compromisso excluido com sucesso!\n\n");
-            }
+            printf("\nCompromisso excluido com sucesso!\n");
         }
         else
         {
-            printf("Dados nao foram alterados\n\n");
+            printf("\nDados nao foram alterados\n");
         }
     }
     else
     {
-        printf("O compromisso de codigo '%s' nao foi encontrado\n\n", codigoBusca);
+        printf("\nO compromisso de codigo '%s' nao foi encontrado\n", codigoBusca);
     }  
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Tecle ENTER para continuar");
     getchar();
-    free(usu);
     free(comp);
     fclose(fp);
 }
@@ -437,7 +422,7 @@ void exibeCompromisso(Compromissos* task)
         printf("Descricao: %s\n", task->descricao);
         printf("Data: %d/%d\n", task->dia, task->mes);
         printf("Horario: %d:%.2d\n", task->hora, task->min);
-        printf("Codigo: %s", task->codigo);
+        printf("Codigo: %s\n", task->codigo);
         printf("ID: %s\n", task->id);
         if (task->departamento == 1)
         {
