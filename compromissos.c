@@ -52,7 +52,10 @@ char crudCompromissos(void)
 
 void cadastroCompromissos(void)
 {
+    int codigoAux;
+    char codigoString[10];
     Compromissos* task;
+
     task = (Compromissos*) malloc(sizeof(Compromissos));
 
     system("clear||cls");
@@ -87,13 +90,17 @@ void cadastroCompromissos(void)
     printf("Departamento:\n");
     task->departamento = escolhaDepartamento(); 
     
-    printf("ID do funcionario: ");
+    printf("\nID do funcionario: ");
     scanf(" %6[^\n]", task->id);
     getchar();
     task->status = 'T';
-    printf("Codigo [9 digitos]: ");
-    scanf(" %9[^\n]", task->codigo);
-    // Criar código c/ data+horario+departamento
+
+    //Código
+    codigoAux = geraCodigoComp();
+    itoa(codigoAux, codigoString, 10); //Transforma int em char
+    strcpy(task->codigo, codigoString);
+    printf("Codigo do compromisso: %s", codigoString);
+    getchar();
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Cadastro concluido!\n");
     printf("\nTecle ENTER para continuar");
