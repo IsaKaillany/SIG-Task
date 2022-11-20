@@ -382,7 +382,7 @@ void exibeAviso(Avisos* warning)
         printf("Titulo: %s\n", warning->titulo);
         printf("Descricao: %s\n", warning->descricao);
         printf("Data: %d/%d\n", warning->dia, warning->mes);
-        printf("Codigo: %s", warning->codigo);
+        printf("Codigo: %s\n", warning->codigo);
         if (warning->departamento == 1)
         {
             printf("Departamento: Administrativo");
@@ -395,7 +395,7 @@ void exibeAviso(Avisos* warning)
         {
             printf("Departamento: Tecnico");
         }           
-        printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
+        printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");  
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
     }
 }

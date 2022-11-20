@@ -250,7 +250,6 @@ void avisosAdm(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    A V I S O S    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    getchar();
     while (fread(warning, sizeof(Avisos), 1, fp)) 
     {
         if ((warning->departamento == 1) && (warning->status == 'T'))
@@ -279,7 +278,6 @@ void avisosComercial(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    A V I S O S    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    getchar();
     while (fread(warning, sizeof(Avisos), 1, fp)) 
     {
         if ((warning->departamento == 2) && (warning->status == 'T'))
@@ -308,7 +306,6 @@ void avisosTec(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    A V I S O S    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    getchar();
     while (fread(warning, sizeof(Avisos), 1, fp)) 
     {
         if ((warning->departamento == 3) && (warning->status == 'T'))
@@ -339,19 +336,18 @@ void agendaAvisoFunc(char idIn[])
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-    A V I S O S    -=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
-    getchar();
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     while (fread(warning, sizeof(Avisos), 1, fp)) 
     {
-        if (((idIn[2] == '2') && (warning->departamento == 1)) && (warning->status == 'T'))
+        if (((idIn[2] == '1') && (warning->departamento == 1)) && (warning->status == 'T'))
         {
             exibeAviso(warning);
         }
-        else if (((idIn[2] == '3') && (warning->departamento == 2)) && (warning->status == 'T'))
+        else if (((idIn[2] == '2') && (warning->departamento == 2)) && (warning->status == 'T'))
         {
             exibeAviso(warning);
         }
-        else if (((idIn[2] == '4') && (warning->departamento == 3)) && (warning->status == 'T'))
+        else if (((idIn[2] == '3') && (warning->departamento == 3)) && (warning->status == 'T'))
         {
             exibeAviso(warning);
         }
@@ -377,7 +373,6 @@ void agendaCompromissoFunc(char idIn[])
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-    C O M P R O M I S S O S    -=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    getchar();
     while (fread(task, sizeof(Compromissos), 1, fp)) 
     {
         if ((strcmp(idIn, task->id) == 0) && (task->status == 'T'))
