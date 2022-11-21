@@ -8,7 +8,7 @@
 #include "usuarios.h"
 
 
-void moduloPerfil(void) //Só funciona com o primeiro Usuario do arquivo
+void moduloPerfil(void) 
 {
     FILE* fp;
     Usuarios* usu;
@@ -30,25 +30,22 @@ void moduloPerfil(void) //Só funciona com o primeiro Usuario do arquivo
         telaPerfil(idIn, senhaIn);
         while((!achou) && (fread(usu, sizeof(Usuarios), 1, fp)))
         {
-            if ((strcmp(usu->id, idIn) == 0) && (strcmp(usu->senha, senhaIn) == 0) && (usu->status == 'T')) 
+            if (((strcmp(usu->id, idIn) == 0) && (strcmp(usu->senha, senhaIn) == 0)) && (usu->status == 'T')) 
             {
-                achou = 1;
+                
+                if ((idIn[0] == '1') && (idIn[1] == '1')) //Se iniciar com 11 = gerencia 
+                {
+                    achou = 1;
+                    navegacaoPerfilGerencia(idIn);
+                }
+                else if ((idIn[0] == '2') && (idIn[1] == '2')) //Se iniciar com 22 = funcionario 
+                {
+                    achou = 1;
+                    navegacaoPerfilFuncionarios(idIn);
+                }
             }
         }
         fclose(fp); 
-        if (achou)
-        {
-            if ((idIn[0] == '1') && (idIn[1] == '1')) //Se iniciar com 11 = gerencia 
-            {
-                navegacaoPerfilGerencia(idIn);
-                achou = 1;
-            }
-            else if ((idIn[0] == '2') && (idIn[1] == '2')) //Se iniciar com 22 = funcionario 
-            {
-                navegacaoPerfilFuncionarios(idIn);
-                achou = 1;
-            }
-        }
     } while (strcmp(idIn, "0") != 0);
     free(usu); 
 }
