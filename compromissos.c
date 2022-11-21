@@ -91,7 +91,7 @@ void cadastroCompromissos(void)
     task->departamento = escolhaDepartamento(); 
     
     printf("\nID do funcionario: ");
-    scanf(" %6[^\n]", task->id);
+    scanf(" %7[^\n]", task->id);
     getchar();
     task->status = 'T';
 
@@ -114,7 +114,7 @@ void buscarCompromissos(void)
 {
     FILE* fp;
     Compromissos* task;
-    char codigoBusca[10]; //data+horario+departamento
+    char codigoBusca[10]; 
     int achou;
 
     fp = fopen("compromisso.dat", "rb");

@@ -151,7 +151,7 @@ void buscarUsuario(void)
     FILE* fp;
     Usuarios* usu;
     int achou;
-    char idBusca[7];
+    char idBusca[8];
     
     fp = fopen("usuario.dat", "rb");
     if (fp == NULL) 
@@ -166,7 +166,7 @@ void buscarUsuario(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n");   
     printf("Informe o ID: "); 
-    scanf(" %[0-9]", idBusca);
+    scanf(" %7[^\n]", idBusca);
     getchar();
 
     usu = (Usuarios*) malloc(sizeof(Usuarios));

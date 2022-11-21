@@ -15,7 +15,7 @@ struct compromissos {
   char descricao[1000];
   int dia;
   int mes;
-  char id[7];
+  char id[8];
   int hora;
   int min;
   int departamento;

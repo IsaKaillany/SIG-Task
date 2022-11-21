@@ -39,7 +39,7 @@ void moduloAgenda(void)
     } while (strcmp(opcao, "0") != 0);
 }
 
-void navegacaoAgendaGerencia(void)
+void navegacaoAgendaGerencia(char idIn[])
 {
     char opcao;
     printf(">> Letra ");
@@ -78,7 +78,7 @@ void agendaGerenciaCodigo(void)
 {
     FILE* fp;
     Compromissos* task;
-    char codigoBusca[10];
+    char idBusca[8];
     
     task = (Compromissos*) malloc(sizeof(Compromissos));
     fp = fopen("compromisso.dat", "rb");
@@ -93,12 +93,12 @@ void agendaGerenciaCodigo(void)
     printf("-=-=-=-=-=-=-=-=-=-    A G E N D A    -=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nID do Funcionario: ");
-    scanf(" %[0-9]", codigoBusca);
+    scanf(" %7[^\n]", idBusca);
     getchar();
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     while (fread(task, sizeof(Compromissos), 1, fp)) 
     {
-        if ((strcmp(codigoBusca, task->id) == 0) && (task->status == 'T'))
+        if ((strcmp(idBusca, task->id) == 0) && (task->status == 'T'))
         {
             exibeCompromisso(task);
         }
