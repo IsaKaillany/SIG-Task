@@ -1,9 +1,9 @@
 void navegacaoCrudAvisos(void);
 char crudAvisos(void);
-void buscarAvisos(void);
-void atualizarAvisos(void);
+int buscarAvisos(void);
+int atualizarAvisos(void);
 char oqueAtualizarAvisos(void);
-void deletarAvisos(void);
+int deletarAvisos(void);
 
 
 
@@ -20,5 +20,5 @@ struct avisos {
 };
 
 void cadastroAvisos(void);
-void gravaAviso(Avisos*);
+int gravaAviso(Avisos*);
 void exibeAviso(Avisos*);

@@ -47,7 +47,7 @@ char telaUsuarios(void)
     printf("\t3 - Atualizar Dados\n");
     printf("\t4 - Deletar Dados\n");
     printf("\t5 - Listagem de Usuarios\n");
-    printf("\t6 - Listagem de Usuarios por Departamento\n");
+    // printf("\t6 - Listagem de Usuarios por Departamento\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
@@ -146,7 +146,7 @@ int escolhaCargo(void)
     return cargo;
 }
 
-void buscarUsuario(void) 
+int buscarUsuario(void) 
 {
     FILE* fp;
     Usuarios* usu;
@@ -158,7 +158,7 @@ void buscarUsuario(void)
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -190,9 +190,10 @@ void buscarUsuario(void)
         getchar();
     }
     free(usu); 
+    return 0;
 }
 
-void atualizarUsuario(void)
+int atualizarUsuario(void)
 {
     FILE* fp;
     Usuarios* usu;
@@ -206,7 +207,7 @@ void atualizarUsuario(void)
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -319,6 +320,7 @@ void atualizarUsuario(void)
     free(usu);
     fclose(fp);      
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    return 0;
 } 
 
 
@@ -342,7 +344,7 @@ char oqueAtualizarUsuario(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void deletarUsuario(void)
+int deletarUsuario(void)
 {
     FILE* fp;
     Usuarios* usu;
@@ -355,7 +357,7 @@ void deletarUsuario(void)
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -402,6 +404,7 @@ void deletarUsuario(void)
     getchar();
     free(usu);
     fclose(fp);
+    return 0;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -427,17 +430,18 @@ char departamentoUsuario(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void gravaUsuario(Usuarios* usu)
+int gravaUsuario(Usuarios* usu)
 {
     FILE* fp;
     fp = fopen("usuario.dat", "ab");
     if (fp == NULL) {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     fwrite(usu, sizeof(Usuarios), 1, fp);
     fclose(fp);
+    return 0;
 }
 
 void exibeUsuario(Usuarios* usu)
@@ -477,7 +481,7 @@ void exibeUsuario(Usuarios* usu)
     }
 }
 
-void listaUsuario(void) 
+int listaUsuario(void) 
 {
     FILE* fp;
     Usuarios* usu;
@@ -491,7 +495,7 @@ void listaUsuario(void)
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     while (fread(usu, sizeof(Usuarios), 1, fp)) 
     {
@@ -502,4 +506,5 @@ void listaUsuario(void)
     }
     fclose(fp);
     free(usu);
+    return 0;
 }

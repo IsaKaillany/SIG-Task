@@ -101,7 +101,7 @@ void cadastroAvisos(void)
     
 }
 
-void buscarAvisos(void)
+int buscarAvisos(void)
 {
     FILE* fp;
     Avisos* warning;
@@ -113,7 +113,7 @@ void buscarAvisos(void)
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -146,9 +146,10 @@ void buscarAvisos(void)
     }
     free(warning);     
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
+    return 0;
 }
 
-void atualizarAvisos(void)
+int atualizarAvisos(void)
 {
     FILE* fp;
     // Usuarios* usu;
@@ -163,7 +164,7 @@ void atualizarAvisos(void)
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -257,6 +258,7 @@ void atualizarAvisos(void)
     // free(usu);
     free(warning);
     fclose(fp);
+    return 0;
 }
 
 char oqueAtualizarAvisos(void)
@@ -279,7 +281,7 @@ char oqueAtualizarAvisos(void)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void deletarAvisos(void)
+int deletarAvisos(void)
 {
     FILE* fp;
     Avisos* warning;
@@ -291,7 +293,7 @@ void deletarAvisos(void)
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
 
     system("clear||cls");
@@ -338,22 +340,24 @@ void deletarAvisos(void)
     getchar();
     free(warning);
     fclose(fp);
+    return 0;
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void gravaAviso(Avisos* warning)
+int gravaAviso(Avisos* warning)
 {
     FILE* fp;
     fp = fopen("aviso.dat", "ab");
     if (fp == NULL) {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     fwrite(warning, sizeof(Avisos), 1, fp);
     fclose(fp);
+    return 0;
 }
 
 void exibeAviso(Avisos* warning)

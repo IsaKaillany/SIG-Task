@@ -3,19 +3,19 @@ void telaAgenda(char[]);
 
 //Gerência
 char agendaGerencia(void);
-void agendaGerenciaCodigo(void);
+int agendaGerenciaCodigo(void);
 void navegacaoAgendaGerencia(char[]);
 
 //Compormissos e avisos dos departamentos
-void compromissosAdm(void);
-void compromissosComercial(void);
-void compromissosTec(void);
-void avisosAdm(void);
-void avisosComercial(void);
-void avisosTec(void);
+int compromissosAdm(void);
+int compromissosComercial(void);
+int compromissosTec(void);
+int avisosAdm(void);
+int avisosComercial(void);
+int avisosTec(void);
 
 //Funcionário
 char agendaFuncionario(char[]);
 void navegacaoAgendaFuncionarios(char[]);
-void agendaCompromissoFunc(char[]);
-void agendaAvisoFunc(char[]);
+int agendaCompromissoFunc(char[]);
+int agendaAvisoFunc(char[]);

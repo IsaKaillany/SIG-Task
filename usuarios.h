@@ -1,9 +1,9 @@
 void moduloUsuarios(void);
 char telaUsuarios(void);
-void buscarUsuario(void);
-void atualizarUsuario(void);
+int buscarUsuario(void);
+int atualizarUsuario(void);
 char oqueAtualizarUsuario(void);
-void deletarUsuario(void);
+int deletarUsuario(void);
 
 //Funções auxiliares
 char departamentoUsuario(void);
@@ -25,6 +25,6 @@ struct usuarios
 };
 
 void cadastroUsuario(void);
-void gravaUsuario(Usuarios*);
+int gravaUsuario(Usuarios*);
 void exibeUsuario(Usuarios*);
-void listaUsuario(void); 
+int listaUsuario(void); 

@@ -8,7 +8,7 @@
 #include "usuarios.h"
 
 
-void moduloPerfil(void) 
+int moduloPerfil(void) 
 {
     FILE* fp;
     Usuarios* usu;
@@ -20,7 +20,7 @@ void moduloPerfil(void)
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
 
     usu = (Usuarios*) malloc(sizeof(Usuarios));
@@ -47,7 +47,8 @@ void moduloPerfil(void)
         }
         fclose(fp); 
     } while (strcmp(idIn, "0") != 0);
-    free(usu); 
+    free(usu);
+    return 0; 
 }
 
 void navegacaoPerfilGerencia(char idIn[])

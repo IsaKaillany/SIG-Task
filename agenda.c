@@ -74,7 +74,7 @@ void navegacaoAgendaFuncionarios(char idIn[])
 }
 
 
-void agendaGerenciaCodigo(void)
+int agendaGerenciaCodigo(void)
 {
     FILE* fp;
     Compromissos* task;
@@ -86,7 +86,7 @@ void agendaGerenciaCodigo(void)
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -105,6 +105,7 @@ void agendaGerenciaCodigo(void)
     } 
     fclose(fp);
     free(task); 
+    return 0;
 }
 
 void telaAgenda(char opcao[])
@@ -147,7 +148,7 @@ char agendaFuncionario(char idIn[])
     return opcao;
 }
 
-void compromissosAdm(void)
+int compromissosAdm(void)
 {
     FILE* fp;
     Compromissos* task;
@@ -158,7 +159,7 @@ void compromissosAdm(void)
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -172,10 +173,11 @@ void compromissosAdm(void)
         }            
     } 
     fclose(fp);
-    free(task);  
+    free(task); 
+    return 0; 
 }
 
-void compromissosComercial(void)
+int compromissosComercial(void)
 {
     FILE* fp;
     Compromissos* task;
@@ -186,7 +188,7 @@ void compromissosComercial(void)
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -201,10 +203,11 @@ void compromissosComercial(void)
 
     } 
     fclose(fp);
-    free(task);   
+    free(task); 
+    return 0;  
 }
 
-void compromissosTec(void)
+int compromissosTec(void)
 {
     FILE* fp;
     Compromissos* task;
@@ -215,7 +218,7 @@ void compromissosTec(void)
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -230,10 +233,11 @@ void compromissosTec(void)
 
     } 
     fclose(fp);         
-    free(task);     
+    free(task);
+    return 0;     
 }   
 
-void avisosAdm(void)
+int avisosAdm(void)
 {
     FILE* fp;
     Avisos* warning;
@@ -244,7 +248,7 @@ void avisosAdm(void)
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -259,9 +263,10 @@ void avisosAdm(void)
     } 
     fclose(fp);
     free(warning);  
+    return 0;
 }
 
-void avisosComercial(void)
+int avisosComercial(void)
 {
     FILE* fp;
     Avisos* warning;
@@ -272,7 +277,7 @@ void avisosComercial(void)
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -287,9 +292,10 @@ void avisosComercial(void)
     } 
     fclose(fp);
     free(warning);
+    return 0;
 }
 
-void avisosTec(void)
+int avisosTec(void)
 {
     FILE* fp;
     Avisos* warning;
@@ -300,7 +306,7 @@ void avisosTec(void)
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -315,15 +321,15 @@ void avisosTec(void)
     } 
     fclose(fp);
     free(warning);
+    return 0;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void agendaAvisoFunc(char idIn[])
+int agendaAvisoFunc(char idIn[])
 {
     FILE* fp;
     Avisos* warning;
-
 
     warning = (Avisos*) malloc(sizeof(Avisos));
     fp = fopen("aviso.dat", "rb");
@@ -331,7 +337,7 @@ void agendaAvisoFunc(char idIn[])
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -354,9 +360,10 @@ void agendaAvisoFunc(char idIn[])
     } 
     fclose(fp);
     free(warning);
+    return 0;
 }
 
-void agendaCompromissoFunc(char idIn[])
+int agendaCompromissoFunc(char idIn[])
 {
     FILE* fp;
     Compromissos* task;
@@ -367,7 +374,7 @@ void agendaCompromissoFunc(char idIn[])
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -384,5 +391,6 @@ void agendaCompromissoFunc(char idIn[])
     getchar();
     fclose(fp);
     free(task);
+    return 0;
 }
 
