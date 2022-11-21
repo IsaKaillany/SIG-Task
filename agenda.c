@@ -380,7 +380,6 @@ void agendaCompromissoFunc(char idIn[])
             exibeCompromisso(task);
         }
     } 
-    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nTecle ENTER para continuar");
     getchar();
     fclose(fp);

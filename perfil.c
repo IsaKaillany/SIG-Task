@@ -79,10 +79,10 @@ void navegacaoPerfilFuncionarios(char idIn[])
         opcao = telaPerfilFuncionarios(idIn);
         switch (opcao)
         {
+            // case '1':
+            //     navegacaoCrudCompromissos();
+            //     break;
             case '1':
-                navegacaoCrudCompromissos();
-                break;
-            case '2':
                 navegacaoAgendaFuncionarios(idIn);
                 break;
         }   
@@ -139,8 +139,8 @@ char telaPerfilFuncionarios(char idIn[])
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-    F U N C I O N A R I O S    -=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\t1 - Cadastrar Compromisso\n");
-    printf("\t2 - Agenda\n");
+    // printf("\t1 - Cadastrar Compromisso\n");
+    printf("\t1 - Agenda\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
