@@ -8,7 +8,7 @@
 #include "usuarios.h"
 
 
-void moduloPerfil(void) //Só funciona com o primeiro Usuario do arquivo
+void moduloPerfil(void) 
 {
     FILE* fp;
     Usuarios* usu;
@@ -30,35 +30,32 @@ void moduloPerfil(void) //Só funciona com o primeiro Usuario do arquivo
         telaPerfil(idIn, senhaIn);
         while((!achou) && (fread(usu, sizeof(Usuarios), 1, fp)))
         {
-            if ((strcmp(usu->id, idIn) == 0) && (strcmp(usu->senha, senhaIn) == 0) && (usu->status == 'T')) 
+            if (((strcmp(usu->id, idIn) == 0) && (strcmp(usu->senha, senhaIn) == 0)) && (usu->status == 'T')) 
             {
-                achou = 1;
+                
+                if ((idIn[0] == '1') && (idIn[1] == '1')) //Se iniciar com 11 = gerencia 
+                {
+                    achou = 1;
+                    navegacaoPerfilGerencia(idIn);
+                }
+                else if ((idIn[0] == '2') && (idIn[1] == '2')) //Se iniciar com 22 = funcionario 
+                {
+                    achou = 1;
+                    navegacaoPerfilFuncionarios(idIn);
+                }
             }
         }
         fclose(fp); 
-        if (achou)
-        {
-            if ((idIn[0] == '1') && (idIn[1] == '1')) //Se iniciar com 11 = gerencia 
-            {
-                navegacaoPerfilGerencia();
-                achou = 1;
-            }
-            else if ((idIn[0] == '2') && (idIn[1] == '2')) //Se iniciar com 22 = funcionario 
-            {
-                navegacaoPerfilFuncionarios(idIn);
-                achou = 1;
-            }
-        }
     } while (strcmp(idIn, "0") != 0);
     free(usu); 
 }
 
-void navegacaoPerfilGerencia(void)
+void navegacaoPerfilGerencia(char idIn[])
 {
     char opcao;
     do
     {
-        opcao = telaPerfilGerencia();
+        opcao = telaPerfilGerencia(idIn);
         switch (opcao)
         {
             case '1':
@@ -68,7 +65,7 @@ void navegacaoPerfilGerencia(void)
                 navegacaoCrudAvisos();
                 break;
             case '3':
-                navegacaoAgendaGerencia();
+                navegacaoAgendaGerencia(idIn);
                 break;
         }   
     } while (opcao != '0');
@@ -82,10 +79,10 @@ void navegacaoPerfilFuncionarios(char idIn[])
         opcao = telaPerfilFuncionarios(idIn);
         switch (opcao)
         {
+            // case '1':
+            //     navegacaoCrudCompromissos();
+            //     break;
             case '1':
-                navegacaoCrudCompromissos();
-                break;
-            case '2':
                 navegacaoAgendaFuncionarios(idIn);
                 break;
         }   
@@ -94,7 +91,7 @@ void navegacaoPerfilFuncionarios(char idIn[])
 
 
 
-void telaPerfil(char idIn[], char senhaIn[])
+void telaPerfil(char idIn[], char senhaIn[]) //Só reconhece a 1ª tentativa. Precisa voltar para o menu inicial para poder logar com outra conta
 {
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -114,7 +111,7 @@ void telaPerfil(char idIn[], char senhaIn[])
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-char telaPerfilGerencia(void)
+char telaPerfilGerencia(char idIn[])
 {
     char opcao;
     system("clear||cls");
@@ -142,8 +139,8 @@ char telaPerfilFuncionarios(char idIn[])
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-    F U N C I O N A R I O S    -=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\t1 - Cadastrar Compromisso\n");
-    printf("\t2 - Agenda\n");
+    // printf("\t1 - Cadastrar Compromisso\n");
+    printf("\t1 - Agenda\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
