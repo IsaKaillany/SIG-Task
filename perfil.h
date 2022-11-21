@@ -1,5 +1,5 @@
 void telaPerfil(char[], char[]);
-void moduloPerfil(void);
+int moduloPerfil(void);
 
 //Gerência
 char telaPerfilGerencia(char[]);

@@ -251,14 +251,13 @@ int validaID(char idAux[])
 {
     FILE* fp;
     Usuarios* usu;
-    // int achou;
     
     fp = fopen("usuario.dat", "rb");
     if (fp == NULL) 
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     usu = (Usuarios*) malloc(sizeof(Usuarios));
     while((fread(usu, sizeof(Usuarios), 1, fp))) 

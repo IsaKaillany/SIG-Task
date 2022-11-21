@@ -110,7 +110,7 @@ void cadastroCompromissos(void)
     free(task);
 }
 
-void buscarCompromissos(void) 
+int buscarCompromissos(void) 
 {
     FILE* fp;
     Compromissos* task;
@@ -122,7 +122,7 @@ void buscarCompromissos(void)
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -155,9 +155,10 @@ void buscarCompromissos(void)
     }
     free(task);     
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    return 0;
 }
 
-void atualizarCompromissos(void)
+int atualizarCompromissos(void)
 {
     FILE* fp;
     // Usuarios* usu;
@@ -172,7 +173,7 @@ void atualizarCompromissos(void)
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -291,6 +292,7 @@ void atualizarCompromissos(void)
     // free(usu);
     free(task);
     fclose(fp);
+    return 0;
 }
 
 char oqueAtualizarCompromissos(void)
@@ -314,7 +316,7 @@ char oqueAtualizarCompromissos(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void deletarCompromissos(void)
+int deletarCompromissos(void)
 {
     FILE* fp;
     Compromissos* comp;
@@ -326,7 +328,7 @@ void deletarCompromissos(void)
     {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
 
     system("clear||cls");
@@ -373,6 +375,7 @@ void deletarCompromissos(void)
     getchar();
     free(comp);
     fclose(fp);
+    return 0;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -395,17 +398,18 @@ int escolhaDepartamento(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void gravaCompromisso(Compromissos* task)
+int gravaCompromisso(Compromissos* task)
 {
     FILE* fp;
     fp = fopen("compromisso.dat", "ab");
     if (fp == NULL) {
         printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
         printf("(X-X)/\n");
-        exit(1);
+        return 0;
     }
     fwrite(task, sizeof(Compromissos), 1, fp);
     fclose(fp);
+    return 0;
 }
 
 //Depois ver como fazer para conseguir listar os compromissos de um único departamento

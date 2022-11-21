@@ -1,9 +1,9 @@
 void navegacaoCrudCompromissos(void);
 char crudCompromissos(void);
-void buscarCompromissos(void);
-void atualizarCompromissos(void);
+int buscarCompromissos(void);
+int atualizarCompromissos(void);
 char oqueAtualizarCompromissos(void);
-void deletarCompromissos(void);
+int deletarCompromissos(void); 
 int escolhaDepartamento(void);
 
 
@@ -24,5 +24,5 @@ struct compromissos {
 };
 
 void cadastroCompromissos(void);
-void gravaCompromisso(Compromissos*);
+int gravaCompromisso(Compromissos*);
 void exibeCompromisso(Compromissos*);
