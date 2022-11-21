@@ -40,7 +40,7 @@ void moduloPerfil(void) //Só funciona com o primeiro Usuario do arquivo
         {
             if ((idIn[0] == '1') && (idIn[1] == '1')) //Se iniciar com 11 = gerencia 
             {
-                navegacaoPerfilGerencia();
+                navegacaoPerfilGerencia(idIn);
                 achou = 1;
             }
             else if ((idIn[0] == '2') && (idIn[1] == '2')) //Se iniciar com 22 = funcionario 
@@ -53,12 +53,12 @@ void moduloPerfil(void) //Só funciona com o primeiro Usuario do arquivo
     free(usu); 
 }
 
-void navegacaoPerfilGerencia(void)
+void navegacaoPerfilGerencia(char idIn[])
 {
     char opcao;
     do
     {
-        opcao = telaPerfilGerencia();
+        opcao = telaPerfilGerencia(idIn);
         switch (opcao)
         {
             case '1':
@@ -68,7 +68,7 @@ void navegacaoPerfilGerencia(void)
                 navegacaoCrudAvisos();
                 break;
             case '3':
-                navegacaoAgendaGerencia();
+                navegacaoAgendaGerencia(idIn);
                 break;
         }   
     } while (opcao != '0');
@@ -94,7 +94,7 @@ void navegacaoPerfilFuncionarios(char idIn[])
 
 
 
-void telaPerfil(char idIn[], char senhaIn[])
+void telaPerfil(char idIn[], char senhaIn[]) //Só reconhece a 1ª tentativa. Precisa voltar para o menu inicial para poder logar com outra conta
 {
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
@@ -114,7 +114,7 @@ void telaPerfil(char idIn[], char senhaIn[])
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-char telaPerfilGerencia(void)
+char telaPerfilGerencia(char idIn[])
 {
     char opcao;
     system("clear||cls");

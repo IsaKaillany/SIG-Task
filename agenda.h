@@ -4,7 +4,7 @@ void telaAgenda(char[]);
 //Gerência
 char agendaGerencia(void);
 void agendaGerenciaCodigo(void);
-void navegacaoAgendaGerencia(void);
+void navegacaoAgendaGerencia(char[]);
 
 //Compormissos e avisos dos departamentos
 void compromissosAdm(void);
