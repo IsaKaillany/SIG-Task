@@ -408,7 +408,6 @@ void gravaCompromisso(Compromissos* task)
     fclose(fp);
 }
 
-//Depois ver como fazer para conseguir listar os compromissos de um único departamento
 void exibeCompromisso(Compromissos* task)
 {
     if (task == NULL) 
