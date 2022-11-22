@@ -98,7 +98,7 @@ void cadastroUsuario(void)
 
     //ID
     idAux = geraID(usu->cargo, usu->departamento);
-    itoa(idAux, idString, 10); //Transforma int em char
+    sprintf(idString,"%d", idAux); //Transforma int em char
     strcpy(usu->id, idString);
     printf("\nAnote seu ID: %s", idString);
 
@@ -106,7 +106,7 @@ void cadastroUsuario(void)
     // do
     // {   
     //     idAux = geraID(usu->cargo);
-    //     itoa(idAux, idString, 10);
+    //     sprintf(idString,"%d", idAux); //Transforma int em char
     // } while (validaID(idString));
     
     // if (validaID(idString) == 0)

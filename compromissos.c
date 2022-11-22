@@ -97,7 +97,7 @@ void cadastroCompromissos(void)
 
     //Código
     codigoAux = geraCodigoComp();
-    itoa(codigoAux, codigoString, 10); //Transforma int em char
+    sprintf(codigoString, "%d", codigoAux); //Transforma int em char
     strcpy(task->codigo, codigoString);
     printf("Codigo do compromisso: %s", codigoString);
     getchar();
