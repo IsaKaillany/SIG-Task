@@ -87,7 +87,7 @@ void cadastroAvisos(void)
 
     //Código
     codigoAux = geraCodigoAviso();
-    itoa(codigoAux, codigoString, 10); //Transforma int em char
+    sprintf(codigoString, "%d", codigoAux); //Transforma int em char
     strcpy(warning->codigo, codigoString);
     printf("\nCodigo do aviso: %s", codigoString);
 
