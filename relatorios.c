@@ -1,7 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
+void navegacaoRelatorios(void)
+{
+    char opcao;
+    do
+    {
+        opcao = telaRelatorios();
+        switch (opcao)
+        {
+        case '1':
+                
+            break;
+        case '2':
+            
+            break;
+        case '3':
+            
+            break;
+        }
+    } while (opcao != '0');
+}
 
 char telaRelatorios(void)
 {
