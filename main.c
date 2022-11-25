@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "usuarios.h"
 #include "perfil.h"
+#include "relatorios.h"
 
 
 // Assinatura das funções
@@ -24,6 +25,9 @@ int main(void)
                 moduloPerfil();
                 break;
             case '3':
+                navegacaoRelatorios();
+                break;
+            case '4':
                 telaInfo();
                 break;
         }   
@@ -41,7 +45,8 @@ char telaPrincipal(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Usuarios\n");
     printf("\t2 - Perfil\n");
-    printf("\t3 - Informacoes\n");
+    printf("\t3 - Relatorios\n");
+    printf("\t4 - Informacoes\n");
     printf("\t0 - Finalizar\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");

@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "relatorios.h"
 #include "usuarios.h"
+
 
 void navegacaoRelatorios(void)
 {
