@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "usuarios.h"
 
 void navegacaoRelatorios(void)
 {
@@ -10,7 +11,7 @@ void navegacaoRelatorios(void)
         switch (opcao)
         {
         case '1':
-                
+            listaUsuario();
             break;
         case '2':
             
