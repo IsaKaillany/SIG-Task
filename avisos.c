@@ -360,6 +360,8 @@ int gravaAviso(Avisos* warning)
     return 0;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void exibeAviso(Avisos* warning)
 {
     if (warning == NULL) 
@@ -388,4 +390,34 @@ void exibeAviso(Avisos* warning)
         printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");  
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
     }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int listaAvisos(void)
+{
+    FILE* fp;
+    Avisos* warning;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-   A V I S O S  C A D A S T R A D O S  -=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n"); 
+    warning = (Avisos*) malloc(sizeof(Avisos));
+    fp = fopen("aviso.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        return 0;
+    }
+    while (fread(warning, sizeof(Avisos), 1, fp)) 
+    {
+        if (warning->status != 'F') 
+        {
+            exibeAviso(warning);
+        }
+    }
+    fclose(fp);
+    free(warning);
+    return 0;
 }
