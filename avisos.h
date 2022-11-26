@@ -22,3 +22,4 @@ struct avisos {
 void cadastroAvisos(void);
 int gravaAviso(Avisos*);
 void exibeAviso(Avisos*);
+int listaAvisos(void);
