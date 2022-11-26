@@ -26,3 +26,4 @@ struct compromissos {
 void cadastroCompromissos(void);
 int gravaCompromisso(Compromissos*);
 void exibeCompromisso(Compromissos*);
+int listaCompromissos(void);

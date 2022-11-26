@@ -443,3 +443,31 @@ void exibeCompromisso(Compromissos* task)
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
     }
 }
+
+int listaCompromissos(void)
+{
+    FILE* fp;
+    Compromissos* task;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-   C O M P R O M I S S O S  C A D A S T R A D O S  -=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
+    task = (Compromissos*) malloc(sizeof(Compromissos));
+    fp = fopen("compromisso.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        return 0;
+    }
+    while (fread(task, sizeof(Compromissos), 1, fp)) 
+    {
+        if (task->status != 'F') 
+        {
+            exibeCompromisso(task);
+        }
+    }
+    fclose(fp);
+    free(task);
+    return 0;
+}

@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "relatorios.h"
 #include "usuarios.h"
+#include "compromissos.h"
+#include "avisos.h"
 
 
 void navegacaoRelatorios(void)
@@ -16,10 +18,10 @@ void navegacaoRelatorios(void)
             listaUsuario();
             break;
         case '2':
-            
+            listaCompromissos();
             break;
         case '3':
-            
+            listaAvisos();
             break;
         }
     } while (opcao != '0');
