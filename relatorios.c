@@ -49,6 +49,44 @@ char telaRelatorios(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void navRelatoriosUsu(void)
+{
+    char opcao;
+    do
+    {
+        opcao = relatoriosUsuarios();
+        switch (opcao)
+        {
+        case '1':
+            listaUsuario();
+            break;
+        case '2':
+            // filtrarUsuarios();
+            break;
+        }
+    } while (opcao != '0');
+}
+
+char relatoriosUsuarios(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-    L I S T A G E M    -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Listar todos\n");
+    printf("\t2 - Listar por cargo\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf(" %c", &opcao);
+    getchar();
+
+    return opcao;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void navRelatoriosComp(void)
 {
     char opcao;
@@ -232,3 +270,5 @@ int filtrarAvisos(void)
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     return 0;
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
