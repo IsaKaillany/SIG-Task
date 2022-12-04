@@ -15,9 +15,9 @@ void navegacaoRelatorios(void)
         opcao = telaRelatorios();
         switch (opcao)
         {
-        case '1':
-            navRelatoriosUsu();
-            break;
+        // case '1':
+        //     navRelatoriosUsu();
+        //     break;
         case '2':
             navRelatoriosComp();
             break;
@@ -150,6 +150,7 @@ int filtrarCompromissos(void)
     printf("Mes: ");
     scanf("%d", &mes);
     getchar();
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
 
     task = (Compromissos*) malloc(sizeof(Compromissos));
     achou = 0;
@@ -204,6 +205,7 @@ int filtrarAvisos(void)
     printf("Mes: ");
     scanf("%d", &mes);
     getchar();
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
 
     warning = (Avisos*) malloc(sizeof(Avisos));
     achou = 0;
