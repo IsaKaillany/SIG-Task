@@ -122,3 +122,57 @@ char relatoriosAvisos(void)
 
     return opcao;
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int filtrarCompromissos(void)
+{
+    FILE* fp;
+    Compromissos* task;
+    int dia, mes, achou;
+
+    fp = fopen("compromisso.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        return 0;
+    }
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-    L I S T A G E M    -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n");
+    printf("Informe uma data:\n");
+    printf("Dia: ");
+    scanf("%d", &dia);
+    getchar();
+    printf("Mes: ");
+    scanf("%d", &mes);
+    getchar();
+
+    task = (Compromissos*) malloc(sizeof(Compromissos));
+    achou = 0;
+    while((fread(task, sizeof(Compromissos), 1, fp)))
+    {        
+        if (((task->dia == dia) && (task->mes == mes)) && (task->status == 'T'))
+        {
+            exibeCompromisso(task);
+            achou = 1;
+        }        
+    }
+    fclose(fp);
+    if (achou)
+    {
+        return 0;
+    }
+    else 
+    {
+        printf("\nNao existem compromissos na data %d/%d", dia, mes);
+        printf("\n>>> Tecle ENTER para continuar");
+        getchar();
+    }
+    free(task);   
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    return 0;
+}
