@@ -176,3 +176,57 @@ int filtrarCompromissos(void)
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     return 0;
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int filtrarAvisos(void)
+{
+    FILE* fp;
+    Avisos* warning;
+    int dia, mes, achou;
+
+    fp = fopen("aviso.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        return 0;
+    }
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-    L I S T A G E M    -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n");
+    printf("Informe uma data:\n");
+    printf("Dia: ");
+    scanf("%d", &dia);
+    getchar();
+    printf("Mes: ");
+    scanf("%d", &mes);
+    getchar();
+
+    warning = (Avisos*) malloc(sizeof(Avisos));
+    achou = 0;
+    while((fread(warning, sizeof(Avisos), 1, fp)))
+    {        
+        if (((warning->dia == dia) && (warning->mes == mes)) && (warning->status == 'T'))
+        {
+            exibeAviso(warning);
+            achou = 1;
+        }        
+    }
+    fclose(fp);
+    if (achou)
+    {
+        return 0;
+    }
+    else 
+    {
+        printf("\nNao existem avisos na data %d/%d", dia, mes);
+        printf("\n>>> Tecle ENTER para continuar");
+        getchar();
+    }
+    free(warning);   
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    return 0;
+}
