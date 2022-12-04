@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "relatorios.h"
 #include "usuarios.h"
 #include "compromissos.h"
@@ -15,13 +16,13 @@ void navegacaoRelatorios(void)
         switch (opcao)
         {
         case '1':
-            listaUsuario();
+            navRelatoriosUsu();
             break;
         case '2':
-            listaCompromissos();
+            navRelatoriosComp();
             break;
         case '3':
-            listaAvisos();
+            navRelatoriosAvisos();
             break;
         }
     } while (opcao != '0');
@@ -34,9 +35,9 @@ char telaRelatorios(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-    R E L A T O R I O S    -=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("\t1 - Usuarios Cadastrados\n");
-    printf("\t2 - Compromissos Cadastrados\n");
-    printf("\t3 - Avisos Cadastrados\n");
+    printf("\t1 - Relatorios de Usuarios\n");
+    printf("\t2 - Relatorios de Compromissos\n");
+    printf("\t3 - Relatorios de Avisos\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
