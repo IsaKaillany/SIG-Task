@@ -84,3 +84,41 @@ char relatoriosCompromissos(void)
 
     return opcao;
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void navRelatoriosAvisos(void)
+{
+    char opcao;
+    do
+    {
+        opcao = relatoriosAvisos();
+        switch (opcao)
+        {
+        case '1':
+            listaAvisos();
+            break;
+        case '2':
+            filtrarAvisos();
+            break;
+        }
+    } while (opcao != '0');
+}
+
+char relatoriosAvisos(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-    L I S T A G E M    -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Listar todos\n");
+    printf("\t2 - Listar por data\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf(" %c", &opcao);
+    getchar();
+
+    return opcao;
+}
