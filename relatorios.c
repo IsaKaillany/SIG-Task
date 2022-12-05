@@ -172,7 +172,7 @@ int filtrarUsuarios(void)
 {
     FILE* fp;
     Usuarios* usu;
-    int cargo, achou;
+    int listcargo, listdepart, achou;
 
     fp = fopen("usuario.dat", "rb");
     if (fp == NULL) 
@@ -187,17 +187,29 @@ int filtrarUsuarios(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n");
     printf("Selecione o Cargo:\n");
-    cargo = escolhaCargoListagem();
-    getchar();
+    listcargo = escolhaCargo();
+    if (listcargo == 2)
+    {
+        printf("Qual o departamento do funcionario?");
+        listdepart = departamentoUsuario();
+        
+    }
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
 
     usu = (Usuarios*) malloc(sizeof(Usuarios));
     achou = 0;
     while((fread(usu, sizeof(Usuarios), 1, fp)))
     {        
-        if (((usu->cargo == dia) && (usu->mes == mes)) && (usu->status == 'T'))
+        if (((usu->cargo == listcargo)) && (usu->status == 'T'))
         {
-            exibeUsuario(usu);
+            if ((usu->cargo == 1) && (listcargo == 1))
+            {
+                exibeUsuario(usu);
+            }
+            else if (((usu->cargo == 2) && (listcargo == 2)) && (usu->departamento == listdepart))
+            {
+                exibeUsuario(usu);
+            }
             achou = 1;
         }        
     }
@@ -208,7 +220,7 @@ int filtrarUsuarios(void)
     }
     else 
     {
-        printf("\nNao existem compromissos na data %d/%d", dia, mes);
+        printf("\nERRO 404!!!");
         printf("\n>>> Tecle ENTER para continuar");
         getchar();
     }
@@ -329,19 +341,19 @@ int filtrarAvisos(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-char escolhaCargoListagem(void)
-{
-    char opc;
+// char escolhaCargoListagem(void)
+// {
+//     char opc;
+//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+//     printf("\t1 - Gerentes\n");
+//     printf("\t2 - Funcionarios\n");
+//     printf("\t\t2a - Administrativos");
+//     printf("\t\t2b - Comerciais");
+//     printf("\t\t2c - Tecnicos\n");
+//     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+//     printf("Opcao: ");
+//     scanf("%d", &opc);
+//     getchar();
 
-    printf("\t1 - Gerentes\n");
-    printf("\t2 - Funcionarios\n");
-    printf("\t\t2a - Administrativos");
-    printf("\t\t2b - Comerciais");
-    printf("\t\t2c - Tecnicos\n");
-    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("Opcao: ");
-    scanf("%d", &opc);
-    getchar();
-
-    return opc;
-}
+//     return opc;
+// }
