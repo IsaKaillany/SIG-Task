@@ -85,6 +85,11 @@ char relatoriosUsuarios(void)
     return opcao;
 }
 
+// // Relatórios Usuários
+// void navRelatoriosUsu(void);
+// char relatoriosUsuarios(void);
+// int filtrarUsuarios(void); //Fazer
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void navRelatoriosComp(void)
@@ -159,6 +164,57 @@ char relatoriosAvisos(void)
     getchar();
 
     return opcao;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int filtrarUsuarios(void)
+{
+    FILE* fp;
+    Usuarios* usu;
+    int cargo, achou;
+
+    fp = fopen("usuario.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        return 0;
+    }
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-    L I S T A G E M    -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n");
+    printf("Selecione o Cargo:\n");
+    cargo = escolhaCargoListagem();
+    getchar();
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+
+    usu = (Usuarios*) malloc(sizeof(Usuarios));
+    achou = 0;
+    while((fread(usu, sizeof(Usuarios), 1, fp)))
+    {        
+        if (((usu->cargo == dia) && (usu->mes == mes)) && (usu->status == 'T'))
+        {
+            exibeUsuario(usu);
+            achou = 1;
+        }        
+    }
+    fclose(fp);
+    if (achou)
+    {
+        return 0;
+    }
+    else 
+    {
+        printf("\nNao existem compromissos na data %d/%d", dia, mes);
+        printf("\n>>> Tecle ENTER para continuar");
+        getchar();
+    }
+    free(usu);   
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    return 0;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -272,3 +328,20 @@ int filtrarAvisos(void)
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+char escolhaCargoListagem(void)
+{
+    char opc;
+
+    printf("\t1 - Gerentes\n");
+    printf("\t2 - Funcionarios\n");
+    printf("\t\t2a - Administrativos");
+    printf("\t\t2b - Comerciais");
+    printf("\t\t2c - Tecnicos\n");
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("Opcao: ");
+    scanf("%d", &opc);
+    getchar();
+
+    return opc;
+}
