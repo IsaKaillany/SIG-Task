@@ -61,7 +61,7 @@ void navRelatoriosUsu(void)
             listaUsuario();
             break;
         case '2':
-            // filtrarUsuarios();
+            filtrarUsuarios();
             break;
         }
     } while (opcao != '0');
@@ -84,11 +84,6 @@ char relatoriosUsuarios(void)
 
     return opcao;
 }
-
-// // Relatórios Usuários
-// void navRelatoriosUsu(void);
-// char relatoriosUsuarios(void);
-// int filtrarUsuarios(void); //Fazer
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
