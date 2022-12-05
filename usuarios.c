@@ -26,9 +26,6 @@ void moduloUsuarios(void)
             case '4':
                 deletarUsuario();
                 break;
-            case '5':
-                listaUsuario();
-                break;
             // case '6':
             //     break;
         }           
@@ -46,8 +43,6 @@ char telaUsuarios(void)
     printf("\t2 - Buscar Dados\n");
     printf("\t3 - Atualizar Dados\n");
     printf("\t4 - Deletar Dados\n");
-    printf("\t5 - Listagem de Usuarios\n");
-    // printf("\t6 - Listagem de Usuarios por Departamento\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
