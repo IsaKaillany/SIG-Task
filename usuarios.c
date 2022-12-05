@@ -404,9 +404,9 @@ int deletarUsuario(void)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-char departamentoUsuario(void)
+int departamentoUsuario(void)
 {
-    char opcao;
+    int opcao;
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-    L I S T A G E M    -=-=-=-=-=-=-=-=-\n");
@@ -417,7 +417,7 @@ char departamentoUsuario(void)
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
-    scanf(" %c", &opcao);
+    scanf(" %d", &opcao);
     getchar();
 
     return opcao;

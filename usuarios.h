@@ -6,7 +6,7 @@ char oqueAtualizarUsuario(void);
 int deletarUsuario(void);
 
 //Funções auxiliares
-char departamentoUsuario(void);
+int departamentoUsuario(void);
 int escolhaCargo(void);
 
 
