@@ -15,9 +15,9 @@ void navegacaoRelatorios(void)
         opcao = telaRelatorios();
         switch (opcao)
         {
-        // case '1':
-        //     navRelatoriosUsu();
-        //     break;
+        case '1':
+            navRelatoriosUsu();
+            break;
         case '2':
             navRelatoriosComp();
             break;
@@ -38,6 +38,44 @@ char telaRelatorios(void)
     printf("\t1 - Relatorios de Usuarios\n");
     printf("\t2 - Relatorios de Compromissos\n");
     printf("\t3 - Relatorios de Avisos\n");
+    printf("\t0 - Voltar ao menu\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf(" %c", &opcao);
+    getchar();
+
+    return opcao;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void navRelatoriosUsu(void)
+{
+    char opcao;
+    do
+    {
+        opcao = relatoriosUsuarios();
+        switch (opcao)
+        {
+        case '1':
+            listaUsuario();
+            break;
+        case '2':
+            filtrarUsuarios();
+            break;
+        }
+    } while (opcao != '0');
+}
+
+char relatoriosUsuarios(void)
+{
+    char opcao;
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-    L I S T A G E M    -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Listar todos\n");
+    printf("\t2 - Listar por cargo\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
@@ -121,6 +159,76 @@ char relatoriosAvisos(void)
     getchar();
 
     return opcao;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int filtrarUsuarios(void)
+{
+    FILE* fp;
+    Usuarios* usu;
+    int listcargo, listdepart, achou;
+
+    fp = fopen("usuario.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        return 0;
+    }
+    system("clear||cls");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-    L I S T A G E M    -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n");
+    printf("Selecione o Cargo:\n");
+    listcargo = escolhaCargo();
+    if (listcargo == 2)
+    {
+        printf("Qual o departamento do funcionario?");
+        listdepart = departamentoUsuario();
+        
+    }
+    // printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+
+    usu = (Usuarios*) malloc(sizeof(Usuarios));
+    achou = 0;
+    while((fread(usu, sizeof(Usuarios), 1, fp)))
+    {        
+        if (((usu->cargo == listcargo)) && (usu->status == 'T'))
+        {
+            if ((usu->cargo == 1) && (listcargo == 1))
+            {
+                exibeUsuario(usu);
+            }
+            else if (((usu->cargo == 2) && (listcargo == 2)) && (usu->departamento == listdepart))
+            {
+                exibeUsuario(usu);
+            }
+            else
+            {
+                printf("\nNAO HA USUARIOS CADASTRADOS COM ESSAS INFORMACOES!!!\n");
+                printf("\n>>> Tecle ENTER para continuar");
+                getchar();
+            }
+            
+            achou = 1;
+        }        
+    }
+    fclose(fp);
+    if (achou)
+    {
+        return 0;
+    }
+    else 
+    {
+        printf("\nERRO 404!!!");
+        printf("\n>>> Tecle ENTER para continuar");
+        getchar();
+    }
+    free(usu);   
+    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    return 0;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -232,3 +340,22 @@ int filtrarAvisos(void)
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     return 0;
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// char escolhaCargoListagem(void)
+// {
+//     char opc;
+//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+//     printf("\t1 - Gerentes\n");
+//     printf("\t2 - Funcionarios\n");
+//     printf("\t\t2a - Administrativos");
+//     printf("\t\t2b - Comerciais");
+//     printf("\t\t2c - Tecnicos\n");
+//     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+//     printf("Opcao: ");
+//     scanf("%d", &opc);
+//     getchar();
+
+//     return opc;
+// }

@@ -26,11 +26,6 @@ void moduloUsuarios(void)
             case '4':
                 deletarUsuario();
                 break;
-            case '5':
-                listaUsuario();
-                break;
-            // case '6':
-            //     break;
         }           
     } while (opcao != '0');
 }
@@ -46,8 +41,6 @@ char telaUsuarios(void)
     printf("\t2 - Buscar Dados\n");
     printf("\t3 - Atualizar Dados\n");
     printf("\t4 - Deletar Dados\n");
-    printf("\t5 - Listagem de Usuarios\n");
-    // printf("\t6 - Listagem de Usuarios por Departamento\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
@@ -409,20 +402,19 @@ int deletarUsuario(void)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-char departamentoUsuario(void)
+int departamentoUsuario(void)
 {
-    char opcao;
+    int opcao;
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-     U S U A R I O S  C A D A S T R A D O S    -=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-    L I S T A G E M    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Departamento Administrativo\n");
     printf("\t2 - Departamento Comercial\n");
     printf("\t3 - Departamento Tecnico\n");
-    printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
-    scanf(" %c", &opcao);
+    scanf(" %d", &opcao);
     getchar();
 
     return opcao;
