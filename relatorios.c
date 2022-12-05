@@ -15,9 +15,9 @@ void navegacaoRelatorios(void)
         opcao = telaRelatorios();
         switch (opcao)
         {
-        // case '1':
-        //     navRelatoriosUsu();
-        //     break;
+        case '1':
+            navRelatoriosUsu();
+            break;
         case '2':
             navRelatoriosComp();
             break;
@@ -189,7 +189,7 @@ int filtrarUsuarios(void)
         listdepart = departamentoUsuario();
         
     }
-    printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+    // printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
 
     usu = (Usuarios*) malloc(sizeof(Usuarios));
     achou = 0;
@@ -205,6 +205,13 @@ int filtrarUsuarios(void)
             {
                 exibeUsuario(usu);
             }
+            else
+            {
+                printf("\nNAO HA USUARIOS CADASTRADOS COM ESSAS INFORMACOES!!!\n");
+                printf("\n>>> Tecle ENTER para continuar");
+                getchar();
+            }
+            
             achou = 1;
         }        
     }

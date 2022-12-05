@@ -26,8 +26,6 @@ void moduloUsuarios(void)
             case '4':
                 deletarUsuario();
                 break;
-            // case '6':
-            //     break;
         }           
     } while (opcao != '0');
 }
@@ -414,7 +412,6 @@ int departamentoUsuario(void)
     printf("\t1 - Departamento Administrativo\n");
     printf("\t2 - Departamento Comercial\n");
     printf("\t3 - Departamento Tecnico\n");
-    printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
     scanf(" %d", &opcao);
