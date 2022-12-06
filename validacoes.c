@@ -278,14 +278,15 @@ int geraID(int cargo, int departamento)
 {
     int number;
 
+    srand(time(NULL));
+    
     if (cargo == 1)
     {
-        srand(time(NULL));
-        number = 1100000 + rand()%9999999; //Sorteando um valor entre 1100000 e 9999999
+        number = 1100000 + rand()%99999; //Sorteando um valor entre 1100000 e 9999999
     }
     else
     {
-        srand(time(NULL));
+        
         if (departamento == 1)
         {
             number = 2210000 + rand()%9999; //Sorteando um valor entre 2210000 e 9999999
