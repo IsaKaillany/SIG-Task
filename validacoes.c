@@ -19,11 +19,40 @@
 */
 int validaEmail(char email[])
 {
-    int tam = strlen(email), i, letra = 0;
-    int arroba = 0, ponto = 0, lugarponto = 0, lugararroba = 0;
-    
-    for (i = 0; i < tam; i++)
+  FILE* fp;
+  Usuarios* usu;
+  char *pfim;
+  int tam = strlen(email), i, letra = 0;
+  int arroba = 0, ponto = 0, lugarponto = 0, lugararroba = 0;
+  int achou = 0;
+
+  fp = fopen("usuario.dat", "rb");
+  if (fp == NULL) 
+  {
+      printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+      printf("(X-X)/\n");
+      return 0;
+  }
+
+  usu = (Usuarios*) malloc(sizeof(Usuarios));
+  while((fread(usu, sizeof(Usuarios), 1, fp)))
+  {
+    if (strcmp(usu->email, email) == 0)
     {
+      return 1;
+    }
+    else
+    {
+      achou = 1;
+    }
+  }
+  fclose(fp);
+  if (achou)
+  {
+      pfim = strchr(email, '.');
+      
+      for (i = 0; i < tam; i++)
+      {
         char c = email[i];
         if ((email[0] == '@') || (email[1] == '@') || (email[2] == '@'))
         {
@@ -52,8 +81,9 @@ int validaEmail(char email[])
         {
           return 1;          
         }
-    }
-    if ((tam > 8 && letra > 8) && (arroba == 1 && ponto == 1) && (lugararroba+2 < lugarponto))
+      }
+    if ((tam > 8 && letra > 8) && (arroba == 1 && ponto == 1) && 
+    (lugararroba+2 < lugarponto) && (isalpha(pfim[2])))
     {
       return 0;
     }    
@@ -61,6 +91,8 @@ int validaEmail(char email[])
     {
       return 1;
     }
+  }  
+
   return 0;
 }
 
@@ -279,7 +311,7 @@ int geraID(int cargo, int departamento)
     int number;
 
     srand(time(NULL));
-    
+
     if (cargo == 1)
     {
         number = 1100000 + rand()%99999; //Sorteando um valor entre 1100000 e 9999999
