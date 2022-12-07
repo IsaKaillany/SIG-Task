@@ -95,19 +95,6 @@ void cadastroUsuario(void)
     strcpy(usu->id, idString);
     printf("\nAnote seu ID: %s", idString);
 
-    //Será implementado depois com a validação
-    // do
-    // {   
-    //     idAux = geraID(usu->cargo);
-    //     sprintf(idString,"%d", idAux); //Transforma int em char
-    // } while (validaID(idString));
-    
-    // if (validaID(idString) == 0)
-    // {
-    //     strcpy(usu->id, idString);
-    //     printf("Seu ID eh: %s", idString);
-    // }
-
     do
     {
         printf("\nSenha [letras e numeros [tamanho 8]]: ");
@@ -479,7 +466,7 @@ int listaUsuario(void)
     Usuarios* usu;
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-     U S U A R I O S  C A D A S T R A D O S    -=-=-\n");
+    printf("-=-=-=-=-=-=-=-=-    L I S T A G E M    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
     usu = (Usuarios*) malloc(sizeof(Usuarios));
     fp = fopen("usuario.dat", "rb");
