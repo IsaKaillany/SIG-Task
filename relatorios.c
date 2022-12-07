@@ -343,19 +343,62 @@ int filtrarAvisos(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// char escolhaCargoListagem(void)
-// {
-//     char opc;
-//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-//     printf("\t1 - Gerentes\n");
-//     printf("\t2 - Funcionarios\n");
-//     printf("\t\t2a - Administrativos");
-//     printf("\t\t2b - Comerciais");
-//     printf("\t\t2c - Tecnicos\n");
-//     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-//     printf("Opcao: ");
-//     scanf("%d", &opc);
-//     getchar();
+NoUsuario* listaOrdenadaUsu(void)
+{
+    FILE* fp;
+    Usuarios* usu;
+    NoUsuario* novoUsuario;
+    NoUsuario* lista;
 
-//     return opc;
-// }
+    lista = NULL;
+    fp = fopen("usuario.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        return 0;
+    }
+
+    usu = (Usuarios*) malloc(sizeof(Usuarios));
+    while(fread(usu, sizeof(Usuarios), 1, fp)) 
+    {        
+        if (usu->status == 'T') 
+        {
+            novoUsuario = (NoUsuario*) malloc(sizeof(NoUsuario));
+            strcpy(novoUsuario->nome, usu->nome);
+            strcpy(novoUsuario->email, usu->email);
+            strcpy(novoUsuario->senha, usu->senha);
+            strcpy(novoUsuario->telefone, usu->telefone);
+            strcpy(novoUsuario->id, usu->id);
+            novoUsuario->cargo = usu->cargo;
+            novoUsuario->departamento = usu->departamento;
+            novoUsuario->status = usu->status;
+
+            if (lista == NULL)
+            {
+                lista = novoUsuario;
+                novoUsuario->prox = NULL;
+            }
+            else if (strcmp(novoUsuario->nome, lista->nome) < 0)
+            {
+                novoUsuario->prox = lista;
+                lista = novoUsuario;
+            }
+            else
+            {
+                NoUsuario* anter = lista;
+                NoUsuario* atual = lista->prox;
+                while ((atual != NULL) && strcmp(atual->nome, novoUsuario->nome) < 0)
+                {
+                    anter = atual;
+                    atual = atual->prox;
+                }
+                anter->prox = novoUsuario;
+                novoUsuario->prox = atual;
+            }           
+        }
+    }
+    fclose(fp);
+    free(usu);
+    return lista;
+}
