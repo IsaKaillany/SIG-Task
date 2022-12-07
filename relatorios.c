@@ -402,3 +402,36 @@ NoUsuario* listaOrdenadaUsu(void)
     free(usu);
     return lista;
 }
+
+void exibeOrdemUsuario(NoUsuario* lista)
+{
+    while (lista != NULL)
+    {    
+        printf("Nome: %s\n", lista->nome);
+        printf("E-mail: %s\n", lista->email);
+        printf("Telefone: %s\n", lista->telefone);
+        printf("Id: %s\n", lista->id);
+        if (lista->cargo == 1)
+        {
+            printf("Cargo: Gerencia");
+        }
+        else
+        {
+            if (lista->departamento == 1)
+            {
+                printf("Cargo: Funcionario(a) do Departamento Administrativo");
+            }
+            else if (lista->departamento == 2)
+            {
+                printf("Cargo: Funcionario(a) do Departamento Comercial");
+            }
+            else
+            {
+                printf("Cargo: Funcionario(a) do Departamento Tecnico");
+            }           
+        } 
+        printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
+        getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente 
+        lista = lista->prox;
+    }
+}
