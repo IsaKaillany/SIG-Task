@@ -10,6 +10,7 @@
 void navegacaoRelatorios(void)
 {
     char opcao;
+    
     do
     {
         opcao = telaRelatorios();
@@ -52,6 +53,7 @@ char telaRelatorios(void)
 void navRelatoriosUsu(void)
 {
     char opcao;
+    NoUsuario* lista;
     do
     {
         opcao = relatoriosUsuarios();
@@ -62,6 +64,10 @@ void navRelatoriosUsu(void)
             break;
         case '2':
             filtrarUsuarios();
+            break;
+        case '3':
+            lista = listaOrdenadaUsu();
+            exibeOrdemUsuario(lista);
             break;
         }
     } while (opcao != '0');
@@ -76,6 +82,7 @@ char relatoriosUsuarios(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Listar todos\n");
     printf("\t2 - Listar por cargo\n");
+    printf("\t3 - Listar em ordem alfabetica\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
