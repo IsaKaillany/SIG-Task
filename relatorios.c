@@ -414,6 +414,7 @@ void exibeOrdemUsuario(NoUsuario* lista)
 {
     while (lista != NULL)
     {    
+        printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
         printf("Nome: %s\n", lista->nome);
         printf("E-mail: %s\n", lista->email);
         printf("Telefone: %s\n", lista->telefone);
@@ -437,7 +438,7 @@ void exibeOrdemUsuario(NoUsuario* lista)
                 printf("Cargo: Funcionario(a) do Departamento Tecnico");
             }           
         } 
-        printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
+        printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");  
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente 
         lista = lista->prox;
     }
