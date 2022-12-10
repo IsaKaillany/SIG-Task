@@ -10,6 +10,7 @@
 void navegacaoRelatorios(void)
 {
     char opcao;
+    
     do
     {
         opcao = telaRelatorios();
@@ -52,6 +53,7 @@ char telaRelatorios(void)
 void navRelatoriosUsu(void)
 {
     char opcao;
+    NoUsuario* lista;
     do
     {
         opcao = relatoriosUsuarios();
@@ -62,6 +64,10 @@ void navRelatoriosUsu(void)
             break;
         case '2':
             filtrarUsuarios();
+            break;
+        case '3':
+            lista = listaOrdenadaUsu();
+            exibeOrdemUsuario(lista);
             break;
         }
     } while (opcao != '0');
@@ -76,6 +82,7 @@ char relatoriosUsuarios(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\t1 - Listar todos\n");
     printf("\t2 - Listar por cargo\n");
+    printf("\t3 - Listar em ordem alfabetica\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
@@ -343,19 +350,96 @@ int filtrarAvisos(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// char escolhaCargoListagem(void)
-// {
-//     char opc;
-//     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-//     printf("\t1 - Gerentes\n");
-//     printf("\t2 - Funcionarios\n");
-//     printf("\t\t2a - Administrativos");
-//     printf("\t\t2b - Comerciais");
-//     printf("\t\t2c - Tecnicos\n");
-//     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-//     printf("Opcao: ");
-//     scanf("%d", &opc);
-//     getchar();
+NoUsuario* listaOrdenadaUsu(void)
+{
+    FILE* fp;
+    Usuarios* usu;
+    NoUsuario* novoUsuario;
+    NoUsuario* lista;
 
-//     return opc;
-// }
+    lista = NULL;
+    fp = fopen("usuario.dat", "rb");
+    if (fp == NULL) 
+    {
+        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
+        printf("(X-X)/\n");
+        return 0;
+    }
+
+    usu = (Usuarios*) malloc(sizeof(Usuarios));
+    while(fread(usu, sizeof(Usuarios), 1, fp)) 
+    {        
+        if (usu->status == 'T') 
+        {
+            novoUsuario = (NoUsuario*) malloc(sizeof(NoUsuario));
+            strcpy(novoUsuario->nome, usu->nome);
+            strcpy(novoUsuario->email, usu->email);
+            strcpy(novoUsuario->senha, usu->senha);
+            strcpy(novoUsuario->telefone, usu->telefone);
+            strcpy(novoUsuario->id, usu->id);
+            novoUsuario->cargo = usu->cargo;
+            novoUsuario->departamento = usu->departamento;
+            novoUsuario->status = usu->status;
+
+            if (lista == NULL)
+            {
+                lista = novoUsuario;
+                novoUsuario->prox = NULL;
+            }
+            else if (strcmp(novoUsuario->nome, lista->nome) < 0)
+            {
+                novoUsuario->prox = lista;
+                lista = novoUsuario;
+            }
+            else
+            {
+                NoUsuario* anter = lista;
+                NoUsuario* atual = lista->prox;
+                while ((atual != NULL) && strcmp(atual->nome, novoUsuario->nome) < 0)
+                {
+                    anter = atual;
+                    atual = atual->prox;
+                }
+                anter->prox = novoUsuario;
+                novoUsuario->prox = atual;
+            }           
+        }
+    }
+    fclose(fp);
+    free(usu);
+    return lista;
+}
+
+void exibeOrdemUsuario(NoUsuario* lista)
+{
+    while (lista != NULL)
+    {    
+        printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
+        printf("Nome: %s\n", lista->nome);
+        printf("E-mail: %s\n", lista->email);
+        printf("Telefone: %s\n", lista->telefone);
+        printf("Id: %s\n", lista->id);
+        if (lista->cargo == 1)
+        {
+            printf("Cargo: Gerencia");
+        }
+        else
+        {
+            if (lista->departamento == 1)
+            {
+                printf("Cargo: Funcionario(a) do Departamento Administrativo");
+            }
+            else if (lista->departamento == 2)
+            {
+                printf("Cargo: Funcionario(a) do Departamento Comercial");
+            }
+            else
+            {
+                printf("Cargo: Funcionario(a) do Departamento Tecnico");
+            }           
+        } 
+        printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");  
+        getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente 
+        lista = lista->prox;
+    }
+}
