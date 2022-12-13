@@ -179,7 +179,7 @@ int atualizarUsuario(void)
     Usuarios* usu;
     int achou;
     char resp;
-    char idBusca[7];
+    char idBusca[8];
     // char senhaAntiga[9];
 
     fp = fopen("usuario.dat", "r+b");
@@ -330,7 +330,7 @@ int deletarUsuario(void)
     Usuarios* usu;
     int achou;
     char resp;
-    char idBusca[7];
+    char idBusca[8];
 
     fp = fopen("usuario.dat", "r+b");
     if (fp == NULL) 
