@@ -56,7 +56,7 @@ char crudAvisos(void)
 void cadastroAvisos(void)
 {
     int codigoAux;
-    char codigoString[10];
+    char codigoString[6];
     Avisos* warning;
 
     warning = (Avisos*) malloc(sizeof(Avisos));
@@ -156,7 +156,7 @@ int atualizarAvisos(void)
     Avisos* warning;
     int achou;
     char resp;
-    char codigoBusca[7];
+    char codigoBusca[6];
     // char senhaUpd[9];
 
     fp = fopen("aviso.dat", "r+b");
