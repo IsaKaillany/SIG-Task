@@ -13,7 +13,7 @@ int moduloPerfil(void)
     FILE* fp;
     Usuarios* usu;
     int achou;
-    char idIn[7], senhaIn[9];
+    char idIn[8], senhaIn[9];
 
     fp = fopen("usuario.dat", "rb");
     if (fp == NULL) 
