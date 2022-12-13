@@ -29,8 +29,6 @@ int validaEmail(char email[])
   fp = fopen("usuario.dat", "rb");
   if (fp == NULL) 
   {
-      printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
-      printf("(X-X)/\n");
       return 0;
   }
 

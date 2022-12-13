@@ -192,9 +192,7 @@ int filtrarUsuarios(void)
     listcargo = escolhaCargo();
     if (listcargo == 2)
     {
-        printf("Qual o departamento do funcionario?");
         listdepart = departamentoUsuario();
-        
     }
     // printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
 

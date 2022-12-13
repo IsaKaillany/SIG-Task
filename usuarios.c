@@ -179,7 +179,7 @@ int atualizarUsuario(void)
     Usuarios* usu;
     int achou;
     char resp;
-    char idBusca[7];
+    char idBusca[8];
     // char senhaAntiga[9];
 
     fp = fopen("usuario.dat", "r+b");
@@ -330,7 +330,7 @@ int deletarUsuario(void)
     Usuarios* usu;
     int achou;
     char resp;
-    char idBusca[7];
+    char idBusca[8];
 
     fp = fopen("usuario.dat", "r+b");
     if (fp == NULL) 
@@ -466,7 +466,7 @@ int listaUsuario(void)
     Usuarios* usu;
     system("clear||cls");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    printf("-=-=-=-=-=-=-=-=-    L I S T A G E M    -=-=-=-=-=-=-=-=-\n");
+    printf("-=-=-=-   U S U A R I O S  C A D A S T R A D O S  -=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");  
     usu = (Usuarios*) malloc(sizeof(Usuarios));
     fp = fopen("usuario.dat", "rb");
