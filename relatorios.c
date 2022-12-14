@@ -9,8 +9,7 @@
 
 void navegacaoRelatorios(void)
 {
-    char opcao;
-    
+    char opcao;    
     do
     {
         opcao = telaRelatorios();
@@ -212,11 +211,10 @@ int filtrarUsuarios(void)
             }
             else
             {
-                printf("\nNAO HA USUARIOS CADASTRADOS COM ESSAS INFORMACOES!!!\n");
+                printf("\nNao ha usuarios cadastrados com essas informacoes!");
                 printf("\n>>> Tecle ENTER para continuar");
                 getchar();
-            }
-            
+            }            
             achou = 1;
         }        
     }
@@ -227,7 +225,7 @@ int filtrarUsuarios(void)
     }
     else 
     {
-        printf("\nERRO 404!!!");
+        printf("\nNao ha usuarios cadastrados com essas informacoes!");
         printf("\n>>> Tecle ENTER para continuar");
         getchar();
     }
@@ -258,10 +256,10 @@ int filtrarCompromissos(void)
     printf("\n");
     printf("Informe uma data:\n");
     printf("Dia: ");
-    scanf("%d", &dia);
+    scanf(" %d", &dia);
     getchar();
     printf("Mes: ");
-    scanf("%d", &mes);
+    scanf(" %d", &mes);
     getchar();
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
 
@@ -313,10 +311,10 @@ int filtrarAvisos(void)
     printf("\n");
     printf("Informe uma data:\n");
     printf("Dia: ");
-    scanf("%d", &dia);
+    scanf(" %d", &dia);
     getchar();
     printf("Mes: ");
-    scanf("%d", &mes);
+    scanf(" %d", &mes);
     getchar();
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
 

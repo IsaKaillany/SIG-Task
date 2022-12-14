@@ -66,7 +66,7 @@ void cadastroUsuario(void)
     do
     {
         printf("Nome: ");
-        scanf(" %49[^\n]", usu->nome);
+        scanf(" %99[^\n]", usu->nome);
         getchar();
     } while(validaNome(usu->nome));  
     do
@@ -180,7 +180,6 @@ int atualizarUsuario(void)
     int achou;
     char resp;
     char idBusca[8];
-    // char senhaAntiga[9];
 
     fp = fopen("usuario.dat", "r+b");
     if (fp == NULL) 
@@ -195,7 +194,7 @@ int atualizarUsuario(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n");
     printf("Informe o ID: ");
-    scanf(" %[0-9]", idBusca);
+    scanf(" %7[^\n]", idBusca);
     getchar();
 
     usu = (Usuarios*) malloc(sizeof(Usuarios));
@@ -217,7 +216,7 @@ int atualizarUsuario(void)
             do
             {
                 printf("Nome: ");
-                scanf(" %49[^\n]", usu->nome);
+                scanf(" %99[^\n]", usu->nome);
                 getchar();
             } while(validaNome(usu->nome));  
             do
@@ -244,7 +243,7 @@ int atualizarUsuario(void)
             do
             {
                 printf("Nome: ");
-                scanf(" %49[^\n]", usu->nome);
+                scanf(" %99[^\n]", usu->nome);
                 getchar();
             } while(validaNome(usu->nome));  
         }
@@ -266,25 +265,6 @@ int atualizarUsuario(void)
                 getchar();
             } while(validaTelefone(usu->telefone));
         }
-        // else if (resp == '5')
-        // {
-        //     printf("Informe a senha antiga: ");
-        //     scanf(" %s", senhaAntiga);
-        //     if (strcmp(usu->senha, senhaAntiga) == 0)
-        //     {
-        //         do
-        //         {
-        //             printf("Nova senha [letras e numeros (tamanho 8)]: ");
-        //             scanf(" %s", usu->senha);
-        //             getchar(); 
-        //         } while(validaSenha(usu->senha));   
-        //     }
-        //     else
-        //     {
-        //         printf("Senha incorreta!");
-        //         getchar();
-        //     }           
-        // }
         usu->status = 'T';      
         fseek(fp, (-1)*sizeof(Usuarios), SEEK_CUR);
         fwrite(usu, sizeof(Usuarios), 1, fp);        
@@ -313,7 +293,6 @@ char oqueAtualizarUsuario(void)
     printf("\t2 - Nome\n");
     printf("\t3 - E-mail\n");
     printf("\t4 - Telefone\n");
-    // printf("\t5 - Senha\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Opcao ");
     scanf(" %c", &opcao);
@@ -345,7 +324,7 @@ int deletarUsuario(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n");
     printf("Informe o ID: ");
-    scanf(" %[0-9]", idBusca);
+    scanf(" %7[^\n]", idBusca);
     getchar();
     usu = (Usuarios*) malloc(sizeof(Usuarios));
     achou = 0;
@@ -361,7 +340,7 @@ int deletarUsuario(void)
     {
         exibeUsuario(usu);
         printf("Deseja realmente apagar este usuario [S/N]? ");
-        scanf("%c", &resp);
+        scanf(" %c", &resp);
         getchar();
         if (resp == 'S' || resp == 's')
         {
@@ -377,7 +356,7 @@ int deletarUsuario(void)
     }
     else
     {
-        printf("\nO usuario de id = %s nao foi encontrado\n", idBusca);
+        printf("\nO usuario de id %s nao foi encontrado\n", idBusca);
     } 
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf(">>> Tecle ENTER para continuar");
@@ -427,7 +406,7 @@ void exibeUsuario(Usuarios* usu)
 {
     if ((usu == NULL) || (usu->status == 'F')) 
     {
-        printf("\n= = = Usuario Inexistente = = =\n");
+        printf("\nNao ha usuarios cadastrados\n");
     }
     else 
     {
