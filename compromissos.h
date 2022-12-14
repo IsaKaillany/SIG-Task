@@ -11,8 +11,8 @@ int escolhaDepartamento(void);
 typedef struct compromissos Compromissos;
 
 struct compromissos {
-  char titulo[100];
-  char descricao[1000];
+  char titulo[200];
+  char descricao[3000];
   int dia;
   int mes;
   char id[8];

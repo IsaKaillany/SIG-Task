@@ -10,8 +10,8 @@ int deletarAvisos(void);
 typedef struct avisos Avisos;
 
 struct avisos {
-  char titulo[100];
-  char descricao[1000];
+  char titulo[200];
+  char descricao[3000];
   int dia;
   int mes;
   int departamento;

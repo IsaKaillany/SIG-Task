@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include "validacoes.h"
 #include <time.h>
+#include "validacoes.h"
 #include "usuarios.h"
 
 
@@ -48,7 +48,6 @@ int validaEmail(char email[])
   if (achou)
   {
       pfim = strchr(email, '.');
-      
       for (i = 0; i < tam; i++)
       {
         char c = email[i];
@@ -277,33 +276,6 @@ int validaData(int anoAtual, int dia, int mes)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int validaID(char idAux[]) 
-{
-    FILE* fp;
-    Usuarios* usu;
-    
-    fp = fopen("usuario.dat", "rb");
-    if (fp == NULL) 
-    {
-        printf("Ops! Ocorreu um erro ao abrir o arquivo!\n");
-        printf("(X-X)/\n");
-        return 0;
-    }
-    usu = (Usuarios*) malloc(sizeof(Usuarios));
-    while((fread(usu, sizeof(Usuarios), 1, fp))) 
-    {        
-        if ((strcmp(usu->id, idAux) == 0) && (usu->status == 'T')) 
-        {
-            fclose(fp);
-            free(usu);
-            return 1;
-        }
-    }
-    return 0;
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 int geraID(int cargo, int departamento) 
 {
     int number;
@@ -354,7 +326,7 @@ int geraCodigoAviso(void) //gerador de código (tam = 5)
     int number;
 
     srand(time(NULL));
-    number = 10000 + rand()%99999; //Sorteando um valor entre 20220 e 99999
+    number = 10000 + rand()%99999; //Sorteando um valor entre 10000 e 99999
 
     return number;
 }

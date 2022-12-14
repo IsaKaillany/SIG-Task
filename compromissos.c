@@ -63,10 +63,10 @@ void cadastroCompromissos(void)
     printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nTitulo: ");
-    scanf(" %99[^\n]", task->titulo);
+    scanf(" %199[^\n]", task->titulo);
     getchar();
     printf("Descricao: ");
-    scanf(" %999[^\n]", task->descricao);
+    scanf(" %2999[^\n]", task->descricao);
     getchar();
     do
     {
@@ -161,12 +161,10 @@ int buscarCompromissos(void)
 int atualizarCompromissos(void)
 {
     FILE* fp;
-    // Usuarios* usu;
     Compromissos* task;
     int achou;
     char resp;
     char codigoBusca[10]; 
-    // char senhaUpd[9];
 
     fp = fopen("compromisso.dat", "r+b");
     if (fp == NULL) 
@@ -199,10 +197,10 @@ int atualizarCompromissos(void)
         if (resp == '1')
         {
             printf("Titulo: ");
-            scanf(" %99[^\n]", task->titulo);
+            scanf(" %199[^\n]", task->titulo);
             getchar();
             printf("Descricao: ");
-            scanf(" %999[^\n]", task->descricao);
+            scanf(" %2999[^\n]", task->descricao);
             getchar();
             do
             {
@@ -227,13 +225,13 @@ int atualizarCompromissos(void)
         else if (resp == '2')
         {
             printf("\nTitulo: ");
-            scanf(" %99[^\n]", task->titulo);
+            scanf(" %199[^\n]", task->titulo);
             getchar();
         }
         else if (resp == '3')
         {
             printf("Descricao: ");
-            scanf(" %999[^\n]", task->descricao);
+            scanf(" %2999[^\n]", task->descricao);
             getchar();
         }
         else if (resp == '4')
@@ -264,23 +262,6 @@ int atualizarCompromissos(void)
         fseek(fp, (-1)*sizeof(Compromissos), SEEK_CUR);
         fwrite(task, sizeof(Compromissos), 1, fp);
         printf("\nAtualizacao concluida com sucesso");
-
-        // usu = (Usuarios*) malloc(sizeof(Usuarios));
-        // printf("\nConfirme sua senha: ");
-        // scanf(" %s", senhaUpd);
-        // getchar(); 
-
-        // if ((strcmp(usu->senha, senhaUpd) == 0))
-        // {
-        //     task->status = 'T';      
-        //     fseek(fp, (-1)*sizeof(Compromissos), SEEK_CUR);
-        //     fwrite(task, sizeof(Compromissos), 1, fp);
-        //     printf("Atualizacao concluida com sucesso");
-        // }
-        // else
-        // {
-        //     printf("Senha incorreta!");
-        // }
     }    
     else
     {
@@ -289,7 +270,6 @@ int atualizarCompromissos(void)
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n>>> Tecle ENTER para continuar");
     getchar();
-    // free(usu);
     free(task);
     fclose(fp);
     return 0;
@@ -336,7 +316,7 @@ int deletarCompromissos(void)
     printf("-=-=-=-=-=-=-=-=-     D E L E T A R     -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nCodigo: ");
-    scanf(" %[0-9]", codigoBusca);
+    scanf(" %s", codigoBusca);
     getchar();
 
     comp = (Compromissos*) malloc(sizeof(Compromissos));
@@ -416,7 +396,7 @@ void exibeCompromisso(Compromissos* task)
 {
     if (task == NULL) 
     {
-        printf("\n= = = Compromisso não cadastrado = = =\n");
+        printf("\nNao ha compromissos cadastrados\n");
     }
     else 
     {

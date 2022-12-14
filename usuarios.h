@@ -14,7 +14,7 @@ typedef struct usuarios Usuarios;
 
 struct usuarios 
 {
-  char nome[50];
+  char nome[100];
   char email[50];
   char senha[9];
   char telefone[12];

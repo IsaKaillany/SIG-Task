@@ -66,10 +66,10 @@ void cadastroAvisos(void)
     printf("-=-=-=-=-=-=-=-=-    C A D A S T R O    -=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\nTitulo: ");
-    scanf(" %99[^\n]", warning->titulo);
+    scanf(" %199[^\n]", warning->titulo);
     getchar();
     printf("Descricao: ");
-    scanf(" %999[^\n]", warning->descricao);
+    scanf(" %2999[^\n]", warning->descricao);
     getchar();
     do
     {
@@ -105,7 +105,7 @@ int buscarAvisos(void)
 {
     FILE* fp;
     Avisos* warning;
-    char codigoBusca[6]; //dia+mes+departamento
+    char codigoBusca[6]; 
     int achou; 
 
     fp = fopen("aviso.dat", "rb");
@@ -152,12 +152,10 @@ int buscarAvisos(void)
 int atualizarAvisos(void)
 {
     FILE* fp;
-    // Usuarios* usu;
     Avisos* warning;
     int achou;
     char resp;
     char codigoBusca[6];
-    // char senhaUpd[9];
 
     fp = fopen("aviso.dat", "r+b");
     if (fp == NULL) 
@@ -190,10 +188,10 @@ int atualizarAvisos(void)
         if (resp == '1')
         {
             printf("Titulo: ");
-            scanf(" %99[^\n]", warning->titulo);
+            scanf(" %199[^\n]", warning->titulo);
             getchar();
             printf("Descricao: ");
-            scanf(" %999[^\n]", warning->descricao);
+            scanf(" %2999[^\n]", warning->descricao);
             getchar();
             do
             {
@@ -209,13 +207,13 @@ int atualizarAvisos(void)
         else if (resp == '2')
         {
             printf("\nTitulo: ");
-            scanf(" %99[^\n]", warning->titulo);
+            scanf(" %199[^\n]", warning->titulo);
             getchar();
         }
         else if (resp == '3')
         {
             printf("Descricao: ");
-            scanf(" %999[^\n]", warning->descricao);
+            scanf(" %2999[^\n]", warning->descricao);
             getchar();
         }
         else if (resp == '4')
@@ -230,23 +228,6 @@ int atualizarAvisos(void)
                 getchar();
             } while (validaData(anoAtual(), warning->dia, warning->mes));
         }
-
-        // usu = (Usuarios*) malloc(sizeof(Usuarios));
-        // printf("Confirme sua senha: ");
-        // scanf(" %s", senhaUpd);
-        // getchar(); 
-
-        // if ((strcmp(usu->senha, senhaUpd) == 0))
-        // {
-        //     warning->status = 'T';      
-        //     fseek(fp, (-1)*sizeof(Avisos), SEEK_CUR);
-        //     fwrite(warning, sizeof(Avisos), 1, fp);
-        //     printf("Atualizacao concluida com sucesso");
-        // }
-        // else
-        // {
-        //     printf("Senha incorreta!");
-        // }
     }    
     else
     {
@@ -255,7 +236,6 @@ int atualizarAvisos(void)
     printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("\n>>> Tecle ENTER para continuar");
     getchar();
-    // free(usu);
     free(warning);
     fclose(fp);
     return 0;
@@ -366,7 +346,7 @@ void exibeAviso(Avisos* warning)
 {
     if (warning == NULL) 
     {
-        printf("\n= = = Aviso não cadastrado = = =\n");
+        printf("\nSem avisos cadastrados\n");
     }
     else 
     {

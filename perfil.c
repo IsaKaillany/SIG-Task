@@ -31,8 +31,7 @@ int moduloPerfil(void)
         while((!achou) && (fread(usu, sizeof(Usuarios), 1, fp)))
         {
             if (((strcmp(usu->id, idIn) == 0) && (strcmp(usu->senha, senhaIn) == 0)) && (usu->status == 'T')) 
-            {
-                
+            {                
                 if ((idIn[0] == '1') && (idIn[1] == '1')) //Se iniciar com 11 = gerencia 
                 {
                     achou = 1;
@@ -80,9 +79,6 @@ void navegacaoPerfilFuncionarios(char idIn[])
         opcao = telaPerfilFuncionarios(idIn);
         switch (opcao)
         {
-            // case '1':
-            //     navegacaoCrudCompromissos();
-            //     break;
             case '1':
                 navegacaoAgendaFuncionarios(idIn);
                 break;
@@ -140,7 +136,6 @@ char telaPerfilFuncionarios(char idIn[])
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-    F U N C I O N A R I O S    -=-=-=-=-=-=-\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    // printf("\t1 - Cadastrar Compromisso\n");
     printf("\t1 - Agenda\n");
     printf("\t0 - Voltar ao menu\n");
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
