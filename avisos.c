@@ -82,7 +82,7 @@ void cadastroAvisos(void)
     } while (validaData(anoAtual(), warning->dia, warning->mes));
     
     printf("Departamento:\n");
-    warning->departamento = escolhaDepartamento(); 
+    warning->departamento = departamentoAviso();
     warning->status = 'T';
 
     //Código
@@ -363,10 +363,14 @@ void exibeAviso(Avisos* warning)
         {
             printf("Departamento: Comercial");
         }
-        else
+        else if (warning->departamento == 3)
         {
             printf("Departamento: Tecnico");
-        }           
+        } 
+        else
+        {
+            printf("Departamento: Geral");
+        }                  
         printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");  
         getchar(); //Precisa do getchar, pois sem ele aparece e some rapidamente
     }
@@ -400,4 +404,22 @@ int listaAvisos(void)
     fclose(fp);
     free(warning);
     return 0;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int departamentoAviso(void)
+{
+    int opcao;
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\t1 - Departamento Administrativo\n");
+    printf("\t2 - Departamento Comercial\n");
+    printf("\t3 - Departamento Tecnico\n");
+    printf("\t4 - Todos Departamentos\n");
+    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf(">>> Opcao ");
+    scanf(" %d", &opcao);
+    getchar();
+
+    return opcao;
 }
