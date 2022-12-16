@@ -256,7 +256,7 @@ int avisosAdm(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     while (fread(warning, sizeof(Avisos), 1, fp)) 
     {
-        if ((warning->departamento == 1) && (warning->status == 'T'))
+        if (((warning->departamento == 1)  || (warning->departamento == 4)) && (warning->status == 'T'))
         {
             exibeAviso(warning);
         }            
@@ -285,7 +285,7 @@ int avisosComercial(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     while (fread(warning, sizeof(Avisos), 1, fp)) 
     {
-        if ((warning->departamento == 2) && (warning->status == 'T'))
+        if (((warning->departamento == 2) || (warning->departamento == 4)) && (warning->status == 'T'))
         {
             exibeAviso(warning);
         }            
@@ -314,7 +314,7 @@ int avisosTec(void)
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     while (fread(warning, sizeof(Avisos), 1, fp)) 
     {
-        if ((warning->departamento == 3) && (warning->status == 'T'))
+        if (((warning->departamento == 3) || (warning->departamento == 4)) && (warning->status == 'T'))
         {
             exibeAviso(warning);
         }            
@@ -345,15 +345,15 @@ int agendaAvisoFunc(char idIn[])
     printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     while (fread(warning, sizeof(Avisos), 1, fp)) 
     {
-        if (((idIn[2] == '1') && (warning->departamento == 1)) && (warning->status == 'T'))
+        if (((idIn[2] == '1') && ((warning->departamento == 1)  || (warning->departamento == 4))) && (warning->status == 'T'))
         {
             exibeAviso(warning);
         }
-        else if (((idIn[2] == '2') && (warning->departamento == 2)) && (warning->status == 'T'))
+        else if (((idIn[2] == '2') && ((warning->departamento == 2) || (warning->departamento == 4))) && (warning->status == 'T'))
         {
             exibeAviso(warning);
         }
-        else if (((idIn[2] == '3') && (warning->departamento == 3)) && (warning->status == 'T'))
+        else if (((idIn[2] == '3') && ((warning->departamento == 3) || (warning->departamento == 4))) && (warning->status == 'T'))
         {
             exibeAviso(warning);
         }

@@ -4,6 +4,7 @@ int buscarAvisos(void);
 int atualizarAvisos(void);
 char oqueAtualizarAvisos(void);
 int deletarAvisos(void);
+int departamentoAviso(void);
 
 
 

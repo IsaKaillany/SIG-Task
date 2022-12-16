@@ -44,8 +44,8 @@ int moduloPerfil(void)
                 }
             }
         }
-        fclose(fp); 
     } while (strcmp(idIn, "0") != 0);
+    fclose(fp); 
     free(usu);
     return 0; 
 }
