@@ -228,6 +228,10 @@ int atualizarAvisos(void)
                 getchar();
             } while (validaData(anoAtual(), warning->dia, warning->mes));
         }
+        warning->status = 'T';      
+        fseek(fp, (-1)*sizeof(Avisos), SEEK_CUR);
+        fwrite(warning, sizeof(Avisos), 1, fp);
+        printf("\nAtualizacao concluida com sucesso");
     }    
     else
     {
